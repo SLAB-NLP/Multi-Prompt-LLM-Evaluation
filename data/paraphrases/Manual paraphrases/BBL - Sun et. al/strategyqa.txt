@@ -1,0 +1,10 @@
+unobserved1: You are given a question which requires reasoning steps that are implicit in the question. Please choose the best answer from  "yes" or "no" and provide an explanation.{question}Answer and Explanation:
+unobserved2: Reason about the answer to the question. {question}
+unobserved3: You are taking an exam where each question requires implicit reasoning steps to answer. The answer will always be either "yes" or "no". Please carefully consider the following question, its implications, and any related information you may need to provide the correct answer. Question: {question} Answer:
+unobserved4: Answer questions that assume implicit reasoning steps in the question prompt: {question}
+unobserved5: Input: - question: {question}Output: - answer:
+unobserved6: Use logic and reasoning to answer the following questions with either "yes" or "no".Question: {question}Answer:
+unobserved7: Please answer the following question, you should think step by step, but please use "yes" or "no" to answer.Question: {question}Answer:
+unobserved8: Answer questions in which the required reasoning steps are implicit in the question. Please first answer "Yes" or "No" and then output your explanation. {question} Answer:
+unobserved9: Please give your answer to the following question, which should be answered yes or no. This question may require you to do implicit multi-hop reasoning.Question: {question} Answer:
+unobserved10: This question needs to be solved via decomposing it into multiple sub-questions and make comparison among the results of the sub-questions.The question is {question}After decomposing the question, we find the answer is

@@ -1,0 +1,10 @@
+unobserved1: Please select the best matched answer for the given question from the choices list below based on Hindu mythology. Question: {question} Choices: A. {choiceA} B. {choiceB} C. {choiceC} D. {choiceD}. Please respond with the choice only, without any other words.
+unobserved2: Solve question in the Hindu mythology area, output the best option for the question from "A", "B", "C", "D": Question: {question} Options: A: {choiceA} B: {choiceB} C: {choiceC} D: {choiceD} Answer:
+unobserved3: Question: {question}\nA: {choiceA} B: {choiceB} C: {choiceC} D: {choiceD}\nHindu knowledgeexpert: This is easy, the answer is
+unobserved4: In this task, you have to select the option that best answers the question given your knowledge about Hindu mythology.\nQuestion: {question}\nA.  {choiceA} B.  {choiceB} C.  {choiceC} D.  {choiceD}\nAnswer: among A, B, C, and D, the best choice is
+unobserved5: Answer the following question based on hindu mythology with the most accurate choice\n{question}\nA: {choiceA}\nB: {choiceB}\nC: {choiceC}\nD: {choiceD}\nAnswer:
+unobserved6: {question}\n\nA: {choiceA} B: {choiceB} C: {choiceC} D: {choiceD}\nWith your expertise inhindu mythology, provide the correct answer:
+unobserved7: Input:\n\t- Question: {question}\n\t- A: {choiceA}\n\t- B: {choiceB}\n\t- C: {choiceC}\n\t- D: {choiceD}\nOutput\n\t- Answer:
+unobserved8: Choose the best option for the following question in Hindu Mythology {question} A.  {choiceA} B.  {choiceB} C.  {choiceC} D.  {choiceD}
+unobserved9: {question}\nA.  {choiceA} B.  {choiceB} C.  {choiceC} D.  {choiceD}\nWhich of the options A, B, C, D is the correct one? It is
+unobserved10: You will be given a series of questions regarding Hindu knowledge. For each question, select among the multiple choice answers (A, B, C, D) and provide an explanation, where applicable.\n\nQuestion: {question}\nA: {choiceA}\nB: {choiceB}\nC: {choiceC}\nD: {choiceD}\n\nAnswer:

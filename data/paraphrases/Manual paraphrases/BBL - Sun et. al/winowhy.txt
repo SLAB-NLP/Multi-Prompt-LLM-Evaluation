@@ -1,0 +1,10 @@
+unobserved1: In the sentence: {question}. Is the pronoun reasoning correct? Please answer with either "correct" or "incorrect". Do not include any other words.
+unobserved2: Verify if the reasoning about which words certain pronouns refer to in the given words is right, choose one answer from "correct" and "incorrect":\nReasoning:{question}\nAnswer:
+unobserved3: Given the context: {question}, determine if the co-reference resolution and the explanation is correct by output either "correct" or "incorrect". Answer:
+unobserved4: Context: {question}\nQuestion: Is the pronoun referring to the correct object? Answer with "Yes" or "No".
+unobserved5: Judge the correctness of the understanding of pronoun:\n{question}\nGive your answer as "correct" or "incorrect". Your answer:
+unobserved6: You are tested on your understanding of pronoun. Here is a sentence followed by the explanation: {question}\nOutput "Yes" if you think the explanation is correct; output "No"If the explanation is wrong.
+unobserved7: Read the following reasoning about who a particular pronoun refers to: {question}\nIs the reasoning correct?
+unobserved8: Read the following reasoning, and answer if its correct or incorrect. {question}\n
+unobserved9: {question} The reasoning stated above is "correct" or "incorrect"? It is
+unobserved10: You will be given a sentence followed by an explanation of the use of pronouns in that sentence. Please answer if the explanation is correct or incorrect.\n\nSentence: {context}\nExplanation: {explanation}\nAnswer:
