@@ -1,0 +1,220 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.565217376,
+        "t0pp": 0.739130437,
+        "alpaca-7b": 0.5,
+        "alpaca-13b": 0.5,
+        "flan-t5-small": 0.608695652,
+        "flan-t5-base": 0.5,
+        "flan-t5-large": 0.5,
+        "flan-t5-xl": 0.586956522,
+        "flan-t5-xxl": 0.717391304
+      },
+      "ranks": {
+        "t0_3b": 5,
+        "t0pp": 1,
+        "alpaca-7b": 6,
+        "alpaca-13b": 6,
+        "flan-t5-small": 3,
+        "flan-t5-base": 6,
+        "flan-t5-large": 6,
+        "flan-t5-xl": 4,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p1": {
+      "template": "Please select the best option for the question given to you based on the correct factual knowledge. Question{question} A. {choiceA} B. {choiceB}\\nPlease answer with your choice only without any other words.\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.652173936,
+        "t0pp": 0.782608688,
+        "alpaca-7b": 0.791666687,
+        "alpaca-13b": 0.75,
+        "flan-t5-small": 0.52173913,
+        "flan-t5-base": 0.673913062,
+        "flan-t5-large": 0.739130435,
+        "flan-t5-xl": 0.760869565,
+        "flan-t5-xxl": 0.847826087
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 3,
+        "alpaca-7b": 2,
+        "alpaca-13b": 5,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 6,
+        "flan-t5-xl": 4,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p2": {
+      "template": "Verify if the question is unknown, choose your answer from options:\\nQuestion{question}\\nOptions:\\nA{choiceA}\\nB{choiceB}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.608695626,
+        "t0pp": 0.782608688,
+        "alpaca-7b": 0.5,
+        "alpaca-13b": 0.541666687,
+        "flan-t5-small": 0.5,
+        "flan-t5-base": 0.717391312,
+        "flan-t5-large": 0.717391304,
+        "flan-t5-xl": 0.652173913,
+        "flan-t5-xxl": 0.608695652
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 1,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 8,
+        "flan-t5-base": 2,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 4,
+        "flan-t5-xxl": 5
+      }
+    },
+    "p3": {
+      "template": "You are given a question asking about a specific knowledge. You need to respond with eitherthe actual knowledge or it cannot be known.\\nQuestion{question}\\nOptions:\\nA{choiceA}\\nB{choiceB}\\nAnswer with \"A\" or \"B\".\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.652173936,
+        "t0pp": 0.760869563,
+        "alpaca-7b": 0.729166687,
+        "alpaca-13b": 0.541666687,
+        "flan-t5-small": 0.565217391,
+        "flan-t5-base": 0.673913062,
+        "flan-t5-large": 0.739130435,
+        "flan-t5-xl": 0.695652174,
+        "flan-t5-xxl": 0.869565217
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 2,
+        "alpaca-7b": 4,
+        "alpaca-13b": 9,
+        "flan-t5-small": 8,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 5,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p4": {
+      "template": "Determine if the question is factually knowable by choosing from the following options:\\nQ{question}\\n(A) {choiceA}\\n(B) {choiceB}\\nAnswer(\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.630434811,
+        "t0pp": 0.717391312,
+        "alpaca-7b": 0.541666687,
+        "alpaca-13b": 0.729166687,
+        "flan-t5-small": 0.413043478,
+        "flan-t5-base": 0.652173936,
+        "flan-t5-large": 0.717391304,
+        "flan-t5-xl": 0.652173913,
+        "flan-t5-xxl": 0.826086957
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 2,
+        "flan-t5-small": 9,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 6,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p5": {
+      "template": "Answer the following questions based on the list of available choices\\n{question}\\nA{choiceA}\\nB{choiceB}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.630434811,
+        "t0pp": 0.804347813,
+        "alpaca-7b": 0.666666687,
+        "alpaca-13b": 0.854166687,
+        "flan-t5-small": 0.565217391,
+        "flan-t5-base": 0.673913062,
+        "flan-t5-large": 0.782608696,
+        "flan-t5-xl": 0.695652174,
+        "flan-t5-xxl": 0.804347826
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 3,
+        "alpaca-7b": 7,
+        "alpaca-13b": 1,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 5,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p6": {
+      "template": "{question}\\n\\nA. {choiceA} B. {choiceB}\\n\\nWith respect to the choices above, the correct one is\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.673913062,
+        "t0pp": 0.826086938,
+        "alpaca-7b": 0.625,
+        "alpaca-13b": 0.854166687,
+        "flan-t5-small": 0.565217391,
+        "flan-t5-base": 0.673913062,
+        "flan-t5-large": 0.782608696,
+        "flan-t5-xl": 0.760869565,
+        "flan-t5-xxl": 0.869565217
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 2,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 5,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p7": {
+      "template": "Question{question}\\nTo avoid hallucination, if the answer to this question is unknown, output \"B\", otherwise output \"A\"\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.5,
+        "t0pp": 0.608695626,
+        "alpaca-7b": 0.520833313,
+        "alpaca-13b": 0.916666687,
+        "flan-t5-small": 0.52173913,
+        "flan-t5-base": 0.5,
+        "flan-t5-large": 0.52173913,
+        "flan-t5-xl": 0.586956522,
+        "flan-t5-xxl": 0.782608696
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 3,
+        "alpaca-7b": 7,
+        "alpaca-13b": 1,
+        "flan-t5-small": 5,
+        "flan-t5-base": 8,
+        "flan-t5-large": 5,
+        "flan-t5-xl": 4,
+        "flan-t5-xxl": 2
+      }
+    }
+  }
+}

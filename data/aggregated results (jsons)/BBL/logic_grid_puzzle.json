@@ -1,0 +1,229 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.3860000073909759,
+        "alpaca-7b": 0.236000001,
+        "alpaca-13b": 0.289999992,
+        "flan-t5-small": 0.291999996,
+        "flan-t5-base": 0.308999985,
+        "flan-t5-large": 0.375,
+        "flan-t5-xl": 0.414999992,
+        "flan-t5-xxl": 0.365999997
+      },
+      "ranks": {
+        "t0pp": 2,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 5,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 4
+      }
+    },
+    "p1": {
+      "template": "Here's a puzzle for you {context}\\n\\nHere are some clus:\\n{clues}\\n\\n\\nNow, answer the following question:\\n{question}\\n\\n\\nWhat is the correct answer?\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nE. {choiceE}\\n\\n\\nThe correct answer is:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.367000013589859,
+        "alpaca-7b": 0.248999998,
+        "alpaca-13b": 0.275999993,
+        "flan-t5-small": 0.303000003,
+        "flan-t5-base": 0.314999998,
+        "flan-t5-large": 0.372000009,
+        "flan-t5-xl": 0.423000008,
+        "flan-t5-xxl": 0.43599999
+      },
+      "ranks": {
+        "t0pp": 4,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 5,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p2": {
+      "template": "You are given a logic grid puzzle to test your sense of space and positions. You are given a context and some clues to pick the correct answer from the options to answer a question.Context{context}\\n{clues}\\nQuestion{question}\\nOptions:\\n(A) {choiceA}\\n(B) {choiceB}\\n(C) {choiceC}\\n(D) {choiceD}\\n(E) {choiceE}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.3720000088214874,
+        "alpaca-7b": 0.254000008,
+        "alpaca-13b": 0.289000005,
+        "flan-t5-small": 0.293000013,
+        "flan-t5-base": 0.305000007,
+        "flan-t5-large": 0.321999997,
+        "flan-t5-xl": 0.419,
+        "flan-t5-xxl": 0.39199999
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p3": {
+      "template": "Question{question}. Answer this question based on the following context and clues:\\n\\nContext{context}\\n{clues}\\n\\nThe answer is one of \"1\", \"2\", \"3\", \"4\", \"5\". The correct answer is:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.4099999964237213,
+        "alpaca-7b": 0.277999997,
+        "alpaca-13b": 0.30399999,
+        "flan-t5-small": 0.305999994,
+        "flan-t5-base": 0.338,
+        "flan-t5-large": 0.331,
+        "flan-t5-xl": 0.412,
+        "flan-t5-xxl": 0.469000012
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 4,
+        "flan-t5-large": 5,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p4": {
+      "template": "You are a master at solving logic grid puzzles. Solve this{context}\\n\\n{clues}\\n\\n{question}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.296999990940094,
+        "alpaca-7b": 0.250999987,
+        "alpaca-13b": 0.301999986,
+        "flan-t5-small": 0.293000013,
+        "flan-t5-base": 0.294,
+        "flan-t5-large": 0.296999991,
+        "flan-t5-xl": 0.294,
+        "flan-t5-xxl": 0.377000004
+      },
+      "ranks": {
+        "t0pp": 4,
+        "alpaca-7b": 8,
+        "alpaca-13b": 2,
+        "flan-t5-small": 7,
+        "flan-t5-base": 5,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 5,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p5": {
+      "template": "{context}\\n{clues}Based on the puzzle provided above, {question}\\n\\nOptions areA{choiceA}, B{choiceB}, C{choiceC}, D{choiceD}, E{choiceE}\\n\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.3799999952316284,
+        "alpaca-7b": 0.261000007,
+        "alpaca-13b": 0.270000011,
+        "flan-t5-small": 0.195999995,
+        "flan-t5-base": 0.326000005,
+        "flan-t5-large": 0.367000014,
+        "flan-t5-xl": 0.42899999,
+        "flan-t5-xxl": 0.426999986
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 7,
+        "alpaca-13b": 6,
+        "flan-t5-small": 8,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p6": {
+      "template": "The task is to solve a logic grid puzzle. You will have the context to the problem and some clues to solve the puzzle.\\nContext{context}{clues}\\nThe question is{question}\\nOptions:\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nE. {choiceE}\\nOutput your answer as one of \"A\", \"B\", \"C\", \"D\", \"E\".\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.3720000088214874,
+        "alpaca-7b": 0.25,
+        "alpaca-13b": 0.275000006,
+        "flan-t5-small": 0.294999987,
+        "flan-t5-base": 0.300999999,
+        "flan-t5-large": 0.338,
+        "flan-t5-xl": 0.419999987,
+        "flan-t5-xxl": 0.402999997
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p7": {
+      "template": "Here's a complex puzzle. Utitlize your skills to solve the puzzle by logic grid tables.{context}\\n{clues}\\n{question}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.2939999997615814,
+        "alpaca-7b": 0.254000008,
+        "alpaca-13b": 0.294,
+        "flan-t5-small": 0.293000013,
+        "flan-t5-base": 0.294,
+        "flan-t5-large": 0.303000003,
+        "flan-t5-xl": 0.294,
+        "flan-t5-xxl": 0.308999985
+      },
+      "ranks": {
+        "t0pp": 6,
+        "alpaca-7b": 8,
+        "alpaca-13b": 3,
+        "flan-t5-small": 7,
+        "flan-t5-base": 3,
+        "flan-t5-large": 2,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p8": {
+      "template": "{question}\\nThis question can only be answered if you fully understand the context{context}\\n{clues}. Your choices are:\\n(A) {choiceA}\\n(B) {choiceB}\\n(C) {choiceC}\\n(D) {choiceD}\\n(E) {choiceE}\\n\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.3619999885559082,
+        "alpaca-7b": 0.250999987,
+        "alpaca-13b": 0.279000014,
+        "flan-t5-small": 0.291999996,
+        "flan-t5-base": 0.294,
+        "flan-t5-large": 0.328999996,
+        "flan-t5-xl": 0.388000011,
+        "flan-t5-xxl": 0.379999995
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 6,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    }
+  }
+}

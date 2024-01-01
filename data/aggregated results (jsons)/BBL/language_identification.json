@@ -1,0 +1,247 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.154400006,
+        "t0pp": 0.161799997,
+        "alpaca-7b": 0.158399999,
+        "alpaca-13b": 0.225600004,
+        "flan-t5-small": 0.0941,
+        "flan-t5-base": 0.128099993,
+        "flan-t5-large": 0.1735,
+        "flan-t5-xl": 0.2573,
+        "flan-t5-xxl": 0.2761
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 5,
+        "alpaca-7b": 6,
+        "alpaca-13b": 3,
+        "flan-t5-small": 9,
+        "flan-t5-base": 8,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p1": {
+      "template": "Identify the correct language of the given sentence. Please choose the best answer from A, B, C, D, E, F, G, H, I, J, and K.\\n\\nSentence{question}\\nA{choiceA}\\nB{choiceB}\\nC{choiceC}\\nD{choiceD}\\nE{choiceE}\\nF{choiceF}\\nG{choiceG}\\nH{choiceH}\\nI{choiceI}\\nJ{choiceJ}\\nK{choiceK}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.098899998,
+        "t0pp": 0.152099997,
+        "alpaca-7b": 0.136000007,
+        "alpaca-13b": 0.219600007,
+        "flan-t5-small": 0.0933,
+        "flan-t5-base": 0.119800001,
+        "flan-t5-large": 0.2002,
+        "flan-t5-xl": 0.2845,
+        "flan-t5-xxl": 0.3707
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 5,
+        "alpaca-7b": 6,
+        "alpaca-13b": 3,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p2": {
+      "template": "{question}\\What language is the language stated above? A{choiceA} B{choiceB} C{choiceC} D{choiceD} E{choiceE} F{choiceF} G{choiceG} H{choiceH} I{choiceI} J{choiceJ} K{choiceK}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.108900003,
+        "t0pp": 0.1391,
+        "alpaca-7b": 0.161899999,
+        "alpaca-13b": 0.213300005,
+        "flan-t5-small": 0.096699998,
+        "flan-t5-base": 0.142100006,
+        "flan-t5-large": 0.2196,
+        "flan-t5-xl": 0.299,
+        "flan-t5-xxl": 0.3483
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 7,
+        "alpaca-7b": 5,
+        "alpaca-13b": 4,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p3": {
+      "template": "You are taking a test that requires you to identify the language a given sentence is written in. To help narrow down your choices, we\u00e2\u20ac\u2122ve made this a multiple choice question. After carefully examining the sentence and each answer below, please select the correct language of the sentence from one of \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", or \"K\"\\nSentence{question}\\n- A{choiceA}\\n- B{choiceB}\\n- C{choiceC}\\n- D{choiceD}\\n- E{choiceE}\\n- F{choiceF}\\n- G{choiceG}\\n- H{choiceH}\\n- I{choiceI}\\n- J{choiceJ}\\n- K{choiceK}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.101999998,
+        "t0pp": 0.156900004,
+        "alpaca-7b": 0.136399999,
+        "alpaca-13b": 0.212200001,
+        "flan-t5-small": 0.0932,
+        "flan-t5-base": 0.128900006,
+        "flan-t5-large": 0.2152,
+        "flan-t5-xl": 0.2944,
+        "flan-t5-xxl": 0.3852
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 5,
+        "alpaca-7b": 6,
+        "alpaca-13b": 4,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p4": {
+      "template": "Please select the language that correctly corresponds to the provided sentence from the following options:\\nSentence{question}\\nOptions:\\nA{choiceA}\\nB{choiceB}\\nC{choiceC}\\nD{choiceD}\\nE{choiceE}\\nF{choiceF}\\nG{choiceG}\\nH{choiceH}\\nI{choiceI}\\nJ{choiceJ}\\nK{choiceK}\\nYour answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.111299999,
+        "t0pp": 0.165399998,
+        "alpaca-7b": 0.171200007,
+        "alpaca-13b": 0.225299999,
+        "flan-t5-small": 0.0952,
+        "flan-t5-base": 0.131300002,
+        "flan-t5-large": 0.238,
+        "flan-t5-xl": 0.2992,
+        "flan-t5-xxl": 0.3723
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 6,
+        "alpaca-7b": 5,
+        "alpaca-13b": 4,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p5": {
+      "template": "Input\\n\\t- sentence{question}\\n\\t- A{choiceA}\\n\\t- B{choiceB}\\n\\t- C{choiceC}\\n\\t- D{choiceD}\\n\\t- E{choiceE}\\n\\t- F{choiceF}\\n\\t- G{choiceG}\\n\\t- H{choiceH}\\n\\t- I{choiceI}\\n\\t- J{choiceJ}\\n\\t- K{choiceK}\\nOutput\\n\\t- Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.115400001,
+        "t0pp": 0.133300006,
+        "alpaca-7b": 0.135299996,
+        "alpaca-13b": 0.215000004,
+        "flan-t5-small": 0.0969,
+        "flan-t5-base": 0.1206,
+        "flan-t5-large": 0.1652,
+        "flan-t5-xl": 0.1899,
+        "flan-t5-xxl": 0.2673
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 6,
+        "alpaca-7b": 5,
+        "alpaca-13b": 2,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p6": {
+      "template": "Given the following text, identify the correct language by selecting one of the options in the list (A, B, C, D, E, F, G, H, I, J, K):\\n\\nText{question}\\n\\nA{choiceA}\\nB{choiceB}\\nC{choiceC}\\nD{choiceD}\\nE{choiceE}\\nF{choiceF}\\nG{choiceG}\\nH{choiceH}\\nI{choiceI}\\nJ{choiceJ}\\nK{choiceK}\\n\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.097099997,
+        "t0pp": 0.142800003,
+        "alpaca-7b": 0.130899996,
+        "alpaca-13b": 0.216600001,
+        "flan-t5-small": 0.0937,
+        "flan-t5-base": 0.120800003,
+        "flan-t5-large": 0.2009,
+        "flan-t5-xl": 0.2985,
+        "flan-t5-xxl": 0.3741
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 5,
+        "alpaca-7b": 6,
+        "alpaca-13b": 3,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p7": {
+      "template": "Please read the following sentence, then choose from the options which language you think it most likely came from. Your answer should be \"A\", \"B\", \"C\", \"D\", \"E\", \"F\", \"G\", \"H\", \"I\", \"J\", or \"K\"\\nSentence{question}\\nOptions:\\nA{choiceA}\\nB{choiceB}\\nC{choiceC}\\nD{choiceD}\\nE{choiceE}\\nF{choiceF}\\nG{choiceG}\\nH{choiceH}\\nI{choiceI}\\nJ{choiceJ}\\nK{choiceK}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.095299996,
+        "t0pp": 0.147400007,
+        "alpaca-7b": 0.122000001,
+        "alpaca-13b": 0.202500001,
+        "flan-t5-small": 0.0952,
+        "flan-t5-base": 0.135499999,
+        "flan-t5-large": 0.2197,
+        "flan-t5-xl": 0.2891,
+        "flan-t5-xxl": 0.3554
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 5,
+        "alpaca-7b": 7,
+        "alpaca-13b": 4,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p8": {
+      "template": "Please give the language used in the following sentence. Each sentence will give five options, please output the corresponding option (i.e. A, B, C, D, E, F, G, H, I, J, or K) to represent the corresponding answer.\\n\\nSentence{question}\\nOptions:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.087499999,
+        "t0pp": 0.085000001,
+        "alpaca-7b": 0.158899993,
+        "alpaca-13b": 0.2245,
+        "flan-t5-small": 0.0923,
+        "flan-t5-base": 0.088200003,
+        "flan-t5-large": 0.0923,
+        "flan-t5-xl": 0.0863,
+        "flan-t5-xxl": 0.0935
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 9,
+        "alpaca-7b": 2,
+        "alpaca-13b": 1,
+        "flan-t5-small": 4,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 8,
+        "flan-t5-xxl": 3
+      }
+    }
+  }
+}
