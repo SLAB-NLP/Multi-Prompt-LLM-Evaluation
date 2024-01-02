@@ -1,5 +1,0 @@
-A link for the zipped folder that contains all model responses (~190 MB): 
-
-https://www.dropbox.com/scl/fo/y9dd8zbteyf0xrjxdtm3e/h?rlkey=okp52gleuibw72fhe62egr6lp&dl=0
-
-The unzipped data is ~4GB. Enjoy :-)
