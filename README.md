@@ -38,10 +38,6 @@ In this structure, each key represents the index of a paraphrase. The **template
 
 ## Raw Model Responses
 
-Finally, for comprehensive access to all model responses, a zipped folder is available for download. The size of the zipped file is approximately 190 MB. You can download it using the following link:
-
-[Download Raw Model Responses](https://www.dropbox.com/scl/fo/y9dd8zbteyf0xrjxdtm3e/h?rlkey=okp52gleuibw72fhe62egr6lp&dl=0)
-
-Please note that the unzipped data expands to around 4GB. 
+Finally, for comprehensive access to all model responses, a zipped folder is available for download. The size of the zipped file is approximately 190 MB. You can download it using the following link: [Download Raw Model Responses](https://www.dropbox.com/scl/fo/y9dd8zbteyf0xrjxdtm3e/h?rlkey=okp52gleuibw72fhe62egr6lp&dl=0). Please note that the unzipped data expands to around 4GB. 
 
 Enjoy! :-)
