@@ -7,11 +7,7 @@ The Hebrew University of Jerusalem, Israel.
 
 ## Instruction template paraphrases
 
-For access to the paraphrase datasets used in our project, please explore the `paraphrases` folder. This folder is organized into two main categories:
-
-1. **Automatic Paraphrases**: Contains all automatically generated paraphrases for the LMentry and BBH benchmarks. Within this category, you will find a CSV file for each task we evaluated in these benchmarks. These files provide the paraphrases along with additional information such as the method used for generating the paraphrase, a manual assessment of its correctness, and the length of the paraphrase measured in tokens.
-
-2. **Manual Paraphrases**: Includes manually written paraphrases for the BBL benchmark tasks. These paraphrases were compiled as part of the research conducted by Sun et al. (https://arxiv.org/abs/2306.11270).
+For access to the paraphrase datasets used in our project, please explore the `automatic paraphrases` folder. This folder contains all automatically generated paraphrases for the LMentry and BBH benchmarks. Within this category, you will find a CSV file for each task we evaluated in these benchmarks. These files provide the paraphrases along with additional information such as the method used for generating the paraphrase, a manual assessment of its correctness, and the length of the paraphrase measured in tokens.
 
 ## Model Accuracies
 
