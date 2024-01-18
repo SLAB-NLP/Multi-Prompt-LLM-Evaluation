@@ -37,7 +37,7 @@ Within the `paraphrases accuracies and rankings (aggregated)` folder, you will f
 In this structure, each key represents the index of a paraphrase. The **template** key provides the instruction template, **method** indicates the technique used for generating the paraphrase, and **correct** is a boolean value reflecting the manual assessment of the paraphrase's correctness. The **accs** key contains a dictionary of model accuracies for the respective paraphrase, and **ranks** presents the rankings of these models based on their accuracies for that specific paraphrase. 
 
 ## Metric Results
-For access to the full metric results for all tasks, please explore the `metric results` folder.
+For access to the full metric results please explore the `metric results` folder.
 
 ## Raw Model Responses
 
