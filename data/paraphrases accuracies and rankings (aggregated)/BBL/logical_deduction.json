@@ -1,0 +1,274 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.296000004,
+        "t0pp": 0.456,
+        "alpaca-7b": 0.196428567,
+        "alpaca-13b": 0.275793642,
+        "flan-t5-small": 0.198,
+        "flan-t5-base": 0.224000007,
+        "flan-t5-large": 0.39,
+        "flan-t5-xl": 0.53,
+        "flan-t5-xxl": 0.588
+      },
+      "ranks": {
+        "t0_3b": 5,
+        "t0pp": 3,
+        "alpaca-7b": 9,
+        "alpaca-13b": 6,
+        "flan-t5-small": 8,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p1": {
+      "template": "You are given a paragraph that describes five objects arranged in order. Please select the best answer from A, B, C, D, and E which the answer contains a statement that is logically consistent with the paragraph.\\n\\nParaphraph:{question}{options_}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.282000005,
+        "t0pp": 0.449999988,
+        "alpaca-7b": 0.246031746,
+        "alpaca-13b": 0.303571433,
+        "flan-t5-small": 0.206,
+        "flan-t5-base": 0.282000005,
+        "flan-t5-large": 0.478,
+        "flan-t5-xl": 0.526,
+        "flan-t5-xxl": 0.572
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 4,
+        "alpaca-7b": 8,
+        "alpaca-13b": 5,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p2": {
+      "template": "The most logically-correct answer, given this paraphraph? {question}{options_}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.444000006,
+        "alpaca-7b": 0.257936507,
+        "alpaca-13b": 0.271825403,
+        "flan-t5-small": 0.194,
+        "flan-t5-base": 0.312000006,
+        "flan-t5-large": 0.458,
+        "flan-t5-xl": 0.52,
+        "flan-t5-xxl": 0.582
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 5,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p3": {
+      "template": "You are taking an exam where you will be given a paragraph of text describing five different objects in a sequence that are arranged in a fixed order. To answer the question correctly, you must keep track of where each object is in the sequence and then select the multiple choice answer that best corresponds to the correct answer from (\"A\", \"B\", \"C\", \"D\", \"E\"). Please carefully consider the information in the following paragraph and each of the answers before providing the right answer.\\n\\nParaphraph:{question}{options_}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.270000011,
+        "t0pp": 0.433999985,
+        "alpaca-7b": 0.224206343,
+        "alpaca-13b": 0.25,
+        "flan-t5-small": 0.2,
+        "flan-t5-base": 0.273999989,
+        "flan-t5-large": 0.462,
+        "flan-t5-xl": 0.534,
+        "flan-t5-xxl": 0.584
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 4,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 9,
+        "flan-t5-base": 5,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p4": {
+      "template": "Each of the following paragraphs describes a set of five objects arranged in a fixed order, and the statements in each paragraph are logically consistent. After reading the paragraph, select the best option that describes the arrangement of objects:\\n{question}{options_}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.442000002,
+        "alpaca-7b": 0.271825403,
+        "alpaca-13b": 0.283730149,
+        "flan-t5-small": 0.202000007,
+        "flan-t5-base": 0.291999996,
+        "flan-t5-large": 0.48,
+        "flan-t5-xl": 0.512,
+        "flan-t5-xxl": 0.578
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 5,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p5": {
+      "template": "Input\\n\\t- paragraph{question}{options_}\\nOutput\\t- Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.284000009,
+        "t0pp": 0.477999985,
+        "alpaca-7b": 0.234126985,
+        "alpaca-13b": 0.271825403,
+        "flan-t5-small": 0.2,
+        "flan-t5-base": 0.326000005,
+        "flan-t5-large": 0.462,
+        "flan-t5-xl": 0.498,
+        "flan-t5-xxl": 0.57
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 9,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p6": {
+      "template": "Given the following text describing the correct order of five objects, select the option from (A, B, C, D or E) that is consistent with the text.\\n\\ntext{question}{options_}\\n\\nanswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.456,
+        "alpaca-7b": 0.259920627,
+        "alpaca-13b": 0.295634925,
+        "flan-t5-small": 0.194,
+        "flan-t5-base": 0.270000011,
+        "flan-t5-large": 0.478,
+        "flan-t5-xl": 0.528,
+        "flan-t5-xxl": 0.578
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 5,
+        "alpaca-7b": 8,
+        "alpaca-13b": 6,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p7": {
+      "template": "The following text describes the arrangement order of five objects. Please read the text and choose the one from the options that matches the logic of the text description. Your answer should be \"A\", \"B\", \"C\", \"D\" or \"E\".\\nText{question}{options_} Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.312000006,
+        "t0pp": 0.469999999,
+        "alpaca-7b": 0.244047612,
+        "alpaca-13b": 0.283730149,
+        "flan-t5-small": 0.198,
+        "flan-t5-base": 0.298000008,
+        "flan-t5-large": 0.464,
+        "flan-t5-xl": 0.526,
+        "flan-t5-xxl": 0.58
+      },
+      "ranks": {
+        "t0_3b": 5,
+        "t0pp": 3,
+        "alpaca-7b": 8,
+        "alpaca-13b": 7,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p8": {
+      "template": "Deduce the order of the five objects and select the logically consistent statement from the given choices. {question}{options_} Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.286000013,
+        "t0pp": 0.44600001,
+        "alpaca-7b": 0.25,
+        "alpaca-13b": 0.293650806,
+        "flan-t5-small": 0.194,
+        "flan-t5-base": 0.312000006,
+        "flan-t5-large": 0.49,
+        "flan-t5-xl": 0.514,
+        "flan-t5-xxl": 0.568
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 4,
+        "alpaca-7b": 8,
+        "alpaca-13b": 6,
+        "flan-t5-small": 9,
+        "flan-t5-base": 5,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p9": {
+      "template": "Please decide which option is correct based on the descriptions in the following article. The article describes the order of the 5 objects, please output the correct option as your answer.Article{question}{options_}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.284000009,
+        "t0pp": 0.453999996,
+        "alpaca-7b": 0.269841284,
+        "alpaca-13b": 0.265873015,
+        "flan-t5-small": 0.196,
+        "flan-t5-base": 0.282000005,
+        "flan-t5-large": 0.474,
+        "flan-t5-xl": 0.516,
+        "flan-t5-xxl": 0.576
+      },
+      "ranks": {
+        "t0_3b": 5,
+        "t0pp": 4,
+        "alpaca-7b": 7,
+        "alpaca-13b": 8,
+        "flan-t5-small": 9,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    }
+  }
+}

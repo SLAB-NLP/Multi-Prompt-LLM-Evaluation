@@ -1,0 +1,274 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.534497797,
+        "alpaca-7b": 0.557055771,
+        "alpaca-13b": 0.627613246,
+        "flan-t5-small": 0.53231442,
+        "flan-t5-base": 0.496069878,
+        "flan-t5-large": 0.530131004,
+        "flan-t5-xl": 0.52139738,
+        "flan-t5-xxl": 0.53231441
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 4,
+        "alpaca-7b": 3,
+        "alpaca-13b": 2,
+        "flan-t5-small": 5,
+        "flan-t5-base": 9,
+        "flan-t5-large": 7,
+        "flan-t5-xl": 8,
+        "flan-t5-xxl": 6
+      }
+    },
+    "p1": {
+      "template": "You are given a question which requires reasoning steps that are implicit in the question. Please choose the best answer from  \"yes\" or \"no\" and provide an explanation.{question}Answer and Explanation:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.53231442,
+        "t0pp": 0.548034906,
+        "alpaca-7b": 0.467334509,
+        "alpaca-13b": 0.609320581,
+        "flan-t5-small": 0.53231441,
+        "flan-t5-base": 0.535807848,
+        "flan-t5-large": 0.527947598,
+        "flan-t5-xl": 0.596069869,
+        "flan-t5-xxl": 0.569432314
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 4,
+        "alpaca-7b": 9,
+        "alpaca-13b": 1,
+        "flan-t5-small": 7,
+        "flan-t5-base": 5,
+        "flan-t5-large": 8,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p2": {
+      "template": "Reason about the answer to the question. {question}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.537117898,
+        "alpaca-7b": 0.578832746,
+        "alpaca-13b": 0.624128938,
+        "flan-t5-small": 0.518340611,
+        "flan-t5-base": 0.534934521,
+        "flan-t5-large": 0.522270742,
+        "flan-t5-xl": 0.52139738,
+        "flan-t5-xxl": 0.530567686
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 4,
+        "alpaca-7b": 3,
+        "alpaca-13b": 2,
+        "flan-t5-small": 9,
+        "flan-t5-base": 5,
+        "flan-t5-large": 7,
+        "flan-t5-xl": 8,
+        "flan-t5-xxl": 6
+      }
+    },
+    "p3": {
+      "template": "You are taking an exam where each question requires implicit reasoning steps to answer. The answer will always be either \"yes\" or \"no\". Please carefully consider the following question, its implications, and any related information you may need to provide the correct answer. Question{question} Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.531441033,
+        "t0pp": 0.55720526,
+        "alpaca-7b": 0.550958216,
+        "alpaca-13b": 0.627613246,
+        "flan-t5-small": 0.529257642,
+        "flan-t5-base": 0.537554562,
+        "flan-t5-large": 0.518777293,
+        "flan-t5-xl": 0.7,
+        "flan-t5-xxl": 0.633187773
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 4,
+        "alpaca-7b": 5,
+        "alpaca-13b": 3,
+        "flan-t5-small": 8,
+        "flan-t5-base": 6,
+        "flan-t5-large": 9,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p4": {
+      "template": "Answer questions that assume implicit reasoning steps in the question prompt{question}\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.537117898,
+        "alpaca-7b": 0.571864128,
+        "alpaca-13b": 0.634581864,
+        "flan-t5-small": 0.510480349,
+        "flan-t5-base": 0.517903924,
+        "flan-t5-large": 0.518777293,
+        "flan-t5-xl": 0.517467249,
+        "flan-t5-xxl": 0.537554585
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 5,
+        "alpaca-7b": 3,
+        "alpaca-13b": 2,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 6,
+        "flan-t5-xl": 8,
+        "flan-t5-xxl": 4
+      }
+    },
+    "p5": {
+      "template": "Input- question{question}Output- answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.495633185,
+        "t0pp": 0.54978168,
+        "alpaca-7b": 0.58449477,
+        "alpaca-13b": 0.60496515,
+        "flan-t5-small": 0.493886463,
+        "flan-t5-base": 0.526200891,
+        "flan-t5-large": 0.585152838,
+        "flan-t5-xl": 0.649344978,
+        "flan-t5-xxl": 0.662882096
+      },
+      "ranks": {
+        "t0_3b": 8,
+        "t0pp": 6,
+        "alpaca-7b": 5,
+        "alpaca-13b": 3,
+        "flan-t5-small": 9,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p6": {
+      "template": "Use logic and reasoning to answer the following questions with either \"yes\" or \"no\".Question{question}Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.532751083,
+        "t0pp": 0.54978168,
+        "alpaca-7b": 0.501742184,
+        "alpaca-13b": 0.599303126,
+        "flan-t5-small": 0.531441048,
+        "flan-t5-base": 0.537117898,
+        "flan-t5-large": 0.540174672,
+        "flan-t5-xl": 0.68209607,
+        "flan-t5-xxl": 0.667248908
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 4,
+        "alpaca-7b": 9,
+        "alpaca-13b": 3,
+        "flan-t5-small": 8,
+        "flan-t5-base": 6,
+        "flan-t5-large": 5,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 2
+      }
+    },
+    "p7": {
+      "template": "Please answer the following question, you should think step by step, but please use \"yes\" or \"no\" to answer.Question{question}Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.531877756,
+        "t0pp": 0.547598243,
+        "alpaca-7b": 0.495644599,
+        "alpaca-13b": 0.59277004,
+        "flan-t5-small": 0.530567686,
+        "flan-t5-base": 0.531877756,
+        "flan-t5-large": 0.60349345,
+        "flan-t5-xl": 0.676855895,
+        "flan-t5-xxl": 0.574672489
+      },
+      "ranks": {
+        "t0_3b": 6,
+        "t0pp": 5,
+        "alpaca-7b": 9,
+        "alpaca-13b": 3,
+        "flan-t5-small": 8,
+        "flan-t5-base": 6,
+        "flan-t5-large": 2,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 4
+      }
+    },
+    "p8": {
+      "template": "Answer questions in which the required reasoning steps are implicit in the question. Please first answer \"Yes\" or \"No\" and then output your explanation. {question} Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": NaN,
+        "t0pp": 0.548034906,
+        "alpaca-7b": 0.53222996,
+        "alpaca-13b": 0.602787435,
+        "flan-t5-small": 0.53231442,
+        "flan-t5-base": 0.5423581,
+        "flan-t5-large": 0.528384279,
+        "flan-t5-xl": 0.596069869,
+        "flan-t5-xxl": 0.553275109
+      },
+      "ranks": {
+        "t0_3b": 1,
+        "t0pp": 5,
+        "alpaca-7b": 8,
+        "alpaca-13b": 2,
+        "flan-t5-small": 7,
+        "flan-t5-base": 6,
+        "flan-t5-large": 9,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 4
+      }
+    },
+    "p9": {
+      "template": "Please give your answer to the following question, which should be answered yes or no. This question may require you to do implicit multi-hop reasoning.Question{question} Answer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0_3b": 0.532751083,
+        "t0pp": 0.555895209,
+        "alpaca-7b": 0.494337976,
+        "alpaca-13b": 0.572299659,
+        "flan-t5-small": 0.513537118,
+        "flan-t5-base": 0.535371184,
+        "flan-t5-large": 0.58558952,
+        "flan-t5-xl": 0.684716157,
+        "flan-t5-xxl": 0.699126638
+      },
+      "ranks": {
+        "t0_3b": 7,
+        "t0pp": 5,
+        "alpaca-7b": 9,
+        "alpaca-13b": 4,
+        "flan-t5-small": 8,
+        "flan-t5-base": 6,
+        "flan-t5-large": 3,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    }
+  }
+}

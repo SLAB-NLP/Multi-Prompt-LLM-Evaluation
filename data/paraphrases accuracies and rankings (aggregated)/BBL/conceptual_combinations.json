@@ -1,0 +1,229 @@
+{
+  "paraphrases": {
+    "default": {
+      "template": "",
+      "method": "default",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7864077687263489,
+        "alpaca-7b": 0.557692289,
+        "alpaca-13b": 0.605769217,
+        "flan-t5-small": 0.553398073,
+        "flan-t5-base": 0.543689311,
+        "flan-t5-large": 0.398058265,
+        "flan-t5-xl": 0.728155315,
+        "flan-t5-xxl": 0.679611623
+      },
+      "ranks": {
+        "t0pp": 1,
+        "alpaca-7b": 5,
+        "alpaca-13b": 4,
+        "flan-t5-small": 6,
+        "flan-t5-base": 7,
+        "flan-t5-large": 8,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p1": {
+      "template": "{context} Question{question}\\nThe options are the following:\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nUse your common sense to output one of the letter \"A\", \"B\", \"C\", or \"D\" to indicate your answer.\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7184466123580933,
+        "alpaca-7b": 0.461538464,
+        "alpaca-13b": 0.576923072,
+        "flan-t5-small": 0.16504854,
+        "flan-t5-base": 0.5825243,
+        "flan-t5-large": 0.70873785,
+        "flan-t5-xl": 0.776699007,
+        "flan-t5-xxl": 0.718446612
+      },
+      "ranks": {
+        "t0pp": 2,
+        "alpaca-7b": 7,
+        "alpaca-13b": 6,
+        "flan-t5-small": 8,
+        "flan-t5-base": 5,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p2": {
+      "template": "You are given a concept or a factual context. Answer the multiple choice question based on the context by choosing from the choices provided.\\nContext{context}\\nQuestion{question}\\nChoices:\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7281553149223328,
+        "alpaca-7b": 0.576923072,
+        "alpaca-13b": 0.615384638,
+        "flan-t5-small": 0.194174752,
+        "flan-t5-base": 0.495145619,
+        "flan-t5-large": 0.640776694,
+        "flan-t5-xl": 0.747572839,
+        "flan-t5-xxl": 0.776699007
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 6,
+        "alpaca-13b": 5,
+        "flan-t5-small": 8,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p3": {
+      "template": "You are a linguistic expert that knows most of the concepts and combinations of words. Now, answer the following question{context} Question{question} (A) {choiceA} (B) {choiceB} (C) {choiceC} (D) {choiceD}\\nYour answer is:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7475728392601013,
+        "alpaca-7b": 0.557692289,
+        "alpaca-13b": 0.644230783,
+        "flan-t5-small": 0.543689311,
+        "flan-t5-base": 0.504854381,
+        "flan-t5-large": 0.456310689,
+        "flan-t5-xl": 0.737864077,
+        "flan-t5-xxl": 0.718446612
+      },
+      "ranks": {
+        "t0pp": 1,
+        "alpaca-7b": 5,
+        "alpaca-13b": 4,
+        "flan-t5-small": 6,
+        "flan-t5-base": 7,
+        "flan-t5-large": 8,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p4": {
+      "template": "Answer the question about concepts combination. Specifically, you need to take contradictions, emergent properties, fanciful fictional combinations, homonyms, invented words, and surprising uncommon combinations into consideration. {context} Question{question} (A) {choiceA} (B) {choiceB} (C) {choiceC} (D) {choiceD}\\nYour answer is:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7864077687263489,
+        "alpaca-7b": 0.471153855,
+        "alpaca-13b": 0.586538434,
+        "flan-t5-small": 0.5825243,
+        "flan-t5-base": 0.514563084,
+        "flan-t5-large": 0.398058265,
+        "flan-t5-xl": 0.766990304,
+        "flan-t5-xxl": 0.757281542
+      },
+      "ranks": {
+        "t0pp": 1,
+        "alpaca-7b": 7,
+        "alpaca-13b": 4,
+        "flan-t5-small": 5,
+        "flan-t5-base": 6,
+        "flan-t5-large": 8,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p5": {
+      "template": "Question{question}\\nThe options are\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nHere is a context to help you answer the question{context}. Choose the best answer from \"A\", \"B\", \"C\", \"D\".\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7475728392601013,
+        "alpaca-7b": 0.576923072,
+        "alpaca-13b": 0.625,
+        "flan-t5-small": 0.262135923,
+        "flan-t5-base": 0.786407769,
+        "flan-t5-large": 0.728155315,
+        "flan-t5-xl": 0.776699007,
+        "flan-t5-xxl": 0.786407769
+      },
+      "ranks": {
+        "t0pp": 4,
+        "alpaca-7b": 7,
+        "alpaca-13b": 6,
+        "flan-t5-small": 8,
+        "flan-t5-base": 1,
+        "flan-t5-large": 5,
+        "flan-t5-xl": 3,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p6": {
+      "template": "The following is a multiple-choice question answering problem about conceptual meaning of words. You should choose the answer that best answer the question based on the context. {context} Question{question}\\nThe options are:\\nA. {choiceA}\\nB. {choiceB}\\nC. {choiceC}\\nD. {choiceD}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7475728392601013,
+        "alpaca-7b": 0.663461566,
+        "alpaca-13b": 0.663461566,
+        "flan-t5-small": 0.213592231,
+        "flan-t5-base": 0.504854381,
+        "flan-t5-large": 0.631067932,
+        "flan-t5-xl": 0.757281542,
+        "flan-t5-xxl": 0.805825233
+      },
+      "ranks": {
+        "t0pp": 3,
+        "alpaca-7b": 4,
+        "alpaca-13b": 4,
+        "flan-t5-small": 8,
+        "flan-t5-base": 7,
+        "flan-t5-large": 6,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 1
+      }
+    },
+    "p7": {
+      "template": "Context{context}. Understand the context, and answer the following question{question}Options:\\n(A) {choiceA}\\n(B) {choiceB}\\n(C) {choiceC}\\n(D) {choiceD}\\nAnswer:\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.7281553149223328,
+        "alpaca-7b": 0.557692289,
+        "alpaca-13b": 0.557692289,
+        "flan-t5-small": 0.398058265,
+        "flan-t5-base": 0.524271846,
+        "flan-t5-large": 0.553398073,
+        "flan-t5-xl": 0.728155315,
+        "flan-t5-xxl": 0.640776694
+      },
+      "ranks": {
+        "t0pp": 2,
+        "alpaca-7b": 4,
+        "alpaca-13b": 4,
+        "flan-t5-small": 8,
+        "flan-t5-base": 7,
+        "flan-t5-large": 6,
+        "flan-t5-xl": 1,
+        "flan-t5-xxl": 3
+      }
+    },
+    "p8": {
+      "template": "Linguistic Professor{context} {question}\\nStudentcan you provide the options?\\nLinguistic ProfessorThe choices are A) {choiceA} B) {choiceB} C) {choiceC} D) {choiceD}\\nStudentI got it. The answer is\n",
+      "method": "manual",
+      "correct": true,
+      "accs": {
+        "t0pp": 0.737864077091217,
+        "alpaca-7b": 0.605769217,
+        "alpaca-13b": 0.625,
+        "flan-t5-small": 0.223300964,
+        "flan-t5-base": 0.466019422,
+        "flan-t5-large": 0.660194159,
+        "flan-t5-xl": 0.737864077,
+        "flan-t5-xxl": 0.728155315
+      },
+      "ranks": {
+        "t0pp": 1,
+        "alpaca-7b": 6,
+        "alpaca-13b": 5,
+        "flan-t5-small": 8,
+        "flan-t5-base": 7,
+        "flan-t5-large": 4,
+        "flan-t5-xl": 2,
+        "flan-t5-xxl": 3
+      }
+    }
+  }
+}
