@@ -1,0 +1,12 @@
+,,davinci,davinci,td002,td002,td003,td003,gpt-3.5-turbo,gpt-3.5-turbo
+benchmark,task ,original prompts avg.,all prompts avg,original prompts avg.,all prompts avg,original prompts avg.,all prompts avg,original prompts avg.,all prompts avg
+lmentry,all words from category,0.64,0.64,0.8,0.94,0.85,0.99,0.68,0.97
+lmentry,any words from category,0.66,0.66,0.82,0.95,0.88,0.99,0.97,1
+lmentry,ends with word,0.15,0.88,0.35,0.52,0.61,0.67,0.62,0.72
+lmentry,first alphabetically,0.5,0.55,0.56,0.95,0.9,0.97,0.98,1
+lmentry,homophones,0.59,0.63,0.25,0.99,0.41,0.95,0.79,0.99
+lmentry,less letters,0.48,0.61,0.7,0.95,0.86,0.95,0.92,1
+lmentry,more letters,0.54,0.71,0.8,0.93,0.89,0.97,0.9,1
+lmentry,rhyming word,0.32,0.67,0.45,0.93,0.65,0.95,0.96,0.99
+lmentry,word before,0.17,0.26,0.21,0.51,0.34,0.82,0.66,0.95
+lmentry,word not containing ,0.038461538,0.65,0.923076923,1,1,1,0.961538462,1
