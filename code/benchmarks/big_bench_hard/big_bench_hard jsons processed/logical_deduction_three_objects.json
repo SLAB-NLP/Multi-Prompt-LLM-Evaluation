@@ -1,0 +1,2307 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "logical_deduction_three_objects",
+  "format": "multi_choice",
+  "task_type": "algorithmic",
+  "num_of_instances": 250,
+  "description": "A logical deduction task which requires deducing the order of a sequence of objects.",
+  "more_info": {
+    "input_templates": [
+      "Q: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph.\n{paragraph}\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "paragraph",
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "paragraph": "In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.",
+        "options": [
+          "(A) Amy finished last",
+          "(B) Eli finished last",
+          "(C) Eve finished last"
+        ],
+        "gold": "B",
+        "explanation": "(1) Eve finished above Amy: \"(above) ? Eve ? Amy ? (below)\".\n(2) Eli finished below Amy: \"(above) ? Amy ? Eli ? (below)\".\n(3) Combining (1) and (2) we get the following ordering: \"(above) Eve Amy Eli (below)\".\nAccording to this ordering, the person who finished last (the one at the bottom of this list) is Eli.\nEli finished last. So the answer is (B)."
+      },
+      "1": {
+        "paragraph": "On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.",
+        "options": [
+          "(A) The white book is the leftmost",
+          "(B) The green book is the leftmost",
+          "(C) The orange book is the leftmost"
+        ],
+        "gold": "A",
+        "explanation": "(1) The green book is to the right of the white book: \"(left) ? white ? green ? (right)\".\n(2) The orange book is the rightmost: \"(left) ? white ? green orange (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white green orange (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (A)."
+      },
+      "2": {
+        "paragraph": "On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.",
+        "options": [
+          "(A) The red book is the leftmost",
+          "(B) The gray book is the leftmost",
+          "(C) The white book is the leftmost"
+        ],
+        "gold": "C",
+        "explanation": "(1) The white book is to the left of the gray book: \"(left) ? white ? gray ? (right)\".\n(2) The red book is the second from the left: \"(left) ? white red gray ? (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white red gray (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (C)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph.\nIn a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished last\n(B) Eli finished last\n(C) Eve finished last\nA: (B)\nExplanation:\n(1) Eve finished above Amy: \"(above) ? Eve ? Amy ? (below)\".\n(2) Eli finished below Amy: \"(above) ? Amy ? Eli ? (below)\".\n(3) Combining (1) and (2) we get the following ordering: \"(above) Eve Amy Eli (below)\".\nAccording to this ordering, the person who finished last (the one at the bottom of this list) is Eli.\nEli finished last. So the answer is (B).",
+      "Q: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.\nOptions:\n(A) The white book is the leftmost\n(B) The green book is the leftmost\n(C) The orange book is the leftmost\nA: (A)\nExplanation:\n(1) The green book is to the right of the white book: \"(left) ? white ? green ? (right)\".\n(2) The orange book is the rightmost: \"(left) ? white ? green orange (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white green orange (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (A).",
+      "Q: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.\nOptions:\n(A) The red book is the leftmost\n(B) The gray book is the leftmost\n(C) The white book is the leftmost\nA: (C)\nExplanation:\n(1) The white book is to the left of the gray book: \"(left) ? white ? gray ? (right)\".\n(2) The red book is the second from the left: \"(left) ? white red gray ? (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white red gray (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (C)."
+    ],
+    "cot_prompt_intro": "A logical deduction task which requires deducing the order of a sequence of objects.\n\nQ: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.\nOptions:\n(A) Amy finished last\n(B) Eli finished last\n(C) Eve finished last\nA: Let's think step by step.\n(1) Eve finished above Amy: \"(above) ? Eve ? Amy ? (below)\".\n(2) Eli finished below Amy: \"(above) ? Amy ? Eli ? (below)\".\n(3) Combining (1) and (2) we get the following ordering: \"(above) Eve Amy Eli (below)\".\nAccording to this ordering, the person who finished last (the one at the bottom of this list) is Eli.\nEli finished last. So the answer is (B).\n\nQ: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.\nOptions:\n(A) The white book is the leftmost\n(B) The green book is the leftmost\n(C) The orange book is the leftmost\nA: Let's think step by step.\n(1) The green book is to the right of the white book: \"(left) ? white ? green ? (right)\".\n(2) The orange book is the rightmost: \"(left) ? white ? green orange (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white green orange (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (A).\n\nQ: The following paragraphs each describe a set of three objects arranged in a fixed order. The statements are logically consistent within each paragraph. On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.\nOptions:\n(A) The red book is the leftmost\n(B) The gray book is the leftmost\n(C) The white book is the leftmost\nA: Let's think step by step.\n(1) The white book is to the left of the gray book: \"(left) ? white ? gray ? (right)\".\n(2) The red book is the second from the left: \"(left) ? white red gray ? (right)\".\n(3) Combining (1) and (2) we get the following ordering: \"(left) white red gray (right)\".\nAccording to this ordering, the leftmost book is the white book.\nThe white book is the leftmost. So the answer is (C)."
+  },
+  "examples": {
+    "1": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a quail, and a falcon. The falcon is to the right of the blue jay. The blue jay is to the right of the quail.",
+      "options": [
+        "(A) The blue jay is the second from the left",
+        "(B) The quail is the second from the left",
+        "(C) The falcon is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "2": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a limousine, and a convertible. The motorcyle is newer than the limousine. The convertible is newer than the motorcyle.",
+      "options": [
+        "(A) The motorcyle is the oldest",
+        "(B) The limousine is the oldest",
+        "(C) The convertible is the oldest"
+      ],
+      "gold": "B"
+    },
+    "3": {
+      "paragraph": "On a shelf, there are three books: a blue book, an orange book, and a red book. The blue book is the rightmost. The orange book is the leftmost.",
+      "options": [
+        "(A) The blue book is the second from the left",
+        "(B) The orange book is the second from the left",
+        "(C) The red book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "4": {
+      "paragraph": "On a branch, there are three birds: a robin, a blue jay, and a crow. The robin is to the right of the crow. The robin is to the left of the blue jay.",
+      "options": [
+        "(A) The robin is the rightmost",
+        "(B) The blue jay is the rightmost",
+        "(C) The crow is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "5": {
+      "paragraph": "On a shelf, there are three books: a green book, a red book, and a blue book. The red book is the rightmost. The blue book is to the right of the green book.",
+      "options": [
+        "(A) The green book is the rightmost",
+        "(B) The red book is the rightmost",
+        "(C) The blue book is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "6": {
+      "paragraph": "A fruit stand sells three fruits: apples, peaches, and mangoes. The mangoes are less expensive than the peaches. The apples are less expensive than the mangoes.",
+      "options": [
+        "(A) The apples are the second-most expensive",
+        "(B) The peaches are the second-most expensive",
+        "(C) The mangoes are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "7": {
+      "paragraph": "In an antique car show, there are three vehicles: a tractor, a truck, and a minivan. The minivan is newer than the truck. The tractor is older than the truck.",
+      "options": [
+        "(A) The tractor is the newest",
+        "(B) The truck is the newest",
+        "(C) The minivan is the newest"
+      ],
+      "gold": "C"
+    },
+    "8": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Rob, and Mel. Rob finished below Mel. Mel finished below Eve.",
+      "options": [
+        "(A) Eve finished first",
+        "(B) Rob finished first",
+        "(C) Mel finished first"
+      ],
+      "gold": "A"
+    },
+    "9": {
+      "paragraph": "On a shelf, there are three books: an orange book, a yellow book, and a blue book. The blue book is to the right of the yellow book. The orange book is the second from the left.",
+      "options": [
+        "(A) The orange book is the second from the left",
+        "(B) The yellow book is the second from the left",
+        "(C) The blue book is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "10": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a minivan, and a truck. The minivan is newer than the truck. The station wagon is newer than the minivan.",
+      "options": [
+        "(A) The station wagon is the newest",
+        "(B) The minivan is the newest",
+        "(C) The truck is the newest"
+      ],
+      "gold": "A"
+    },
+    "11": {
+      "paragraph": "On a shelf, there are three books: a gray book, a purple book, and a red book. The purple book is to the left of the red book. The gray book is to the left of the purple book.",
+      "options": [
+        "(A) The gray book is the leftmost",
+        "(B) The purple book is the leftmost",
+        "(C) The red book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "12": {
+      "paragraph": "A fruit stand sells three fruits: peaches, mangoes, and apples. The peaches are more expensive than the apples. The mangoes are the cheapest.",
+      "options": [
+        "(A) The peaches are the second-most expensive",
+        "(B) The mangoes are the second-most expensive",
+        "(C) The apples are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "13": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a falcon, and a hummingbird. The blue jay is to the right of the falcon. The hummingbird is to the left of the falcon.",
+      "options": [
+        "(A) The blue jay is the second from the left",
+        "(B) The falcon is the second from the left",
+        "(C) The hummingbird is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "14": {
+      "paragraph": "In an antique car show, there are three vehicles: a minivan, a bus, and a sedan. The minivan is newer than the sedan. The minivan is older than the bus.",
+      "options": [
+        "(A) The minivan is the second-newest",
+        "(B) The bus is the second-newest",
+        "(C) The sedan is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "15": {
+      "paragraph": "In an antique car show, there are three vehicles: a hatchback, a convertible, and a tractor. The convertible is older than the tractor. The hatchback is the second-newest.",
+      "options": [
+        "(A) The hatchback is the second-newest",
+        "(B) The convertible is the second-newest",
+        "(C) The tractor is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "16": {
+      "paragraph": "A fruit stand sells three fruits: loquats, watermelons, and cantaloupes. The watermelons are the second-most expensive. The loquats are more expensive than the cantaloupes.",
+      "options": [
+        "(A) The loquats are the most expensive",
+        "(B) The watermelons are the most expensive",
+        "(C) The cantaloupes are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "17": {
+      "paragraph": "A fruit stand sells three fruits: mangoes, watermelons, and kiwis. The watermelons are less expensive than the kiwis. The kiwis are the second-most expensive.",
+      "options": [
+        "(A) The mangoes are the most expensive",
+        "(B) The watermelons are the most expensive",
+        "(C) The kiwis are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "18": {
+      "paragraph": "On a shelf, there are three books: a blue book, an orange book, and a red book. The blue book is the rightmost. The orange book is the leftmost.",
+      "options": [
+        "(A) The blue book is the rightmost",
+        "(B) The orange book is the rightmost",
+        "(C) The red book is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "19": {
+      "paragraph": "In a golf tournament, there were three golfers: Ada, Mel, and Mya. Mya finished below Ada. Mel finished above Ada.",
+      "options": [
+        "(A) Ada finished last",
+        "(B) Mel finished last",
+        "(C) Mya finished last"
+      ],
+      "gold": "C"
+    },
+    "20": {
+      "paragraph": "In a golf tournament, there were three golfers: Mel, Ada, and Ana. Mel finished last. Ana finished second.",
+      "options": [
+        "(A) Mel finished last",
+        "(B) Ada finished last",
+        "(C) Ana finished last"
+      ],
+      "gold": "A"
+    },
+    "21": {
+      "paragraph": "A fruit stand sells three fruits: plums, apples, and loquats. The loquats are the cheapest. The plums are less expensive than the apples.",
+      "options": [
+        "(A) The plums are the cheapest",
+        "(B) The apples are the cheapest",
+        "(C) The loquats are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "22": {
+      "paragraph": "On a shelf, there are three books: a black book, an orange book, and a blue book. The blue book is to the right of the orange book. The orange book is to the right of the black book.",
+      "options": [
+        "(A) The black book is the second from the left",
+        "(B) The orange book is the second from the left",
+        "(C) The blue book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "23": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a motorcyle, and a truck. The motorcyle is newer than the convertible. The convertible is newer than the truck.",
+      "options": [
+        "(A) The convertible is the oldest",
+        "(B) The motorcyle is the oldest",
+        "(C) The truck is the oldest"
+      ],
+      "gold": "C"
+    },
+    "24": {
+      "paragraph": "A fruit stand sells three fruits: apples, peaches, and mangoes. The mangoes are less expensive than the peaches. The apples are less expensive than the mangoes.",
+      "options": [
+        "(A) The apples are the cheapest",
+        "(B) The peaches are the cheapest",
+        "(C) The mangoes are the cheapest"
+      ],
+      "gold": "A"
+    },
+    "25": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Joe, and Amy. Eve finished below Amy. Eve finished above Joe.",
+      "options": [
+        "(A) Eve finished first",
+        "(B) Joe finished first",
+        "(C) Amy finished first"
+      ],
+      "gold": "C"
+    },
+    "26": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eve finished below Eli. Eve finished above Mya.",
+      "options": [
+        "(A) Eli finished second",
+        "(B) Mya finished second",
+        "(C) Eve finished second"
+      ],
+      "gold": "C"
+    },
+    "27": {
+      "paragraph": "A fruit stand sells three fruits: peaches, pears, and mangoes. The mangoes are less expensive than the peaches. The mangoes are more expensive than the pears.",
+      "options": [
+        "(A) The peaches are the most expensive",
+        "(B) The pears are the most expensive",
+        "(C) The mangoes are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "28": {
+      "paragraph": "In an antique car show, there are three vehicles: a hatchback, a convertible, and a tractor. The convertible is older than the tractor. The hatchback is the second-newest.",
+      "options": [
+        "(A) The hatchback is the oldest",
+        "(B) The convertible is the oldest",
+        "(C) The tractor is the oldest"
+      ],
+      "gold": "B"
+    },
+    "29": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a blue jay, and a raven. The blue jay is to the right of the hummingbird. The raven is the second from the left.",
+      "options": [
+        "(A) The hummingbird is the rightmost",
+        "(B) The blue jay is the rightmost",
+        "(C) The raven is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "30": {
+      "paragraph": "On a shelf, there are three books: a purple book, a red book, and a yellow book. The purple book is to the right of the yellow book. The yellow book is to the right of the red book.",
+      "options": [
+        "(A) The purple book is the rightmost",
+        "(B) The red book is the rightmost",
+        "(C) The yellow book is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "31": {
+      "paragraph": "A fruit stand sells three fruits: watermelons, apples, and mangoes. The apples are less expensive than the mangoes. The mangoes are less expensive than the watermelons.",
+      "options": [
+        "(A) The watermelons are the second-most expensive",
+        "(B) The apples are the second-most expensive",
+        "(C) The mangoes are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "32": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Dan, and Mel. Mel finished above Amy. Dan finished below Amy.",
+      "options": [
+        "(A) Amy finished first",
+        "(B) Dan finished first",
+        "(C) Mel finished first"
+      ],
+      "gold": "C"
+    },
+    "33": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a bus, and a tractor. The motorcyle is the oldest. The bus is newer than the tractor.",
+      "options": [
+        "(A) The motorcyle is the second-newest",
+        "(B) The bus is the second-newest",
+        "(C) The tractor is the second-newest"
+      ],
+      "gold": "C"
+    },
+    "34": {
+      "paragraph": "On a shelf, there are three books: a red book, a blue book, and an orange book. The red book is to the left of the orange book. The orange book is the second from the left.",
+      "options": [
+        "(A) The red book is the second from the left",
+        "(B) The blue book is the second from the left",
+        "(C) The orange book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "35": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a minivan, and a tractor. The minivan is older than the tractor. The minivan is the second-newest.",
+      "options": [
+        "(A) The motorcyle is the newest",
+        "(B) The minivan is the newest",
+        "(C) The tractor is the newest"
+      ],
+      "gold": "C"
+    },
+    "36": {
+      "paragraph": "In an antique car show, there are three vehicles: a bus, a sedan, and a truck. The truck is older than the bus. The bus is older than the sedan.",
+      "options": [
+        "(A) The bus is the second-newest",
+        "(B) The sedan is the second-newest",
+        "(C) The truck is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "37": {
+      "paragraph": "A fruit stand sells three fruits: loquats, mangoes, and apples. The mangoes are more expensive than the apples. The loquats are more expensive than the mangoes.",
+      "options": [
+        "(A) The loquats are the most expensive",
+        "(B) The mangoes are the most expensive",
+        "(C) The apples are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "38": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a quail, and a falcon. The falcon is to the right of the blue jay. The blue jay is to the right of the quail.",
+      "options": [
+        "(A) The blue jay is the rightmost",
+        "(B) The quail is the rightmost",
+        "(C) The falcon is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "39": {
+      "paragraph": "On a branch, there are three birds: a hawk, a crow, and a raven. The raven is to the right of the hawk. The crow is the rightmost.",
+      "options": [
+        "(A) The hawk is the second from the left",
+        "(B) The crow is the second from the left",
+        "(C) The raven is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "40": {
+      "paragraph": "On a shelf, there are three books: a brown book, a yellow book, and an orange book. The yellow book is the leftmost. The orange book is to the right of the brown book.",
+      "options": [
+        "(A) The brown book is the leftmost",
+        "(B) The yellow book is the leftmost",
+        "(C) The orange book is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "41": {
+      "paragraph": "A fruit stand sells three fruits: loquats, mangoes, and apples. The mangoes are more expensive than the apples. The loquats are more expensive than the mangoes.",
+      "options": [
+        "(A) The loquats are the second-most expensive",
+        "(B) The mangoes are the second-most expensive",
+        "(C) The apples are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "42": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, oranges, and watermelons. The oranges are the most expensive. The cantaloupes are more expensive than the watermelons.",
+      "options": [
+        "(A) The cantaloupes are the cheapest",
+        "(B) The oranges are the cheapest",
+        "(C) The watermelons are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "43": {
+      "paragraph": "A fruit stand sells three fruits: apples, peaches, and loquats. The loquats are less expensive than the apples. The peaches are more expensive than the apples.",
+      "options": [
+        "(A) The apples are the most expensive",
+        "(B) The peaches are the most expensive",
+        "(C) The loquats are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "44": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The crow is to the left of the owl. The owl is the second from the left.",
+      "options": [
+        "(A) The owl is the second from the left",
+        "(B) The crow is the second from the left",
+        "(C) The cardinal is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "45": {
+      "paragraph": "A fruit stand sells three fruits: oranges, mangoes, and plums. The plums are less expensive than the mangoes. The oranges are less expensive than the plums.",
+      "options": [
+        "(A) The oranges are the second-most expensive",
+        "(B) The mangoes are the second-most expensive",
+        "(C) The plums are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "46": {
+      "paragraph": "On a branch, there are three birds: a quail, an owl, and a hummingbird. The quail is to the left of the owl. The owl is to the left of the hummingbird.",
+      "options": [
+        "(A) The quail is the second from the left",
+        "(B) The owl is the second from the left",
+        "(C) The hummingbird is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "47": {
+      "paragraph": "A fruit stand sells three fruits: oranges, watermelons, and pears. The oranges are the second-most expensive. The pears are more expensive than the watermelons.",
+      "options": [
+        "(A) The oranges are the most expensive",
+        "(B) The watermelons are the most expensive",
+        "(C) The pears are the most expensive"
+      ],
+      "gold": "C"
+    },
+    "48": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Mel, and Ada. Ada finished above Ana. Mel finished below Ana.",
+      "options": [
+        "(A) Ana finished first",
+        "(B) Mel finished first",
+        "(C) Ada finished first"
+      ],
+      "gold": "C"
+    },
+    "49": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a tractor, and a bus. The sedan is older than the tractor. The bus is older than the sedan.",
+      "options": [
+        "(A) The sedan is the second-newest",
+        "(B) The tractor is the second-newest",
+        "(C) The bus is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "50": {
+      "paragraph": "On a shelf, there are three books: a green book, a brown book, and an orange book. The brown book is to the left of the orange book. The green book is to the left of the brown book.",
+      "options": [
+        "(A) The green book is the second from the left",
+        "(B) The brown book is the second from the left",
+        "(C) The orange book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "51": {
+      "paragraph": "On a shelf, there are three books: an orange book, a blue book, and a yellow book. The orange book is to the left of the blue book. The yellow book is to the right of the blue book.",
+      "options": [
+        "(A) The orange book is the leftmost",
+        "(B) The blue book is the leftmost",
+        "(C) The yellow book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "52": {
+      "paragraph": "A fruit stand sells three fruits: oranges, mangoes, and plums. The plums are less expensive than the mangoes. The oranges are less expensive than the plums.",
+      "options": [
+        "(A) The oranges are the cheapest",
+        "(B) The mangoes are the cheapest",
+        "(C) The plums are the cheapest"
+      ],
+      "gold": "A"
+    },
+    "53": {
+      "paragraph": "On a shelf, there are three books: a gray book, a purple book, and a red book. The purple book is to the left of the red book. The gray book is to the left of the purple book.",
+      "options": [
+        "(A) The gray book is the rightmost",
+        "(B) The purple book is the rightmost",
+        "(C) The red book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "54": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a minivan, and a tractor. The minivan is older than the tractor. The minivan is the second-newest.",
+      "options": [
+        "(A) The motorcyle is the oldest",
+        "(B) The minivan is the oldest",
+        "(C) The tractor is the oldest"
+      ],
+      "gold": "A"
+    },
+    "55": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a cardinal, and a quail. The cardinal is to the right of the quail. The quail is to the right of the blue jay.",
+      "options": [
+        "(A) The blue jay is the rightmost",
+        "(B) The cardinal is the rightmost",
+        "(C) The quail is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "56": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.",
+      "options": [
+        "(A) Amy finished second",
+        "(B) Eli finished second",
+        "(C) Eve finished second"
+      ],
+      "gold": "A"
+    },
+    "57": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Dan, and Eve. Eve finished above Dan. Dan finished above Joe.",
+      "options": [
+        "(A) Joe finished first",
+        "(B) Dan finished first",
+        "(C) Eve finished first"
+      ],
+      "gold": "C"
+    },
+    "58": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a quail, and a falcon. The falcon is to the right of the blue jay. The blue jay is to the right of the quail.",
+      "options": [
+        "(A) The blue jay is the leftmost",
+        "(B) The quail is the leftmost",
+        "(C) The falcon is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "59": {
+      "paragraph": "A fruit stand sells three fruits: watermelons, apples, and mangoes. The apples are less expensive than the mangoes. The mangoes are less expensive than the watermelons.",
+      "options": [
+        "(A) The watermelons are the cheapest",
+        "(B) The apples are the cheapest",
+        "(C) The mangoes are the cheapest"
+      ],
+      "gold": "B"
+    },
+    "60": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a bus, and a tractor. The motorcyle is the oldest. The bus is newer than the tractor.",
+      "options": [
+        "(A) The motorcyle is the newest",
+        "(B) The bus is the newest",
+        "(C) The tractor is the newest"
+      ],
+      "gold": "B"
+    },
+    "61": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a minivan, and a tractor. The minivan is older than the tractor. The minivan is the second-newest.",
+      "options": [
+        "(A) The motorcyle is the second-newest",
+        "(B) The minivan is the second-newest",
+        "(C) The tractor is the second-newest"
+      ],
+      "gold": "B"
+    },
+    "62": {
+      "paragraph": "A fruit stand sells three fruits: plums, apples, and loquats. The loquats are the cheapest. The plums are less expensive than the apples.",
+      "options": [
+        "(A) The plums are the most expensive",
+        "(B) The apples are the most expensive",
+        "(C) The loquats are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "63": {
+      "paragraph": "On a shelf, there are three books: a gray book, an orange book, and a brown book. The orange book is the leftmost. The gray book is to the right of the brown book.",
+      "options": [
+        "(A) The gray book is the second from the left",
+        "(B) The orange book is the second from the left",
+        "(C) The brown book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "64": {
+      "paragraph": "A fruit stand sells three fruits: pears, plums, and kiwis. The pears are less expensive than the plums. The kiwis are less expensive than the pears.",
+      "options": [
+        "(A) The pears are the second-most expensive",
+        "(B) The plums are the second-most expensive",
+        "(C) The kiwis are the second-most expensive"
+      ],
+      "gold": "A"
+    },
+    "65": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a tractor, and a hatchback. The hatchback is older than the convertible. The tractor is the newest.",
+      "options": [
+        "(A) The convertible is the newest",
+        "(B) The tractor is the newest",
+        "(C) The hatchback is the newest"
+      ],
+      "gold": "B"
+    },
+    "66": {
+      "paragraph": "In an antique car show, there are three vehicles: a tractor, a convertible, and a minivan. The tractor is the second-newest. The minivan is newer than the convertible.",
+      "options": [
+        "(A) The tractor is the second-newest",
+        "(B) The convertible is the second-newest",
+        "(C) The minivan is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "67": {
+      "paragraph": "In an antique car show, there are three vehicles: a tractor, a station wagon, and a limousine. The tractor is newer than the limousine. The station wagon is the newest.",
+      "options": [
+        "(A) The tractor is the oldest",
+        "(B) The station wagon is the oldest",
+        "(C) The limousine is the oldest"
+      ],
+      "gold": "C"
+    },
+    "68": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eve finished below Eli. Eve finished above Mya.",
+      "options": [
+        "(A) Eli finished first",
+        "(B) Mya finished first",
+        "(C) Eve finished first"
+      ],
+      "gold": "A"
+    },
+    "69": {
+      "paragraph": "On a branch, there are three birds: a cardinal, a hawk, and a hummingbird. The hummingbird is to the right of the hawk. The cardinal is to the left of the hawk.",
+      "options": [
+        "(A) The cardinal is the rightmost",
+        "(B) The hawk is the rightmost",
+        "(C) The hummingbird is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "70": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a tractor, and a bus. The sedan is older than the tractor. The bus is older than the sedan.",
+      "options": [
+        "(A) The sedan is the newest",
+        "(B) The tractor is the newest",
+        "(C) The bus is the newest"
+      ],
+      "gold": "B"
+    },
+    "71": {
+      "paragraph": "On a shelf, there are three books: a blue book, an orange book, and a green book. The green book is the leftmost. The orange book is to the left of the blue book.",
+      "options": [
+        "(A) The blue book is the leftmost",
+        "(B) The orange book is the leftmost",
+        "(C) The green book is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "72": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Eve, and Amy. Amy finished above Eve. Joe finished first.",
+      "options": [
+        "(A) Joe finished last",
+        "(B) Eve finished last",
+        "(C) Amy finished last"
+      ],
+      "gold": "B"
+    },
+    "73": {
+      "paragraph": "A fruit stand sells three fruits: kiwis, loquats, and cantaloupes. The kiwis are less expensive than the loquats. The cantaloupes are less expensive than the kiwis.",
+      "options": [
+        "(A) The kiwis are the most expensive",
+        "(B) The loquats are the most expensive",
+        "(C) The cantaloupes are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "74": {
+      "paragraph": "A fruit stand sells three fruits: kiwis, loquats, and cantaloupes. The kiwis are less expensive than the loquats. The cantaloupes are less expensive than the kiwis.",
+      "options": [
+        "(A) The kiwis are the second-most expensive",
+        "(B) The loquats are the second-most expensive",
+        "(C) The cantaloupes are the second-most expensive"
+      ],
+      "gold": "A"
+    },
+    "75": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a minivan, and a truck. The minivan is newer than the truck. The station wagon is newer than the minivan.",
+      "options": [
+        "(A) The station wagon is the oldest",
+        "(B) The minivan is the oldest",
+        "(C) The truck is the oldest"
+      ],
+      "gold": "C"
+    },
+    "76": {
+      "paragraph": "On a shelf, there are three books: a white book, a black book, and a purple book. The black book is to the left of the purple book. The purple book is to the left of the white book.",
+      "options": [
+        "(A) The white book is the leftmost",
+        "(B) The black book is the leftmost",
+        "(C) The purple book is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "77": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eve finished below Eli. Eve finished above Mya.",
+      "options": [
+        "(A) Eli finished last",
+        "(B) Mya finished last",
+        "(C) Eve finished last"
+      ],
+      "gold": "B"
+    },
+    "78": {
+      "paragraph": "On a branch, there are three birds: a quail, an owl, and a hummingbird. The quail is to the left of the owl. The owl is to the left of the hummingbird.",
+      "options": [
+        "(A) The quail is the leftmost",
+        "(B) The owl is the leftmost",
+        "(C) The hummingbird is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "79": {
+      "paragraph": "A fruit stand sells three fruits: apples, pears, and plums. The pears are less expensive than the plums. The pears are more expensive than the apples.",
+      "options": [
+        "(A) The apples are the cheapest",
+        "(B) The pears are the cheapest",
+        "(C) The plums are the cheapest"
+      ],
+      "gold": "A"
+    },
+    "80": {
+      "paragraph": "In a golf tournament, there were three golfers: Ada, Mel, and Mya. Mya finished below Ada. Mel finished above Ada.",
+      "options": [
+        "(A) Ada finished first",
+        "(B) Mel finished first",
+        "(C) Mya finished first"
+      ],
+      "gold": "B"
+    },
+    "81": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, watermelons, and mangoes. The mangoes are the cheapest. The cantaloupes are the second-most expensive.",
+      "options": [
+        "(A) The cantaloupes are the cheapest",
+        "(B) The watermelons are the cheapest",
+        "(C) The mangoes are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "82": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Ana, and Joe. Amy finished below Ana. Ana finished below Joe.",
+      "options": [
+        "(A) Amy finished second",
+        "(B) Ana finished second",
+        "(C) Joe finished second"
+      ],
+      "gold": "B"
+    },
+    "83": {
+      "paragraph": "In a golf tournament, there were three golfers: Ada, Mel, and Mya. Mya finished below Ada. Mel finished above Ada.",
+      "options": [
+        "(A) Ada finished second",
+        "(B) Mel finished second",
+        "(C) Mya finished second"
+      ],
+      "gold": "A"
+    },
+    "84": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a motorcyle, and a truck. The motorcyle is newer than the convertible. The convertible is newer than the truck.",
+      "options": [
+        "(A) The convertible is the newest",
+        "(B) The motorcyle is the newest",
+        "(C) The truck is the newest"
+      ],
+      "gold": "B"
+    },
+    "85": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Dan, and Mel. Dan finished second. Mel finished first.",
+      "options": [
+        "(A) Ana finished second",
+        "(B) Dan finished second",
+        "(C) Mel finished second"
+      ],
+      "gold": "B"
+    },
+    "86": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a limousine, and a bus. The limousine is older than the bus. The bus is older than the convertible.",
+      "options": [
+        "(A) The convertible is the newest",
+        "(B) The limousine is the newest",
+        "(C) The bus is the newest"
+      ],
+      "gold": "A"
+    },
+    "87": {
+      "paragraph": "On a shelf, there are three books: a green book, a red book, and a blue book. The red book is the rightmost. The blue book is to the right of the green book.",
+      "options": [
+        "(A) The green book is the second from the left",
+        "(B) The red book is the second from the left",
+        "(C) The blue book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "88": {
+      "paragraph": "A fruit stand sells three fruits: peaches, pears, and mangoes. The mangoes are less expensive than the pears. The peaches are the cheapest.",
+      "options": [
+        "(A) The peaches are the most expensive",
+        "(B) The pears are the most expensive",
+        "(C) The mangoes are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "89": {
+      "paragraph": "A fruit stand sells three fruits: loquats, watermelons, and cantaloupes. The watermelons are the second-most expensive. The loquats are more expensive than the cantaloupes.",
+      "options": [
+        "(A) The loquats are the cheapest",
+        "(B) The watermelons are the cheapest",
+        "(C) The cantaloupes are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "90": {
+      "paragraph": "On a branch, there are three birds: a robin, an owl, and a hawk. The robin is to the right of the hawk. The owl is the leftmost.",
+      "options": [
+        "(A) The robin is the leftmost",
+        "(B) The owl is the leftmost",
+        "(C) The hawk is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "91": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eli finished last. Mya finished second.",
+      "options": [
+        "(A) Eli finished first",
+        "(B) Mya finished first",
+        "(C) Eve finished first"
+      ],
+      "gold": "C"
+    },
+    "92": {
+      "paragraph": "A fruit stand sells three fruits: oranges, mangoes, and plums. The plums are less expensive than the mangoes. The oranges are less expensive than the plums.",
+      "options": [
+        "(A) The oranges are the most expensive",
+        "(B) The mangoes are the most expensive",
+        "(C) The plums are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "93": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a tractor, and a bus. The sedan is older than the tractor. The bus is older than the sedan.",
+      "options": [
+        "(A) The sedan is the oldest",
+        "(B) The tractor is the oldest",
+        "(C) The bus is the oldest"
+      ],
+      "gold": "C"
+    },
+    "94": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a blue jay, and a raven. The blue jay is to the right of the hummingbird. The raven is the second from the left.",
+      "options": [
+        "(A) The hummingbird is the second from the left",
+        "(B) The blue jay is the second from the left",
+        "(C) The raven is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "95": {
+      "paragraph": "On a shelf, there are three books: an orange book, a white book, and a purple book. The orange book is to the left of the white book. The purple book is the rightmost.",
+      "options": [
+        "(A) The orange book is the leftmost",
+        "(B) The white book is the leftmost",
+        "(C) The purple book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "96": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Eli, and Eve. Eve finished above Amy. Eli finished below Amy.",
+      "options": [
+        "(A) Amy finished first",
+        "(B) Eli finished first",
+        "(C) Eve finished first"
+      ],
+      "gold": "C"
+    },
+    "97": {
+      "paragraph": "On a branch, there are three birds: a hawk, a cardinal, and a falcon. The hawk is to the left of the cardinal. The hawk is the second from the left.",
+      "options": [
+        "(A) The hawk is the second from the left",
+        "(B) The cardinal is the second from the left",
+        "(C) The falcon is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "98": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, oranges, and watermelons. The oranges are the most expensive. The cantaloupes are more expensive than the watermelons.",
+      "options": [
+        "(A) The cantaloupes are the second-most expensive",
+        "(B) The oranges are the second-most expensive",
+        "(C) The watermelons are the second-most expensive"
+      ],
+      "gold": "A"
+    },
+    "99": {
+      "paragraph": "On a branch, there are three birds: a robin, a blue jay, and a crow. The robin is to the right of the crow. The robin is to the left of the blue jay.",
+      "options": [
+        "(A) The robin is the second from the left",
+        "(B) The blue jay is the second from the left",
+        "(C) The crow is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "100": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Mel, and Ada. Ada finished above Ana. Mel finished below Ana.",
+      "options": [
+        "(A) Ana finished last",
+        "(B) Mel finished last",
+        "(C) Ada finished last"
+      ],
+      "gold": "B"
+    },
+    "101": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, an owl, and a falcon. The falcon is to the right of the owl. The hummingbird is to the left of the owl.",
+      "options": [
+        "(A) The hummingbird is the leftmost",
+        "(B) The owl is the leftmost",
+        "(C) The falcon is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "102": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a minivan, and a motorcyle. The motorcyle is the second-newest. The minivan is newer than the motorcyle.",
+      "options": [
+        "(A) The sedan is the oldest",
+        "(B) The minivan is the oldest",
+        "(C) The motorcyle is the oldest"
+      ],
+      "gold": "A"
+    },
+    "103": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a limousine, and a bus. The limousine is older than the bus. The bus is older than the convertible.",
+      "options": [
+        "(A) The convertible is the oldest",
+        "(B) The limousine is the oldest",
+        "(C) The bus is the oldest"
+      ],
+      "gold": "B"
+    },
+    "104": {
+      "paragraph": "In an antique car show, there are three vehicles: a truck, a minivan, and a tractor. The truck is newer than the minivan. The minivan is newer than the tractor.",
+      "options": [
+        "(A) The truck is the newest",
+        "(B) The minivan is the newest",
+        "(C) The tractor is the newest"
+      ],
+      "gold": "A"
+    },
+    "105": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The owl is to the right of the cardinal. The cardinal is to the right of the crow.",
+      "options": [
+        "(A) The owl is the rightmost",
+        "(B) The crow is the rightmost",
+        "(C) The cardinal is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "106": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Joe, and Amy. Eve finished below Amy. Eve finished above Joe.",
+      "options": [
+        "(A) Eve finished last",
+        "(B) Joe finished last",
+        "(C) Amy finished last"
+      ],
+      "gold": "B"
+    },
+    "107": {
+      "paragraph": "On a shelf, there are three books: a red book, a blue book, and an orange book. The red book is to the left of the orange book. The orange book is the second from the left.",
+      "options": [
+        "(A) The red book is the leftmost",
+        "(B) The blue book is the leftmost",
+        "(C) The orange book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "108": {
+      "paragraph": "On a shelf, there are three books: a purple book, a black book, and a blue book. The purple book is to the right of the blue book. The black book is the second from the left.",
+      "options": [
+        "(A) The purple book is the leftmost",
+        "(B) The black book is the leftmost",
+        "(C) The blue book is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "109": {
+      "paragraph": "On a branch, there are three birds: a raven, a quail, and a crow. The quail is the leftmost. The raven is the rightmost.",
+      "options": [
+        "(A) The raven is the second from the left",
+        "(B) The quail is the second from the left",
+        "(C) The crow is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "110": {
+      "paragraph": "On a branch, there are three birds: a robin, a raven, and a quail. The quail is to the left of the robin. The robin is the second from the left.",
+      "options": [
+        "(A) The robin is the leftmost",
+        "(B) The raven is the leftmost",
+        "(C) The quail is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "111": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a blue jay, and a raven. The blue jay is to the right of the hummingbird. The raven is the second from the left.",
+      "options": [
+        "(A) The hummingbird is the leftmost",
+        "(B) The blue jay is the leftmost",
+        "(C) The raven is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "112": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Dan, and Mel. Mel finished above Amy. Dan finished below Amy.",
+      "options": [
+        "(A) Amy finished second",
+        "(B) Dan finished second",
+        "(C) Mel finished second"
+      ],
+      "gold": "A"
+    },
+    "113": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a minivan, and a truck. The minivan is newer than the truck. The station wagon is newer than the minivan.",
+      "options": [
+        "(A) The station wagon is the second-newest",
+        "(B) The minivan is the second-newest",
+        "(C) The truck is the second-newest"
+      ],
+      "gold": "B"
+    },
+    "114": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a bus, and a tractor. The motorcyle is the oldest. The bus is newer than the tractor.",
+      "options": [
+        "(A) The motorcyle is the oldest",
+        "(B) The bus is the oldest",
+        "(C) The tractor is the oldest"
+      ],
+      "gold": "A"
+    },
+    "115": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Dan, and Eve. Eve finished above Dan. Dan finished above Joe.",
+      "options": [
+        "(A) Joe finished second",
+        "(B) Dan finished second",
+        "(C) Eve finished second"
+      ],
+      "gold": "B"
+    },
+    "116": {
+      "paragraph": "A fruit stand sells three fruits: apples, pears, and loquats. The pears are more expensive than the loquats. The pears are less expensive than the apples.",
+      "options": [
+        "(A) The apples are the second-most expensive",
+        "(B) The pears are the second-most expensive",
+        "(C) The loquats are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "117": {
+      "paragraph": "In an antique car show, there are three vehicles: a hatchback, a convertible, and a tractor. The convertible is older than the tractor. The hatchback is the second-newest.",
+      "options": [
+        "(A) The hatchback is the newest",
+        "(B) The convertible is the newest",
+        "(C) The tractor is the newest"
+      ],
+      "gold": "C"
+    },
+    "118": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a falcon, and a hummingbird. The blue jay is to the right of the falcon. The hummingbird is to the left of the falcon.",
+      "options": [
+        "(A) The blue jay is the rightmost",
+        "(B) The falcon is the rightmost",
+        "(C) The hummingbird is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "119": {
+      "paragraph": "In an antique car show, there are three vehicles: a minivan, a bus, and a sedan. The minivan is newer than the sedan. The minivan is older than the bus.",
+      "options": [
+        "(A) The minivan is the newest",
+        "(B) The bus is the newest",
+        "(C) The sedan is the newest"
+      ],
+      "gold": "B"
+    },
+    "120": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, apples, and loquats. The loquats are more expensive than the apples. The cantaloupes are less expensive than the apples.",
+      "options": [
+        "(A) The cantaloupes are the cheapest",
+        "(B) The apples are the cheapest",
+        "(C) The loquats are the cheapest"
+      ],
+      "gold": "A"
+    },
+    "121": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Rob, and Mel. Rob finished below Mel. Mel finished below Eve.",
+      "options": [
+        "(A) Eve finished last",
+        "(B) Rob finished last",
+        "(C) Mel finished last"
+      ],
+      "gold": "B"
+    },
+    "122": {
+      "paragraph": "On a shelf, there are three books: a white book, a black book, and a purple book. The black book is to the left of the purple book. The purple book is to the left of the white book.",
+      "options": [
+        "(A) The white book is the second from the left",
+        "(B) The black book is the second from the left",
+        "(C) The purple book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "123": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Rob, and Mel. Rob finished below Mel. Mel finished below Eve.",
+      "options": [
+        "(A) Eve finished second",
+        "(B) Rob finished second",
+        "(C) Mel finished second"
+      ],
+      "gold": "C"
+    },
+    "124": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The crow is to the left of the owl. The owl is the second from the left.",
+      "options": [
+        "(A) The owl is the leftmost",
+        "(B) The crow is the leftmost",
+        "(C) The cardinal is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "125": {
+      "paragraph": "A fruit stand sells three fruits: apples, pears, and loquats. The pears are more expensive than the loquats. The pears are less expensive than the apples.",
+      "options": [
+        "(A) The apples are the cheapest",
+        "(B) The pears are the cheapest",
+        "(C) The loquats are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "126": {
+      "paragraph": "On a shelf, there are three books: a green book, a red book, and a blue book. The red book is the rightmost. The blue book is to the right of the green book.",
+      "options": [
+        "(A) The green book is the leftmost",
+        "(B) The red book is the leftmost",
+        "(C) The blue book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "127": {
+      "paragraph": "On a shelf, there are three books: an orange book, a blue book, and a yellow book. The orange book is to the left of the blue book. The yellow book is to the right of the blue book.",
+      "options": [
+        "(A) The orange book is the second from the left",
+        "(B) The blue book is the second from the left",
+        "(C) The yellow book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "128": {
+      "paragraph": "On a branch, there are three birds: a robin, a raven, and a quail. The quail is to the left of the robin. The robin is the second from the left.",
+      "options": [
+        "(A) The robin is the second from the left",
+        "(B) The raven is the second from the left",
+        "(C) The quail is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "129": {
+      "paragraph": "On a branch, there are three birds: a crow, a falcon, and a raven. The crow is to the left of the raven. The falcon is to the right of the raven.",
+      "options": [
+        "(A) The crow is the leftmost",
+        "(B) The falcon is the leftmost",
+        "(C) The raven is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "130": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eli finished last. Mya finished second.",
+      "options": [
+        "(A) Eli finished second",
+        "(B) Mya finished second",
+        "(C) Eve finished second"
+      ],
+      "gold": "B"
+    },
+    "131": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a motorcyle, and a truck. The motorcyle is newer than the convertible. The convertible is newer than the truck.",
+      "options": [
+        "(A) The convertible is the second-newest",
+        "(B) The motorcyle is the second-newest",
+        "(C) The truck is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "132": {
+      "paragraph": "On a shelf, there are three books: a purple book, a red book, and a yellow book. The purple book is to the right of the yellow book. The yellow book is to the right of the red book.",
+      "options": [
+        "(A) The purple book is the second from the left",
+        "(B) The red book is the second from the left",
+        "(C) The yellow book is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "133": {
+      "paragraph": "A fruit stand sells three fruits: peaches, mangoes, and apples. The peaches are more expensive than the apples. The mangoes are the cheapest.",
+      "options": [
+        "(A) The peaches are the cheapest",
+        "(B) The mangoes are the cheapest",
+        "(C) The apples are the cheapest"
+      ],
+      "gold": "B"
+    },
+    "134": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a falcon, and a raven. The falcon is to the left of the blue jay. The falcon is to the right of the raven.",
+      "options": [
+        "(A) The blue jay is the second from the left",
+        "(B) The falcon is the second from the left",
+        "(C) The raven is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "135": {
+      "paragraph": "A fruit stand sells three fruits: loquats, mangoes, and apples. The mangoes are more expensive than the apples. The loquats are more expensive than the mangoes.",
+      "options": [
+        "(A) The loquats are the cheapest",
+        "(B) The mangoes are the cheapest",
+        "(C) The apples are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "136": {
+      "paragraph": "A fruit stand sells three fruits: apples, peaches, and mangoes. The mangoes are less expensive than the peaches. The apples are less expensive than the mangoes.",
+      "options": [
+        "(A) The apples are the most expensive",
+        "(B) The peaches are the most expensive",
+        "(C) The mangoes are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "137": {
+      "paragraph": "A fruit stand sells three fruits: plums, apples, and loquats. The loquats are the cheapest. The plums are less expensive than the apples.",
+      "options": [
+        "(A) The plums are the second-most expensive",
+        "(B) The apples are the second-most expensive",
+        "(C) The loquats are the second-most expensive"
+      ],
+      "gold": "A"
+    },
+    "138": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a quail, and a crow. The crow is the second from the left. The hummingbird is to the left of the crow.",
+      "options": [
+        "(A) The hummingbird is the rightmost",
+        "(B) The quail is the rightmost",
+        "(C) The crow is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "139": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Rob, and Joe. Joe finished above Ana. Rob finished above Joe.",
+      "options": [
+        "(A) Ana finished last",
+        "(B) Rob finished last",
+        "(C) Joe finished last"
+      ],
+      "gold": "A"
+    },
+    "140": {
+      "paragraph": "On a shelf, there are three books: a brown book, a yellow book, and an orange book. The yellow book is the leftmost. The orange book is to the right of the brown book.",
+      "options": [
+        "(A) The brown book is the rightmost",
+        "(B) The yellow book is the rightmost",
+        "(C) The orange book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "141": {
+      "paragraph": "A fruit stand sells three fruits: pears, plums, and kiwis. The pears are less expensive than the plums. The kiwis are less expensive than the pears.",
+      "options": [
+        "(A) The pears are the most expensive",
+        "(B) The plums are the most expensive",
+        "(C) The kiwis are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "142": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The owl is to the right of the cardinal. The cardinal is to the right of the crow.",
+      "options": [
+        "(A) The owl is the second from the left",
+        "(B) The crow is the second from the left",
+        "(C) The cardinal is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "143": {
+      "paragraph": "On a shelf, there are three books: a yellow book, a brown book, and a red book. The red book is to the left of the brown book. The yellow book is to the right of the brown book.",
+      "options": [
+        "(A) The yellow book is the leftmost",
+        "(B) The brown book is the leftmost",
+        "(C) The red book is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "144": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Eve, and Amy. Amy finished above Eve. Joe finished first.",
+      "options": [
+        "(A) Joe finished first",
+        "(B) Eve finished first",
+        "(C) Amy finished first"
+      ],
+      "gold": "A"
+    },
+    "145": {
+      "paragraph": "On a shelf, there are three books: a gray book, an orange book, and a brown book. The orange book is the leftmost. The gray book is to the right of the brown book.",
+      "options": [
+        "(A) The gray book is the leftmost",
+        "(B) The orange book is the leftmost",
+        "(C) The brown book is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "146": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Ada, and Joe. Joe finished below Ada. Amy finished above Ada.",
+      "options": [
+        "(A) Amy finished last",
+        "(B) Ada finished last",
+        "(C) Joe finished last"
+      ],
+      "gold": "C"
+    },
+    "147": {
+      "paragraph": "A fruit stand sells three fruits: peaches, pears, and mangoes. The mangoes are less expensive than the peaches. The mangoes are more expensive than the pears.",
+      "options": [
+        "(A) The peaches are the second-most expensive",
+        "(B) The pears are the second-most expensive",
+        "(C) The mangoes are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "148": {
+      "paragraph": "On a shelf, there are three books: a black book, an orange book, and a blue book. The blue book is to the right of the orange book. The orange book is to the right of the black book.",
+      "options": [
+        "(A) The black book is the leftmost",
+        "(B) The orange book is the leftmost",
+        "(C) The blue book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "149": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a limousine, and a convertible. The motorcyle is newer than the limousine. The convertible is newer than the motorcyle.",
+      "options": [
+        "(A) The motorcyle is the second-newest",
+        "(B) The limousine is the second-newest",
+        "(C) The convertible is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "150": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Rob, and Joe. Joe finished above Ana. Rob finished above Joe.",
+      "options": [
+        "(A) Ana finished first",
+        "(B) Rob finished first",
+        "(C) Joe finished first"
+      ],
+      "gold": "B"
+    },
+    "151": {
+      "paragraph": "A fruit stand sells three fruits: kiwis, oranges, and watermelons. The oranges are more expensive than the kiwis. The oranges are less expensive than the watermelons.",
+      "options": [
+        "(A) The kiwis are the second-most expensive",
+        "(B) The oranges are the second-most expensive",
+        "(C) The watermelons are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "152": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The owl is to the right of the cardinal. The cardinal is to the right of the crow.",
+      "options": [
+        "(A) The owl is the leftmost",
+        "(B) The crow is the leftmost",
+        "(C) The cardinal is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "153": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a tractor, and a hatchback. The hatchback is older than the convertible. The tractor is the newest.",
+      "options": [
+        "(A) The convertible is the oldest",
+        "(B) The tractor is the oldest",
+        "(C) The hatchback is the oldest"
+      ],
+      "gold": "C"
+    },
+    "154": {
+      "paragraph": "On a branch, there are three birds: a robin, a blue jay, and a crow. The robin is to the right of the crow. The robin is to the left of the blue jay.",
+      "options": [
+        "(A) The robin is the leftmost",
+        "(B) The blue jay is the leftmost",
+        "(C) The crow is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "155": {
+      "paragraph": "In an antique car show, there are three vehicles: a limousine, a truck, and a minivan. The minivan is older than the truck. The limousine is the second-newest.",
+      "options": [
+        "(A) The limousine is the newest",
+        "(B) The truck is the newest",
+        "(C) The minivan is the newest"
+      ],
+      "gold": "B"
+    },
+    "156": {
+      "paragraph": "In an antique car show, there are three vehicles: a hatchback, a limousine, and a station wagon. The station wagon is older than the hatchback. The hatchback is the second-newest.",
+      "options": [
+        "(A) The hatchback is the second-newest",
+        "(B) The limousine is the second-newest",
+        "(C) The station wagon is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "157": {
+      "paragraph": "On a shelf, there are three books: a yellow book, a brown book, and a red book. The red book is to the left of the brown book. The yellow book is to the right of the brown book.",
+      "options": [
+        "(A) The yellow book is the rightmost",
+        "(B) The brown book is the rightmost",
+        "(C) The red book is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "158": {
+      "paragraph": "On a shelf, there are three books: a black book, an orange book, and a blue book. The blue book is to the right of the orange book. The orange book is to the right of the black book.",
+      "options": [
+        "(A) The black book is the rightmost",
+        "(B) The orange book is the rightmost",
+        "(C) The blue book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "159": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Amy, and Rob. Amy finished above Rob. Eve finished above Amy.",
+      "options": [
+        "(A) Eve finished first",
+        "(B) Amy finished first",
+        "(C) Rob finished first"
+      ],
+      "gold": "A"
+    },
+    "160": {
+      "paragraph": "On a branch, there are three birds: a cardinal, a hawk, and a hummingbird. The hummingbird is to the right of the hawk. The cardinal is to the left of the hawk.",
+      "options": [
+        "(A) The cardinal is the second from the left",
+        "(B) The hawk is the second from the left",
+        "(C) The hummingbird is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "161": {
+      "paragraph": "A fruit stand sells three fruits: oranges, watermelons, and pears. The oranges are the second-most expensive. The pears are more expensive than the watermelons.",
+      "options": [
+        "(A) The oranges are the second-most expensive",
+        "(B) The watermelons are the second-most expensive",
+        "(C) The pears are the second-most expensive"
+      ],
+      "gold": "A"
+    },
+    "162": {
+      "paragraph": "A fruit stand sells three fruits: kiwis, oranges, and watermelons. The oranges are more expensive than the kiwis. The oranges are less expensive than the watermelons.",
+      "options": [
+        "(A) The kiwis are the most expensive",
+        "(B) The oranges are the most expensive",
+        "(C) The watermelons are the most expensive"
+      ],
+      "gold": "C"
+    },
+    "163": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Amy, and Eli. Eli finished second. Eli finished below Amy.",
+      "options": [
+        "(A) Ana finished second",
+        "(B) Amy finished second",
+        "(C) Eli finished second"
+      ],
+      "gold": "C"
+    },
+    "164": {
+      "paragraph": "A fruit stand sells three fruits: apples, pears, and plums. The pears are less expensive than the plums. The pears are more expensive than the apples.",
+      "options": [
+        "(A) The apples are the second-most expensive",
+        "(B) The pears are the second-most expensive",
+        "(C) The plums are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "165": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, an owl, and a falcon. The falcon is to the right of the owl. The hummingbird is to the left of the owl.",
+      "options": [
+        "(A) The hummingbird is the rightmost",
+        "(B) The owl is the rightmost",
+        "(C) The falcon is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "166": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a convertible, and a truck. The truck is the newest. The sedan is older than the convertible.",
+      "options": [
+        "(A) The sedan is the oldest",
+        "(B) The convertible is the oldest",
+        "(C) The truck is the oldest"
+      ],
+      "gold": "A"
+    },
+    "167": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Ana, and Joe. Amy finished below Ana. Ana finished below Joe.",
+      "options": [
+        "(A) Amy finished last",
+        "(B) Ana finished last",
+        "(C) Joe finished last"
+      ],
+      "gold": "A"
+    },
+    "168": {
+      "paragraph": "On a branch, there are three birds: a crow, a falcon, and a hummingbird. The crow is to the left of the falcon. The hummingbird is to the left of the crow.",
+      "options": [
+        "(A) The crow is the leftmost",
+        "(B) The falcon is the leftmost",
+        "(C) The hummingbird is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "169": {
+      "paragraph": "A fruit stand sells three fruits: pears, plums, and kiwis. The pears are less expensive than the plums. The kiwis are less expensive than the pears.",
+      "options": [
+        "(A) The pears are the cheapest",
+        "(B) The plums are the cheapest",
+        "(C) The kiwis are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "170": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Mel, and Ada. Ada finished above Ana. Mel finished below Ana.",
+      "options": [
+        "(A) Ana finished second",
+        "(B) Mel finished second",
+        "(C) Ada finished second"
+      ],
+      "gold": "A"
+    },
+    "171": {
+      "paragraph": "On a shelf, there are three books: a yellow book, a green book, and a red book. The red book is to the left of the green book. The yellow book is to the left of the red book.",
+      "options": [
+        "(A) The yellow book is the leftmost",
+        "(B) The green book is the leftmost",
+        "(C) The red book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "172": {
+      "paragraph": "On a shelf, there are three books: a yellow book, a brown book, and a red book. The red book is to the left of the brown book. The yellow book is to the right of the brown book.",
+      "options": [
+        "(A) The yellow book is the second from the left",
+        "(B) The brown book is the second from the left",
+        "(C) The red book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "173": {
+      "paragraph": "A fruit stand sells three fruits: loquats, watermelons, and cantaloupes. The watermelons are the second-most expensive. The loquats are more expensive than the cantaloupes.",
+      "options": [
+        "(A) The loquats are the second-most expensive",
+        "(B) The watermelons are the second-most expensive",
+        "(C) The cantaloupes are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "174": {
+      "paragraph": "On a shelf, there are three books: a purple book, a black book, and a blue book. The purple book is to the right of the blue book. The black book is the second from the left.",
+      "options": [
+        "(A) The purple book is the rightmost",
+        "(B) The black book is the rightmost",
+        "(C) The blue book is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "175": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Ada, and Joe. Joe finished below Ada. Amy finished above Ada.",
+      "options": [
+        "(A) Amy finished first",
+        "(B) Ada finished first",
+        "(C) Joe finished first"
+      ],
+      "gold": "A"
+    },
+    "176": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Eve, and Amy. Amy finished above Eve. Joe finished first.",
+      "options": [
+        "(A) Joe finished second",
+        "(B) Eve finished second",
+        "(C) Amy finished second"
+      ],
+      "gold": "C"
+    },
+    "177": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a truck, and a motorcyle. The truck is newer than the station wagon. The motorcyle is the oldest.",
+      "options": [
+        "(A) The station wagon is the second-newest",
+        "(B) The truck is the second-newest",
+        "(C) The motorcyle is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "178": {
+      "paragraph": "In an antique car show, there are three vehicles: a convertible, a limousine, and a bus. The limousine is older than the bus. The bus is older than the convertible.",
+      "options": [
+        "(A) The convertible is the second-newest",
+        "(B) The limousine is the second-newest",
+        "(C) The bus is the second-newest"
+      ],
+      "gold": "C"
+    },
+    "179": {
+      "paragraph": "On a branch, there are three birds: a hawk, a cardinal, and a falcon. The hawk is to the left of the cardinal. The hawk is the second from the left.",
+      "options": [
+        "(A) The hawk is the rightmost",
+        "(B) The cardinal is the rightmost",
+        "(C) The falcon is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "180": {
+      "paragraph": "In an antique car show, there are three vehicles: a limousine, a truck, and a minivan. The minivan is older than the truck. The limousine is the second-newest.",
+      "options": [
+        "(A) The limousine is the second-newest",
+        "(B) The truck is the second-newest",
+        "(C) The minivan is the second-newest"
+      ],
+      "gold": "A"
+    },
+    "181": {
+      "paragraph": "In an antique car show, there are three vehicles: a bus, a sedan, and a truck. The truck is older than the bus. The bus is older than the sedan.",
+      "options": [
+        "(A) The bus is the oldest",
+        "(B) The sedan is the oldest",
+        "(C) The truck is the oldest"
+      ],
+      "gold": "C"
+    },
+    "182": {
+      "paragraph": "On a branch, there are three birds: a crow, a falcon, and a hummingbird. The crow is to the left of the falcon. The hummingbird is to the left of the crow.",
+      "options": [
+        "(A) The crow is the second from the left",
+        "(B) The falcon is the second from the left",
+        "(C) The hummingbird is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "183": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Dan, and Mel. Dan finished second. Mel finished first.",
+      "options": [
+        "(A) Ana finished last",
+        "(B) Dan finished last",
+        "(C) Mel finished last"
+      ],
+      "gold": "A"
+    },
+    "184": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a truck, and a motorcyle. The truck is newer than the station wagon. The motorcyle is the oldest.",
+      "options": [
+        "(A) The station wagon is the oldest",
+        "(B) The truck is the oldest",
+        "(C) The motorcyle is the oldest"
+      ],
+      "gold": "C"
+    },
+    "185": {
+      "paragraph": "In a golf tournament, there were three golfers: Dan, Mel, and Amy. Dan finished above Amy. Amy finished above Mel.",
+      "options": [
+        "(A) Dan finished last",
+        "(B) Mel finished last",
+        "(C) Amy finished last"
+      ],
+      "gold": "B"
+    },
+    "186": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Amy, and Rob. Amy finished above Rob. Eve finished above Amy.",
+      "options": [
+        "(A) Eve finished last",
+        "(B) Amy finished last",
+        "(C) Rob finished last"
+      ],
+      "gold": "C"
+    },
+    "187": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, apples, and loquats. The loquats are more expensive than the apples. The cantaloupes are less expensive than the apples.",
+      "options": [
+        "(A) The cantaloupes are the second-most expensive",
+        "(B) The apples are the second-most expensive",
+        "(C) The loquats are the second-most expensive"
+      ],
+      "gold": "B"
+    },
+    "188": {
+      "paragraph": "On a shelf, there are three books: a red book, a blue book, and an orange book. The red book is to the left of the orange book. The orange book is the second from the left.",
+      "options": [
+        "(A) The red book is the rightmost",
+        "(B) The blue book is the rightmost",
+        "(C) The orange book is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "189": {
+      "paragraph": "On a branch, there are three birds: a robin, an owl, and a hawk. The robin is to the right of the hawk. The owl is the leftmost.",
+      "options": [
+        "(A) The robin is the second from the left",
+        "(B) The owl is the second from the left",
+        "(C) The hawk is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "190": {
+      "paragraph": "On a shelf, there are three books: a blue book, an orange book, and a red book. The blue book is the rightmost. The orange book is the leftmost.",
+      "options": [
+        "(A) The blue book is the leftmost",
+        "(B) The orange book is the leftmost",
+        "(C) The red book is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "191": {
+      "paragraph": "On a branch, there are three birds: a falcon, an owl, and a raven. The raven is to the left of the owl. The falcon is the leftmost.",
+      "options": [
+        "(A) The falcon is the leftmost",
+        "(B) The owl is the leftmost",
+        "(C) The raven is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "192": {
+      "paragraph": "In a golf tournament, there were three golfers: Rob, Mel, and Joe. Joe finished below Mel. Rob finished below Joe.",
+      "options": [
+        "(A) Rob finished last",
+        "(B) Mel finished last",
+        "(C) Joe finished last"
+      ],
+      "gold": "A"
+    },
+    "193": {
+      "paragraph": "A fruit stand sells three fruits: watermelons, apples, and mangoes. The apples are less expensive than the mangoes. The mangoes are less expensive than the watermelons.",
+      "options": [
+        "(A) The watermelons are the most expensive",
+        "(B) The apples are the most expensive",
+        "(C) The mangoes are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "194": {
+      "paragraph": "In a golf tournament, there were three golfers: Amy, Ada, and Joe. Joe finished below Ada. Amy finished above Ada.",
+      "options": [
+        "(A) Amy finished second",
+        "(B) Ada finished second",
+        "(C) Joe finished second"
+      ],
+      "gold": "B"
+    },
+    "195": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Amy, and Eli. Eli finished second. Eli finished below Amy.",
+      "options": [
+        "(A) Ana finished last",
+        "(B) Amy finished last",
+        "(C) Eli finished last"
+      ],
+      "gold": "A"
+    },
+    "196": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a convertible, and a truck. The truck is the newest. The sedan is older than the convertible.",
+      "options": [
+        "(A) The sedan is the second-newest",
+        "(B) The convertible is the second-newest",
+        "(C) The truck is the second-newest"
+      ],
+      "gold": "B"
+    },
+    "197": {
+      "paragraph": "In an antique car show, there are three vehicles: a limousine, a truck, and a minivan. The minivan is older than the truck. The limousine is the second-newest.",
+      "options": [
+        "(A) The limousine is the oldest",
+        "(B) The truck is the oldest",
+        "(C) The minivan is the oldest"
+      ],
+      "gold": "C"
+    },
+    "198": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, watermelons, and mangoes. The mangoes are the cheapest. The cantaloupes are the second-most expensive.",
+      "options": [
+        "(A) The cantaloupes are the most expensive",
+        "(B) The watermelons are the most expensive",
+        "(C) The mangoes are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "199": {
+      "paragraph": "In a golf tournament, there were three golfers: Eve, Joe, and Amy. Eve finished below Amy. Eve finished above Joe.",
+      "options": [
+        "(A) Eve finished second",
+        "(B) Joe finished second",
+        "(C) Amy finished second"
+      ],
+      "gold": "A"
+    },
+    "200": {
+      "paragraph": "On a shelf, there are three books: a green book, a brown book, and an orange book. The brown book is to the left of the orange book. The green book is to the left of the brown book.",
+      "options": [
+        "(A) The green book is the leftmost",
+        "(B) The brown book is the leftmost",
+        "(C) The orange book is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "201": {
+      "paragraph": "A fruit stand sells three fruits: peaches, pears, and mangoes. The mangoes are less expensive than the pears. The peaches are the cheapest.",
+      "options": [
+        "(A) The peaches are the second-most expensive",
+        "(B) The pears are the second-most expensive",
+        "(C) The mangoes are the second-most expensive"
+      ],
+      "gold": "C"
+    },
+    "202": {
+      "paragraph": "A fruit stand sells three fruits: apples, peaches, and loquats. The loquats are less expensive than the apples. The peaches are more expensive than the apples.",
+      "options": [
+        "(A) The apples are the cheapest",
+        "(B) The peaches are the cheapest",
+        "(C) The loquats are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "203": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a falcon, and a hummingbird. The blue jay is to the right of the falcon. The hummingbird is to the left of the falcon.",
+      "options": [
+        "(A) The blue jay is the leftmost",
+        "(B) The falcon is the leftmost",
+        "(C) The hummingbird is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "204": {
+      "paragraph": "On a branch, there are three birds: a crow, a falcon, and a raven. The crow is to the left of the raven. The falcon is to the right of the raven.",
+      "options": [
+        "(A) The crow is the rightmost",
+        "(B) The falcon is the rightmost",
+        "(C) The raven is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "205": {
+      "paragraph": "On a shelf, there are three books: an orange book, a blue book, and a yellow book. The orange book is to the left of the blue book. The yellow book is to the right of the blue book.",
+      "options": [
+        "(A) The orange book is the rightmost",
+        "(B) The blue book is the rightmost",
+        "(C) The yellow book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "206": {
+      "paragraph": "A fruit stand sells three fruits: peaches, pears, and mangoes. The mangoes are less expensive than the peaches. The mangoes are more expensive than the pears.",
+      "options": [
+        "(A) The peaches are the cheapest",
+        "(B) The pears are the cheapest",
+        "(C) The mangoes are the cheapest"
+      ],
+      "gold": "B"
+    },
+    "207": {
+      "paragraph": "On a shelf, there are three books: a white book, a green book, and an orange book. The green book is to the right of the white book. The orange book is the rightmost.",
+      "options": [
+        "(A) The white book is the rightmost",
+        "(B) The green book is the rightmost",
+        "(C) The orange book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "208": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a convertible, and a truck. The truck is the newest. The sedan is older than the convertible.",
+      "options": [
+        "(A) The sedan is the newest",
+        "(B) The convertible is the newest",
+        "(C) The truck is the newest"
+      ],
+      "gold": "C"
+    },
+    "209": {
+      "paragraph": "In an antique car show, there are three vehicles: a truck, a minivan, and a tractor. The truck is newer than the minivan. The minivan is newer than the tractor.",
+      "options": [
+        "(A) The truck is the second-newest",
+        "(B) The minivan is the second-newest",
+        "(C) The tractor is the second-newest"
+      ],
+      "gold": "B"
+    },
+    "210": {
+      "paragraph": "On a branch, there are three birds: a blue jay, a falcon, and a raven. The falcon is to the left of the blue jay. The falcon is to the right of the raven.",
+      "options": [
+        "(A) The blue jay is the rightmost",
+        "(B) The falcon is the rightmost",
+        "(C) The raven is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "211": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Rob, and Joe. Joe finished above Ana. Rob finished second.",
+      "options": [
+        "(A) Ana finished second",
+        "(B) Rob finished second",
+        "(C) Joe finished second"
+      ],
+      "gold": "B"
+    },
+    "212": {
+      "paragraph": "On a shelf, there are three books: a green book, a brown book, and an orange book. The brown book is to the left of the orange book. The green book is to the left of the brown book.",
+      "options": [
+        "(A) The green book is the rightmost",
+        "(B) The brown book is the rightmost",
+        "(C) The orange book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "213": {
+      "paragraph": "A fruit stand sells three fruits: kiwis, loquats, and cantaloupes. The kiwis are less expensive than the loquats. The cantaloupes are less expensive than the kiwis.",
+      "options": [
+        "(A) The kiwis are the cheapest",
+        "(B) The loquats are the cheapest",
+        "(C) The cantaloupes are the cheapest"
+      ],
+      "gold": "C"
+    },
+    "214": {
+      "paragraph": "A fruit stand sells three fruits: oranges, watermelons, and pears. The oranges are the second-most expensive. The pears are more expensive than the watermelons.",
+      "options": [
+        "(A) The oranges are the cheapest",
+        "(B) The watermelons are the cheapest",
+        "(C) The pears are the cheapest"
+      ],
+      "gold": "B"
+    },
+    "215": {
+      "paragraph": "In a golf tournament, there were three golfers: Rob, Mel, and Joe. Joe finished below Mel. Rob finished below Joe.",
+      "options": [
+        "(A) Rob finished second",
+        "(B) Mel finished second",
+        "(C) Joe finished second"
+      ],
+      "gold": "C"
+    },
+    "216": {
+      "paragraph": "On a branch, there are three birds: a raven, a quail, and a crow. The quail is the leftmost. The raven is the rightmost.",
+      "options": [
+        "(A) The raven is the leftmost",
+        "(B) The quail is the leftmost",
+        "(C) The crow is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "217": {
+      "paragraph": "A fruit stand sells three fruits: cantaloupes, oranges, and watermelons. The oranges are the most expensive. The cantaloupes are more expensive than the watermelons.",
+      "options": [
+        "(A) The cantaloupes are the most expensive",
+        "(B) The oranges are the most expensive",
+        "(C) The watermelons are the most expensive"
+      ],
+      "gold": "B"
+    },
+    "218": {
+      "paragraph": "On a branch, there are three birds: a falcon, an owl, and a raven. The raven is to the left of the owl. The falcon is the leftmost.",
+      "options": [
+        "(A) The falcon is the second from the left",
+        "(B) The owl is the second from the left",
+        "(C) The raven is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "219": {
+      "paragraph": "In an antique car show, there are three vehicles: a tractor, a station wagon, and a limousine. The tractor is newer than the limousine. The station wagon is the newest.",
+      "options": [
+        "(A) The tractor is the newest",
+        "(B) The station wagon is the newest",
+        "(C) The limousine is the newest"
+      ],
+      "gold": "B"
+    },
+    "220": {
+      "paragraph": "On a branch, there are three birds: a robin, a raven, and a quail. The quail is to the left of the robin. The robin is the second from the left.",
+      "options": [
+        "(A) The robin is the rightmost",
+        "(B) The raven is the rightmost",
+        "(C) The quail is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "221": {
+      "paragraph": "In an antique car show, there are three vehicles: a station wagon, a truck, and a motorcyle. The truck is newer than the station wagon. The motorcyle is the oldest.",
+      "options": [
+        "(A) The station wagon is the newest",
+        "(B) The truck is the newest",
+        "(C) The motorcyle is the newest"
+      ],
+      "gold": "B"
+    },
+    "222": {
+      "paragraph": "In a golf tournament, there were three golfers: Dan, Mel, and Amy. Dan finished above Amy. Amy finished above Mel.",
+      "options": [
+        "(A) Dan finished second",
+        "(B) Mel finished second",
+        "(C) Amy finished second"
+      ],
+      "gold": "C"
+    },
+    "223": {
+      "paragraph": "On a shelf, there are three books: a blue book, an orange book, and a green book. The green book is the leftmost. The orange book is to the left of the blue book.",
+      "options": [
+        "(A) The blue book is the second from the left",
+        "(B) The orange book is the second from the left",
+        "(C) The green book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "224": {
+      "paragraph": "In an antique car show, there are three vehicles: a motorcyle, a limousine, and a convertible. The motorcyle is newer than the limousine. The convertible is newer than the motorcyle.",
+      "options": [
+        "(A) The motorcyle is the newest",
+        "(B) The limousine is the newest",
+        "(C) The convertible is the newest"
+      ],
+      "gold": "C"
+    },
+    "225": {
+      "paragraph": "In a golf tournament, there were three golfers: Joe, Dan, and Eve. Eve finished above Dan. Dan finished above Joe.",
+      "options": [
+        "(A) Joe finished last",
+        "(B) Dan finished last",
+        "(C) Eve finished last"
+      ],
+      "gold": "A"
+    },
+    "226": {
+      "paragraph": "On a shelf, there are three books: an orange book, a yellow book, and a blue book. The blue book is to the right of the yellow book. The orange book is the second from the left.",
+      "options": [
+        "(A) The orange book is the leftmost",
+        "(B) The yellow book is the leftmost",
+        "(C) The blue book is the leftmost"
+      ],
+      "gold": "B"
+    },
+    "227": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Amy, and Eli. Eli finished second. Eli finished below Amy.",
+      "options": [
+        "(A) Ana finished first",
+        "(B) Amy finished first",
+        "(C) Eli finished first"
+      ],
+      "gold": "B"
+    },
+    "228": {
+      "paragraph": "A fruit stand sells three fruits: apples, pears, and plums. The pears are less expensive than the plums. The pears are more expensive than the apples.",
+      "options": [
+        "(A) The apples are the most expensive",
+        "(B) The pears are the most expensive",
+        "(C) The plums are the most expensive"
+      ],
+      "gold": "C"
+    },
+    "229": {
+      "paragraph": "In a golf tournament, there were three golfers: Eli, Mya, and Eve. Eli finished last. Mya finished second.",
+      "options": [
+        "(A) Eli finished last",
+        "(B) Mya finished last",
+        "(C) Eve finished last"
+      ],
+      "gold": "A"
+    },
+    "230": {
+      "paragraph": "On a branch, there are three birds: a robin, an owl, and a hawk. The robin is to the right of the hawk. The owl is the leftmost.",
+      "options": [
+        "(A) The robin is the rightmost",
+        "(B) The owl is the rightmost",
+        "(C) The hawk is the rightmost"
+      ],
+      "gold": "A"
+    },
+    "231": {
+      "paragraph": "In a golf tournament, there were three golfers: Mel, Ada, and Ana. Mel finished last. Ana finished second.",
+      "options": [
+        "(A) Mel finished first",
+        "(B) Ada finished first",
+        "(C) Ana finished first"
+      ],
+      "gold": "B"
+    },
+    "232": {
+      "paragraph": "On a shelf, there are three books: an orange book, a white book, and a purple book. The orange book is to the left of the white book. The purple book is the rightmost.",
+      "options": [
+        "(A) The orange book is the rightmost",
+        "(B) The white book is the rightmost",
+        "(C) The purple book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "233": {
+      "paragraph": "On a branch, there are three birds: a hawk, a cardinal, and a falcon. The hawk is to the left of the cardinal. The hawk is the second from the left.",
+      "options": [
+        "(A) The hawk is the leftmost",
+        "(B) The cardinal is the leftmost",
+        "(C) The falcon is the leftmost"
+      ],
+      "gold": "C"
+    },
+    "234": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a quail, and a crow. The crow is the second from the left. The hummingbird is to the left of the crow.",
+      "options": [
+        "(A) The hummingbird is the second from the left",
+        "(B) The quail is the second from the left",
+        "(C) The crow is the second from the left"
+      ],
+      "gold": "C"
+    },
+    "235": {
+      "paragraph": "On a shelf, there are three books: a yellow book, a green book, and a red book. The red book is to the left of the green book. The yellow book is to the left of the red book.",
+      "options": [
+        "(A) The yellow book is the rightmost",
+        "(B) The green book is the rightmost",
+        "(C) The red book is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "236": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, a quail, and a crow. The crow is the second from the left. The hummingbird is to the left of the crow.",
+      "options": [
+        "(A) The hummingbird is the leftmost",
+        "(B) The quail is the leftmost",
+        "(C) The crow is the leftmost"
+      ],
+      "gold": "A"
+    },
+    "237": {
+      "paragraph": "In an antique car show, there are three vehicles: a sedan, a minivan, and a motorcyle. The motorcyle is the second-newest. The minivan is newer than the motorcyle.",
+      "options": [
+        "(A) The sedan is the newest",
+        "(B) The minivan is the newest",
+        "(C) The motorcyle is the newest"
+      ],
+      "gold": "B"
+    },
+    "238": {
+      "paragraph": "In a golf tournament, there were three golfers: Rob, Mel, and Joe. Joe finished below Mel. Rob finished below Joe.",
+      "options": [
+        "(A) Rob finished first",
+        "(B) Mel finished first",
+        "(C) Joe finished first"
+      ],
+      "gold": "B"
+    },
+    "239": {
+      "paragraph": "On a branch, there are three birds: a hawk, a crow, and a raven. The raven is to the right of the hawk. The crow is the rightmost.",
+      "options": [
+        "(A) The hawk is the rightmost",
+        "(B) The crow is the rightmost",
+        "(C) The raven is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "240": {
+      "paragraph": "A fruit stand sells three fruits: peaches, mangoes, and apples. The peaches are more expensive than the apples. The mangoes are the cheapest.",
+      "options": [
+        "(A) The peaches are the most expensive",
+        "(B) The mangoes are the most expensive",
+        "(C) The apples are the most expensive"
+      ],
+      "gold": "A"
+    },
+    "241": {
+      "paragraph": "On a branch, there are three birds: a hummingbird, an owl, and a falcon. The falcon is to the right of the owl. The hummingbird is to the left of the owl.",
+      "options": [
+        "(A) The hummingbird is the second from the left",
+        "(B) The owl is the second from the left",
+        "(C) The falcon is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "242": {
+      "paragraph": "On a shelf, there are three books: a gray book, a purple book, and a red book. The purple book is to the left of the red book. The gray book is to the left of the purple book.",
+      "options": [
+        "(A) The gray book is the second from the left",
+        "(B) The purple book is the second from the left",
+        "(C) The red book is the second from the left"
+      ],
+      "gold": "B"
+    },
+    "243": {
+      "paragraph": "In an antique car show, there are three vehicles: a minivan, a bus, and a sedan. The minivan is newer than the sedan. The minivan is older than the bus.",
+      "options": [
+        "(A) The minivan is the oldest",
+        "(B) The bus is the oldest",
+        "(C) The sedan is the oldest"
+      ],
+      "gold": "C"
+    },
+    "244": {
+      "paragraph": "On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.",
+      "options": [
+        "(A) The red book is the rightmost",
+        "(B) The gray book is the rightmost",
+        "(C) The white book is the rightmost"
+      ],
+      "gold": "B"
+    },
+    "245": {
+      "paragraph": "In an antique car show, there are three vehicles: a tractor, a convertible, and a minivan. The tractor is the second-newest. The minivan is newer than the convertible.",
+      "options": [
+        "(A) The tractor is the oldest",
+        "(B) The convertible is the oldest",
+        "(C) The minivan is the oldest"
+      ],
+      "gold": "B"
+    },
+    "246": {
+      "paragraph": "On a shelf, there are three books: an orange book, a yellow book, and a blue book. The blue book is to the right of the yellow book. The orange book is the second from the left.",
+      "options": [
+        "(A) The orange book is the rightmost",
+        "(B) The yellow book is the rightmost",
+        "(C) The blue book is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "247": {
+      "paragraph": "On a branch, there are three birds: an owl, a crow, and a cardinal. The crow is to the left of the owl. The owl is the second from the left.",
+      "options": [
+        "(A) The owl is the rightmost",
+        "(B) The crow is the rightmost",
+        "(C) The cardinal is the rightmost"
+      ],
+      "gold": "C"
+    },
+    "248": {
+      "paragraph": "In an antique car show, there are three vehicles: a truck, a minivan, and a tractor. The truck is newer than the minivan. The minivan is newer than the tractor.",
+      "options": [
+        "(A) The truck is the oldest",
+        "(B) The minivan is the oldest",
+        "(C) The tractor is the oldest"
+      ],
+      "gold": "C"
+    },
+    "249": {
+      "paragraph": "On a shelf, there are three books: a red book, a gray book, and a white book. The white book is to the left of the gray book. The red book is the second from the left.",
+      "options": [
+        "(A) The red book is the second from the left",
+        "(B) The gray book is the second from the left",
+        "(C) The white book is the second from the left"
+      ],
+      "gold": "A"
+    },
+    "250": {
+      "paragraph": "In a golf tournament, there were three golfers: Ana, Rob, and Joe. Joe finished above Ana. Rob finished above Joe.",
+      "options": [
+        "(A) Ana finished second",
+        "(B) Rob finished second",
+        "(C) Joe finished second"
+      ],
+      "gold": "C"
+    }
+  }
+}

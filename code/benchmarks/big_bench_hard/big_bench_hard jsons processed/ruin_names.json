@@ -1,0 +1,2559 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "ruin_names",
+  "format": "multi_choice",
+  "task_type": "nlp",
+  "num_of_instances": 250,
+  "description": "Select the humorous edit that 'ruins' the input movie or musical artist name.",
+  "more_info": {
+    "input_templates": [
+      "Q: Which of the following is a humorous edit of this artist or movie name: '{artist_or_movie_name}'?\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "artist_or_movie_name",
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "artist_or_movie_name": "whitesnake",
+        "options": [
+          "(A) whitesnape",
+          "(B) whitesnapke",
+          "(C) whitesnuake",
+          "(D) mwhitesnake"
+        ],
+        "gold": "A",
+        "explanation": "The original name is \"whitesnake\". This is the name of an old English hard rock band. It is a compound word, formed by the words \"white\" and \"snake\".\n(A) \"whitesnape\": It is formed by the combination of \"white\" and \"snake\"; therefore, \"snake\" has been changed to \"snape\". Snape makes a reference to the fictional character Severus Snape in the Harry Potter series, so (A) is indeed a meaningful and funny edit.\n(B) \"whitesnapke\": It is formed by the combination of \"white\" and \"snapke\", but \"snapke\" is not an actual word; therefore, \"whitesnapke\" is not humorous.\n(C) \"whitesnuake\": It is formed by the combination of \"white\" and \"snuake\", but \"snuake\" is not an actual word; therefore, \"whitesnuake\" is not humorous.\n(D) \"mwhitesnake\": It is formed by the combination of \"m\", \"white\", and \"snake\", but the prefix \"-m \"seems arbitrary; therefore, \"mwhitesnake\" is not meaningful or humorous.\nAbove the above, the only humorous edit is (A). So the answer is (A)."
+      },
+      "1": {
+        "artist_or_movie_name": "one of our dinosaurs is missing",
+        "options": [
+          "(A) ofne of our dinosaurs is missing",
+          "(B) one af our dinosaurs is missing",
+          "(C) one of our dinosaurs is pissing",
+          "(D) one of our dinosaur is missing"
+        ],
+        "gold": "C",
+        "explanation": "The original name is \"one of our dinosaurs is missing\". This is the name of an old British movie.\n(A) \"ofne of our dinosaurs is missing\": Here \"one of\" is changed to \"ofne\", but the word \"ofne\" is not an actual word.\n(B) \"one af our dinosaurs is missing\": Here the word \"of\" is changed to \"af\", but the word \"af\" is not an actual word.\n(C) \"one of our dinosaurs is pissing\": Here the word \"missing\" is changed to \"pissing\", and \"one of our dinosaurs is pissing\" is indeed a very whimsical and mischievous edit. This change truly ruins the original title of the movie.\n(D) \"one of our dinosaur is missing\": Here the word \"dinosaurs\" is changed to \"dinosaur\", but \"dinosaur\" is singular but should be plural in the title; this change therefore feels arbitrary and not humorous.\nAbove the above, the only humorous edit is (C).\nAbove the above, the only humorous edit is (C). So the answer is (C)."
+      },
+      "2": {
+        "artist_or_movie_name": "counting crows",
+        "options": [
+          "(A) countingy crows",
+          "(B) counting cows",
+          "(C) courting crows",
+          "(D) coutnting crows"
+        ],
+        "gold": "B",
+        "explanation": "The original name is \"counting crows\". This is the name of an American rock band. Historically, the band name comes from the British nursery rhyme \"One for Sorrow\", which is about counting of magpies.\n(A) \"countingy crows\": Here the word \"counting\" is changed to \"countingy\", but the word \"countingy\" is not an actual word.\n(B) \"counting cows\": Here the word \"crows\" is changed to \"cows\", and this is indeed a playful and meaningful edit that ruins the original name of the band.\n(C) \"courting crows\": Here the word \"counting\" is changed to \"courting\", and \"courting\" is an actual word; however, \"courting crows\" does not sound as humorous as \"counting cows\".\n(D) \"coutnting crows\": Here the word \"counting\" is changed to \"coutnting\", but the word \"coutnting\" is not an actual word.\nAbove the above, the only humorous edit is (B). So the answer is (B)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Which of the following is a humorous edit of this artist or movie name: 'whitesnake'?\nOptions:\n(A) whitesnape\n(B) whitesnapke\n(C) whitesnuake\n(D) mwhitesnake\nA: (A)\nExplanation:\nThe original name is \"whitesnake\". This is the name of an old English hard rock band. It is a compound word, formed by the words \"white\" and \"snake\".\n(A) \"whitesnape\": It is formed by the combination of \"white\" and \"snake\"; therefore, \"snake\" has been changed to \"snape\". Snape makes a reference to the fictional character Severus Snape in the Harry Potter series, so (A) is indeed a meaningful and funny edit.\n(B) \"whitesnapke\": It is formed by the combination of \"white\" and \"snapke\", but \"snapke\" is not an actual word; therefore, \"whitesnapke\" is not humorous.\n(C) \"whitesnuake\": It is formed by the combination of \"white\" and \"snuake\", but \"snuake\" is not an actual word; therefore, \"whitesnuake\" is not humorous.\n(D) \"mwhitesnake\": It is formed by the combination of \"m\", \"white\", and \"snake\", but the prefix \"-m \"seems arbitrary; therefore, \"mwhitesnake\" is not meaningful or humorous.\nAbove the above, the only humorous edit is (A). So the answer is (A).",
+      "Q: Which of the following is a humorous edit of this artist or movie name: 'one of our dinosaurs is missing'?\nOptions:\n(A) ofne of our dinosaurs is missing\n(B) one af our dinosaurs is missing\n(C) one of our dinosaurs is pissing\n(D) one of our dinosaur is missing\nA: (C)\nExplanation:\nThe original name is \"one of our dinosaurs is missing\". This is the name of an old British movie.\n(A) \"ofne of our dinosaurs is missing\": Here \"one of\" is changed to \"ofne\", but the word \"ofne\" is not an actual word.\n(B) \"one af our dinosaurs is missing\": Here the word \"of\" is changed to \"af\", but the word \"af\" is not an actual word.\n(C) \"one of our dinosaurs is pissing\": Here the word \"missing\" is changed to \"pissing\", and \"one of our dinosaurs is pissing\" is indeed a very whimsical and mischievous edit. This change truly ruins the original title of the movie.\n(D) \"one of our dinosaur is missing\": Here the word \"dinosaurs\" is changed to \"dinosaur\", but \"dinosaur\" is singular but should be plural in the title; this change therefore feels arbitrary and not humorous.\nAbove the above, the only humorous edit is (C).\nAbove the above, the only humorous edit is (C). So the answer is (C).",
+      "Q: Which of the following is a humorous edit of this artist or movie name: 'counting crows'?\nOptions:\n(A) countingy crows\n(B) counting cows\n(C) courting crows\n(D) coutnting crows\nA: (B)\nExplanation:\nThe original name is \"counting crows\". This is the name of an American rock band. Historically, the band name comes from the British nursery rhyme \"One for Sorrow\", which is about counting of magpies.\n(A) \"countingy crows\": Here the word \"counting\" is changed to \"countingy\", but the word \"countingy\" is not an actual word.\n(B) \"counting cows\": Here the word \"crows\" is changed to \"cows\", and this is indeed a playful and meaningful edit that ruins the original name of the band.\n(C) \"courting crows\": Here the word \"counting\" is changed to \"courting\", and \"courting\" is an actual word; however, \"courting crows\" does not sound as humorous as \"counting cows\".\n(D) \"coutnting crows\": Here the word \"counting\" is changed to \"coutnting\", but the word \"coutnting\" is not an actual word.\nAbove the above, the only humorous edit is (B). So the answer is (B)."
+    ],
+    "cot_prompt_intro": "Select the humorous edit that 'ruins' the input movie or musical artist name.\n\nQ: Which of the following is a humorous edit of this artist or movie name: 'whitesnake'?\nOptions:\n(A) whitesnape\n(B) whitesnapke\n(C) whitesnuake\n(D) mwhitesnake\nA: Let's think step by step.\nThe original name is \"whitesnake\". This is the name of an old English hard rock band. It is a compound word, formed by the words \"white\" and \"snake\".\n(A) \"whitesnape\": It is formed by the combination of \"white\" and \"snake\"; therefore, \"snake\" has been changed to \"snape\". Snape makes a reference to the fictional character Severus Snape in the Harry Potter series, so (A) is indeed a meaningful and funny edit.\n(B) \"whitesnapke\": It is formed by the combination of \"white\" and \"snapke\", but \"snapke\" is not an actual word; therefore, \"whitesnapke\" is not humorous.\n(C) \"whitesnuake\": It is formed by the combination of \"white\" and \"snuake\", but \"snuake\" is not an actual word; therefore, \"whitesnuake\" is not humorous.\n(D) \"mwhitesnake\": It is formed by the combination of \"m\", \"white\", and \"snake\", but the prefix \"-m \"seems arbitrary; therefore, \"mwhitesnake\" is not meaningful or humorous.\nAbove the above, the only humorous edit is (A). So the answer is (A).\n\nQ: Which of the following is a humorous edit of this artist or movie name: 'one of our dinosaurs is missing'?\nOptions:\n(A) ofne of our dinosaurs is missing\n(B) one af our dinosaurs is missing\n(C) one of our dinosaurs is pissing\n(D) one of our dinosaur is missing\nA: Let's think step by step.\nThe original name is \"one of our dinosaurs is missing\". This is the name of an old British movie.\n(A) \"ofne of our dinosaurs is missing\": Here \"one of\" is changed to \"ofne\", but the word \"ofne\" is not an actual word.\n(B) \"one af our dinosaurs is missing\": Here the word \"of\" is changed to \"af\", but the word \"af\" is not an actual word.\n(C) \"one of our dinosaurs is pissing\": Here the word \"missing\" is changed to \"pissing\", and \"one of our dinosaurs is pissing\" is indeed a very whimsical and mischievous edit. This change truly ruins the original title of the movie.\n(D) \"one of our dinosaur is missing\": Here the word \"dinosaurs\" is changed to \"dinosaur\", but \"dinosaur\" is singular but should be plural in the title; this change therefore feels arbitrary and not humorous.\nAbove the above, the only humorous edit is (C).\nAbove the above, the only humorous edit is (C). So the answer is (C).\n\nQ: Which of the following is a humorous edit of this artist or movie name: 'counting crows'?\nOptions:\n(A) countingy crows\n(B) counting cows\n(C) courting crows\n(D) coutnting crows\nA: Let's think step by step.\nThe original name is \"counting crows\". This is the name of an American rock band. Historically, the band name comes from the British nursery rhyme \"One for Sorrow\", which is about counting of magpies.\n(A) \"countingy crows\": Here the word \"counting\" is changed to \"countingy\", but the word \"countingy\" is not an actual word.\n(B) \"counting cows\": Here the word \"crows\" is changed to \"cows\", and this is indeed a playful and meaningful edit that ruins the original name of the band.\n(C) \"courting crows\": Here the word \"counting\" is changed to \"courting\", and \"courting\" is an actual word; however, \"courting crows\" does not sound as humorous as \"counting cows\".\n(D) \"coutnting crows\": Here the word \"counting\" is changed to \"coutnting\", but the word \"coutnting\" is not an actual word.\nAbove the above, the only humorous edit is (B). So the answer is (B)."
+  },
+  "examples": {
+    "1": {
+      "movie_list": "rain man",
+      "options": [
+        "(A) ruin man",
+        "(B) rains man",
+        "(C) rain men",
+        "(D) rainmman"
+      ],
+      "gold": "A"
+    },
+    "2": {
+      "movie_list": "the dark knight rises",
+      "options": [
+        "(A) the bark knight rises",
+        "(B) thetdark knight rises",
+        "(C) the dork knight rises",
+        "(D) the dark kniggt rises"
+      ],
+      "gold": "C"
+    },
+    "3": {
+      "movie_list": "the shawshank redemption",
+      "options": [
+        "(A) the shapwshank redemption",
+        "(B) the shcawshank redemption",
+        "(C) the shawshanknredemption",
+        "(D) the shawshark redemption"
+      ],
+      "gold": "D"
+    },
+    "4": {
+      "movie_list": "the third man",
+      "options": [
+        "(A) the third men",
+        "(B) the trird man",
+        "(C) thed third man",
+        "(D) the third pan"
+      ],
+      "gold": "D"
+    },
+    "5": {
+      "movie_list": "coldplay",
+      "options": [
+        "(A) coldpnay",
+        "(B) colldplay",
+        "(C) coldglay",
+        "(D) soldplay"
+      ],
+      "gold": "D"
+    },
+    "6": {
+      "movie_list": "paul revere and the raiders",
+      "options": [
+        "(A) paul rfevere and the raiders",
+        "(B) paul severe and the raiders",
+        "(C) mpaul revere and the raiders",
+        "(D) paul erevere and the raiders"
+      ],
+      "gold": "B"
+    },
+    "7": {
+      "movie_list": "the smashing pumpkins",
+      "options": [
+        "(A) the smashing bumpkins",
+        "(B) thez smashing pumpkins",
+        "(C) the smashingq pumpkins",
+        "(D) the rmashing pumpkins"
+      ],
+      "gold": "A"
+    },
+    "8": {
+      "movie_list": "guns n roses",
+      "options": [
+        "(A) gunh n' roses",
+        "(B) guns n' ropes",
+        "(C) guns n'z roses",
+        "(D) guns n' hoses"
+      ],
+      "gold": "D"
+    },
+    "9": {
+      "movie_list": "the beatles",
+      "options": [
+        "(A) the bdeatles",
+        "(B) the beatless",
+        "(C) thp beatles",
+        "(D) tce beatles"
+      ],
+      "gold": "B"
+    },
+    "10": {
+      "movie_list": "hellboy",
+      "options": [
+        "(A) hellbby",
+        "(B) hpllboy",
+        "(C) cellboy",
+        "(D) hellbfoy"
+      ],
+      "gold": "C"
+    },
+    "11": {
+      "movie_list": "phish",
+      "options": [
+        "(A) phist",
+        "(B) phisg",
+        "(C) pkish",
+        "(D) phigh"
+      ],
+      "gold": "A"
+    },
+    "12": {
+      "movie_list": "the who!",
+      "options": [
+        "(A) the waho!",
+        "(B) xhe who!",
+        "(C) the why!",
+        "(D) trhe who!"
+      ],
+      "gold": "C"
+    },
+    "13": {
+      "movie_list": "braveheart",
+      "options": [
+        "(A) bravehearts",
+        "(B) graveheart",
+        "(C) brasveheart",
+        "(D) braveheafrt"
+      ],
+      "gold": "B"
+    },
+    "14": {
+      "movie_list": "the three stooges",
+      "options": [
+        "(A) the three stmooges",
+        "(B) the three snooges",
+        "(C) the three suooges",
+        "(D) the three stodges"
+      ],
+      "gold": "D"
+    },
+    "15": {
+      "movie_list": "the deer hunter",
+      "options": [
+        "(A) the deer hunhter",
+        "(B) the beer hunter",
+        "(C) the kdeer hunter",
+        "(D) the deer huntaer"
+      ],
+      "gold": "B"
+    },
+    "16": {
+      "movie_list": "boyz 2 men",
+      "options": [
+        "(A) boyz 2 mewn",
+        "(B) boyz 2 ben",
+        "(C) toyz 2 men",
+        "(D) boiz 2 men"
+      ],
+      "gold": "C"
+    },
+    "17": {
+      "movie_list": "the beastie boys",
+      "options": [
+        "(A) the yeastie boys",
+        "(B) the beastie foys",
+        "(C) the bpeastie boys",
+        "(D) the beastiwe boys"
+      ],
+      "gold": "A"
+    },
+    "18": {
+      "movie_list": "joy division",
+      "options": [
+        "(A) job division",
+        "(B) jxoy division",
+        "(C) toy division",
+        "(D) joy divvision"
+      ],
+      "gold": "C"
+    },
+    "19": {
+      "movie_list": "herbie hancock",
+      "options": [
+        "(A) ferbie hancock",
+        "(B) hecrbie hancock",
+        "(C) herbqe hancock",
+        "(D) hejrbie hancock"
+      ],
+      "gold": "A"
+    },
+    "20": {
+      "movie_list": "bon iver",
+      "options": [
+        "(A) bon liver",
+        "(B) bion iver",
+        "(C) ban iver",
+        "(D) bon ivee"
+      ],
+      "gold": "A"
+    },
+    "21": {
+      "movie_list": "star wars",
+      "options": [
+        "(A) stpr wars",
+        "(B) start wars",
+        "(C) star warts",
+        "(D) star warws"
+      ],
+      "gold": "B"
+    },
+    "22": {
+      "movie_list": "cinderella",
+      "options": [
+        "(A) cinderelrla",
+        "(B) tinderella",
+        "(C) cindeorella",
+        "(D) cindqrella"
+      ],
+      "gold": "B"
+    },
+    "23": {
+      "movie_list": "the italian job",
+      "options": [
+        "(A) the ytalian job",
+        "(B) the italiay job",
+        "(C) the italian hob",
+        "(D) the italians job"
+      ],
+      "gold": "C"
+    },
+    "24": {
+      "movie_list": "a few good men",
+      "options": [
+        "(A) a few goofd men",
+        "(B) a few food men",
+        "(C) ad few good men",
+        "(D) a fewagood men"
+      ],
+      "gold": "B"
+    },
+    "25": {
+      "movie_list": "raiders of the lost ark",
+      "options": [
+        "(A) raiders of the last ark",
+        "(B) raiders of the lost irk",
+        "(C) raidems of the lost ark",
+        "(D) raiuders of the lost ark"
+      ],
+      "gold": "B"
+    },
+    "26": {
+      "movie_list": "little shop of horrors",
+      "options": [
+        "(A) little shoy of horrors",
+        "(B) little hop of horrors",
+        "(C) little wshop of horrors",
+        "(D) ulittle shop of horrors"
+      ],
+      "gold": "B"
+    },
+    "27": {
+      "movie_list": "free willy",
+      "options": [
+        "(A) frre willy",
+        "(B) freeh willy",
+        "(C) tree willy",
+        "(D) frees willy"
+      ],
+      "gold": "C"
+    },
+    "28": {
+      "movie_list": "pixies",
+      "options": [
+        "(A) pgxies",
+        "(B) pihies",
+        "(C) pigies",
+        "(D) pinxies"
+      ],
+      "gold": "C"
+    },
+    "29": {
+      "movie_list": "the princess and the frog",
+      "options": [
+        "(A) the princess aud the frog",
+        "(B) the princess and the frig",
+        "(C) tee princess and the frog",
+        "(D) the princess and tge frog"
+      ],
+      "gold": "B"
+    },
+    "30": {
+      "movie_list": "foo fighters",
+      "options": [
+        "(A) poo fighters",
+        "(B) foo fighthers",
+        "(C) foo fighter",
+        "(D) fyo fighters"
+      ],
+      "gold": "A"
+    },
+    "31": {
+      "movie_list": "the godfather",
+      "options": [
+        "(A) the godfathers",
+        "(B) uthe godfather",
+        "(C) the gondfather",
+        "(D) the bodfather"
+      ],
+      "gold": "D"
+    },
+    "32": {
+      "movie_list": "pantera",
+      "options": [
+        "(A) paitera",
+        "(B) spantera",
+        "(C) lantern",
+        "(D) panera"
+      ],
+      "gold": "D"
+    },
+    "33": {
+      "movie_list": "top gun",
+      "options": [
+        "(A) top guns",
+        "(B) tot gun",
+        "(C) top gum",
+        "(D) top sun"
+      ],
+      "gold": "B"
+    },
+    "34": {
+      "movie_list": "die another day",
+      "options": [
+        "(A) die anothpr day",
+        "(B) diet another day",
+        "(C) dies another day",
+        "(D) die another ay"
+      ],
+      "gold": "B"
+    },
+    "35": {
+      "movie_list": "the moody blues",
+      "options": [
+        "(A) the mfody blues",
+        "(B) the moody blueds",
+        "(C) the moody blueus",
+        "(D) the moldy blues"
+      ],
+      "gold": "D"
+    },
+    "36": {
+      "movie_list": "fall out boy",
+      "options": [
+        "(A) faqll out boy",
+        "(B) fall out bot",
+        "(C) falbl out boy",
+        "(D) fall outt boy"
+      ],
+      "gold": "B"
+    },
+    "37": {
+      "movie_list": "love story",
+      "options": [
+        "(A) live story",
+        "(B) love stoery",
+        "(C) love storey",
+        "(D) lrve story"
+      ],
+      "gold": "A"
+    },
+    "38": {
+      "movie_list": "whitney houston",
+      "options": [
+        "(A) whiney houston",
+        "(B) whitney housbon",
+        "(C) whitneyx houston",
+        "(D) whitney homston"
+      ],
+      "gold": "A"
+    },
+    "39": {
+      "movie_list": "bridge of spies",
+      "options": [
+        "(A) bridgye of spies",
+        "(B) bridge lf spies",
+        "(C) fridge of spies",
+        "(D) qbridge of spies"
+      ],
+      "gold": "C"
+    },
+    "40": {
+      "movie_list": "breaking benjamin",
+      "options": [
+        "(A) breaking benjamins",
+        "(B) breaking benjaqmin",
+        "(C) reaking benjamin",
+        "(D) breaking oenjamin"
+      ],
+      "gold": "C"
+    },
+    "41": {
+      "movie_list": "frank kappa",
+      "options": [
+        "(A) frank fkappa",
+        "(B) franks kappa",
+        "(C) frank kappa",
+        "(D) frank kapoa"
+      ],
+      "gold": "C"
+    },
+    "42": {
+      "movie_list": "jurassic park",
+      "options": [
+        "(A) jurassic mark",
+        "(B) jurassic pack",
+        "(C) jurassic pairk",
+        "(D) jurassic pork"
+      ],
+      "gold": "D"
+    },
+    "43": {
+      "movie_list": "the band",
+      "options": [
+        "(A) the bland",
+        "(B) khe band",
+        "(C) the banmd",
+        "(D) the bend"
+      ],
+      "gold": "A"
+    },
+    "44": {
+      "movie_list": "creedence clearwater revival",
+      "options": [
+        "(A) creedence clearwatee revival",
+        "(B) creedence clqarwater revival",
+        "(C) creedence clearwafer revival",
+        "(D) crecedence clearwater revival"
+      ],
+      "gold": "C"
+    },
+    "45": {
+      "movie_list": "block 57",
+      "options": [
+        "(A) blonck 57",
+        "(B) blockv57",
+        "(C) bzlock 57",
+        "(D) block 47"
+      ],
+      "gold": "D"
+    },
+    "46": {
+      "movie_list": "get shorty",
+      "options": [
+        "(A) wet shorty",
+        "(B) get shirty",
+        "(C) get shovrty",
+        "(D) get sbhorty"
+      ],
+      "gold": "B"
+    },
+    "47": {
+      "movie_list": "radiohead",
+      "options": [
+        "(A) radio head",
+        "(B) rawdiohead",
+        "(C) radiodead",
+        "(D) radiohesd"
+      ],
+      "gold": "C"
+    },
+    "48": {
+      "movie_list": "mean girls",
+      "options": [
+        "(A) bean girls",
+        "(B) oean girls",
+        "(C) meyan girls",
+        "(D) mean giwls"
+      ],
+      "gold": "A"
+    },
+    "49": {
+      "movie_list": "seven brides for seven brothers",
+      "options": [
+        "(A) seven bride for seven brothers",
+        "(B) seven brides for seven byrothers",
+        "(C) seven brides for seven brotders",
+        "(D) seven brides for seven brothels"
+      ],
+      "gold": "D"
+    },
+    "50": {
+      "movie_list": "the green mile",
+      "options": [
+        "(A) the green mole",
+        "(B) thle green mile",
+        "(C) the green mixle",
+        "(D) the green midle"
+      ],
+      "gold": "A"
+    },
+    "51": {
+      "movie_list": "cat on a hot tin roof",
+      "options": [
+        "(A) cat on a hot tjn roof",
+        "(B) cat cn a hot tin roof",
+        "(C) cat on a hot tin roof",
+        "(D) cat on a hot tin goof"
+      ],
+      "gold": "D"
+    },
+    "52": {
+      "movie_list": "new kids on the block",
+      "options": [
+        "(A) newgkids on the block",
+        "(B) new kid on the block",
+        "(C) new kids on the clock"
+      ],
+      "gold": "C"
+    },
+    "53": {
+      "movie_list": "superclunk",
+      "options": [
+        "(A) suaperclunk",
+        "(B) superchunk",
+        "(C) fsuperclunk",
+        "(D) supernclunk"
+      ],
+      "gold": "B"
+    },
+    "54": {
+      "movie_list": "my big fat greek wedding",
+      "options": [
+        "(A) my bzg fat greek wedding",
+        "(B) my big fatggreek wedding",
+        "(C) my big fat greek weeding",
+        "(D) my big fat greek wedading"
+      ],
+      "gold": "C"
+    },
+    "55": {
+      "movie_list": "snakes on a plane",
+      "options": [
+        "(A) snake on a plane",
+        "(B) shakes on a plane",
+        "(C) snakes on a plan",
+        "(D) snakes on a plaone"
+      ],
+      "gold": "B"
+    },
+    "56": {
+      "movie_list": "rocky",
+      "options": [
+        "(A) ricky",
+        "(B) rotky",
+        "(C) tocky",
+        "(D) crocky"
+      ],
+      "gold": "A"
+    },
+    "57": {
+      "movie_list": "pink floyd",
+      "options": [
+        "(A) pinkffloyd",
+        "(B) pijk floyd",
+        "(C) wink floyd",
+        "(D) punk floyd"
+      ],
+      "gold": "D"
+    },
+    "58": {
+      "movie_list": "bad religion",
+      "options": [
+        "(A) bad religvon",
+        "(B) bdd religion",
+        "(C) bad religion",
+        "(D) brad religion"
+      ],
+      "gold": "D"
+    },
+    "59": {
+      "movie_list": "the police",
+      "options": [
+        "(A) tpe police",
+        "(B) thy police",
+        "(C) toe police",
+        "(D) thezpolice"
+      ],
+      "gold": "B"
+    },
+    "60": {
+      "movie_list": "ice cube",
+      "options": [
+        "(A) ice cunbe",
+        "(B) icep cube",
+        "(C) ice cmbe",
+        "(D) lice cube"
+      ],
+      "gold": "D"
+    },
+    "61": {
+      "movie_list": "new order",
+      "options": [
+        "(A) ndw order",
+        "(B) news order",
+        "(C) neworder",
+        "(D) few order"
+      ],
+      "gold": "D"
+    },
+    "62": {
+      "movie_list": "dolly dots",
+      "options": [
+        "(A) dolly kots",
+        "(B) dolly dot",
+        "(C) dolly dotcs",
+        "(D) dolly dott"
+      ],
+      "gold": "A"
+    },
+    "63": {
+      "movie_list": "die another day",
+      "options": [
+        "(A) vie another day",
+        "(B) die another iday",
+        "(C) dive another day",
+        "(D) pie another day"
+      ],
+      "gold": "D"
+    },
+    "64": {
+      "movie_list": "mad max",
+      "options": [
+        "(A) madq max",
+        "(B) mada max",
+        "(C) mud max",
+        "(D) sad max"
+      ],
+      "gold": "D"
+    },
+    "65": {
+      "movie_list": "8 mile",
+      "options": [
+        "(A) 8 mill",
+        "(B) 8 male",
+        "(C) 8 oile",
+        "(D) 8 milk"
+      ],
+      "gold": "D"
+    },
+    "66": {
+      "movie_list": "i spit on your grave",
+      "options": [
+        "(A) i spit on your erave",
+        "(B) i spit on your brave",
+        "(C) i skit on your grave",
+        "(D) i spit on your gravy"
+      ],
+      "gold": "D"
+    },
+    "67": {
+      "movie_list": "planet of the apes",
+      "options": [
+        "(A) planet of the ales",
+        "(B) planet of the ape",
+        "(C) planet of the apoes",
+        "(D) plrnet of the apes"
+      ],
+      "gold": "A"
+    },
+    "68": {
+      "movie_list": "the rolling stones",
+      "options": [
+        "(A) the rolling stones",
+        "(B) the rtlling stones",
+        "(C) the rolling scones",
+        "(D) the polling stones"
+      ],
+      "gold": "C"
+    },
+    "69": {
+      "movie_list": "reservoir dogs",
+      "options": [
+        "(A) reservoir dog",
+        "(B) reservoirzdogs",
+        "(C) reservojr dogs",
+        "(D) reservoir bogs"
+      ],
+      "gold": "D"
+    },
+    "70": {
+      "movie_list": "the men who stare at goats",
+      "options": [
+        "(A) the men who stare at boats",
+        "(B) uhe men who stare at goats",
+        "(C) the men who stare vt goats",
+        "(D) the omen who stare at goats"
+      ],
+      "gold": "A"
+    },
+    "71": {
+      "movie_list": "bridge of spies",
+      "options": [
+        "(A) bridge of spivs",
+        "(B) bridges of spies",
+        "(C) brikge of spies",
+        "(D) bridge off spies"
+      ],
+      "gold": "A"
+    },
+    "72": {
+      "movie_list": "last action hero",
+      "options": [
+        "(A) last actions hero",
+        "(B) last action herko",
+        "(C) last actin hero",
+        "(D) lost action hero"
+      ],
+      "gold": "D"
+    },
+    "73": {
+      "movie_list": "the godfather",
+      "options": [
+        "(A) the godfatrer",
+        "(B) the gobfather",
+        "(C) the godfathers",
+        "(D) thae godfather"
+      ],
+      "gold": "B"
+    },
+    "74": {
+      "movie_list": "the full monty",
+      "options": [
+        "(A) the fucll monty",
+        "(B) the fulz monty",
+        "(C) thezfull monty",
+        "(D) the full minty"
+      ],
+      "gold": "D"
+    },
+    "75": {
+      "movie_list": "fast and furious",
+      "options": [
+        "(A) fast andm furious",
+        "(B) last and furious",
+        "(C) fast yand furious",
+        "(D) fast and furuous"
+      ],
+      "gold": "B"
+    },
+    "76": {
+      "movie_list": "skinny puppy",
+      "options": [
+        "(A) skinny yuppy",
+        "(B) skinny puspy",
+        "(C) skihnny puppy",
+        "(D) skinny puppry"
+      ],
+      "gold": "A"
+    },
+    "77": {
+      "movie_list": "depeche mode",
+      "options": [
+        "(A) depecxhe mode",
+        "(B) depeche hmode",
+        "(C) depeche mole",
+        "(D) depeche gmode"
+      ],
+      "gold": "C"
+    },
+    "78": {
+      "movie_list": "sly and the family stone",
+      "options": [
+        "(A) syy and the family stone",
+        "(B) sly and the familyf stone",
+        "(C) sly and the familycstone",
+        "(D) soy and the family stone"
+      ],
+      "gold": "D"
+    },
+    "79": {
+      "movie_list": "the departed",
+      "options": [
+        "(A) the deprarted",
+        "(B) the dephrted",
+        "(C) the dearted",
+        "(D) the defarted"
+      ],
+      "gold": "D"
+    },
+    "80": {
+      "movie_list": "blade runner",
+      "options": [
+        "(A) blade runyner",
+        "(B) blade ruiner",
+        "(C) blade runnegr",
+        "(D) bulade runner"
+      ],
+      "gold": "B"
+    },
+    "81": {
+      "movie_list": "the avengers",
+      "options": [
+        "(A) toe avengers",
+        "(B) the avjngers",
+        "(C) thes avengers",
+        "(D) the avengegs"
+      ],
+      "gold": "A"
+    },
+    "82": {
+      "movie_list": "die hard",
+      "options": [
+        "(A) dib hard",
+        "(B) die haard",
+        "(C) die hare",
+        "(D) die sard"
+      ],
+      "gold": "C"
+    },
+    "83": {
+      "movie_list": "weezer",
+      "options": [
+        "(A) weezej",
+        "(B) weepzer",
+        "(C) tweezer",
+        "(D) wemezer"
+      ],
+      "gold": "C"
+    },
+    "84": {
+      "movie_list": "the longest day",
+      "options": [
+        "(A) thee longest day",
+        "(B) the bongest day",
+        "(C) the longest eay",
+        "(D) the longest eday"
+      ],
+      "gold": "B"
+    },
+    "85": {
+      "movie_list": "babs",
+      "options": [
+        "(A) jabs",
+        "(B) bab",
+        "(C) bibs",
+        "(D) baubs"
+      ],
+      "gold": "A"
+    },
+    "86": {
+      "movie_list": "moonlight",
+      "options": [
+        "(A) moonligrht",
+        "(B) moonlzght",
+        "(C) moonlights",
+        "(D) goonlight"
+      ],
+      "gold": "D"
+    },
+    "87": {
+      "movie_list": "animal farm",
+      "options": [
+        "(A) animal fart",
+        "(B) anidal farm",
+        "(C) animalofarm",
+        "(D) animal fagm"
+      ],
+      "gold": "A"
+    },
+    "88": {
+      "movie_list": "seven brides for seven brothers",
+      "options": [
+        "(A) seven briqes for seven brothers",
+        "(B) seven bridles for seven brothers",
+        "(C) seven brides forpseven brothers",
+        "(D) sevenzbrides for seven brothers"
+      ],
+      "gold": "B"
+    },
+    "89": {
+      "movie_list": "kiss",
+      "options": [
+        "(A) ktiss",
+        "(B) ukiss",
+        "(C) piss",
+        "(D) kfss"
+      ],
+      "gold": "C"
+    },
+    "90": {
+      "movie_list": "the police",
+      "options": [
+        "(A) tye police",
+        "(B) the polite",
+        "(C) nhe police",
+        "(D) twhe police"
+      ],
+      "gold": "B"
+    },
+    "91": {
+      "movie_list": "en vogue",
+      "options": [
+        "(A) eon vogue",
+        "(B) en vogbue",
+        "(C) en vfogue",
+        "(D) en rogue"
+      ],
+      "gold": "D"
+    },
+    "92": {
+      "movie_list": "top gun",
+      "options": [
+        "(A) tzop gun",
+        "(B) top gin",
+        "(C) toup gun",
+        "(D) toh gun"
+      ],
+      "gold": "B"
+    },
+    "93": {
+      "movie_list": "the girl with all the gifts",
+      "options": [
+        "(A) the girl with all the grifts",
+        "(B) the girl with alf the gifts",
+        "(C) the girl with iall the gifts",
+        "(D) the girl with all thke gifts"
+      ],
+      "gold": "A"
+    },
+    "94": {
+      "movie_list": "the sisters of mercy",
+      "options": [
+        "(A) the sister of mercy",
+        "(B) the svsters of mercy",
+        "(C) the sisters of msrcy",
+        "(D) the sisters of percy"
+      ],
+      "gold": "D"
+    },
+    "95": {
+      "movie_list": "the jam",
+      "options": [
+        "(A) the jams",
+        "(B) the ljam",
+        "(C) the jar",
+        "(D) the ham"
+      ],
+      "gold": "C"
+    },
+    "96": {
+      "movie_list": "gone with the wind",
+      "options": [
+        "(A) gone with the winm",
+        "(B) gong with the wind",
+        "(C) goke with the wind",
+        "(D) gone with the wynd"
+      ],
+      "gold": "B"
+    },
+    "97": {
+      "movie_list": "gone with the wind",
+      "options": [
+        "(A) gowne with the wind",
+        "(B) gone with the wand",
+        "(C) gone with the wing",
+        "(D) gone witth the wind"
+      ],
+      "gold": "B"
+    },
+    "98": {
+      "movie_list": "dream theater",
+      "options": [
+        "(A) tdream theater",
+        "(B) dreaml theater",
+        "(C) cream theater",
+        "(D) dream theatpr"
+      ],
+      "gold": "C"
+    },
+    "99": {
+      "movie_list": "belle and sebastian",
+      "options": [
+        "(A) belle and sebasrtian",
+        "(B) belly and sebastian",
+        "(C) belle and sebajtian",
+        "(D) ibelle and sebastian"
+      ],
+      "gold": "B"
+    },
+    "100": {
+      "movie_list": "earth, wind, & fire",
+      "options": [
+        "(A) eareth, wind, & fire",
+        "(B) earth, bind, & fire",
+        "(C) earthm wind, & fire",
+        "(D) dearth, wind, & fire"
+      ],
+      "gold": "D"
+    },
+    "101": {
+      "movie_list": "the battle of britain",
+      "options": [
+        "(A) the battles of britain",
+        "(B) the cattle of britain",
+        "(C) the battle ofkbritain",
+        "(D) thke battle of britain"
+      ],
+      "gold": "B"
+    },
+    "102": {
+      "movie_list": "dead man walking",
+      "options": [
+        "(A) dead man talking",
+        "(B) dead men walking",
+        "(C) dead man walkinbg",
+        "(D) dead man jwalking"
+      ],
+      "gold": "A"
+    },
+    "103": {
+      "movie_list": "suicide squad",
+      "options": [
+        "(A) suicide squad",
+        "(B) sunicide squad",
+        "(C) suicide squid",
+        "(D) suicideu squad"
+      ],
+      "gold": "C"
+    },
+    "104": {
+      "movie_list": "the dark knight",
+      "options": [
+        "(A) the dark night",
+        "(B) the park knight",
+        "(C) the darxk knight",
+        "(D) the dark knilht"
+      ],
+      "gold": "B"
+    },
+    "105": {
+      "movie_list": "sleepless in seattle",
+      "options": [
+        "(A) sleepless in settle",
+        "(B) sleeplekss in seattle",
+        "(C) sleepless in peattle",
+        "(D) sheepless in seattle"
+      ],
+      "gold": "D"
+    },
+    "106": {
+      "movie_list": "pink floyd",
+      "options": [
+        "(A) piqk floyd",
+        "(B) pink flomyd",
+        "(C) pink floyds",
+        "(D) fink floyd"
+      ],
+      "gold": "D"
+    },
+    "107": {
+      "movie_list": "the man with the golden gun",
+      "options": [
+        "(A) the man with the golden bun",
+        "(B) the men with the golden gun",
+        "(C) the man withethe golden gun",
+        "(D) the dan with the golden gun"
+      ],
+      "gold": "A"
+    },
+    "108": {
+      "movie_list": "the mash",
+      "options": [
+        "(A) tee mash",
+        "(B) the maseh",
+        "(C) thj mash",
+        "(D) the smash"
+      ],
+      "gold": "D"
+    },
+    "109": {
+      "movie_list": "missy elliott",
+      "options": [
+        "(A) pissy elliott",
+        "(B) missywelliott",
+        "(C) missy eltliott",
+        "(D) mibssy elliott"
+      ],
+      "gold": "A"
+    },
+    "110": {
+      "movie_list": "sleater-kinney",
+      "options": [
+        "(A) sleater-kidney",
+        "(B) sleatsr-kinney",
+        "(C) sleaterfkinney",
+        "(D) sleater-kinnhy"
+      ],
+      "gold": "A"
+    },
+    "111": {
+      "movie_list": "dirty dancing",
+      "options": [
+        "(A) dirty danqcing",
+        "(B) dirty lancing",
+        "(C) djrty dancing",
+        "(D) dirty cancing"
+      ],
+      "gold": "B"
+    },
+    "112": {
+      "movie_list": "jay and silent bob strike back",
+      "options": [
+        "(A) jay and sizent bob strike back",
+        "(B) jay and silent rob strike back",
+        "(C) jagy and silent bob strike back",
+        "(D) jay and silent bob strike bach"
+      ],
+      "gold": "D"
+    },
+    "113": {
+      "movie_list": "a bridge too far",
+      "options": [
+        "(A) a bridge toe far",
+        "(B) a bridge top far",
+        "(C) a bridge too fat",
+        "(D) a bfridge too far"
+      ],
+      "gold": "C"
+    },
+    "114": {
+      "movie_list": "the beatles",
+      "options": [
+        "(A) the meatles",
+        "(B) the beatles",
+        "(C) tje beatles",
+        "(D) the beatnles"
+      ],
+      "gold": "A"
+    },
+    "115": {
+      "movie_list": "night club",
+      "options": [
+        "(A) light club",
+        "(B) nigut club",
+        "(C) night cslub",
+        "(D) nigdht club"
+      ],
+      "gold": "A"
+    },
+    "116": {
+      "movie_list": "no time to die",
+      "options": [
+        "(A) no time to diet",
+        "(B) noetime to die",
+        "(C) no timu to die",
+        "(D) no time to diz"
+      ],
+      "gold": "A"
+    },
+    "117": {
+      "movie_list": "batman begins",
+      "options": [
+        "(A) barman begins",
+        "(B) batman bewins",
+        "(C) hatman begins",
+        "(D) batman begin"
+      ],
+      "gold": "C"
+    },
+    "118": {
+      "movie_list": "gold finger",
+      "options": [
+        "(A) pold finger",
+        "(B) golt finger",
+        "(C) gohd finger",
+        "(D) mold finger"
+      ],
+      "gold": "D"
+    },
+    "119": {
+      "movie_list": "calamity jane",
+      "options": [
+        "(A) calamity jyane",
+        "(B) aalamity jane",
+        "(C) calamity june",
+        "(D) calamitf jane"
+      ],
+      "gold": "C"
+    },
+    "120": {
+      "movie_list": "saving private ryan",
+      "options": [
+        "(A) shaving private ryan",
+        "(B) sfaving private ryan",
+        "(C) saving pripate ryan",
+        "(D) saving privates ryan"
+      ],
+      "gold": "A"
+    },
+    "121": {
+      "movie_list": "the cult",
+      "options": [
+        "(A) the colt",
+        "(B) dthe cult",
+        "(C) the cut",
+        "(D) hhe cult"
+      ],
+      "gold": "A"
+    },
+    "122": {
+      "movie_list": "johnny got his gun",
+      "options": [
+        "(A) johnny got hiw gun",
+        "(B) johnno got his gun",
+        "(C) johnny got his run",
+        "(D) johgnny got his gun"
+      ],
+      "gold": "C"
+    },
+    "123": {
+      "movie_list": "counting crows",
+      "options": [
+        "(A) mounting crows",
+        "(B) coufting crows",
+        "(C) counting crowj",
+        "(D) counting brows"
+      ],
+      "gold": "D"
+    },
+    "124": {
+      "movie_list": "lawrence of arabia",
+      "options": [
+        "(A) lawrence of arabida",
+        "(B) ljwrence of arabia",
+        "(C) lawrence of arabica",
+        "(D) lawrenqe of arabia"
+      ],
+      "gold": "C"
+    },
+    "125": {
+      "movie_list": "jungle book",
+      "options": [
+        "(A) jingle book",
+        "(B) jundgle book",
+        "(C) junxle book",
+        "(D) jungleg book"
+      ],
+      "gold": "A"
+    },
+    "126": {
+      "movie_list": "paint your wagon",
+      "options": [
+        "(A) pajint your wagon",
+        "(B) paint your wagons",
+        "(C) taint your wagon",
+        "(D) paint youbr wagon"
+      ],
+      "gold": "C"
+    },
+    "127": {
+      "movie_list": "blade",
+      "options": [
+        "(A) blades",
+        "(B) blkade",
+        "(C) slade",
+        "(D) blaqe"
+      ],
+      "gold": "C"
+    },
+    "128": {
+      "movie_list": "the sisterhood of the traveling pants",
+      "options": [
+        "(A) the sisterhootd of the traveling pants",
+        "(B) the sisterhood of the traveling pints",
+        "(C) the sisterhood vf the traveling pants",
+        "(D) the sisterhood of the traveling pnants"
+      ],
+      "gold": "B"
+    },
+    "129": {
+      "movie_list": "green day",
+      "options": [
+        "(A) green pay",
+        "(B) green dad",
+        "(C) green dazy",
+        "(D) groeen day"
+      ],
+      "gold": "B"
+    },
+    "130": {
+      "movie_list": "the sting",
+      "options": [
+        "(A) the stink",
+        "(B) thegsting",
+        "(C) the soing",
+        "(D) the mting"
+      ],
+      "gold": "A"
+    },
+    "131": {
+      "movie_list": "the artist",
+      "options": [
+        "(A) thw artist",
+        "(B) kthe artist",
+        "(C) xthe artist",
+        "(D) toe artist"
+      ],
+      "gold": "D"
+    },
+    "132": {
+      "movie_list": "the hope",
+      "options": [
+        "(A) tzhe hope",
+        "(B) the hogpe",
+        "(C) the hodpe",
+        "(D) the hose"
+      ],
+      "gold": "D"
+    },
+    "133": {
+      "movie_list": "blade runner",
+      "options": [
+        "(A) brlade runner",
+        "(B) blate runner",
+        "(C) jblade runner",
+        "(D) blade rknner"
+      ],
+      "gold": "B"
+    },
+    "134": {
+      "movie_list": "a view to a kill",
+      "options": [
+        "(A) a view to a krill",
+        "(B) a view to a kiwll",
+        "(C) a view to akkill",
+        "(D) a view zto a kill"
+      ],
+      "gold": "A"
+    },
+    "135": {
+      "movie_list": "hope floats",
+      "options": [
+        "(A) hopes floats",
+        "(B) pope floats",
+        "(C) hope float",
+        "(D) hopge floats"
+      ],
+      "gold": "B"
+    },
+    "136": {
+      "movie_list": "the apartment",
+      "options": [
+        "(A) toe apartment",
+        "(B) the apartments",
+        "(C) thew apartment",
+        "(D) lthe apartment"
+      ],
+      "gold": "A"
+    },
+    "137": {
+      "movie_list": "schindlers list",
+      "options": [
+        "(A) schindler's lift",
+        "(B) schindler's list",
+        "(C) schindlerm's list",
+        "(D) schindler's liit"
+      ],
+      "gold": "A"
+    },
+    "138": {
+      "movie_list": "beauty and the beast",
+      "options": [
+        "(A) beauty and thd beast",
+        "(B) beauty rnd the beast",
+        "(C) beauty and the beasts",
+        "(D) beauty and the feast"
+      ],
+      "gold": "D"
+    },
+    "139": {
+      "movie_list": "news of the world",
+      "options": [
+        "(A) new of the world",
+        "(B) news of thte world",
+        "(C) newt of the world",
+        "(D) news ofwthe world"
+      ],
+      "gold": "C"
+    },
+    "140": {
+      "movie_list": "the guns of navarone",
+      "options": [
+        "(A) the guns of navaronpe",
+        "(B) the buns of navarone",
+        "(C) the guns gof navarone",
+        "(D) the guns of navfarone"
+      ],
+      "gold": "B"
+    },
+    "141": {
+      "movie_list": "the beatles",
+      "options": [
+        "(A) the beatlis",
+        "(B) the beagles",
+        "(C) the ubeatles",
+        "(D) the beatlies"
+      ],
+      "gold": "B"
+    },
+    "142": {
+      "movie_list": "the godfather",
+      "options": [
+        "(A) the codfather",
+        "(B) tee godfather",
+        "(C) the godqfather",
+        "(D) thue godfather"
+      ],
+      "gold": "A"
+    },
+    "143": {
+      "movie_list": "hank williams",
+      "options": [
+        "(A) hank willianms",
+        "(B) hank williyams",
+        "(C) dank williams",
+        "(D) hanqk williams"
+      ],
+      "gold": "C"
+    },
+    "144": {
+      "movie_list": "black sabbath",
+      "options": [
+        "(A) blaik sabbath",
+        "(B) black seabbath",
+        "(C) black sabzbath",
+        "(D) slack sabbath"
+      ],
+      "gold": "D"
+    },
+    "145": {
+      "movie_list": "rita, sue and bob too",
+      "options": [
+        "(A) rita, sue and bob too",
+        "(B) rita, sue and bob poo",
+        "(C) rita, sue and box too",
+        "(D) rita,y sue and bob too"
+      ],
+      "gold": "B"
+    },
+    "146": {
+      "movie_list": "jethro tull",
+      "options": [
+        "(A) jethro dull",
+        "(B) jethro tult",
+        "(C) jethrpo tull",
+        "(D) jethro tuill"
+      ],
+      "gold": "A"
+    },
+    "147": {
+      "movie_list": "the sound of music",
+      "options": [
+        "(A) the sound of muasic",
+        "(B) them sound of music",
+        "(C) the hound of music",
+        "(D) the ssund of music"
+      ],
+      "gold": "C"
+    },
+    "148": {
+      "movie_list": "dream theater",
+      "options": [
+        "(A) drzeam theater",
+        "(B) dream thdeater",
+        "(C) dread theater",
+        "(D) dreavm theater"
+      ],
+      "gold": "C"
+    },
+    "149": {
+      "movie_list": "my fair lady",
+      "options": [
+        "(A) my fair laddy",
+        "(B) my fmair lady",
+        "(C) my faird lady",
+        "(D) my fair laady"
+      ],
+      "gold": "A"
+    },
+    "150": {
+      "movie_list": "offspring",
+      "options": [
+        "(A) offsprinig",
+        "(B) offsprinc",
+        "(C) offespring",
+        "(D) offstring"
+      ],
+      "gold": "D"
+    },
+    "151": {
+      "movie_list": "the longest day",
+      "options": [
+        "(A) the long est day",
+        "(B) the longest sday",
+        "(C) the longest days",
+        "(D) the longesb day"
+      ],
+      "gold": "A"
+    },
+    "152": {
+      "movie_list": "apocalypse now",
+      "options": [
+        "(A) iapocalypse now",
+        "(B) apocalypse ncow",
+        "(C) apocalypse cow",
+        "(D) apocalypxse now"
+      ],
+      "gold": "C"
+    },
+    "153": {
+      "movie_list": "star wars",
+      "options": [
+        "(A) stars wars",
+        "(B) stat wars",
+        "(C) star wwars",
+        "(D) star warg"
+      ],
+      "gold": "B"
+    },
+    "154": {
+      "movie_list": "big country",
+      "options": [
+        "(A) mbig country",
+        "(B) big countrys",
+        "(C) pig country",
+        "(D) bag country"
+      ],
+      "gold": "C"
+    },
+    "155": {
+      "movie_list": "12 angry men",
+      "options": [
+        "(A) 2 angry men",
+        "(B) 12 angry mhen",
+        "(C) 12oangry men",
+        "(D) 12 hangry men"
+      ],
+      "gold": "D"
+    },
+    "156": {
+      "movie_list": "in search of a midnight kiss",
+      "options": [
+        "(A) in search of a midnibht kiss",
+        "(B) in secarch of a midnight kiss",
+        "(C) in search of a midnight piss",
+        "(D) in seavrch of a midnight kiss"
+      ],
+      "gold": "C"
+    },
+    "157": {
+      "movie_list": "men in black",
+      "options": [
+        "(A) hen in black",
+        "(B) man in black",
+        "(C) hmen in black",
+        "(D) men ib black"
+      ],
+      "gold": "A"
+    },
+    "158": {
+      "movie_list": "the beatles",
+      "options": [
+        "(A) the beagles",
+        "(B) the beatlhes",
+        "(C) the reatles",
+        "(D) ihe beatles"
+      ],
+      "gold": "A"
+    },
+    "159": {
+      "movie_list": "raging bull",
+      "options": [
+        "(A) raging bulls",
+        "(B) rating bull",
+        "(C) ragingzbull",
+        "(D) raging dull"
+      ],
+      "gold": "D"
+    },
+    "160": {
+      "movie_list": "bad brains",
+      "options": [
+        "(A) bad brabins",
+        "(B) bad brauns",
+        "(C) bad bramins",
+        "(D) bed brains"
+      ],
+      "gold": "D"
+    },
+    "161": {
+      "movie_list": "thin lizzy",
+      "options": [
+        "(A) ghin lizzy",
+        "(B) thiny lizzy",
+        "(C) thin lpzzy",
+        "(D) thin fizzy"
+      ],
+      "gold": "D"
+    },
+    "162": {
+      "movie_list": "ben folds five",
+      "options": [
+        "(A) ben foldsk five",
+        "(B) ben folds fpve",
+        "(C) ten folds five",
+        "(D) bengfolds five"
+      ],
+      "gold": "C"
+    },
+    "163": {
+      "movie_list": "citizen kane",
+      "options": [
+        "(A) citizen kale",
+        "(B) citizey kane",
+        "(C) citsizen kane",
+        "(D) citizen kahne"
+      ],
+      "gold": "A"
+    },
+    "164": {
+      "movie_list": "dave matthews band",
+      "options": [
+        "(A) dave matthewg band",
+        "(B) dave matthews hand",
+        "(C) dave matthews xand",
+        "(D) dave matthews basnd"
+      ],
+      "gold": "B"
+    },
+    "165": {
+      "movie_list": "the sum of all fears",
+      "options": [
+        "(A) the sudm of all fears",
+        "(B) the mum of all fears",
+        "(C) the sums of all fears",
+        "(D) the sum of all fear"
+      ],
+      "gold": "B"
+    },
+    "166": {
+      "movie_list": "city hall",
+      "options": [
+        "(A) citys hall",
+        "(B) city halls",
+        "(C) city hell",
+        "(D) bity hall"
+      ],
+      "gold": "C"
+    },
+    "167": {
+      "movie_list": "the abyss",
+      "options": [
+        "(A) toe abyss",
+        "(B) thehabyss",
+        "(C) the aboss",
+        "(D) tse abyss"
+      ],
+      "gold": "A"
+    },
+    "168": {
+      "movie_list": "mank",
+      "options": [
+        "(A) man",
+        "(B) monk",
+        "(C) manks",
+        "(D) hank"
+      ],
+      "gold": "B"
+    },
+    "169": {
+      "movie_list": "sex pistols",
+      "options": [
+        "(A) six pistols",
+        "(B) sex pistols",
+        "(C) sex pibtols",
+        "(D) sex pistoils"
+      ],
+      "gold": "A"
+    },
+    "170": {
+      "movie_list": "life of brian",
+      "options": [
+        "(A) litfe of brian",
+        "(B) life oi brian",
+        "(C) life f brian",
+        "(D) lift of brian"
+      ],
+      "gold": "D"
+    },
+    "171": {
+      "movie_list": "black panther",
+      "options": [
+        "(A) bliack panther",
+        "(B) block panther",
+        "(C) black panthers",
+        "(D) black panthek"
+      ],
+      "gold": "B"
+    },
+    "172": {
+      "movie_list": "goldfinger",
+      "options": [
+        "(A) moldfinger",
+        "(B) goldfingers",
+        "(C) goldfingfr",
+        "(D) gboldfinger"
+      ],
+      "gold": "A"
+    },
+    "173": {
+      "movie_list": "foo fighters",
+      "options": [
+        "(A) foo fwighters",
+        "(B) foo fighter",
+        "(C) foo fixhters",
+        "(D) food fighters"
+      ],
+      "gold": "D"
+    },
+    "174": {
+      "movie_list": "air supply",
+      "options": [
+        "(A) aio supply",
+        "(B) air supply",
+        "(C) lir supply",
+        "(D) hair supply"
+      ],
+      "gold": "D"
+    },
+    "175": {
+      "movie_list": "diana ross and the supremes",
+      "options": [
+        "(A) diana ross nand the supremes",
+        "(B) diana dross and the supremes",
+        "(C) diana ross and pthe supremes",
+        "(D) diana rosts and the supremes"
+      ],
+      "gold": "B"
+    },
+    "176": {
+      "movie_list": "brokeback mountain",
+      "options": [
+        "(A) brhokeback mountain",
+        "(B) broseback mountain",
+        "(C) brokeback mounttin",
+        "(D) brokeback fountain"
+      ],
+      "gold": "D"
+    },
+    "177": {
+      "movie_list": "godzilla vs. kong",
+      "options": [
+        "(A) godzillas vs. kong",
+        "(B) godzilla as. kong",
+        "(C) gozilla vs. kong",
+        "(D) godzilla vs. bong"
+      ],
+      "gold": "D"
+    },
+    "178": {
+      "movie_list": "the who!",
+      "options": [
+        "(A) the pho!",
+        "(B) thd who!",
+        "(C) thqe who!",
+        "(D) the wqo!"
+      ],
+      "gold": "A"
+    },
+    "179": {
+      "movie_list": "the green mile",
+      "options": [
+        "(A) the green milk",
+        "(B) the greenzmile",
+        "(C) the geen mile",
+        "(D) the gdreen mile"
+      ],
+      "gold": "A"
+    },
+    "180": {
+      "movie_list": "the dark knight",
+      "options": [
+        "(A) the dark knigst",
+        "(B) the dark ksight",
+        "(C) tie dark knight",
+        "(D) the dork knight"
+      ],
+      "gold": "D"
+    },
+    "181": {
+      "movie_list": "live and let die",
+      "options": [
+        "(A) liee and let die",
+        "(B) live and let diet",
+        "(C) eive and let die",
+        "(D) live and let dzie"
+      ],
+      "gold": "B"
+    },
+    "182": {
+      "movie_list": "midnight cowboy",
+      "options": [
+        "(A) midnigmht cowboy",
+        "(B) midnight cow boy",
+        "(C) midnights cowboy",
+        "(D) midnight cowbory"
+      ],
+      "gold": "B"
+    },
+    "183": {
+      "movie_list": "snow patrol",
+      "options": [
+        "(A) snot patrol",
+        "(B) snow pqtrol",
+        "(C) snow patrol",
+        "(D) snow paztrol"
+      ],
+      "gold": "A"
+    },
+    "184": {
+      "movie_list": "the bangles",
+      "options": [
+        "(A) the mangles",
+        "(B) the mfangles",
+        "(C) the tmangles",
+        "(D) tue mangles"
+      ],
+      "gold": "A"
+    },
+    "185": {
+      "movie_list": "state champs",
+      "options": [
+        "(A) state champ",
+        "(B) statek champs",
+        "(C) state cqhamps",
+        "(D) state chumps"
+      ],
+      "gold": "D"
+    },
+    "186": {
+      "movie_list": "the secret life of pets",
+      "options": [
+        "(A) the secret life of pots",
+        "(B) the saecret life of pets",
+        "(C) the secret life of pet",
+        "(D) the secret life of pat"
+      ],
+      "gold": "A"
+    },
+    "187": {
+      "movie_list": "full metal jacket",
+      "options": [
+        "(A) fullmmetal jacket",
+        "(B) full mpetal jacket",
+        "(C) full metal jactet",
+        "(D) dull metal jacket"
+      ],
+      "gold": "D"
+    },
+    "188": {
+      "movie_list": "friday the 13th",
+      "options": [
+        "(A) xriday the 13th",
+        "(B) fridays the 13th",
+        "(C) friday the 12th",
+        "(D) fribay the 13th"
+      ],
+      "gold": "C"
+    },
+    "189": {
+      "movie_list": "the bay city rollers",
+      "options": [
+        "(A) the baby city rollers",
+        "(B) the bay city rolleyrs",
+        "(C) tce bay city rollers",
+        "(D) the bay ciby rollers"
+      ],
+      "gold": "A"
+    },
+    "190": {
+      "movie_list": "blue",
+      "options": [
+        "(A) blfue",
+        "(B) glue",
+        "(C) lue",
+        "(D) bvlue"
+      ],
+      "gold": "B"
+    },
+    "191": {
+      "movie_list": "the gap band",
+      "options": [
+        "(A) the lap band",
+        "(B) thwe gap band",
+        "(C) thn gap band",
+        "(D) the gap bannd"
+      ],
+      "gold": "A"
+    },
+    "192": {
+      "movie_list": "star wars",
+      "options": [
+        "(A) star wart",
+        "(B) star waqs",
+        "(C) stal wars",
+        "(D) star wafs"
+      ],
+      "gold": "A"
+    },
+    "193": {
+      "movie_list": "the fall of the house of usher",
+      "options": [
+        "(A) the zall of the house of usher",
+        "(B) the fall of the louse of usher",
+        "(C) the fall of tce house of usher",
+        "(D) the fall of the houses of usher"
+      ],
+      "gold": "B"
+    },
+    "194": {
+      "movie_list": "old joy",
+      "options": [
+        "(A) old jody",
+        "(B) old toy",
+        "(C) old jdy",
+        "(D) olzd joy"
+      ],
+      "gold": "B"
+    },
+    "195": {
+      "movie_list": "run dmc",
+      "options": [
+        "(A) runxdmc",
+        "(B) rqn dmc",
+        "(C) run dac",
+        "(D) run dnc"
+      ],
+      "gold": "D"
+    },
+    "196": {
+      "movie_list": "the grapes of wrath",
+      "options": [
+        "(A) the grdapes of wrath",
+        "(B) the graqpes of wrath",
+        "(C) the drapes of wrath",
+        "(D) tve grapes of wrath"
+      ],
+      "gold": "C"
+    },
+    "197": {
+      "movie_list": "drag me to hell",
+      "options": [
+        "(A) drag me to help",
+        "(B) drags me to hell",
+        "(C) drag mge to hell",
+        "(D) mrag me to hell"
+      ],
+      "gold": "A"
+    },
+    "198": {
+      "movie_list": "talking heads",
+      "options": [
+        "(A) stalking heads",
+        "(B) talking head",
+        "(C) talking had",
+        "(D) talrking heads"
+      ],
+      "gold": "A"
+    },
+    "199": {
+      "movie_list": "paul oakenfold",
+      "options": [
+        "(A) paul joakenfold",
+        "(B) paul oakenfod",
+        "(C) paull oakenfold",
+        "(D) paul oakenfdold"
+      ],
+      "gold": "A"
+    },
+    "200": {
+      "movie_list": "brief encounter",
+      "options": [
+        "(A) grief encounter",
+        "(B) brief encounzter",
+        "(C) brief eencounter",
+        "(D) brief qncounter"
+      ],
+      "gold": "A"
+    },
+    "201": {
+      "movie_list": "a tribe called quest",
+      "options": [
+        "(A) a tribe valled quests",
+        "(B) a tribe callew quest",
+        "(C) a tribe called queso",
+        "(D) a tribe callel quest"
+      ],
+      "gold": "C"
+    },
+    "202": {
+      "movie_list": "star wars",
+      "options": [
+        "(A) stap wars",
+        "(B) staz wars",
+        "(C) scar wars",
+        "(D) svar wars"
+      ],
+      "gold": "C"
+    },
+    "203": {
+      "movie_list": "the wizard of oz",
+      "options": [
+        "(A) the wizards of oz",
+        "(B) the wvzard of oz",
+        "(C) the lizard of oz",
+        "(D) the widzard of oz"
+      ],
+      "gold": "C"
+    },
+    "204": {
+      "movie_list": "run dmc",
+      "options": [
+        "(A) run dmv",
+        "(B) run bdmc",
+        "(C) runs dmc",
+        "(D) run hmc"
+      ],
+      "gold": "A"
+    },
+    "205": {
+      "movie_list": "the third man",
+      "options": [
+        "(A) the third mans",
+        "(B) the third men",
+        "(C) the jhird man",
+        "(D) the third nan"
+      ],
+      "gold": "D"
+    },
+    "206": {
+      "movie_list": "cat on a hot tin roof",
+      "options": [
+        "(A) cat on a hkt tin roof",
+        "(B) cat on a hot tin riof",
+        "(C) cat on a hot tan roof",
+        "(D) fat on a hot tin roof"
+      ],
+      "gold": "D"
+    },
+    "207": {
+      "movie_list": "notting hill",
+      "options": [
+        "(A) notting hills",
+        "(B) nothing hill",
+        "(C) nottirg hill",
+        "(D) notting hill"
+      ],
+      "gold": "B"
+    },
+    "208": {
+      "movie_list": "good will hunting",
+      "options": [
+        "(A) gokd will hunting",
+        "(B) good wiol hunting",
+        "(C) good will punting",
+        "(D) good will hvnting"
+      ],
+      "gold": "C"
+    },
+    "209": {
+      "movie_list": "foo fighters",
+      "options": [
+        "(A) poo fighters",
+        "(B) foo uighters",
+        "(C) foo fxghters",
+        "(D) foo faghters"
+      ],
+      "gold": "A"
+    },
+    "210": {
+      "movie_list": "goo goo dolls",
+      "options": [
+        "(A) goo goo dills",
+        "(B) goo goo dohlls",
+        "(C) goo goto dolls",
+        "(D) goo gfoo dolls"
+      ],
+      "gold": "A"
+    },
+    "211": {
+      "movie_list": "soundgarden",
+      "options": [
+        "(A) foundgarden",
+        "(B) sounhgarden",
+        "(C) soundgardew",
+        "(D) sojndgarden"
+      ],
+      "gold": "A"
+    },
+    "212": {
+      "movie_list": "peter and the test tube babies",
+      "options": [
+        "(A) peter and the tests tube babies",
+        "(B) peter and theatest tube babies",
+        "(C) peter and the test tube tabies",
+        "(D) peter and the test tube rabies"
+      ],
+      "gold": "D"
+    },
+    "213": {
+      "movie_list": "blur",
+      "options": [
+        "(A) blux",
+        "(B) bldur",
+        "(C) tlur",
+        "(D) blub"
+      ],
+      "gold": "D"
+    },
+    "214": {
+      "movie_list": "black sabbath",
+      "options": [
+        "(A) black sabvbath",
+        "(B) black sabiath",
+        "(C) black sabbtath",
+        "(D) blank sabbath"
+      ],
+      "gold": "D"
+    },
+    "215": {
+      "movie_list": "trolls",
+      "options": [
+        "(A) qtrolls",
+        "(B) trells",
+        "(C) trollb",
+        "(D) trills"
+      ],
+      "gold": "D"
+    },
+    "216": {
+      "movie_list": "bad company",
+      "options": [
+        "(A) bad companys",
+        "(B) badc company",
+        "(C) bad vcompany",
+        "(D) sad company"
+      ],
+      "gold": "D"
+    },
+    "217": {
+      "movie_list": "3:10 to yuma",
+      "options": [
+        "(A) 3:10 tou yuma",
+        "(B) 3:k0 to yuma",
+        "(C) 3:10 to duma",
+        "(D) 3:10 to yumga"
+      ],
+      "gold": "C"
+    },
+    "218": {
+      "movie_list": "hermans hermits",
+      "options": [
+        "(A) hwrman's hermits",
+        "(B) hermjn's hermits",
+        "(C) herman's hermtts",
+        "(D) herman's permits"
+      ],
+      "gold": "D"
+    },
+    "219": {
+      "movie_list": "night of the demons",
+      "options": [
+        "(A) nights of the demons",
+        "(B) night of the demon",
+        "(C) nighkt of the demons",
+        "(D) night of the lemons"
+      ],
+      "gold": "D"
+    },
+    "220": {
+      "movie_list": "the rolling stones",
+      "options": [
+        "(A) the rolling scones",
+        "(B) the rolling stone",
+        "(C) the tolling stones",
+        "(D) the rollizng stones"
+      ],
+      "gold": "A"
+    },
+    "221": {
+      "movie_list": "blur",
+      "options": [
+        "(A) ublur",
+        "(B) blue",
+        "(C) blucr",
+        "(D) blnur"
+      ],
+      "gold": "B"
+    },
+    "222": {
+      "movie_list": "a matter of life and death",
+      "options": [
+        "(A) a matter of life nnd death",
+        "(B) aumatter of life and death",
+        "(C) a matter of wife and death",
+        "(D) a matter zof life and death"
+      ],
+      "gold": "C"
+    },
+    "223": {
+      "movie_list": "singin in the rain",
+      "options": [
+        "(A) silgin' in the rain",
+        "(B) singint in the rain",
+        "(C) singin' in the ruin",
+        "(D) sizngin' in the rain"
+      ],
+      "gold": "C"
+    },
+    "224": {
+      "movie_list": "the man with two brains",
+      "options": [
+        "(A) the man with two bvrains",
+        "(B) the man wwith two brains",
+        "(C) the man with two drains",
+        "(D) the man with tgo brains"
+      ],
+      "gold": "C"
+    },
+    "225": {
+      "movie_list": "born free",
+      "options": [
+        "(A) barn free",
+        "(B) bsrn free",
+        "(C) born flee",
+        "(D) bornqfree"
+      ],
+      "gold": "C"
+    },
+    "226": {
+      "movie_list": "the moody blues",
+      "options": [
+        "(A) the moody bloes",
+        "(B) the moody blueb",
+        "(C) the woody blues",
+        "(D) the moodyy blues"
+      ],
+      "gold": "C"
+    },
+    "227": {
+      "movie_list": "jojo rabbit",
+      "options": [
+        "(A) mojo rabbit",
+        "(B) jojo vrabbit",
+        "(C) jojo rababit",
+        "(D) jojvo rabbit"
+      ],
+      "gold": "A"
+    },
+    "228": {
+      "movie_list": "reservoir dogs",
+      "options": [
+        "(A) reservoir dofgs",
+        "(B) resxervoir dogs",
+        "(C) reservoir fogs",
+        "(D) reservzoir dogs"
+      ],
+      "gold": "C"
+    },
+    "229": {
+      "movie_list": "thunder road",
+      "options": [
+        "(A) thunder koad",
+        "(B) thunder toad",
+        "(C) thuider road",
+        "(D) thunder iroad"
+      ],
+      "gold": "B"
+    },
+    "230": {
+      "movie_list": "star wars",
+      "options": [
+        "(A) star wars",
+        "(B) spar wars",
+        "(C) sdtar wars",
+        "(D) stxr wars"
+      ],
+      "gold": "B"
+    },
+    "231": {
+      "movie_list": "deadpool",
+      "options": [
+        "(A) deadpowol",
+        "(B) deadfool",
+        "(C) ndeadpool",
+        "(D) dveadpool"
+      ],
+      "gold": "B"
+    },
+    "232": {
+      "movie_list": "the lady vanishes",
+      "options": [
+        "(A) the lady varnishes",
+        "(B) the lady ranishes",
+        "(C) the lady vanishxes",
+        "(D) the lady vanzishes"
+      ],
+      "gold": "A"
+    },
+    "233": {
+      "movie_list": "steely dan",
+      "options": [
+        "(A) steely dans",
+        "(B) stveely dan",
+        "(C) steely yan",
+        "(D) steely man"
+      ],
+      "gold": "D"
+    },
+    "234": {
+      "movie_list": "the men who stare at goats",
+      "options": [
+        "(A) the men who stare at coats",
+        "(B) the men who stare akt goats",
+        "(C) the men who stare as goats",
+        "(D) the men who stare at giats"
+      ],
+      "gold": "A"
+    },
+    "235": {
+      "movie_list": "the stone roses",
+      "options": [
+        "(A) the stone rosees",
+        "(B) the stone ropes",
+        "(C) ths stone roses",
+        "(D) the stone zroses"
+      ],
+      "gold": "B"
+    },
+    "236": {
+      "movie_list": "nine inch nails",
+      "options": [
+        "(A) nine ionch nails",
+        "(B) nine inch sails",
+        "(C) nine inch qnails",
+        "(D) nine isch nails"
+      ],
+      "gold": "B"
+    },
+    "237": {
+      "movie_list": "billy idol",
+      "options": [
+        "(A) billy imdol",
+        "(B) lbilly idol",
+        "(C) pbilly idol",
+        "(D) billy midol"
+      ],
+      "gold": "D"
+    },
+    "238": {
+      "movie_list": "schindlers list",
+      "options": [
+        "(A) schindler's lihst",
+        "(B) fchindler's list",
+        "(C) schintler's list",
+        "(D) schindler's lost"
+      ],
+      "gold": "D"
+    },
+    "239": {
+      "movie_list": "sex pistols",
+      "options": [
+        "(A) sex fistols",
+        "(B) sex pisthls",
+        "(C) skx pistols",
+        "(D) sex piwtols"
+      ],
+      "gold": "A"
+    },
+    "240": {
+      "movie_list": "gone with the wind",
+      "options": [
+        "(A) gone with the wino",
+        "(B) gone with thecwind",
+        "(C) gone withmthe wind",
+        "(D) gone with the wicd"
+      ],
+      "gold": "A"
+    },
+    "241": {
+      "movie_list": "its a wonderful life",
+      "options": [
+        "(A) it's a wonderful line",
+        "(B) it's a londerful life",
+        "(C) it's a wonderful lifr",
+        "(D) it's a wonderful libfe"
+      ],
+      "gold": "A"
+    },
+    "242": {
+      "movie_list": "guns n roses",
+      "options": [
+        "(A) guns n' goses",
+        "(B) suns n' roses",
+        "(C) guns n' rosjs",
+        "(D) guns n' rgoses"
+      ],
+      "gold": "B"
+    },
+    "243": {
+      "movie_list": "witness",
+      "options": [
+        "(A) witsess",
+        "(B) wetness",
+        "(C) wimness",
+        "(D) witnpss"
+      ],
+      "gold": "B"
+    },
+    "244": {
+      "movie_list": "killing joke",
+      "options": [
+        "(A) killing toke",
+        "(B) killing jokes",
+        "(C) killing coke",
+        "(D) villing joke"
+      ],
+      "gold": "A"
+    },
+    "245": {
+      "movie_list": "panic! at the disco",
+      "options": [
+        "(A) panic! at the cisco",
+        "(B) panic! at the discos",
+        "(C) panic! at thexdisco",
+        "(D) panic! art the disco"
+      ],
+      "gold": "A"
+    },
+    "246": {
+      "movie_list": "spice girls",
+      "options": [
+        "(A) spihe girls",
+        "(B) spic girls",
+        "(C) spice tgirls",
+        "(D) spite girls"
+      ],
+      "gold": "D"
+    },
+    "247": {
+      "movie_list": "the police",
+      "options": [
+        "(A) the polixce",
+        "(B) the poplice",
+        "(C) the polece",
+        "(D) the polite"
+      ],
+      "gold": "D"
+    },
+    "248": {
+      "movie_list": "spandau ballet",
+      "options": [
+        "(A) spandau aballet",
+        "(B) spandfu ballet",
+        "(C) spaydau ballet",
+        "(D) spandau pallet"
+      ],
+      "gold": "D"
+    },
+    "249": {
+      "movie_list": "toto",
+      "options": [
+        "(A) thto",
+        "(B) tioto",
+        "(C) totco",
+        "(D) tote"
+      ],
+      "gold": "D"
+    },
+    "250": {
+      "movie_list": "system of a down",
+      "options": [
+        "(A) system mof a down",
+        "(B) shstem of a down",
+        "(C) syster of a down",
+        "(D) system of a gown"
+      ],
+      "gold": "D"
+    }
+  }
+}

@@ -1,0 +1,1295 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "web_of_lies",
+  "format": "classification (yes/no)",
+  "task_type": "algorithmic",
+  "num_of_instances": 250,
+  "description": "Evaluate a random boolean function expressed as a word problem.",
+  "more_info": {
+    "input_templates": [
+      "Q: {story}. Does {person_name} tell the truth?\nA:"
+    ],
+    "key_names": [
+      "story",
+      "person_name"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "story": "Fidel tells the truth. Jerry says Fidel tells the truth. Vina says Jerry tells the truth. Millicent says Vina lies. Raymond says Millicent lies.",
+        "person_name": "Raymond",
+        "gold": "Yes",
+        "explanation": "(1) Fidel tells the truth. So, we know that Fidel tells the truth.\n(2) Jerry says Fidel tells the truth. Since we know from (1) that Fidel tells the truth, if Jerry says that Fidel tells the truth, then Jerry tells the truth.\n(3) Vina says Jerry tells the truth. Since we know from (2) that Jerry tells the truth, if Vina says Jerry tells the truth, then Vine tells the truth.\n(4) Millicent says Vina lies. Since we know from (3) that Vina tells the truth, if Millicent says Vina lies, then Millicent lies.\n(5) Raymond says Millicent lies. Since we know from (4) that Millicent lies, if Raymond says Millicent lies, then Raymond tells the truth.\nNow, the question asks: Does Raymond tell the truth? We know from (5) that Raymond tells the truth. So the answer is Yes."
+      },
+      "1": {
+        "story": "Kristian lies. Millie says Kristian lies. Maybelle says Millie tells the truth. Fidel says Maybelle lies. Leda says Fidel lies.",
+        "person_name": "Leda",
+        "gold": "Yes",
+        "explanation": "(1) Kristian lies. So, we know that Kristian lies.\n(2) Millie says Kristian lies. Since we know from (1) that Kristian lies, if Millie says Kristian lies, then Millie tells the truth.\n(3) Maybelle says Millie tells the truth. Since we know from (2) that Millie tells the truth, if Maybelle says Millie tells the truth, then Maybelle tells the truth.\n(4) Fidel says Maybelle lies. Since we know from (3) that Maybelle tells the truth, if Fidel says Maybelle lies, then Fidel lies.\n(5) Leda says Fidel lies. Since we know from (4) that Fidel lies, if Leda says Fidel lies, then Leda tells the truth.\nNow, the question asks: Does Leda tell the truth? We know from (5) that Leda tells the truth. So the answer is Yes."
+      },
+      "2": {
+        "story": "Kristian tells the truth. Michaela says Kristian lies. Raymond says Michaela tells the truth. Osvaldo says Raymond tells the truth. Jamey says Osvaldo tells the truth.",
+        "person_name": "Jamey",
+        "gold": "No",
+        "explanation": "(1) Kristian tells the truth. So, we know that Kristian tells the truth.\n(2) Michaela says Kristian lies. Since we know from (1) that Kristian tells the truth, if Michaela says Kristian lies, then Michaela lies.\n(3) Raymond says Michaela tells the truth. Since we know from (2) that Michaela lies, if Raymond says Michaela tells the truth, then Raymond lies.\n(4) Osvaldo says Raymond tells the truth. Since we know from (3) that Raymond lies, if Osvaldo says Raymond tells the truth, then Osvaldo lies.\n(5) Jamey says Osvaldo tells the truth. Since we know from (4) that Osvaldo lies, if Jamey says Osvaldo tells the truth, then Jamey lies.\nNow, the question asks: Does Jamey tell the truth? We know from (5) that Jamey lies. So the answer is No."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Question: Fidel tells the truth. Jerry says Fidel tells the truth. Vina says Jerry tells the truth. Millicent says Vina lies. Raymond says Millicent lies. Does Raymond tell the truth?\nA: Yes\nExplanation:\n(1) Fidel tells the truth. So, we know that Fidel tells the truth.\n(2) Jerry says Fidel tells the truth. Since we know from (1) that Fidel tells the truth, if Jerry says that Fidel tells the truth, then Jerry tells the truth.\n(3) Vina says Jerry tells the truth. Since we know from (2) that Jerry tells the truth, if Vina says Jerry tells the truth, then Vine tells the truth.\n(4) Millicent says Vina lies. Since we know from (3) that Vina tells the truth, if Millicent says Vina lies, then Millicent lies.\n(5) Raymond says Millicent lies. Since we know from (4) that Millicent lies, if Raymond says Millicent lies, then Raymond tells the truth.\nNow, the question asks: Does Raymond tell the truth? We know from (5) that Raymond tells the truth. So the answer is Yes.",
+      "Q: Question: Kristian lies. Millie says Kristian lies. Maybelle says Millie tells the truth. Fidel says Maybelle lies. Leda says Fidel lies. Does Leda tell the truth?\nA: Yes\nExplanation:\n(1) Kristian lies. So, we know that Kristian lies.\n(2) Millie says Kristian lies. Since we know from (1) that Kristian lies, if Millie says Kristian lies, then Millie tells the truth.\n(3) Maybelle says Millie tells the truth. Since we know from (2) that Millie tells the truth, if Maybelle says Millie tells the truth, then Maybelle tells the truth.\n(4) Fidel says Maybelle lies. Since we know from (3) that Maybelle tells the truth, if Fidel says Maybelle lies, then Fidel lies.\n(5) Leda says Fidel lies. Since we know from (4) that Fidel lies, if Leda says Fidel lies, then Leda tells the truth.\nNow, the question asks: Does Leda tell the truth? We know from (5) that Leda tells the truth. So the answer is Yes.",
+      "Q: Question: Kristian tells the truth. Michaela says Kristian lies. Raymond says Michaela tells the truth. Osvaldo says Raymond tells the truth. Jamey says Osvaldo tells the truth. Does Jamey tell the truth?\nA: No\nExplanation:\n(1) Kristian tells the truth. So, we know that Kristian tells the truth.\n(2) Michaela says Kristian lies. Since we know from (1) that Kristian tells the truth, if Michaela says Kristian lies, then Michaela lies.\n(3) Raymond says Michaela tells the truth. Since we know from (2) that Michaela lies, if Raymond says Michaela tells the truth, then Raymond lies.\n(4) Osvaldo says Raymond tells the truth. Since we know from (3) that Raymond lies, if Osvaldo says Raymond tells the truth, then Osvaldo lies.\n(5) Jamey says Osvaldo tells the truth. Since we know from (4) that Osvaldo lies, if Jamey says Osvaldo tells the truth, then Jamey lies.\nNow, the question asks: Does Jamey tell the truth? We know from (5) that Jamey lies. So the answer is No."
+    ],
+    "cot_prompt_intro": "Evaluate a random boolean function expressed as a word problem.\n\nQ: Question: Fidel tells the truth. Jerry says Fidel tells the truth. Vina says Jerry tells the truth. Millicent says Vina lies. Raymond says Millicent lies. Does Raymond tell the truth?\nA: Let's think step by step.\n(1) Fidel tells the truth. So, we know that Fidel tells the truth.\n(2) Jerry says Fidel tells the truth. Since we know from (1) that Fidel tells the truth, if Jerry says that Fidel tells the truth, then Jerry tells the truth.\n(3) Vina says Jerry tells the truth. Since we know from (2) that Jerry tells the truth, if Vina says Jerry tells the truth, then Vine tells the truth.\n(4) Millicent says Vina lies. Since we know from (3) that Vina tells the truth, if Millicent says Vina lies, then Millicent lies.\n(5) Raymond says Millicent lies. Since we know from (4) that Millicent lies, if Raymond says Millicent lies, then Raymond tells the truth.\nNow, the question asks: Does Raymond tell the truth? We know from (5) that Raymond tells the truth. So the answer is Yes.\n\nQ: Question: Kristian lies. Millie says Kristian lies. Maybelle says Millie tells the truth. Fidel says Maybelle lies. Leda says Fidel lies. Does Leda tell the truth?\nA: Let's think step by step.\n(1) Kristian lies. So, we know that Kristian lies.\n(2) Millie says Kristian lies. Since we know from (1) that Kristian lies, if Millie says Kristian lies, then Millie tells the truth.\n(3) Maybelle says Millie tells the truth. Since we know from (2) that Millie tells the truth, if Maybelle says Millie tells the truth, then Maybelle tells the truth.\n(4) Fidel says Maybelle lies. Since we know from (3) that Maybelle tells the truth, if Fidel says Maybelle lies, then Fidel lies.\n(5) Leda says Fidel lies. Since we know from (4) that Fidel lies, if Leda says Fidel lies, then Leda tells the truth.\nNow, the question asks: Does Leda tell the truth? We know from (5) that Leda tells the truth. So the answer is Yes.\n\nQ: Question: Kristian tells the truth. Michaela says Kristian lies. Raymond says Michaela tells the truth. Osvaldo says Raymond tells the truth. Jamey says Osvaldo tells the truth. Does Jamey tell the truth?\nA: Let's think step by step.\n(1) Kristian tells the truth. So, we know that Kristian tells the truth.\n(2) Michaela says Kristian lies. Since we know from (1) that Kristian tells the truth, if Michaela says Kristian lies, then Michaela lies.\n(3) Raymond says Michaela tells the truth. Since we know from (2) that Michaela lies, if Raymond says Michaela tells the truth, then Raymond lies.\n(4) Osvaldo says Raymond tells the truth. Since we know from (3) that Raymond lies, if Osvaldo says Raymond tells the truth, then Osvaldo lies.\n(5) Jamey says Osvaldo tells the truth. Since we know from (4) that Osvaldo lies, if Jamey says Osvaldo tells the truth, then Jamey lies.\nNow, the question asks: Does Jamey tell the truth? We know from (5) that Jamey lies. So the answer is No."
+  },
+  "examples": {
+    "1": {
+      "story": "Sherrie tells the truth. Vernell says Sherrie tells the truth. Alexis says Vernell lies. Michaela says Alexis tells the truth. Elanor says Michaela tells the truth.",
+      "person_name": "Elanor",
+      "gold": "No"
+    },
+    "2": {
+      "story": "Kristian lies. Sherrie says Kristian lies. Delbert says Sherrie lies. Jerry says Delbert tells the truth. Shalonda says Jerry tells the truth.",
+      "person_name": "Shalonda",
+      "gold": "No"
+    },
+    "3": {
+      "story": "Vina tells the truth. Helene says Vina lies. Kandi says Helene tells the truth. Jamey says Kandi lies. Ka says Jamey lies.",
+      "person_name": "Ka",
+      "gold": "No"
+    },
+    "4": {
+      "story": "Christie tells the truth. Ka says Christie tells the truth. Delbert says Ka lies. Leda says Delbert tells the truth. Lorine says Leda tells the truth.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "5": {
+      "story": "Tamika lies. Raymond says Tamika tells the truth. Willian says Raymond tells the truth. Shaunda says Willian lies. Elanor says Shaunda tells the truth.",
+      "person_name": "Elanor",
+      "gold": "Yes"
+    },
+    "6": {
+      "story": "Vernell tells the truth. Kandi says Vernell tells the truth. Alexis says Kandi tells the truth. Sima says Alexis lies. Phoebe says Sima tells the truth.",
+      "person_name": "Phoebe",
+      "gold": "No"
+    },
+    "7": {
+      "story": "Shalonda lies. Teressa says Shalonda tells the truth. Tamika says Teressa lies. Lorine says Tamika tells the truth. Jaymie says Lorine lies.",
+      "person_name": "Jaymie",
+      "gold": "No"
+    },
+    "8": {
+      "story": "Jim lies. Crista says Jim lies. Vernell says Crista tells the truth. Bernita says Vernell tells the truth. Millicent says Bernita tells the truth.",
+      "person_name": "Millicent",
+      "gold": "Yes"
+    },
+    "9": {
+      "story": "Fletcher tells the truth. Conception says Fletcher tells the truth. Bernita says Conception tells the truth. Jamey says Bernita tells the truth. Teressa says Jamey lies.",
+      "person_name": "Teressa",
+      "gold": "No"
+    },
+    "10": {
+      "story": "Rashida tells the truth. Jim says Rashida lies. Alejandro says Jim lies. Tamika says Alejandro tells the truth. Fidel says Tamika lies.",
+      "person_name": "Fidel",
+      "gold": "No"
+    },
+    "11": {
+      "story": "Jerry lies. Millicent says Jerry tells the truth. Sal says Millicent tells the truth. Amberly says Sal tells the truth. Shenna says Amberly lies.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "12": {
+      "story": "Audrie lies. Conception says Audrie lies. Teressa says Conception tells the truth. Delfina says Teressa lies. Helene says Delfina tells the truth.",
+      "person_name": "Helene",
+      "gold": "No"
+    },
+    "13": {
+      "story": "Millie tells the truth. Millicent says Millie lies. Phoebe says Millicent tells the truth. Sherrie says Phoebe lies. Raymond says Sherrie tells the truth.",
+      "person_name": "Raymond",
+      "gold": "Yes"
+    },
+    "14": {
+      "story": "Inga tells the truth. Shenna says Inga lies. Rashida says Shenna tells the truth. Ka says Rashida tells the truth. Shalonda says Ka tells the truth.",
+      "person_name": "Shalonda",
+      "gold": "No"
+    },
+    "15": {
+      "story": "Amberly lies. Shenna says Amberly tells the truth. Willian says Shenna tells the truth. Raymond says Willian lies. Sal says Raymond lies.",
+      "person_name": "Sal",
+      "gold": "No"
+    },
+    "16": {
+      "story": "Willian lies. Inga says Willian tells the truth. Fidel says Inga lies. Gwenn says Fidel tells the truth. Crista says Gwenn tells the truth.",
+      "person_name": "Crista",
+      "gold": "Yes"
+    },
+    "17": {
+      "story": "Ka lies. Christie says Ka tells the truth. Jerry says Christie lies. Crista says Jerry lies. Yoland says Crista tells the truth.",
+      "person_name": "Yoland",
+      "gold": "No"
+    },
+    "18": {
+      "story": "Ka lies. Andree says Ka tells the truth. Audrie says Andree lies. Antwan says Audrie tells the truth. Millie says Antwan tells the truth.",
+      "person_name": "Millie",
+      "gold": "Yes"
+    },
+    "19": {
+      "story": "Shalonda tells the truth. Alexis says Shalonda tells the truth. Christie says Alexis lies. Inga says Christie tells the truth. Crista says Inga tells the truth.",
+      "person_name": "Crista",
+      "gold": "No"
+    },
+    "20": {
+      "story": "Fidel lies. Sal says Fidel tells the truth. Osvaldo says Sal lies. Alexis says Osvaldo lies. Millie says Alexis tells the truth.",
+      "person_name": "Millie",
+      "gold": "No"
+    },
+    "21": {
+      "story": "Raymond tells the truth. Sal says Raymond lies. Alexis says Sal lies. Helene says Alexis lies. Elanor says Helene lies.",
+      "person_name": "Elanor",
+      "gold": "Yes"
+    },
+    "22": {
+      "story": "Ryan tells the truth. Sal says Ryan tells the truth. Leda says Sal tells the truth. Rashida says Leda tells the truth. Alejandro says Rashida tells the truth.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "23": {
+      "story": "Sima lies. Millie says Sima tells the truth. Jerry says Millie tells the truth. Vina says Jerry lies. Maybelle says Vina tells the truth.",
+      "person_name": "Maybelle",
+      "gold": "Yes"
+    },
+    "24": {
+      "story": "Phoebe tells the truth. Christie says Phoebe tells the truth. Fletcher says Christie tells the truth. Amberly says Fletcher lies. Raymond says Amberly tells the truth.",
+      "person_name": "Raymond",
+      "gold": "No"
+    },
+    "25": {
+      "story": "Delfina tells the truth. Fletcher says Delfina lies. Amberly says Fletcher lies. Audrie says Amberly tells the truth. Lorine says Audrie tells the truth.",
+      "person_name": "Lorine",
+      "gold": "Yes"
+    },
+    "26": {
+      "story": "Amberly tells the truth. Jamey says Amberly tells the truth. Shalonda says Jamey lies. Antwan says Shalonda tells the truth. Alejandro says Antwan lies.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "27": {
+      "story": "Leda tells the truth. Alexis says Leda lies. Sal says Alexis lies. Phoebe says Sal tells the truth. Gwenn says Phoebe tells the truth.",
+      "person_name": "Gwenn",
+      "gold": "Yes"
+    },
+    "28": {
+      "story": "Fletcher lies. Phoebe says Fletcher tells the truth. Vina says Phoebe tells the truth. Andree says Vina tells the truth. Willian says Andree tells the truth.",
+      "person_name": "Willian",
+      "gold": "No"
+    },
+    "29": {
+      "story": "Ryan lies. Kristian says Ryan lies. Teressa says Kristian tells the truth. Amberly says Teressa tells the truth. Jamey says Amberly tells the truth.",
+      "person_name": "Jamey",
+      "gold": "Yes"
+    },
+    "30": {
+      "story": "Shalonda lies. Jaymie says Shalonda tells the truth. Raymond says Jaymie lies. Audrie says Raymond lies. Sherrie says Audrie lies.",
+      "person_name": "Sherrie",
+      "gold": "Yes"
+    },
+    "31": {
+      "story": "Kandi tells the truth. Michaela says Kandi lies. Vernell says Michaela lies. Antwan says Vernell tells the truth. Sal says Antwan lies.",
+      "person_name": "Sal",
+      "gold": "No"
+    },
+    "32": {
+      "story": "Audrie lies. Sherrie says Audrie lies. Willian says Sherrie tells the truth. Conception says Willian tells the truth. Gwenn says Conception lies.",
+      "person_name": "Gwenn",
+      "gold": "No"
+    },
+    "33": {
+      "story": "Delfina tells the truth. Willian says Delfina tells the truth. Crista says Willian lies. Shalonda says Crista lies. Shenna says Shalonda tells the truth.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "34": {
+      "story": "Jerry lies. Helene says Jerry lies. Alexis says Helene tells the truth. Sherrie says Alexis tells the truth. Michael says Sherrie tells the truth.",
+      "person_name": "Michael",
+      "gold": "Yes"
+    },
+    "35": {
+      "story": "Fidel tells the truth. Tamika says Fidel lies. Shenna says Tamika lies. Audrie says Shenna lies. Jim says Audrie tells the truth.",
+      "person_name": "Jim",
+      "gold": "No"
+    },
+    "36": {
+      "story": "Andree tells the truth. Audrie says Andree tells the truth. Jerry says Audrie lies. Helene says Jerry lies. Bernita says Helene tells the truth.",
+      "person_name": "Bernita",
+      "gold": "Yes"
+    },
+    "37": {
+      "story": "Fidel lies. Fletcher says Fidel tells the truth. Yoland says Fletcher lies. Raymond says Yoland lies. Leda says Raymond lies.",
+      "person_name": "Leda",
+      "gold": "Yes"
+    },
+    "38": {
+      "story": "Tamika tells the truth. Ka says Tamika tells the truth. Fidel says Ka tells the truth. Elanor says Fidel tells the truth. Amberly says Elanor tells the truth.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "39": {
+      "story": "Maybelle lies. Jamey says Maybelle tells the truth. Phoebe says Jamey lies. Willian says Phoebe lies. Shalonda says Willian lies.",
+      "person_name": "Shalonda",
+      "gold": "Yes"
+    },
+    "40": {
+      "story": "Jamey lies. Vernell says Jamey tells the truth. Millicent says Vernell lies. Rashida says Millicent tells the truth. Vina says Rashida tells the truth.",
+      "person_name": "Vina",
+      "gold": "Yes"
+    },
+    "41": {
+      "story": "Alejandro lies. Amberly says Alejandro tells the truth. Osvaldo says Amberly lies. Vernell says Osvaldo lies. Shenna says Vernell lies.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "42": {
+      "story": "Fidel tells the truth. Kandi says Fidel lies. Christie says Kandi tells the truth. Leda says Christie lies. Sima says Leda lies.",
+      "person_name": "Sima",
+      "gold": "No"
+    },
+    "43": {
+      "story": "Jaymie tells the truth. Millicent says Jaymie lies. Millie says Millicent tells the truth. Vina says Millie lies. Leda says Vina tells the truth.",
+      "person_name": "Leda",
+      "gold": "Yes"
+    },
+    "44": {
+      "story": "Fletcher tells the truth. Helene says Fletcher lies. Elanor says Helene tells the truth. Yoland says Elanor tells the truth. Audrie says Yoland lies.",
+      "person_name": "Audrie",
+      "gold": "Yes"
+    },
+    "45": {
+      "story": "Millicent lies. Alexis says Millicent lies. Inga says Alexis tells the truth. Christie says Inga lies. Gwenn says Christie lies.",
+      "person_name": "Gwenn",
+      "gold": "Yes"
+    },
+    "46": {
+      "story": "Sima tells the truth. Yoland says Sima lies. Amberly says Yoland tells the truth. Inga says Amberly lies. Alexis says Inga tells the truth.",
+      "person_name": "Alexis",
+      "gold": "Yes"
+    },
+    "47": {
+      "story": "Millie tells the truth. Millicent says Millie tells the truth. Raymond says Millicent tells the truth. Crista says Raymond lies. Ka says Crista tells the truth.",
+      "person_name": "Ka",
+      "gold": "No"
+    },
+    "48": {
+      "story": "Michaela lies. Millicent says Michaela lies. Delbert says Millicent lies. Bernita says Delbert lies. Teressa says Bernita tells the truth.",
+      "person_name": "Teressa",
+      "gold": "Yes"
+    },
+    "49": {
+      "story": "Audrie tells the truth. Yoland says Audrie lies. Shaunda says Yoland tells the truth. Raymond says Shaunda lies. Maybelle says Raymond lies.",
+      "person_name": "Maybelle",
+      "gold": "No"
+    },
+    "50": {
+      "story": "Fletcher lies. Teressa says Fletcher lies. Vernell says Teressa lies. Dallas says Vernell lies. Millicent says Dallas tells the truth.",
+      "person_name": "Millicent",
+      "gold": "Yes"
+    },
+    "51": {
+      "story": "Rashida tells the truth. Willian says Rashida lies. Christie says Willian lies. Ryan says Christie lies. Shaunda says Ryan lies.",
+      "person_name": "Shaunda",
+      "gold": "Yes"
+    },
+    "52": {
+      "story": "Elanor tells the truth. Ka says Elanor lies. Delbert says Ka tells the truth. Michaela says Delbert lies. Sherrie says Michaela lies.",
+      "person_name": "Sherrie",
+      "gold": "No"
+    },
+    "53": {
+      "story": "Andree lies. Amberly says Andree tells the truth. Gwenn says Amberly tells the truth. Willian says Gwenn lies. Alexis says Willian tells the truth.",
+      "person_name": "Alexis",
+      "gold": "Yes"
+    },
+    "54": {
+      "story": "Bernita tells the truth. Michael says Bernita tells the truth. Fidel says Michael lies. Dallas says Fidel tells the truth. Millicent says Dallas lies.",
+      "person_name": "Millicent",
+      "gold": "Yes"
+    },
+    "55": {
+      "story": "Fletcher tells the truth. Ka says Fletcher tells the truth. Elanor says Ka lies. Vernell says Elanor lies. Delfina says Vernell tells the truth.",
+      "person_name": "Delfina",
+      "gold": "Yes"
+    },
+    "56": {
+      "story": "Kandi tells the truth. Alejandro says Kandi tells the truth. Millicent says Alejandro lies. Shalonda says Millicent lies. Conception says Shalonda lies.",
+      "person_name": "Conception",
+      "gold": "No"
+    },
+    "57": {
+      "story": "Millicent tells the truth. Millie says Millicent tells the truth. Michael says Millie tells the truth. Antwan says Michael lies. Alexis says Antwan tells the truth.",
+      "person_name": "Alexis",
+      "gold": "No"
+    },
+    "58": {
+      "story": "Jerry lies. Helene says Jerry lies. Kandi says Helene tells the truth. Jaymie says Kandi lies. Shalonda says Jaymie lies.",
+      "person_name": "Shalonda",
+      "gold": "Yes"
+    },
+    "59": {
+      "story": "Tamika tells the truth. Sima says Tamika tells the truth. Rashida says Sima lies. Delfina says Rashida lies. Jerry says Delfina lies.",
+      "person_name": "Jerry",
+      "gold": "No"
+    },
+    "60": {
+      "story": "Ka tells the truth. Fletcher says Ka tells the truth. Maybelle says Fletcher lies. Lorine says Maybelle lies. Crista says Lorine tells the truth.",
+      "person_name": "Crista",
+      "gold": "Yes"
+    },
+    "61": {
+      "story": "Delbert tells the truth. Delfina says Delbert lies. Antwan says Delfina tells the truth. Helene says Antwan lies. Sima says Helene lies.",
+      "person_name": "Sima",
+      "gold": "No"
+    },
+    "62": {
+      "story": "Maybelle tells the truth. Bernita says Maybelle tells the truth. Inga says Bernita tells the truth. Tamika says Inga lies. Helene says Tamika tells the truth.",
+      "person_name": "Helene",
+      "gold": "No"
+    },
+    "63": {
+      "story": "Delfina lies. Leda says Delfina lies. Fidel says Leda lies. Sal says Fidel tells the truth. Andree says Sal lies.",
+      "person_name": "Andree",
+      "gold": "Yes"
+    },
+    "64": {
+      "story": "Jerry tells the truth. Elanor says Jerry tells the truth. Gwenn says Elanor tells the truth. Kandi says Gwenn tells the truth. Dallas says Kandi tells the truth.",
+      "person_name": "Dallas",
+      "gold": "Yes"
+    },
+    "65": {
+      "story": "Crista lies. Michael says Crista tells the truth. Audrie says Michael lies. Sherrie says Audrie lies. Michaela says Sherrie tells the truth.",
+      "person_name": "Michaela",
+      "gold": "No"
+    },
+    "66": {
+      "story": "Jim lies. Ka says Jim lies. Jerry says Ka tells the truth. Fletcher says Jerry tells the truth. Kandi says Fletcher lies.",
+      "person_name": "Kandi",
+      "gold": "No"
+    },
+    "67": {
+      "story": "Sima tells the truth. Michaela says Sima lies. Leda says Michaela tells the truth. Fletcher says Leda lies. Vina says Fletcher tells the truth.",
+      "person_name": "Vina",
+      "gold": "Yes"
+    },
+    "68": {
+      "story": "Vernell lies. Gwenn says Vernell lies. Teressa says Gwenn lies. Bernita says Teressa tells the truth. Christie says Bernita lies.",
+      "person_name": "Christie",
+      "gold": "Yes"
+    },
+    "69": {
+      "story": "Fidel lies. Michael says Fidel lies. Fletcher says Michael lies. Inga says Fletcher tells the truth. Andree says Inga lies.",
+      "person_name": "Andree",
+      "gold": "Yes"
+    },
+    "70": {
+      "story": "Phoebe tells the truth. Jamey says Phoebe lies. Audrie says Jamey tells the truth. Michaela says Audrie lies. Vina says Michaela lies.",
+      "person_name": "Vina",
+      "gold": "No"
+    },
+    "71": {
+      "story": "Kandi lies. Phoebe says Kandi tells the truth. Yoland says Phoebe tells the truth. Fletcher says Yoland lies. Lorine says Fletcher tells the truth.",
+      "person_name": "Lorine",
+      "gold": "Yes"
+    },
+    "72": {
+      "story": "Kandi tells the truth. Crista says Kandi lies. Ryan says Crista tells the truth. Gwenn says Ryan tells the truth. Delfina says Gwenn tells the truth.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "73": {
+      "story": "Millicent lies. Shenna says Millicent lies. Willian says Shenna tells the truth. Kandi says Willian lies. Vernell says Kandi lies.",
+      "person_name": "Vernell",
+      "gold": "Yes"
+    },
+    "74": {
+      "story": "Jamey tells the truth. Raymond says Jamey lies. Audrie says Raymond lies. Michaela says Audrie lies. Rashida says Michaela lies.",
+      "person_name": "Rashida",
+      "gold": "Yes"
+    },
+    "75": {
+      "story": "Osvaldo tells the truth. Andree says Osvaldo tells the truth. Willian says Andree lies. Vina says Willian tells the truth. Jaymie says Vina tells the truth.",
+      "person_name": "Jaymie",
+      "gold": "No"
+    },
+    "76": {
+      "story": "Leda tells the truth. Shalonda says Leda lies. Shenna says Shalonda tells the truth. Christie says Shenna lies. Crista says Christie tells the truth.",
+      "person_name": "Crista",
+      "gold": "Yes"
+    },
+    "77": {
+      "story": "Conception tells the truth. Teressa says Conception lies. Sal says Teressa tells the truth. Fidel says Sal tells the truth. Shenna says Fidel lies.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "78": {
+      "story": "Ryan tells the truth. Helene says Ryan tells the truth. Kandi says Helene tells the truth. Inga says Kandi tells the truth. Delbert says Inga lies.",
+      "person_name": "Delbert",
+      "gold": "No"
+    },
+    "79": {
+      "story": "Ryan lies. Christie says Ryan lies. Amberly says Christie tells the truth. Shenna says Amberly tells the truth. Jamey says Shenna lies.",
+      "person_name": "Jamey",
+      "gold": "No"
+    },
+    "80": {
+      "story": "Kristian tells the truth. Dallas says Kristian tells the truth. Osvaldo says Dallas lies. Millie says Osvaldo tells the truth. Vina says Millie tells the truth.",
+      "person_name": "Vina",
+      "gold": "No"
+    },
+    "81": {
+      "story": "Christie tells the truth. Jamey says Christie tells the truth. Michael says Jamey lies. Rashida says Michael tells the truth. Teressa says Rashida tells the truth.",
+      "person_name": "Teressa",
+      "gold": "No"
+    },
+    "82": {
+      "story": "Rashida lies. Ryan says Rashida tells the truth. Vernell says Ryan tells the truth. Shaunda says Vernell lies. Amberly says Shaunda lies.",
+      "person_name": "Amberly",
+      "gold": "No"
+    },
+    "83": {
+      "story": "Elanor lies. Tamika says Elanor lies. Ka says Tamika tells the truth. Shaunda says Ka lies. Conception says Shaunda lies.",
+      "person_name": "Conception",
+      "gold": "Yes"
+    },
+    "84": {
+      "story": "Teressa lies. Willian says Teressa lies. Jamey says Willian lies. Ryan says Jamey lies. Kandi says Ryan lies.",
+      "person_name": "Kandi",
+      "gold": "No"
+    },
+    "85": {
+      "story": "Audrie lies. Jaymie says Audrie tells the truth. Phoebe says Jaymie lies. Conception says Phoebe tells the truth. Michael says Conception lies.",
+      "person_name": "Michael",
+      "gold": "No"
+    },
+    "86": {
+      "story": "Bernita tells the truth. Audrie says Bernita lies. Delfina says Audrie tells the truth. Vina says Delfina lies. Sal says Vina tells the truth.",
+      "person_name": "Sal",
+      "gold": "Yes"
+    },
+    "87": {
+      "story": "Jamey lies. Raymond says Jamey lies. Ka says Raymond lies. Bernita says Ka tells the truth. Teressa says Bernita lies.",
+      "person_name": "Teressa",
+      "gold": "Yes"
+    },
+    "88": {
+      "story": "Teressa lies. Kristian says Teressa lies. Sal says Kristian tells the truth. Audrie says Sal lies. Leda says Audrie lies.",
+      "person_name": "Leda",
+      "gold": "Yes"
+    },
+    "89": {
+      "story": "Helene tells the truth. Lorine says Helene lies. Raymond says Lorine tells the truth. Ka says Raymond tells the truth. Christie says Ka tells the truth.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "90": {
+      "story": "Ryan lies. Kandi says Ryan lies. Lorine says Kandi lies. Christie says Lorine tells the truth. Fletcher says Christie lies.",
+      "person_name": "Fletcher",
+      "gold": "Yes"
+    },
+    "91": {
+      "story": "Jamey lies. Gwenn says Jamey tells the truth. Yoland says Gwenn tells the truth. Kandi says Yoland tells the truth. Osvaldo says Kandi tells the truth.",
+      "person_name": "Osvaldo",
+      "gold": "No"
+    },
+    "92": {
+      "story": "Antwan tells the truth. Helene says Antwan tells the truth. Gwenn says Helene tells the truth. Sal says Gwenn tells the truth. Shaunda says Sal lies.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "93": {
+      "story": "Jim tells the truth. Tamika says Jim tells the truth. Helene says Tamika tells the truth. Jaymie says Helene tells the truth. Conception says Jaymie tells the truth.",
+      "person_name": "Conception",
+      "gold": "Yes"
+    },
+    "94": {
+      "story": "Sima tells the truth. Jim says Sima lies. Gwenn says Jim tells the truth. Phoebe says Gwenn tells the truth. Rashida says Phoebe lies.",
+      "person_name": "Rashida",
+      "gold": "Yes"
+    },
+    "95": {
+      "story": "Jamey tells the truth. Delfina says Jamey lies. Vina says Delfina tells the truth. Teressa says Vina tells the truth. Conception says Teressa lies.",
+      "person_name": "Conception",
+      "gold": "Yes"
+    },
+    "96": {
+      "story": "Phoebe tells the truth. Helene says Phoebe lies. Sima says Helene lies. Alejandro says Sima tells the truth. Michaela says Alejandro lies.",
+      "person_name": "Michaela",
+      "gold": "No"
+    },
+    "97": {
+      "story": "Sima tells the truth. Teressa says Sima tells the truth. Vina says Teressa lies. Crista says Vina lies. Phoebe says Crista tells the truth.",
+      "person_name": "Phoebe",
+      "gold": "Yes"
+    },
+    "98": {
+      "story": "Jamey lies. Michaela says Jamey tells the truth. Millicent says Michaela lies. Elanor says Millicent tells the truth. Rashida says Elanor lies.",
+      "person_name": "Rashida",
+      "gold": "No"
+    },
+    "99": {
+      "story": "Millicent tells the truth. Alexis says Millicent lies. Jaymie says Alexis lies. Willian says Jaymie tells the truth. Leda says Willian lies.",
+      "person_name": "Leda",
+      "gold": "No"
+    },
+    "100": {
+      "story": "Jaymie lies. Christie says Jaymie tells the truth. Alejandro says Christie lies. Gwenn says Alejandro tells the truth. Sal says Gwenn lies.",
+      "person_name": "Sal",
+      "gold": "No"
+    },
+    "101": {
+      "story": "Michael lies. Leda says Michael lies. Delbert says Leda tells the truth. Tamika says Delbert tells the truth. Fidel says Tamika lies.",
+      "person_name": "Fidel",
+      "gold": "No"
+    },
+    "102": {
+      "story": "Leda tells the truth. Vina says Leda lies. Delfina says Vina tells the truth. Alejandro says Delfina lies. Shaunda says Alejandro tells the truth.",
+      "person_name": "Shaunda",
+      "gold": "Yes"
+    },
+    "103": {
+      "story": "Andree lies. Delfina says Andree lies. Jim says Delfina tells the truth. Gwenn says Jim lies. Delbert says Gwenn lies.",
+      "person_name": "Delbert",
+      "gold": "Yes"
+    },
+    "104": {
+      "story": "Andree lies. Jamey says Andree lies. Shaunda says Jamey lies. Delfina says Shaunda lies. Christie says Delfina lies.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "105": {
+      "story": "Crista tells the truth. Shalonda says Crista lies. Millicent says Shalonda lies. Vernell says Millicent lies. Inga says Vernell tells the truth.",
+      "person_name": "Inga",
+      "gold": "No"
+    },
+    "106": {
+      "story": "Conception tells the truth. Elanor says Conception tells the truth. Alexis says Elanor tells the truth. Fidel says Alexis tells the truth. Delbert says Fidel lies.",
+      "person_name": "Delbert",
+      "gold": "No"
+    },
+    "107": {
+      "story": "Elanor tells the truth. Leda says Elanor lies. Osvaldo says Leda tells the truth. Jim says Osvaldo lies. Gwenn says Jim lies.",
+      "person_name": "Gwenn",
+      "gold": "No"
+    },
+    "108": {
+      "story": "Ryan tells the truth. Shaunda says Ryan tells the truth. Leda says Shaunda lies. Teressa says Leda lies. Christie says Teressa tells the truth.",
+      "person_name": "Christie",
+      "gold": "Yes"
+    },
+    "109": {
+      "story": "Shaunda lies. Ryan says Shaunda tells the truth. Shalonda says Ryan lies. Bernita says Shalonda lies. Michaela says Bernita tells the truth.",
+      "person_name": "Michaela",
+      "gold": "No"
+    },
+    "110": {
+      "story": "Alexis tells the truth. Shenna says Alexis tells the truth. Yoland says Shenna tells the truth. Ka says Yoland tells the truth. Inga says Ka tells the truth.",
+      "person_name": "Inga",
+      "gold": "Yes"
+    },
+    "111": {
+      "story": "Delfina lies. Jerry says Delfina tells the truth. Maybelle says Jerry tells the truth. Dallas says Maybelle lies. Kristian says Dallas tells the truth.",
+      "person_name": "Kristian",
+      "gold": "Yes"
+    },
+    "112": {
+      "story": "Gwenn tells the truth. Andree says Gwenn tells the truth. Yoland says Andree lies. Sal says Yoland lies. Crista says Sal lies.",
+      "person_name": "Crista",
+      "gold": "No"
+    },
+    "113": {
+      "story": "Crista tells the truth. Jim says Crista lies. Delfina says Jim lies. Phoebe says Delfina lies. Bernita says Phoebe tells the truth.",
+      "person_name": "Bernita",
+      "gold": "No"
+    },
+    "114": {
+      "story": "Jim tells the truth. Alejandro says Jim lies. Phoebe says Alejandro lies. Shaunda says Phoebe tells the truth. Kandi says Shaunda lies.",
+      "person_name": "Kandi",
+      "gold": "No"
+    },
+    "115": {
+      "story": "Osvaldo lies. Ryan says Osvaldo lies. Andree says Ryan tells the truth. Rashida says Andree tells the truth. Millie says Rashida tells the truth.",
+      "person_name": "Millie",
+      "gold": "Yes"
+    },
+    "116": {
+      "story": "Yoland tells the truth. Michaela says Yoland tells the truth. Sima says Michaela tells the truth. Shaunda says Sima tells the truth. Osvaldo says Shaunda lies.",
+      "person_name": "Osvaldo",
+      "gold": "No"
+    },
+    "117": {
+      "story": "Conception lies. Rashida says Conception tells the truth. Alejandro says Rashida tells the truth. Sherrie says Alejandro lies. Amberly says Sherrie tells the truth.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "118": {
+      "story": "Teressa tells the truth. Vernell says Teressa lies. Sherrie says Vernell tells the truth. Tamika says Sherrie lies. Millicent says Tamika tells the truth.",
+      "person_name": "Millicent",
+      "gold": "Yes"
+    },
+    "119": {
+      "story": "Vernell lies. Michael says Vernell lies. Dallas says Michael lies. Shalonda says Dallas tells the truth. Jamey says Shalonda lies.",
+      "person_name": "Jamey",
+      "gold": "Yes"
+    },
+    "120": {
+      "story": "Jim tells the truth. Ryan says Jim tells the truth. Millicent says Ryan tells the truth. Audrie says Millicent tells the truth. Elanor says Audrie tells the truth.",
+      "person_name": "Elanor",
+      "gold": "Yes"
+    },
+    "121": {
+      "story": "Elanor lies. Dallas says Elanor tells the truth. Fletcher says Dallas lies. Jamey says Fletcher tells the truth. Delfina says Jamey lies.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "122": {
+      "story": "Alejandro tells the truth. Shenna says Alejandro tells the truth. Christie says Shenna tells the truth. Shalonda says Christie lies. Jerry says Shalonda lies.",
+      "person_name": "Jerry",
+      "gold": "Yes"
+    },
+    "123": {
+      "story": "Osvaldo lies. Phoebe says Osvaldo lies. Kandi says Phoebe tells the truth. Crista says Kandi tells the truth. Delbert says Crista lies.",
+      "person_name": "Delbert",
+      "gold": "No"
+    },
+    "124": {
+      "story": "Bernita lies. Jerry says Bernita tells the truth. Delbert says Jerry lies. Jamey says Delbert tells the truth. Shenna says Jamey lies.",
+      "person_name": "Shenna",
+      "gold": "No"
+    },
+    "125": {
+      "story": "Willian tells the truth. Phoebe says Willian lies. Alejandro says Phoebe lies. Lorine says Alejandro tells the truth. Christie says Lorine tells the truth.",
+      "person_name": "Christie",
+      "gold": "Yes"
+    },
+    "126": {
+      "story": "Millicent tells the truth. Vernell says Millicent lies. Tamika says Vernell tells the truth. Osvaldo says Tamika tells the truth. Shenna says Osvaldo lies.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "127": {
+      "story": "Amberly lies. Shalonda says Amberly tells the truth. Helene says Shalonda tells the truth. Sima says Helene tells the truth. Christie says Sima tells the truth.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "128": {
+      "story": "Christie lies. Jaymie says Christie lies. Lorine says Jaymie tells the truth. Bernita says Lorine tells the truth. Delfina says Bernita lies.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "129": {
+      "story": "Helene tells the truth. Teressa says Helene tells the truth. Jamey says Teressa lies. Alexis says Jamey lies. Osvaldo says Alexis tells the truth.",
+      "person_name": "Osvaldo",
+      "gold": "Yes"
+    },
+    "130": {
+      "story": "Willian tells the truth. Michaela says Willian lies. Conception says Michaela lies. Inga says Conception tells the truth. Sal says Inga lies.",
+      "person_name": "Sal",
+      "gold": "No"
+    },
+    "131": {
+      "story": "Lorine lies. Osvaldo says Lorine lies. Alejandro says Osvaldo lies. Gwenn says Alejandro tells the truth. Dallas says Gwenn lies.",
+      "person_name": "Dallas",
+      "gold": "Yes"
+    },
+    "132": {
+      "story": "Christie tells the truth. Elanor says Christie lies. Jaymie says Elanor tells the truth. Jamey says Jaymie lies. Alexis says Jamey tells the truth.",
+      "person_name": "Alexis",
+      "gold": "Yes"
+    },
+    "133": {
+      "story": "Maybelle tells the truth. Osvaldo says Maybelle lies. Kandi says Osvaldo lies. Jerry says Kandi lies. Alejandro says Jerry lies.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "134": {
+      "story": "Alejandro lies. Vina says Alejandro lies. Vernell says Vina tells the truth. Fidel says Vernell lies. Inga says Fidel tells the truth.",
+      "person_name": "Inga",
+      "gold": "No"
+    },
+    "135": {
+      "story": "Millicent tells the truth. Willian says Millicent lies. Crista says Willian lies. Teressa says Crista tells the truth. Rashida says Teressa tells the truth.",
+      "person_name": "Rashida",
+      "gold": "Yes"
+    },
+    "136": {
+      "story": "Osvaldo lies. Gwenn says Osvaldo lies. Michael says Gwenn lies. Elanor says Michael lies. Sal says Elanor tells the truth.",
+      "person_name": "Sal",
+      "gold": "Yes"
+    },
+    "137": {
+      "story": "Ka lies. Lorine says Ka tells the truth. Sal says Lorine lies. Amberly says Sal lies. Conception says Amberly lies.",
+      "person_name": "Conception",
+      "gold": "Yes"
+    },
+    "138": {
+      "story": "Jerry tells the truth. Raymond says Jerry tells the truth. Yoland says Raymond tells the truth. Elanor says Yoland tells the truth. Jamey says Elanor lies.",
+      "person_name": "Jamey",
+      "gold": "No"
+    },
+    "139": {
+      "story": "Helene tells the truth. Raymond says Helene lies. Andree says Raymond tells the truth. Michael says Andree tells the truth. Amberly says Michael tells the truth.",
+      "person_name": "Amberly",
+      "gold": "No"
+    },
+    "140": {
+      "story": "Willian tells the truth. Crista says Willian tells the truth. Vina says Crista lies. Fidel says Vina lies. Fletcher says Fidel lies.",
+      "person_name": "Fletcher",
+      "gold": "No"
+    },
+    "141": {
+      "story": "Lorine tells the truth. Michaela says Lorine lies. Millicent says Michaela tells the truth. Fletcher says Millicent tells the truth. Shaunda says Fletcher tells the truth.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "142": {
+      "story": "Jerry lies. Gwenn says Jerry lies. Fidel says Gwenn lies. Millicent says Fidel tells the truth. Lorine says Millicent tells the truth.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "143": {
+      "story": "Millie lies. Jaymie says Millie tells the truth. Jamey says Jaymie tells the truth. Sal says Jamey lies. Christie says Sal lies.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "144": {
+      "story": "Shalonda lies. Crista says Shalonda tells the truth. Yoland says Crista tells the truth. Ka says Yoland tells the truth. Michaela says Ka lies.",
+      "person_name": "Michaela",
+      "gold": "Yes"
+    },
+    "145": {
+      "story": "Maybelle tells the truth. Antwan says Maybelle tells the truth. Audrie says Antwan tells the truth. Ryan says Audrie lies. Delfina says Ryan lies.",
+      "person_name": "Delfina",
+      "gold": "Yes"
+    },
+    "146": {
+      "story": "Bernita tells the truth. Ka says Bernita lies. Yoland says Ka lies. Gwenn says Yoland lies. Fidel says Gwenn lies.",
+      "person_name": "Fidel",
+      "gold": "Yes"
+    },
+    "147": {
+      "story": "Audrie tells the truth. Ryan says Audrie lies. Rashida says Ryan lies. Fletcher says Rashida tells the truth. Shaunda says Fletcher tells the truth.",
+      "person_name": "Shaunda",
+      "gold": "Yes"
+    },
+    "148": {
+      "story": "Delfina lies. Teressa says Delfina lies. Amberly says Teressa tells the truth. Ryan says Amberly lies. Millie says Ryan lies.",
+      "person_name": "Millie",
+      "gold": "Yes"
+    },
+    "149": {
+      "story": "Willian tells the truth. Michaela says Willian tells the truth. Sima says Michaela lies. Inga says Sima tells the truth. Audrie says Inga lies.",
+      "person_name": "Audrie",
+      "gold": "Yes"
+    },
+    "150": {
+      "story": "Teressa tells the truth. Lorine says Teressa lies. Antwan says Lorine tells the truth. Fidel says Antwan tells the truth. Phoebe says Fidel lies.",
+      "person_name": "Phoebe",
+      "gold": "Yes"
+    },
+    "151": {
+      "story": "Elanor tells the truth. Crista says Elanor lies. Vernell says Crista lies. Shalonda says Vernell lies. Teressa says Shalonda lies.",
+      "person_name": "Teressa",
+      "gold": "Yes"
+    },
+    "152": {
+      "story": "Yoland tells the truth. Gwenn says Yoland tells the truth. Michaela says Gwenn lies. Jamey says Michaela tells the truth. Amberly says Jamey lies.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "153": {
+      "story": "Gwenn tells the truth. Millicent says Gwenn lies. Antwan says Millicent tells the truth. Teressa says Antwan lies. Shenna says Teressa lies.",
+      "person_name": "Shenna",
+      "gold": "No"
+    },
+    "154": {
+      "story": "Helene tells the truth. Leda says Helene lies. Antwan says Leda tells the truth. Andree says Antwan lies. Shaunda says Andree lies.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "155": {
+      "story": "Sherrie tells the truth. Kandi says Sherrie tells the truth. Conception says Kandi tells the truth. Michael says Conception tells the truth. Christie says Michael tells the truth.",
+      "person_name": "Christie",
+      "gold": "Yes"
+    },
+    "156": {
+      "story": "Delbert tells the truth. Gwenn says Delbert lies. Audrie says Gwenn lies. Christie says Audrie lies. Alexis says Christie lies.",
+      "person_name": "Alexis",
+      "gold": "Yes"
+    },
+    "157": {
+      "story": "Antwan tells the truth. Jaymie says Antwan tells the truth. Maybelle says Jaymie tells the truth. Alexis says Maybelle lies. Millicent says Alexis lies.",
+      "person_name": "Millicent",
+      "gold": "Yes"
+    },
+    "158": {
+      "story": "Delfina tells the truth. Fidel says Delfina tells the truth. Helene says Fidel lies. Crista says Helene lies. Ka says Crista lies.",
+      "person_name": "Ka",
+      "gold": "No"
+    },
+    "159": {
+      "story": "Jim lies. Yoland says Jim lies. Willian says Yoland tells the truth. Delbert says Willian lies. Shalonda says Delbert tells the truth.",
+      "person_name": "Shalonda",
+      "gold": "No"
+    },
+    "160": {
+      "story": "Elanor lies. Millicent says Elanor tells the truth. Millie says Millicent lies. Michaela says Millie tells the truth. Kandi says Michaela lies.",
+      "person_name": "Kandi",
+      "gold": "No"
+    },
+    "161": {
+      "story": "Jerry tells the truth. Yoland says Jerry lies. Tamika says Yoland tells the truth. Alexis says Tamika tells the truth. Ryan says Alexis tells the truth.",
+      "person_name": "Ryan",
+      "gold": "No"
+    },
+    "162": {
+      "story": "Sima tells the truth. Jerry says Sima tells the truth. Sal says Jerry lies. Inga says Sal lies. Willian says Inga lies.",
+      "person_name": "Willian",
+      "gold": "No"
+    },
+    "163": {
+      "story": "Willian tells the truth. Shalonda says Willian tells the truth. Helene says Shalonda tells the truth. Millicent says Helene lies. Andree says Millicent lies.",
+      "person_name": "Andree",
+      "gold": "Yes"
+    },
+    "164": {
+      "story": "Ryan tells the truth. Amberly says Ryan tells the truth. Kristian says Amberly lies. Bernita says Kristian lies. Alejandro says Bernita tells the truth.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "165": {
+      "story": "Vernell tells the truth. Rashida says Vernell lies. Christie says Rashida tells the truth. Sherrie says Christie tells the truth. Jim says Sherrie lies.",
+      "person_name": "Jim",
+      "gold": "Yes"
+    },
+    "166": {
+      "story": "Shaunda lies. Elanor says Shaunda lies. Fidel says Elanor tells the truth. Lorine says Fidel tells the truth. Raymond says Lorine lies.",
+      "person_name": "Raymond",
+      "gold": "No"
+    },
+    "167": {
+      "story": "Gwenn tells the truth. Lorine says Gwenn lies. Antwan says Lorine tells the truth. Elanor says Antwan tells the truth. Delfina says Elanor tells the truth.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "168": {
+      "story": "Shenna tells the truth. Antwan says Shenna lies. Tamika says Antwan lies. Elanor says Tamika lies. Rashida says Elanor tells the truth.",
+      "person_name": "Rashida",
+      "gold": "No"
+    },
+    "169": {
+      "story": "Andree lies. Rashida says Andree tells the truth. Amberly says Rashida lies. Tamika says Amberly lies. Leda says Tamika lies.",
+      "person_name": "Leda",
+      "gold": "Yes"
+    },
+    "170": {
+      "story": "Ryan lies. Jaymie says Ryan lies. Michael says Jaymie tells the truth. Ka says Michael lies. Millicent says Ka tells the truth.",
+      "person_name": "Millicent",
+      "gold": "No"
+    },
+    "171": {
+      "story": "Alejandro lies. Bernita says Alejandro lies. Andree says Bernita tells the truth. Sima says Andree tells the truth. Inga says Sima tells the truth.",
+      "person_name": "Inga",
+      "gold": "Yes"
+    },
+    "172": {
+      "story": "Shenna lies. Crista says Shenna lies. Andree says Crista tells the truth. Sherrie says Andree lies. Ka says Sherrie lies.",
+      "person_name": "Ka",
+      "gold": "Yes"
+    },
+    "173": {
+      "story": "Antwan lies. Jerry says Antwan tells the truth. Delfina says Jerry lies. Conception says Delfina lies. Bernita says Conception tells the truth.",
+      "person_name": "Bernita",
+      "gold": "No"
+    },
+    "174": {
+      "story": "Audrie lies. Jerry says Audrie tells the truth. Alejandro says Jerry lies. Jaymie says Alejandro lies. Lorine says Jaymie tells the truth.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "175": {
+      "story": "Willian lies. Fidel says Willian tells the truth. Crista says Fidel tells the truth. Inga says Crista tells the truth. Dallas says Inga lies.",
+      "person_name": "Dallas",
+      "gold": "Yes"
+    },
+    "176": {
+      "story": "Sherrie lies. Gwenn says Sherrie lies. Sima says Gwenn lies. Tamika says Sima tells the truth. Millicent says Tamika tells the truth.",
+      "person_name": "Millicent",
+      "gold": "No"
+    },
+    "177": {
+      "story": "Vernell tells the truth. Fidel says Vernell tells the truth. Amberly says Fidel lies. Lorine says Amberly lies. Elanor says Lorine lies.",
+      "person_name": "Elanor",
+      "gold": "No"
+    },
+    "178": {
+      "story": "Millicent lies. Lorine says Millicent lies. Rashida says Lorine lies. Sima says Rashida lies. Phoebe says Sima tells the truth.",
+      "person_name": "Phoebe",
+      "gold": "Yes"
+    },
+    "179": {
+      "story": "Vina tells the truth. Alejandro says Vina lies. Maybelle says Alejandro tells the truth. Millicent says Maybelle lies. Elanor says Millicent tells the truth.",
+      "person_name": "Elanor",
+      "gold": "Yes"
+    },
+    "180": {
+      "story": "Shaunda tells the truth. Conception says Shaunda lies. Shenna says Conception lies. Delbert says Shenna lies. Jerry says Delbert tells the truth.",
+      "person_name": "Jerry",
+      "gold": "No"
+    },
+    "181": {
+      "story": "Jerry tells the truth. Jaymie says Jerry tells the truth. Elanor says Jaymie tells the truth. Helene says Elanor tells the truth. Sherrie says Helene tells the truth.",
+      "person_name": "Sherrie",
+      "gold": "Yes"
+    },
+    "182": {
+      "story": "Millicent tells the truth. Ka says Millicent tells the truth. Conception says Ka lies. Sal says Conception lies. Tamika says Sal lies.",
+      "person_name": "Tamika",
+      "gold": "No"
+    },
+    "183": {
+      "story": "Shaunda lies. Fletcher says Shaunda lies. Jaymie says Fletcher lies. Millie says Jaymie lies. Gwenn says Millie tells the truth.",
+      "person_name": "Gwenn",
+      "gold": "Yes"
+    },
+    "184": {
+      "story": "Christie lies. Amberly says Christie tells the truth. Bernita says Amberly tells the truth. Kristian says Bernita lies. Delfina says Kristian lies.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "185": {
+      "story": "Leda lies. Fidel says Leda lies. Crista says Fidel tells the truth. Ka says Crista lies. Jim says Ka tells the truth.",
+      "person_name": "Jim",
+      "gold": "No"
+    },
+    "186": {
+      "story": "Leda lies. Millicent says Leda tells the truth. Rashida says Millicent lies. Maybelle says Rashida tells the truth. Shaunda says Maybelle lies.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "187": {
+      "story": "Rashida lies. Osvaldo says Rashida tells the truth. Sherrie says Osvaldo tells the truth. Gwenn says Sherrie tells the truth. Jerry says Gwenn lies.",
+      "person_name": "Jerry",
+      "gold": "Yes"
+    },
+    "188": {
+      "story": "Bernita tells the truth. Audrie says Bernita lies. Millie says Audrie tells the truth. Kandi says Millie lies. Fletcher says Kandi tells the truth.",
+      "person_name": "Fletcher",
+      "gold": "Yes"
+    },
+    "189": {
+      "story": "Rashida tells the truth. Jim says Rashida lies. Tamika says Jim tells the truth. Lorine says Tamika tells the truth. Vina says Lorine tells the truth.",
+      "person_name": "Vina",
+      "gold": "No"
+    },
+    "190": {
+      "story": "Delbert lies. Shalonda says Delbert tells the truth. Tamika says Shalonda lies. Sal says Tamika lies. Helene says Sal lies.",
+      "person_name": "Helene",
+      "gold": "Yes"
+    },
+    "191": {
+      "story": "Phoebe lies. Lorine says Phoebe tells the truth. Dallas says Lorine lies. Alexis says Dallas lies. Jim says Alexis tells the truth.",
+      "person_name": "Jim",
+      "gold": "No"
+    },
+    "192": {
+      "story": "Audrie lies. Rashida says Audrie tells the truth. Maybelle says Rashida lies. Ka says Maybelle lies. Shaunda says Ka tells the truth.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "193": {
+      "story": "Osvaldo lies. Fletcher says Osvaldo tells the truth. Michael says Fletcher tells the truth. Dallas says Michael tells the truth. Teressa says Dallas tells the truth.",
+      "person_name": "Teressa",
+      "gold": "No"
+    },
+    "194": {
+      "story": "Alexis tells the truth. Raymond says Alexis tells the truth. Michaela says Raymond tells the truth. Shalonda says Michaela tells the truth. Amberly says Shalonda tells the truth.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "195": {
+      "story": "Raymond lies. Fletcher says Raymond lies. Amberly says Fletcher lies. Shenna says Amberly tells the truth. Dallas says Shenna tells the truth.",
+      "person_name": "Dallas",
+      "gold": "No"
+    },
+    "196": {
+      "story": "Shalonda tells the truth. Sal says Shalonda tells the truth. Helene says Sal tells the truth. Kandi says Helene lies. Lorine says Kandi tells the truth.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "197": {
+      "story": "Sal tells the truth. Alejandro says Sal tells the truth. Raymond says Alejandro lies. Conception says Raymond lies. Elanor says Conception lies.",
+      "person_name": "Elanor",
+      "gold": "No"
+    },
+    "198": {
+      "story": "Shaunda tells the truth. Fidel says Shaunda tells the truth. Delbert says Fidel tells the truth. Bernita says Delbert tells the truth. Lorine says Bernita lies.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "199": {
+      "story": "Fletcher lies. Jerry says Fletcher lies. Raymond says Jerry lies. Conception says Raymond lies. Amberly says Conception tells the truth.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "200": {
+      "story": "Kristian lies. Millie says Kristian lies. Amberly says Millie lies. Osvaldo says Amberly tells the truth. Kandi says Osvaldo tells the truth.",
+      "person_name": "Kandi",
+      "gold": "No"
+    },
+    "201": {
+      "story": "Willian lies. Raymond says Willian tells the truth. Rashida says Raymond lies. Gwenn says Rashida lies. Ka says Gwenn lies.",
+      "person_name": "Ka",
+      "gold": "Yes"
+    },
+    "202": {
+      "story": "Jamey tells the truth. Michael says Jamey lies. Sherrie says Michael lies. Bernita says Sherrie lies. Amberly says Bernita tells the truth.",
+      "person_name": "Amberly",
+      "gold": "No"
+    },
+    "203": {
+      "story": "Shaunda tells the truth. Jim says Shaunda lies. Alexis says Jim lies. Phoebe says Alexis tells the truth. Sherrie says Phoebe tells the truth.",
+      "person_name": "Sherrie",
+      "gold": "Yes"
+    },
+    "204": {
+      "story": "Millicent lies. Ka says Millicent lies. Sima says Ka tells the truth. Dallas says Sima tells the truth. Jamey says Dallas lies.",
+      "person_name": "Jamey",
+      "gold": "No"
+    },
+    "205": {
+      "story": "Christie tells the truth. Fidel says Christie lies. Jerry says Fidel tells the truth. Maybelle says Jerry lies. Delfina says Maybelle tells the truth.",
+      "person_name": "Delfina",
+      "gold": "Yes"
+    },
+    "206": {
+      "story": "Sima lies. Maybelle says Sima tells the truth. Audrie says Maybelle lies. Leda says Audrie tells the truth. Shaunda says Leda lies.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "207": {
+      "story": "Vernell lies. Conception says Vernell lies. Kandi says Conception lies. Michael says Kandi tells the truth. Osvaldo says Michael tells the truth.",
+      "person_name": "Osvaldo",
+      "gold": "No"
+    },
+    "208": {
+      "story": "Shaunda tells the truth. Delbert says Shaunda tells the truth. Bernita says Delbert lies. Yoland says Bernita tells the truth. Christie says Yoland tells the truth.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "209": {
+      "story": "Inga tells the truth. Shalonda says Inga tells the truth. Phoebe says Shalonda tells the truth. Crista says Phoebe lies. Alejandro says Crista lies.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "210": {
+      "story": "Fidel lies. Millicent says Fidel tells the truth. Crista says Millicent lies. Leda says Crista lies. Tamika says Leda tells the truth.",
+      "person_name": "Tamika",
+      "gold": "No"
+    },
+    "211": {
+      "story": "Andree tells the truth. Christie says Andree tells the truth. Fidel says Christie lies. Antwan says Fidel tells the truth. Alejandro says Antwan lies.",
+      "person_name": "Alejandro",
+      "gold": "Yes"
+    },
+    "212": {
+      "story": "Fletcher tells the truth. Willian says Fletcher tells the truth. Jamey says Willian lies. Leda says Jamey lies. Jaymie says Leda tells the truth.",
+      "person_name": "Jaymie",
+      "gold": "Yes"
+    },
+    "213": {
+      "story": "Tamika lies. Jerry says Tamika tells the truth. Delbert says Jerry tells the truth. Leda says Delbert tells the truth. Willian says Leda lies.",
+      "person_name": "Willian",
+      "gold": "Yes"
+    },
+    "214": {
+      "story": "Teressa lies. Sal says Teressa tells the truth. Delbert says Sal tells the truth. Tamika says Delbert tells the truth. Gwenn says Tamika tells the truth.",
+      "person_name": "Gwenn",
+      "gold": "No"
+    },
+    "215": {
+      "story": "Jim lies. Delfina says Jim tells the truth. Shaunda says Delfina lies. Fidel says Shaunda lies. Sal says Fidel tells the truth.",
+      "person_name": "Sal",
+      "gold": "No"
+    },
+    "216": {
+      "story": "Millie lies. Michael says Millie tells the truth. Vina says Michael lies. Conception says Vina tells the truth. Sima says Conception tells the truth.",
+      "person_name": "Sima",
+      "gold": "Yes"
+    },
+    "217": {
+      "story": "Kandi lies. Millie says Kandi tells the truth. Lorine says Millie tells the truth. Michaela says Lorine tells the truth. Amberly says Michaela lies.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "218": {
+      "story": "Michael lies. Jerry says Michael tells the truth. Delbert says Jerry tells the truth. Sima says Delbert lies. Alexis says Sima lies.",
+      "person_name": "Alexis",
+      "gold": "No"
+    },
+    "219": {
+      "story": "Sal lies. Kristian says Sal lies. Helene says Kristian lies. Inga says Helene tells the truth. Michael says Inga tells the truth.",
+      "person_name": "Michael",
+      "gold": "No"
+    },
+    "220": {
+      "story": "Maybelle lies. Crista says Maybelle tells the truth. Bernita says Crista lies. Kandi says Bernita tells the truth. Delbert says Kandi tells the truth.",
+      "person_name": "Delbert",
+      "gold": "Yes"
+    },
+    "221": {
+      "story": "Ka lies. Rashida says Ka tells the truth. Sherrie says Rashida tells the truth. Tamika says Sherrie tells the truth. Elanor says Tamika tells the truth.",
+      "person_name": "Elanor",
+      "gold": "No"
+    },
+    "222": {
+      "story": "Antwan tells the truth. Audrie says Antwan tells the truth. Inga says Audrie lies. Shenna says Inga tells the truth. Christie says Shenna lies.",
+      "person_name": "Christie",
+      "gold": "Yes"
+    },
+    "223": {
+      "story": "Teressa lies. Michael says Teressa tells the truth. Fidel says Michael tells the truth. Leda says Fidel lies. Lorine says Leda lies.",
+      "person_name": "Lorine",
+      "gold": "No"
+    },
+    "224": {
+      "story": "Antwan tells the truth. Elanor says Antwan tells the truth. Bernita says Elanor tells the truth. Osvaldo says Bernita lies. Christie says Osvaldo tells the truth.",
+      "person_name": "Christie",
+      "gold": "No"
+    },
+    "225": {
+      "story": "Inga tells the truth. Elanor says Inga lies. Millicent says Elanor tells the truth. Willian says Millicent tells the truth. Alejandro says Willian tells the truth.",
+      "person_name": "Alejandro",
+      "gold": "No"
+    },
+    "226": {
+      "story": "Sherrie lies. Elanor says Sherrie tells the truth. Michael says Elanor tells the truth. Sima says Michael tells the truth. Shaunda says Sima lies.",
+      "person_name": "Shaunda",
+      "gold": "Yes"
+    },
+    "227": {
+      "story": "Tamika lies. Conception says Tamika tells the truth. Kristian says Conception lies. Alejandro says Kristian tells the truth. Shaunda says Alejandro lies.",
+      "person_name": "Shaunda",
+      "gold": "No"
+    },
+    "228": {
+      "story": "Helene lies. Delfina says Helene lies. Christie says Delfina tells the truth. Jerry says Christie lies. Tamika says Jerry tells the truth.",
+      "person_name": "Tamika",
+      "gold": "No"
+    },
+    "229": {
+      "story": "Conception lies. Shenna says Conception tells the truth. Maybelle says Shenna tells the truth. Michael says Maybelle lies. Amberly says Michael lies.",
+      "person_name": "Amberly",
+      "gold": "No"
+    },
+    "230": {
+      "story": "Kristian tells the truth. Jamey says Kristian tells the truth. Millicent says Jamey lies. Fidel says Millicent lies. Tamika says Fidel lies.",
+      "person_name": "Tamika",
+      "gold": "No"
+    },
+    "231": {
+      "story": "Jamey lies. Sal says Jamey tells the truth. Teressa says Sal lies. Maybelle says Teressa tells the truth. Ka says Maybelle lies.",
+      "person_name": "Ka",
+      "gold": "No"
+    },
+    "232": {
+      "story": "Lorine lies. Amberly says Lorine lies. Fletcher says Amberly lies. Millie says Fletcher tells the truth. Antwan says Millie lies.",
+      "person_name": "Antwan",
+      "gold": "Yes"
+    },
+    "233": {
+      "story": "Alexis tells the truth. Elanor says Alexis tells the truth. Sherrie says Elanor lies. Audrie says Sherrie tells the truth. Inga says Audrie tells the truth.",
+      "person_name": "Inga",
+      "gold": "No"
+    },
+    "234": {
+      "story": "Fidel tells the truth. Teressa says Fidel tells the truth. Willian says Teressa tells the truth. Conception says Willian tells the truth. Bernita says Conception lies.",
+      "person_name": "Bernita",
+      "gold": "No"
+    },
+    "235": {
+      "story": "Jerry tells the truth. Lorine says Jerry lies. Shenna says Lorine lies. Gwenn says Shenna lies. Shaunda says Gwenn lies.",
+      "person_name": "Shaunda",
+      "gold": "Yes"
+    },
+    "236": {
+      "story": "Inga lies. Audrie says Inga lies. Rashida says Audrie lies. Willian says Rashida tells the truth. Amberly says Willian lies.",
+      "person_name": "Amberly",
+      "gold": "Yes"
+    },
+    "237": {
+      "story": "Ka tells the truth. Inga says Ka lies. Bernita says Inga lies. Osvaldo says Bernita tells the truth. Michaela says Osvaldo lies.",
+      "person_name": "Michaela",
+      "gold": "No"
+    },
+    "238": {
+      "story": "Jaymie lies. Jamey says Jaymie tells the truth. Sal says Jamey lies. Amberly says Sal lies. Jerry says Amberly tells the truth.",
+      "person_name": "Jerry",
+      "gold": "No"
+    },
+    "239": {
+      "story": "Millie lies. Andree says Millie lies. Michaela says Andree lies. Leda says Michaela tells the truth. Shenna says Leda lies.",
+      "person_name": "Shenna",
+      "gold": "Yes"
+    },
+    "240": {
+      "story": "Shaunda tells the truth. Maybelle says Shaunda tells the truth. Lorine says Maybelle lies. Millie says Lorine tells the truth. Vina says Millie tells the truth.",
+      "person_name": "Vina",
+      "gold": "No"
+    },
+    "241": {
+      "story": "Fletcher lies. Tamika says Fletcher tells the truth. Ka says Tamika lies. Sima says Ka tells the truth. Ryan says Sima tells the truth.",
+      "person_name": "Ryan",
+      "gold": "Yes"
+    },
+    "242": {
+      "story": "Shaunda lies. Andree says Shaunda tells the truth. Jaymie says Andree lies. Inga says Jaymie lies. Millicent says Inga tells the truth.",
+      "person_name": "Millicent",
+      "gold": "No"
+    },
+    "243": {
+      "story": "Rashida lies. Fletcher says Rashida lies. Antwan says Fletcher lies. Willian says Antwan tells the truth. Vina says Willian tells the truth.",
+      "person_name": "Vina",
+      "gold": "No"
+    },
+    "244": {
+      "story": "Jerry lies. Kandi says Jerry lies. Fletcher says Kandi lies. Ryan says Fletcher lies. Delfina says Ryan lies.",
+      "person_name": "Delfina",
+      "gold": "No"
+    },
+    "245": {
+      "story": "Shaunda tells the truth. Phoebe says Shaunda tells the truth. Ryan says Phoebe tells the truth. Christie says Ryan tells the truth. Vina says Christie tells the truth.",
+      "person_name": "Vina",
+      "gold": "Yes"
+    },
+    "246": {
+      "story": "Alexis tells the truth. Amberly says Alexis tells the truth. Andree says Amberly tells the truth. Vina says Andree tells the truth. Helene says Vina tells the truth.",
+      "person_name": "Helene",
+      "gold": "Yes"
+    },
+    "247": {
+      "story": "Gwenn lies. Maybelle says Gwenn tells the truth. Raymond says Maybelle tells the truth. Jamey says Raymond tells the truth. Andree says Jamey lies.",
+      "person_name": "Andree",
+      "gold": "Yes"
+    },
+    "248": {
+      "story": "Kandi tells the truth. Ryan says Kandi lies. Michaela says Ryan tells the truth. Sima says Michaela lies. Andree says Sima tells the truth.",
+      "person_name": "Andree",
+      "gold": "Yes"
+    },
+    "249": {
+      "story": "Fletcher tells the truth. Alexis says Fletcher lies. Jerry says Alexis lies. Elanor says Jerry tells the truth. Jim says Elanor lies.",
+      "person_name": "Jim",
+      "gold": "No"
+    },
+    "250": {
+      "story": "Sherrie tells the truth. Ryan says Sherrie lies. Bernita says Ryan tells the truth. Tamika says Bernita lies. Jerry says Tamika lies.",
+      "person_name": "Jerry",
+      "gold": "No"
+    }
+  }
+}

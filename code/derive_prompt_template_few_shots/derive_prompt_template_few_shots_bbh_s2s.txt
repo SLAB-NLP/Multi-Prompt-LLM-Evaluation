@@ -1,0 +1,109 @@
+Template variables: ['input']
+
+Prompt:
+Given an input sequence of Dyck-n words, generate the corresponding closing parentheses by keeping track of the stack configuration.
+Example input:
+Input sequence: (((())))
+Example output:
+Output sequence: ))))))
+
+Example input:
+Input sequence: ()()()
+Example output:
+Output sequence: )))))
+
+Prompt template:
+Given an input sequence of Dyck-n words, generate the corresponding closing parentheses by keeping track of the stack configuration.
+Input sequence: {input}
+Output sequence:
+
+#end#
+
+Template variables: ['object_list', 'object_type']
+
+Prompt:
+Please generate a text response to a question asking the model to count the number of a certain type of object in a given list. Your response should include the numerical count of the specified object type in the list.
+
+Example input:
+Q: I have apples, bananas, and oranges. How many bananas do I have?
+
+Example output:
+A: You have 1 banana in your list.
+
+Prompt template:
+Please generate a text response to a question asking you to count the number of a certain type of object in a given list. Your response should include the numerical count of the specified object type in the list.
+Q: I have {object_list}. How many {object_type} do I have?
+A:
+
+#end#
+
+Template variables: ['word_list']
+
+Prompt:
+Please sort the following list of words in alphabetical order:
+Example input:
+["banana", "apple", "orange", "grape", "kiwi"]
+Example output:
+["apple", "banana", "grape", "kiwi", "orange"]
+
+Prompt template:
+Please sort the following list of words in alphabetical order:
+{word_list}
+
+#end#
+
+Template variables: ['input']
+
+Prompt:
+Given a sequence of Dyck-n words, generate the corresponding closing parentheses by keeping track of the stack configuration.
+
+Example input:
+((())(()))
+
+Example output:
+)))))))
+
+Prompt template:
+Given a sequence of Dyck-n words, generate the corresponding closing parentheses by keeping track of the stack configuration.
+Input: {input}
+Output:
+
+#end#
+
+Template variables: ['word_list']
+
+Prompt:
+Sort a list of words alphabetically. Provide a list of words and receive the same list sorted in alphabetical order.
+Example input:
+["banana", "apple", "cherry"]
+Example output:
+["apple", "banana", "cherry"]
+
+Prompt template:
+Sort a list of words alphabetically. You are provides with a list of words, generate the same list sorted in alphabetical order.
+Input: {word_list}
+Output:
+
+#end#
+
+Template variables: ['object_list', 'object_type']
+
+Prompt:
+Please generate a text response to a question asking to count objects of a certain type. The prompt includes a variable for the object list and type. Identify the objects of the specified type and count them based on the input list.
+
+Example input:
+Question: How many apples are in the basket?
+Object list: [apple, banana, orange, apple, pear]
+Object type: apple
+
+Example output:
+There are 2 apples in the basket.
+
+Prompt template:
+Please generate a text response to a question asking to count objects of a certain type. The prompt includes a variable for the object list and type. Identify the objects of the specified type and count them based on the input list.
+Object list: {object_list}
+Question: How many {object_type} are in the list?
+Answer:
+
+#end#
+

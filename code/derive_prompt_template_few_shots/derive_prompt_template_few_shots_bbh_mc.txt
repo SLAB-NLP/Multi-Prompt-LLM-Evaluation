@@ -1,0 +1,184 @@
+Template variables: ['sentence', 'options']
+
+Prompt:
+Please clarify the meaning of the sentence by identifying the antecedent of the ambiguous pronoun or stating that it is ambiguous. Use the provided options to select the most likely referent for the pronoun. Use your understanding of the context and verbs to determine the correct answer.
+
+Example input:
+Sentence: "John asked Tom to pass him the salt, but he was too busy."
+Options:
+A) John was too busy
+B) Tom was too busy
+C) The salt was too busy
+D) It is ambiguous
+
+Example output:
+D
+
+Prompt template:
+Please clarify the meaning of the sentence by identifying the antecedent of the ambiguous pronoun or stating that it is ambiguous. Use the provided options to select the most likely referent for the pronoun. Use your understanding of the context and verbs to determine the correct answer.
+Sentence: {sentence}
+Options:
+{options}
+Output:
+
+#end#
+
+Template variables: ['svg_path_element', 'options']
+
+Prompt:
+Given an SVG path, identify the name of the corresponding geometric shape. You will be presented with multiple-choice options to choose from.
+Example input:
+SVG path: "M 100 100 L 300 100 L 200 300 z"
+Options: A) Triangle B) Square C) Circle D) Rectangle
+Example output:
+A) Triangle
+
+Prompt template:
+Given an SVG path, identify the name of the corresponding geometric shape. You will be presented with multiple-choice options to choose from.
+SVG path: {svg_path_element}
+Options:
+{options}
+Output:
+
+#end#
+
+Template variables: ['options']
+
+Prompt:
+Order the adjectives in the following sentence according to the rule: "[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun". Choose the sentence with the correct adjective order.
+Example input:
+Which sentence has the correct adjective order for the phrase "beautiful big old round red Italian wooden dining table"?
+A) "big beautiful old round wooden red Italian dining table"
+B) "beautiful big old round red wooden Italian dining table"
+C) "round big beautiful old red Italian wooden dining table"
+D) "Italian beautiful big old round red wooden dining table"
+Example output:
+B
+
+Prompt template:
+Order the adjectives according to the rule: "[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun". Choose the sentence with the correct adjective order.
+Which sentence has the correct adjective order?
+{options}
+Output:
+
+#end#
+
+Template variables: ['paragraph', 'options']
+
+Prompt:
+Given a set of statements about the relative order of three objects, determine the correct order and choose the corresponding option from a set of multiple choices.
+
+Example input:
+Statement 1: Object A comes before Object B
+Statement 2: Object C comes after Object B
+Statement 3: Object A comes after Object C
+
+Example output:
+Correct order: C, B, A
+Multiple choice options:
+A) A, B, C
+B) C, A, B
+C) B, C, A
+D) A, C, B
+Answer: C) B, C, A
+
+Prompt template:
+Given a set of statements about the relative order of three objects, determine the correct order and choose the corresponding option from a set of multiple choices.
+Statements: {paragraph}
+Multiple choice options:
+{options}
+Answer:
+
+#end#
+
+Template variables: ['movie_list', 'options']
+
+Prompt:
+You are tasked with recommending movies similar to a given list of movies. Your prompt should provide a multi-choice format where the user is asked to find a movie similar to the given list and is provided with options to choose from. The correct answer is the option that is most similar to the given list of movies.
+
+Example input:
+Given the list of movies "The Dark Knight", "Inception", and "Interstellar", recommend a movie that is similar to this list.
+
+Option A: "The Shawshank Redemption"
+Option B: "The Matrix"
+Option C: "The Prestige"
+Option D: "Forrest Gump"
+
+Example output:
+The correct answer is Option C: "The Prestige". This movie is similar to the given list in terms of its complex plot, strong character development, and themes of deception and illusion.
+
+Prompt template:
+You are tasked with recommending movies similar to a given list of movies. You are asked to find a movie similar to the given list and provided with options to choose from. The correct answer is the option that is most similar to the given list of movies.
+List of movies: {movie_list}
+Options:
+{options}
+Output:
+
+#end#
+
+Template variables: ['table_description', 'question', 'options']
+
+Prompt:
+Given a table of penguins and their attributes, answer questions in a multi-choice format. The prompt includes a table description and a question, followed by options to choose from. Use the input-output samples to derive the task instruction by focusing on specific attributes of the penguins in the table.
+
+Example input:
+Table:
+| Name | Species | Island | Bill Length (mm) | Body Mass (g) |
+|------|---------|--------|------------------|---------------|
+| A    | Adelie  | Torgersen | 39.1           | 3750          |
+| B    | Adelie  | Torgersen | 39.5           | 3800          |
+| C    | Adelie  | Torgersen | 40.3           | 3250          |
+
+Question: Which penguin has the longest bill?
+A.
+
+Prompt template:
+Given a table of penguins and their attributes, answer questions in a multi-choice format. You are given a table description and a question, followed by options to choose from.
+Table: {table_description}
+Question: {question}
+Options:
+{options}
+Output:
+
+#end#
+
+Template variables: ['source', 'translation', 'options']
+
+Prompt:
+Given an English translation of a German source sentence, identify the type of error present in the translation. The error can be one of the following types: Named Entities, Numerical Values, Modifiers or Adjectives, Negation or Antonyms, Facts, or Dropped Content. You will be presented with a multi-choice format and provided with input-output samples for practice.
+Example input:
+German source sentence: "Ich habe zwei Äpfel."
+English translation: "I have two apples."
+Example output:
+Numerical Values
+
+Prompt template:
+Given an English translation of a German source sentence, identify the type of error present in the translation. The error can be one of the following types: Named Entities, Numerical Values, Modifiers or Adjectives, Negation or Antonyms, Facts, or Dropped Content. You will be presented with a multi-choice format and provided with input-output samples for practice.
+German source sentence: {source}
+English translation: {translation}
+Options:
+{options}
+Output:
+
+#end#
+
+Template variables: ['options']
+
+Prompt:
+Determine which of two sentences is sarcastic based on given options and a prompt. The default prompt is "Which statement is sarcastic?" with two options to choose from. The correct answer is the option that contains sarcasm.
+Example input:
+Prompt: Which statement is sarcastic?
+Option A: I just love sitting in traffic for hours.
+Option B: Wow, I can't wait to do my taxes this weekend.
+Example output:
+The correct answer is Option A, as it contains sarcasm.
+
+Prompt template:
+Determine which of two sentences is sarcastic. The correct answer is the option that contains sarcasm.
+Options:
+{options}
+Output:
+
+#end#
+
+

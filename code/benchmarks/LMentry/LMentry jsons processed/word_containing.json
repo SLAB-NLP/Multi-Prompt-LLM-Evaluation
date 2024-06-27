@@ -1,0 +1,120 @@
+{
+  "benchmark": "LMentry",
+  "task": "word_containing",
+  "description": "Task: Word containing letter\nExample: Write a word that contains the letter \"s\":",
+  "format": "seq2seq",
+  "num_of_instances": 26,
+  "more_info": {
+    "input_templates": [
+      "Write a word that contains the letter \"{letter}\":\n",
+      "Write a word using the letter \"{letter}\":\n",
+      "Write a word containing the letter \"{letter}\":\n"
+    ]
+  },
+  "examples": {
+    "1": {
+      "letter": "a",
+      "more_info": {}
+    },
+    "2": {
+      "letter": "b",
+      "more_info": {}
+    },
+    "3": {
+      "letter": "c",
+      "more_info": {}
+    },
+    "4": {
+      "letter": "d",
+      "more_info": {}
+    },
+    "5": {
+      "letter": "e",
+      "more_info": {}
+    },
+    "6": {
+      "letter": "f",
+      "more_info": {}
+    },
+    "7": {
+      "letter": "g",
+      "more_info": {}
+    },
+    "8": {
+      "letter": "h",
+      "more_info": {}
+    },
+    "9": {
+      "letter": "i",
+      "more_info": {}
+    },
+    "10": {
+      "letter": "j",
+      "more_info": {}
+    },
+    "11": {
+      "letter": "k",
+      "more_info": {}
+    },
+    "12": {
+      "letter": "l",
+      "more_info": {}
+    },
+    "13": {
+      "letter": "m",
+      "more_info": {}
+    },
+    "14": {
+      "letter": "n",
+      "more_info": {}
+    },
+    "15": {
+      "letter": "o",
+      "more_info": {}
+    },
+    "16": {
+      "letter": "p",
+      "more_info": {}
+    },
+    "17": {
+      "letter": "q",
+      "more_info": {}
+    },
+    "18": {
+      "letter": "r",
+      "more_info": {}
+    },
+    "19": {
+      "letter": "s",
+      "more_info": {}
+    },
+    "20": {
+      "letter": "t",
+      "more_info": {}
+    },
+    "21": {
+      "letter": "u",
+      "more_info": {}
+    },
+    "22": {
+      "letter": "v",
+      "more_info": {}
+    },
+    "23": {
+      "letter": "w",
+      "more_info": {}
+    },
+    "24": {
+      "letter": "x",
+      "more_info": {}
+    },
+    "25": {
+      "letter": "y",
+      "more_info": {}
+    },
+    "26": {
+      "letter": "z",
+      "more_info": {}
+    }
+  }
+}

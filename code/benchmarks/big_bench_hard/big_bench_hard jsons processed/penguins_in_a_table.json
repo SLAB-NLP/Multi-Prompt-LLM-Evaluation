@@ -1,0 +1,1818 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "penguins_in_a_table",
+  "format": "multi_choice",
+  "task_type": "nlp",
+  "num_of_instances": 146,
+  "description": "Answer questions about a table of penguins and their attributes.",
+  "more_info": {
+    "input_templates": [
+      "Q: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg)\n{table_description}\n{question}\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "table_description",
+      "question",
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "table_description": "Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example",
+        "question": "How many penguins are less than 8 years old?",
+        "options": [
+          "(A) 1",
+          "(B) 2",
+          "(C) 3",
+          "(D) 4",
+          "(E) 5"
+        ],
+        "gold": "B",
+        "explanation": "This question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nNow, we add James to this table: James is 12 years old.\nThe penguins that are less than 8 years old are Louis and Bernard.\nThere are 2 penguins less than 8 years old. So the answer is (B)."
+      },
+      "1": {
+        "table_description": "Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example",
+        "question": "Which is the youngest penguin?",
+        "options": [
+          "(A) Louis",
+          "(B) Bernard",
+          "(C) Vincent",
+          "(D) Gwen",
+          "(E) James"
+        ],
+        "gold": "B",
+        "explanation": "This question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nAccording to the table, Bernard (5) is the youngest amongst them.\nThe youngest penguin is Bernard. So the answer is (B)."
+      },
+      "2": {
+        "table_description": "Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example",
+        "question": "What is the name of the second penguin sorted by alphabetic order?",
+        "options": [
+          "(A) Louis",
+          "(B) Bernard",
+          "(C) Vincent",
+          "(D) Gwen",
+          "(E) James"
+        ],
+        "gold": "D",
+        "explanation": "This question focuses on the name. We know the following: The names of the penguin in the table are Louis, Bernard, Vincent, and Gwen.\nWhen we sort their names alphabetically, we get Bernard, Gwen, Louis, Vincent.\nThe name of the second penguin sorted by alphabetical order is Gwen.\nThe name of the second penguin sorted by alphabetic order is Gwen. So the answer is (D)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg)\nLouis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  We now add a penguin to the table: James, 12, 90, 12\nHow many penguins are less than 8 years old?\nOptions:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5\nA: (B)\nExplanation:\nThis question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nNow, we add James to this table: James is 12 years old.\nThe penguins that are less than 8 years old are Louis and Bernard.\nThere are 2 penguins less than 8 years old. So the answer is (B).",
+      "Q: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg)\nLouis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.\nWhich is the youngest penguin?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James\nA: (B)\nExplanation:\nThis question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nAccording to the table, Bernard (5) is the youngest amongst them.\nThe youngest penguin is Bernard. So the answer is (B).",
+      "Q: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg)\nLouis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.\nWhat is the name of the second penguin sorted by alphabetic order?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James\nA: (D)\nExplanation:\nThis question focuses on the name. We know the following: The names of the penguin in the table are Louis, Bernard, Vincent, and Gwen.\nWhen we sort their names alphabetically, we get Bernard, Gwen, Louis, Vincent.\nThe name of the second penguin sorted by alphabetical order is Gwen.\nThe name of the second penguin sorted by alphabetic order is Gwen. So the answer is (D)."
+    ],
+    "cot_prompt_intro": "Answer questions about a table of penguins and their attributes.\n\nQ: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  We now add a penguin to the table:\nJames, 12, 90, 12\nHow many penguins are less than 8 years old?\nOptions:\n(A) 1\n(B) 2\n(C) 3\n(D) 4\n(E) 5\nA: Let's think step by step.\nThis question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nNow, we add James to this table: James is 12 years old.\nThe penguins that are less than 8 years old are Louis and Bernard.\nThere are 2 penguins less than 8 years old. So the answer is (B).\n\nQ: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  Which is the youngest penguin?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James\nA: Let's think step by step.\nThis question focuses on age. We know the following: Louis is 7 years old, Bernard is 5 years old, Vincent is 9 years old, and Gwen is 8 years old.\nAccording to the table, Bernard (5) is the youngest amongst them.\nThe youngest penguin is Bernard. So the answer is (B).\n\nQ: Here is a table where the first line is a header and each subsequent line is a penguin:  name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm.  What is the name of the second penguin sorted by alphabetic order?\nOptions:\n(A) Louis\n(B) Bernard\n(C) Vincent\n(D) Gwen\n(E) James\nA: Let's think step by step.\nThis question focuses on the name. We know the following: The names of the penguin in the table are Louis, Bernard, Vincent, and Gwen.\nWhen we sort their names alphabetically, we get Bernard, Gwen, Louis, Vincent.\nThe name of the second penguin sorted by alphabetical order is Gwen.\nThe name of the second penguin sorted by alphabetic order is Gwen. So the answer is (D)."
+  },
+  "examples": {
+    "1": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "2": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "3": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "4": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are more than 5 years old?",
+      "options": [
+        "(A) 5",
+        "(B) 6",
+        "(C) 7",
+        "(D) 8",
+        "(E) 9"
+      ],
+      "gold": "A"
+    },
+    "5": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is older than Gwen?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "6": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the giraffes?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "A"
+    },
+    "7": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the penguin that is 70 cm tall?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "8": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last giraffe sorted by alphabetic order?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "C"
+    },
+    "9": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are there in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "E"
+    },
+    "10": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin has the first name of a famous jazzman?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "11": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "12": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many giraffes are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "13": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "14": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many giraffes are there in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "15": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are listed in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "16": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "17": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many giraffes are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "18": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are there in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "19": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the average height of the penguins?",
+      "options": [
+        "(A) 60",
+        "(B) 65",
+        "(C) 70",
+        "(D) 75",
+        "(E) 80"
+      ],
+      "gold": "C"
+    },
+    "20": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "Which is the younest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "21": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "22": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated weight of the penguins?",
+      "options": [
+        "(A) 37",
+        "(B) 49",
+        "(C) 50",
+        "(D) 62",
+        "(E) 63"
+      ],
+      "gold": "D"
+    },
+    "23": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "24": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "25": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the age of Bernard?",
+      "options": [
+        "(A) 7",
+        "(B) 5",
+        "(C) 9",
+        "(D) 8",
+        "(E) 12"
+      ],
+      "gold": "B"
+    },
+    "26": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 10 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "27": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "28": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "29": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the 60 cm tall penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "30": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last giraffe?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "D"
+    },
+    "31": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last animal?",
+      "options": [
+        "(A) Bernard",
+        "(B) Donna",
+        "(C) Gladys",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "32": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last giraffe sorted by alphabetic order?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "C"
+    },
+    "33": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "34": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last giraffe?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "D"
+    },
+    "35": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many species are listed in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "36": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are listed in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "E"
+    },
+    "37": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "38": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are there in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "39": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many giraffes are there in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "40": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  What is the name of the 0",
+      "question": "What is the name of the 0.6 m tall penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "41": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 8 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "42": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many animals are listed in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "43": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "44": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are more than 5 years old?",
+      "options": [
+        "(A) 5",
+        "(B) 6",
+        "(C) 7",
+        "(D) 8",
+        "(E) 9"
+      ],
+      "gold": "B"
+    },
+    "45": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "46": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the first penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "47": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest giraffe?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "B"
+    },
+    "48": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are there in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "49": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 24",
+        "(B) 29",
+        "(C) 36",
+        "(D) 41",
+        "(E) 48"
+      ],
+      "gold": "D"
+    },
+    "50": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin has a welsh name?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "51": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the penguin that is 70 cm tall?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "52": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the shortest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "53": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is less than 7 years old?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "54": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the first penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "55": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "56": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many columns are there in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "57": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the height of Gwen?",
+      "options": [
+        "(A) 50",
+        "(B) 80",
+        "(C) 60",
+        "(D) 70",
+        "(E) 90"
+      ],
+      "gold": "D"
+    },
+    "58": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "what is the number of the column with the names (1, 2, 3 or 4)?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "59": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the penguin that is 9 years old?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "60": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the weight of Louis?",
+      "options": [
+        "(A) 11",
+        "(B) 13",
+        "(C) 15",
+        "(D) 12"
+      ],
+      "gold": "A"
+    },
+    "61": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "62": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 24",
+        "(B) 29",
+        "(C) 36",
+        "(D) 41",
+        "(E) 48"
+      ],
+      "gold": "B"
+    },
+    "63": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "what is the number of the column with the weights (1, 2, 3 or 4)?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "64": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 10 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "65": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the animals?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "E"
+    },
+    "66": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the average height of the penguins?",
+      "options": [
+        "(A) 60",
+        "(B) 65",
+        "(C) 70",
+        "(D) 75",
+        "(E) 80"
+      ],
+      "gold": "A"
+    },
+    "67": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the name of the fist penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "68": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "69": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 8 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "70": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the next to last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "71": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many animals are listed in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "72": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is younger than Vincent and older than Louis?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "73": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the second youngest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "74": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin has the shortest name?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "75": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many species are listed in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "76": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are listed in the tables?",
+      "options": [
+        "(A) 5",
+        "(B) 6",
+        "(C) 7",
+        "(D) 8",
+        "(E) 9"
+      ],
+      "gold": "E"
+    },
+    "77": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 8 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "78": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many animals are listed in the tables?",
+      "options": [
+        "(A) 5",
+        "(B) 6",
+        "(C) 7",
+        "(D) 8",
+        "(E) 9"
+      ],
+      "gold": "D"
+    },
+    "79": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 24",
+        "(B) 29",
+        "(C) 36",
+        "(D) 41",
+        "(E) 48"
+      ],
+      "gold": "A"
+    },
+    "80": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "81": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last animal?",
+      "options": [
+        "(A) Bernard",
+        "(B) Donna",
+        "(C) Gladys",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "82": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the name of the first penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "83": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the cumulated weight of the penguins?",
+      "options": [
+        "(A) 37",
+        "(B) 49",
+        "(C) 50",
+        "(D) 62",
+        "(E) 63"
+      ],
+      "gold": "B"
+    },
+    "84": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "85": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the penguins and giraffes?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "D"
+    },
+    "86": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the name of the penguin that is 60 cm tall?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "87": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "88": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "89": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "90": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last animal sorted by alphabetic order?",
+      "options": [
+        "(A) Jody",
+        "(B) Louis",
+        "(C) Louise",
+        "(D) Marian",
+        "(E) Vincent"
+      ],
+      "gold": "E"
+    },
+    "91": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is two years younger than Vincent?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "92": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 10 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "93": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 8 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "94": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the name of the last penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "95": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "96": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are there in the table?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "97": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "C"
+    },
+    "98": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the second heaviest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "99": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "100": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the 60 cm tall penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "101": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "102": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the shortest height?",
+      "options": [
+        "(A) 50",
+        "(B) 80",
+        "(C) 60",
+        "(D) 70",
+        "(E) 90"
+      ],
+      "gold": "A"
+    },
+    "103": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "What is the cumulated weight of the penguins?",
+      "options": [
+        "(A) 37",
+        "(B) 49",
+        "(C) 50",
+        "(D) 62",
+        "(E) 63"
+      ],
+      "gold": "A"
+    },
+    "104": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the tallest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "105": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many species are listed in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "106": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin shares his first name with a famous painter?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "107": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "108": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "109": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "110": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is older than the other ones?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "111": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the average height of the penguins?",
+      "options": [
+        "(A) 60",
+        "(B) 65",
+        "(C) 70",
+        "(D) 75",
+        "(E) 80"
+      ],
+      "gold": "B"
+    },
+    "112": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is taller than the other ones?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "113": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the shortest height?",
+      "options": [
+        "(A) 50",
+        "(B) 80",
+        "(C) 60",
+        "(D) 70",
+        "(E) 90"
+      ],
+      "gold": "A"
+    },
+    "114": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last animal sorted by alphabetic order?",
+      "options": [
+        "(A) Jody",
+        "(B) Louis",
+        "(C) Louise",
+        "(D) Marian",
+        "(E) Vincent"
+      ],
+      "gold": "E"
+    },
+    "115": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "116": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the second penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "117": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is younger than Louis?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "118": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are more than 5 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "D"
+    },
+    "119": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 8 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "120": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "121": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 8 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "122": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is older than Bernard and younger than Gwen?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "123": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "B"
+    },
+    "124": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "125": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What animals are listed in the table?",
+      "options": [
+        "(A) bears",
+        "(B) crocodiles",
+        "(C) elephants",
+        "(D) giraffes",
+        "(E) penguins"
+      ],
+      "gold": "E"
+    },
+    "126": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest giraffe?",
+      "options": [
+        "(A) Jody",
+        "(B) Gladys",
+        "(C) Marian",
+        "(D) Donna",
+        "(E) Louise"
+      ],
+      "gold": "B"
+    },
+    "127": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are more than 5 years old and weight less than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "B"
+    },
+    "128": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are less than 8 years old and weight more than 12 kg?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "A"
+    },
+    "129": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "130": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the tallest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "131": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "How many penguins are less than 10 years old?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "C"
+    },
+    "132": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated weight of the penguins?",
+      "options": [
+        "(A) 37",
+        "(B) 49",
+        "(C) 50",
+        "(D) 62",
+        "(E) 63"
+      ],
+      "gold": "C"
+    },
+    "133": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the giraffes?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "A"
+    },
+    "134": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the cumulated age of the animals?",
+      "options": [
+        "(A) 26",
+        "(B) 29",
+        "(C) 41",
+        "(D) 55",
+        "(E) 67"
+      ],
+      "gold": "D"
+    },
+    "135": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the largest height?",
+      "options": [
+        "(A) 50",
+        "(B) 80",
+        "(C) 60",
+        "(D) 70",
+        "(E) 90"
+      ],
+      "gold": "E"
+    },
+    "136": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the shortest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "A"
+    },
+    "137": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is one year younger than Vincent?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "138": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the oldest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    },
+    "139": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which is the heaviest penguin?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "140": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm  We now add a penguin to the table:\nJames, 12, 90, 12\nWe then delete the penguin named Bernard from the table",
+      "question": "What is the cumulated age of the penguins?",
+      "options": [
+        "(A) 24",
+        "(B) 29",
+        "(C) 36",
+        "(D) 41",
+        "(E) 48"
+      ],
+      "gold": "C"
+    },
+    "141": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is younger but taller than Gwen?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "142": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "How many penguins are there in the tables?",
+      "options": [
+        "(A) 1",
+        "(B) 2",
+        "(C) 3",
+        "(D) 4",
+        "(E) 5"
+      ],
+      "gold": "E"
+    },
+    "143": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the first penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "B"
+    },
+    "144": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is a female?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "D"
+    },
+    "145": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "Which penguin is taller than the other ones?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "E"
+    },
+    "146": {
+      "table_description": "name, age, height (cm), weight (kg) Louis, 7, 50, 11 Bernard, 5, 80, 13 Vincent, 9, 60, 11 Gwen, 8, 70, 15  For example: the age of Louis is 7, the weight of Gwen is 15 kg, the height of Bernard is 80 cm",
+      "question": "What is the name of the last penguin sorted by alphabetic order?",
+      "options": [
+        "(A) Louis",
+        "(B) Bernard",
+        "(C) Vincent",
+        "(D) Gwen",
+        "(E) James"
+      ],
+      "gold": "C"
+    }
+  }
+}

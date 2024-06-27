@@ -1,0 +1,196 @@
+Template variables: ['question']
+
+Prompt:
+Given a scenario where the intentionality of an action is in question, determine whether a typical person would answer a question about causation as "Yes" or "No".
+
+Example input:
+Scenario: A man is driving his car and accidentally hits a pedestrian who was crossing the street.
+Question: Did the man cause the pedestrian's injuries?
+
+Example output:
+Answer: Yes, the man caused the pedestrian's injuries.
+
+Example input:
+Scenario: A woman is walking down the street and accidentally drops her phone.
+Question: Did the woman cause her phone to drop?
+
+Example output:
+Answer: Yes, the woman caused her phone to drop.
+
+Prompt template:
+Given a scenario where the intentionality of an action is in question, determine whether a typical person would answer a question about causation as "Yes" or "No".
+Question: {question}
+Answer:
+
+#end#
+
+Template variables: ['input']
+
+Prompt:
+Determine whether the given argument is valid or invalid based on the explicitly stated premises. The options are "valid" or "invalid". The argument will be presented in a deductive format. You will need to use deductive reasoning to determine the validity of the argument.
+
+Example input:
+Premise 1: All cats have fur.
+Premise 2: Fluffy is a cat.
+Conclusion: Fluffy has fur.
+
+Example output:
+Valid.
+
+Prompt template:
+Determine whether the given argument is valid or invalid based on the explicitly stated premises. The options are "valid" or "invalid". The argument will be presented in a deductive format. You will need to use deductive reasoning to determine the validity of the argument.
+Premises and conclusion: {input}
+Output:
+
+#end#
+
+Template variables: ['instructions']
+
+Prompt:
+Please generate a classification model that can determine whether a given set of navigation instructions will lead back to the starting point or not. The model should take in a sequence of instructions and output a binary classification of "Yes" or "No" indicating whether the instructions will lead back to the starting point or not.
+
+Example input:
+"Go North for 5 miles, turn left, go East for 2 miles, turn right, go South for 3 miles."
+
+Example output:
+"No"
+
+Prompt template:
+Please determine whether a given set of navigation instructions will lead back to the starting point or not. You should take in a sequence of instructions and output a binary classification of "Yes" or "No" indicating whether the instructions will lead back to the starting point or not.
+Instructions: {instructions}
+Output:
+
+#end#
+
+Template variables: ['sentence']
+
+Prompt:
+Classify whether the following sentence related to sports is plausible or not:
+"Player X scored a home run in the final quarter of the game, securing victory for their team."
+Answer with either "yes" or "no".
+Example input:
+Sentence: "Player Y hit a hole-in-one during the basketball game, winning the match for their team."
+Example output:
+"No"
+
+Prompt template:
+Classify whether the following sentence related to sports is plausible or not:
+{sentence}
+Answer with either "yes" or "no".
+Output:
+
+#end#
+
+Template variables: ['question']
+
+Prompt:
+Consider the following scenarios and determine whether a typical person would attribute causality in a yes/no format. The scenarios involve a range of situations, from simple to complex, and may include multiple factors that could contribute to the outcome. Your task is to provide a yes or no answer based on your understanding of causal attribution.
+Example input:
+Scenario: John got a promotion at work.
+Example output:
+Yes.
+
+Prompt template:
+Consider the following scenarios and determine whether a typical person would attribute causality in a yes/no format. The scenarios involve a range of situations, from simple to complex, and may include multiple factors that could contribute to the outcome. Your task is to provide a yes or no answer based on your understanding of causal attribution.
+Scenario: {question}
+Output:
+
+#end#
+
+Template variables: ['story', 'person_name']
+
+Prompt:
+Evaluate the truthfulness of a person's statement regarding a random boolean function expressed as a word problem. The statement will be in the form of a Yes/No answer to the question of whether a certain condition is true based on the given information.
+
+Example input:
+Person A says that if x is true and y is false, then the function returns true. Does Person A tell the truth?
+
+Example output:
+Yes.
+
+Prompt template:
+Evaluate the truthfulness of a person's statement regarding a random boolean function expressed as a word problem. The statement will be in the form of a Yes/No answer to the question of whether a certain condition is true based on the given information.
+Input: {story}
+Does {person_name} tell the truth?
+
+#end#
+
+Template variables: ['sentence']
+
+Prompt:
+Classify whether a sentence related to sports is plausible or not, given a sentence prompt and athlete's name.
+Example input:
+Sentence prompt: "The quarterback threw the ball so hard that it broke through the stadium wall."
+Athlete's name: Tom Brady
+Example output:
+Plausible
+
+Example input:
+Sentence prompt: "The soccer player kicked the ball so hard that it flew into outer space."
+Athlete's name: Lionel Messi
+Example output:
+Implausible
+
+Prompt template:
+Classify whether a sentence related to sports is plausible or not, given a sentence prompt. Answer "yes" or "no".
+Sentence prompt: {sentence}
+Output:
+
+#end#
+
+Template variables: ['input']
+
+Prompt:
+Determine the validity of an argument based on explicitly stated premises. Is the argument valid or invalid? Choose from the options provided.
+
+Example input:
+Premise 1: All dogs are mammals.
+Premise 2: All mammals have fur.
+Conclusion: Therefore, all dogs have fur.
+
+Example output:
+Valid.
+
+Prompt template:
+Determine the validity of an argument based on explicitly stated premises. Is the argument valid or invalid?
+Premises and conclusion: {input}
+Output:
+
+#end#
+
+Template variables: ['instructions']
+
+Prompt:
+Given a series of navigation instructions, determine whether they will lead back to the starting point.
+Example input:
+"Move forward 10 steps, turn left, move forward 5 steps, turn right, move forward 10 steps, turn right, move forward 5 steps"
+Example output:
+"No, the navigation instructions will not lead back to the starting point."
+
+Prompt template:
+Given a series of navigation instructions, determine whether they will lead back to the starting point. Answer "yes" or "no".
+Instructions: {instructions}
+Output:
+
+#end#
+
+Template variables: ['story', 'person_name']
+
+Prompt:
+Given a word problem that expresses a boolean function, determine whether a specific person is telling the truth or not based on the information provided.
+
+Example input:
+A group of friends went to a restaurant and ordered pizza. John claims that he ate more pizza than anyone else at the table. Mary says that John ate the least amount of pizza. Determine if John is telling the truth.
+
+Example output:
+John is not telling the truth.
+
+Prompt template:
+Given a word problem that expresses a boolean function, determine whether a specific person is telling the truth or not based on the information provided. Answer "yes" or "no".
+Story: {story}
+Is {person_name} telling the truth?
+
+#end#
+
+
+

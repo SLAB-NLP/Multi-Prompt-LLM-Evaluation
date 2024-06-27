@@ -1,0 +1,141 @@
+Template variables: [sentence, word]
+
+Prompt: Given a sentence and a target word, determine the word that comes right before the specified word in the sentence.
+
+Example input:
+Sentence: "The quick brown fox jumps over the lazy dog."
+Target word: "fox"
+
+Example output:
+The word that comes right before "fox" is "brown" in the sentence "The quick brown fox jumps over the lazy dog."
+
+Prompt template:
+Given a sentence and a target word, determine the word that comes right before the specified word in the sentence.
+Sentence: {sentence}
+Target word: {word}
+The word that comes right before {word} is :
+
+#end#
+
+Template variables: [query, word1, word2]
+
+Prompt: You are given a query word and two other words. Your task is to determine which of the two words rhymes with the query word. If both words rhyme equally well, choose the first word provided. Keep in mind that rhyming words have similar sounds at the end. Please provide the rhyming word as the output.
+
+Example input:
+Query word: "cat"
+Word 1: "hat"
+Word 2: "dog"
+
+Example output:
+Output: "hat"
+
+Prompt template:
+You are given a query word and two other words. Your task is to determine which of the two words rhymes with the query word. If both words rhyme equally well, choose the first word provided. Keep in mind that rhyming words have similar sounds at the end. Please provide the rhyming word as the output.
+Query word: {query}
+Word 1: {word1}
+Word 2: {word2}
+Output word:
+
+#end#
+
+Template variables: ['words', 'category']
+
+Prompt:
+Given a list of words, determine if they belong to a specific category. Answer "yes" if all of the words are part of the category, "no" otherwise.
+Example input:
+words = ["banana", "apple", "orange", "grape"]
+category = ["fruit", "edible"]
+Example output:
+yes
+
+Prompt template:
+Given a list of words, determine if they belong to a specific category. Answer "yes" if all of the words are part of the category, "no" otherwise.
+words: {words}
+category: {category}
+Output:
+
+#end#
+
+Template variables: ['query', 'word1', 'word2']
+
+Prompt:
+Given two words and a query word, determine which one of the two words is a homophone or sounds like the query word. The input will consist of the two words, the query word, and the context in which they are being used. The output should be the word that is a homophone or sounds like the query word.
+
+Example input:
+Word 1: "hear"
+Word 2: "here"
+Query word: "peer"
+Context: "I couldn't _____ what he was saying over the noise."
+
+Example output:
+"hear"
+
+Prompt template:
+Given two words and a query word, determine which one of the two words is a homophone or sounds like the query word. The input will consist of the two words and the query word. The output should be the word that is a homophone or sounds like the query word.
+Word 1: {word1}
+Word 2: {word2}
+Query word: {query}
+Output word:
+
+#end#
+
+Template variables: ['query', 'word1', 'word2']
+
+Prompt:
+
+Write a program that determines if either "word1" or "word2" is a homophone of the query word "{query}". A homophone is a word that is pronounced the same as another word but has a different meaning. The program should take in a query word and two potential homophones as input and output whether either of the homophones matches the query word.
+
+Example input:
+
+Query word: "pear"
+Homophone 1: "pair"
+Homophone 2: "pare"
+
+Example output:
+
+Homophone 1 is a homophone of "pear".
+
+Explanation: "Pair" is pronounced the same as "pear", but has a different meaning.
+
+Prompt template:
+Determine if either "word1" or "word2" is a homophone of the query word "{query}". A homophone is a word that is pronounced the same as another word but has a different meaning.
+Query word: {query}
+Homophone 1: {word1}
+Homophone 2: {word2}
+Output word:
+
+#end#
+
+Template variables: ['letter']
+
+Prompt:
+Write a word without using a specific letter. For example, if the letter is "e", you could write "happy" instead of "excited". Try to be creative and think of words that don't commonly use the letter you're avoiding.
+Example input:
+Write a word without using the letter "a".
+Example output:
+Word: "bicycle"
+
+Prompt template:
+Write a word without using the letter "{letter}".
+Word:
+
+#end#
+
+Template variables: ['query', 'word1', 'word2']
+
+Prompt:
+Given a query word and a list of words, determine which of the words from the list is a rhyme of the query word. The rhyme should be based on the ending sounds of the words. A rhyme is defined as two words that have the same sound at the end, starting from the last stressed vowel. Use the input sample to train your model.
+Example input:
+Query word: "cat"
+Word list: ["bat", "mat", "sat", "pat"]
+Example output:
+Rhyming word: "mat"
+
+Prompt template:
+Given a query word and a list of words, determine which of the words from the list is a rhyme of the query word. The rhyme should be based on the ending sounds of the words. A rhyme is defined as two words that have the same sound at the end, starting from the last stressed vowel. Use the input sample to train your model.
+Query word: {query}
+Word list: [{word1}, {word2}]
+Rhyming word:
+
+#end#
+

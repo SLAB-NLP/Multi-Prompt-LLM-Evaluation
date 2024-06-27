@@ -1,0 +1,82 @@
+{
+  "word_not_containing": {
+    "input_templates": [
+      "Write a word that doesn't contain the letter \"{letter}\":\n",
+      "Write a word without using the letter \"{letter}\":\n",
+      "Write a word not containing the letter \"{letter}\":\n"
+    ],
+    "hints": "Task: Word not containing letter\nExample: Write a word that doesn't contain the letter \"t\":"
+  },
+  "ends_with_word": {
+    "input_templates": [
+      "Write a sentence that ends with the word \"{word}\":\n",
+      "Write a sentence whose last word is \"{word}\":\n",
+      "Write a sentence ending with \"{word}\":\n"
+    ],
+    "hints": "Task: Sentence ending with word\nExample: Write a sentence that ends with the word \"today\":"
+  },
+  "word_before": {
+    "input_templates": [
+      "Q: In the sentence \"{sentence}\", which word comes right before the word \"{word}\"?\nA:",
+      "Q: In the sentence \"{sentence}\", which word immediately precedes the word \"{word}\"?\nA:",
+      "Q: Which word comes right before \"{word}\" in the sentence \"{sentence}\"?\nA:"
+    ],
+    "hints": "Task: Word before in sentence\nExample: Q: In the sentence \"You may pick any flower\", which word comes right before the word \"any\"?"
+  },
+  "any_words_from_category": {
+    "input_templates": [
+      "Q: Are any of the words {words} types of {category}? Answer either \"yes\" or \"no\".\nA:",
+      "Q: Do any of the words {words} represent {category}? Answer either \"yes\" or \"no\".\nA:",
+      "Q: Does the list [{words}] contain any {category}? Answer either \"yes\" or \"no\".\nA:"
+    ],
+    "hints": "Task: Any words from category\nExample: Q: Are any of the words \"rabbit\", \"car\", \"cat\", \"mouse\", or \"bird\" types of vehicles? Answer either \"yes\" or \"no\"."
+  },
+  "rhyming_word": {
+    "input_templates": [
+      "Q: Which word rhymes with the word \"{query}\", \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Which is a rhyme of the word \"{query}\", \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Of the words \"{word1}\" and \"{word2}\", which one rhymes with \"{query}\"?\nA:"
+    ],
+    "hints": "Task: Rhyming word\nExample: Q: Which word rhymes with the word \"try\", \"food\" or \"cry\"?"
+  },
+  "less_letters": {
+    "input_templates": [
+      "Q: Which word has fewer letters, \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Which word is shorter, \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Of the words \"{word1}\" and \"{word2}\" which one has fewer letters?\nA:"
+    ],
+    "hints": "Task: Less letters\nExample: Q: Which word has fewer letters, \"day\" or \"computer\"?"
+  },
+  "all_words_from_category": {
+    "input_templates": [
+      "Q: Are all the words {words} types of {category}? Answer either \"yes\" or \"no\".\nA:",
+      "Q: Do the words {words} all represent {category}? Answer either \"yes\" or \"no\".\nA:",
+      "Q: Does the list [{words}] contain only {category}? Answer either \"yes\" or \"no\".\nA:"
+    ],
+    "hints": "Task: All words from category\nExample: Q: Are all the words \"chair\", \"bed\", \"table\", \"desk\", and \"sofa\" types of furniture?  Answer either \"yes\" or \"no\"."
+  },
+  "more_letters": {
+    "input_templates": [
+      "Q: Which word has more letters, \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Which word is longer, \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Of the words \"{word1}\" and \"{word2}\" which one has more letters?\nA:"
+    ],
+    "hints": "Task: More letters\nExamples: Q: Which word has more letters, \"city\" or \"drink\"?"
+  },
+  "homophones": {
+    "input_templates": [
+      "Q: Which word sounds like the word \"{query}\", \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Of the two words \"{word1}\" and \"{word2}\", which one sounds more like \"{query}\"?\nA:",
+      "Q: Which is a homophone of the word \"{query}\", \"{word1}\" or \"{word2}\"?\nA:"
+    ],
+    "hints": "Task: Homophones\nExample: Q: Of the two words \"eight\" and \"mouth\", which one sounds more like \"ate\"?"
+  },
+  "first_alphabetically": {
+    "input_templates": [
+      "Q: In an alphabetical order, which of the words \"{word1}\" and \"{word2}\" comes first?\nA:",
+      "Q: In an alphabetical order, which word comes first, \"{word1}\" or \"{word2}\"?\nA:",
+      "Q: Of the words \"{word1}\" and \"{word2}\", which word comes first alphabetically?\nA:"
+    ],
+    "hints": "Task: First alphabetically\nExample: Q: In an alphabetical order, which of the words \"book\" and \"water\" comes first?"
+  }
+}

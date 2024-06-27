@@ -1,0 +1,1041 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "sports_understanding",
+  "format": "classification (yes/no)",
+  "task_type": "nlp",
+  "num_of_instances": 250,
+  "description": "Determine whether an artificially constructed sentence relating to sports is plausible or not.",
+  "more_info": {
+    "input_templates": [
+      "Q: Is the following sentence plausible?\n\"{sentence}\"\nA:"
+    ],
+    "key_names": [
+      "sentence"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "sentence": "Bam Adebayo scored a reverse layup in the Western Conference Finals.",
+        "gold": "yes",
+        "explanation": "Bam Adebayo is an American basketball player. Scoring a reverse layup in the Western Conference Finals is part of the NBA Finals. So the answer is yes."
+      },
+      "1": {
+        "sentence": "Santi Cazorla scored a touchdown.",
+        "gold": "no",
+        "explanation": "Santi Cazorla is a soccer player. Touchdown is part of American football and rugby. So the answer is no."
+      },
+      "2": {
+        "sentence": "DeMar DeRozan was called for the goal tend.",
+        "gold": "yes",
+        "explanation": "DeMar DeRozan is an American basketball player. Goal tending is part of basketball. So the answer is yes."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Is the following sentence plausible? \"Bam Adebayo scored a reverse layup in the Western Conference Finals.\"\nA: yes\nExplanation: Bam Adebayo is an American basketball player. Scoring a reverse layup in the Western Conference Finals is part of the NBA Finals. So the answer is yes.",
+      "Q: Is the following sentence plausible? \"Santi Cazorla scored a touchdown.\"\nA: no\nExplanation: Santi Cazorla is a soccer player. Touchdown is part of American football and rugby. So the answer is no.",
+      "Q: Is the following sentence plausible? \"DeMar DeRozan was called for the goal tend.\"\nA: yes\nExplanation: DeMar DeRozan is an American basketball player. Goal tending is part of basketball. So the answer is yes."
+    ],
+    "cot_prompt_intro": "Determine whether an artificially constructed sentence relating to sports is plausible or not.\n\nQ: Is the following sentence plausible? \"Bam Adebayo scored a reverse layup in the Western Conference Finals.\"\nA: Let's think step by step. Bam Adebayo is an American basketball player. Scoring a reverse layup in the Western Conference Finals is part of the NBA Finals. So the answer is yes.\n\nQ: Is the following sentence plausible? \"Santi Cazorla scored a touchdown.\"\nA: Let's think step by step. Santi Cazorla is a soccer player. Touchdown is part of American football and rugby. So the answer is no.\n\nQ: Is the following sentence plausible? \"DeMar DeRozan was called for the goal tend.\"\nA: Let's think step by step. DeMar DeRozan is an American basketball player. Goal tending is part of basketball. So the answer is yes."
+  },
+  "examples": {
+    "1": {
+      "sentence": "\"Elias Lindholm beat the buzzer.\"",
+      "gold": "no"
+    },
+    "2": {
+      "sentence": "\"John Carlson scored in the third period.\"",
+      "gold": "yes"
+    },
+    "3": {
+      "sentence": "\"Marcelo got on the end of a through ball.\"",
+      "gold": "yes"
+    },
+    "4": {
+      "sentence": "\"Deshaun Watson was called for the goal tend in the Eastern Conference Finals.\"",
+      "gold": "no"
+    },
+    "5": {
+      "sentence": "\"Mookie Betts skated behind the net.\"",
+      "gold": "no"
+    },
+    "6": {
+      "sentence": "\"John Tavares earned a trip to the penalty box in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "7": {
+      "sentence": "\"David Silva took a throw in.\"",
+      "gold": "yes"
+    },
+    "8": {
+      "sentence": "\"Bryce Harper hit the back shoulder fade.\"",
+      "gold": "no"
+    },
+    "9": {
+      "sentence": "\"Carles Puyol did a maradona on the defender.\"",
+      "gold": "yes"
+    },
+    "10": {
+      "sentence": "\"Robin Lehner launched the desperation heave.\"",
+      "gold": "no"
+    },
+    "11": {
+      "sentence": "\"Carson Wentz took to the ice.\"",
+      "gold": "no"
+    },
+    "12": {
+      "sentence": "\"Kwadwo Asamoah was flagged on the play.\"",
+      "gold": "no"
+    },
+    "13": {
+      "sentence": "\"Jack Flaherty walked to first base in the National League Championship Series.\"",
+      "gold": "yes"
+    },
+    "14": {
+      "sentence": "\"Jayson Tatum nutmegged the defender.\"",
+      "gold": "no"
+    },
+    "15": {
+      "sentence": "\"Dougie Hamilton hit the buzzer beater.\"",
+      "gold": "no"
+    },
+    "16": {
+      "sentence": "\"Frederik Andersen crossed the blue line in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "17": {
+      "sentence": "\"Freddie Freeman watched the pitch go by.\"",
+      "gold": "yes"
+    },
+    "18": {
+      "sentence": "\"Adam Thielen scored in added time.\"",
+      "gold": "no"
+    },
+    "19": {
+      "sentence": "\"Tom Brady converted the first down.\"",
+      "gold": "yes"
+    },
+    "20": {
+      "sentence": "\"Giorgio Chiellini committed a handball in the FA Cup.\"",
+      "gold": "yes"
+    },
+    "21": {
+      "sentence": "\"Tyreek Hill caught the screen pass.\"",
+      "gold": "yes"
+    },
+    "22": {
+      "sentence": "\"Frederik Andersen took a three.\"",
+      "gold": "no"
+    },
+    "23": {
+      "sentence": "\"Adam Thielen got on base.\"",
+      "gold": "no"
+    },
+    "24": {
+      "sentence": "\"Gerard Pique scored a corner kick.\"",
+      "gold": "yes"
+    },
+    "25": {
+      "sentence": "\"Kailer Yamamoto performed a slide tackle in the European Cup.\"",
+      "gold": "no"
+    },
+    "26": {
+      "sentence": "\"Corbin Burnes earned an indirect kick.\"",
+      "gold": "no"
+    },
+    "27": {
+      "sentence": "\"LaMelo Ball launched the half court shot in the Western Conference Finals.\"",
+      "gold": "yes"
+    },
+    "28": {
+      "sentence": "\"Jonas Valanciunas beat the buzzer.\"",
+      "gold": "yes"
+    },
+    "29": {
+      "sentence": "\"Zach LaVine\u00a0 shot the puck.\"",
+      "gold": "no"
+    },
+    "30": {
+      "sentence": "\"Nazem Kadri took a charge in the NBA Championship.\"",
+      "gold": "no"
+    },
+    "31": {
+      "sentence": "\"Delon Wright went for it on fourth down.\"",
+      "gold": "no"
+    },
+    "32": {
+      "sentence": "\"Malcolm Brogdon banked the shot in.\"",
+      "gold": "yes"
+    },
+    "33": {
+      "sentence": "\"Michael Conforto comitted a three second violation.\"",
+      "gold": "no"
+    },
+    "34": {
+      "sentence": "\"Jakub Vrana hit a walkoff homer.\"",
+      "gold": "no"
+    },
+    "35": {
+      "sentence": "\"Tom Wilson scored a penalty kick.\"",
+      "gold": "no"
+    },
+    "36": {
+      "sentence": "\"Aleksander Barkov passed the puck.\"",
+      "gold": "yes"
+    },
+    "37": {
+      "sentence": "\"Malik Beasley\u00a0 comitted a three second violation.\"",
+      "gold": "yes"
+    },
+    "38": {
+      "sentence": "\"Draymond Green threw a touchdown.\"",
+      "gold": "no"
+    },
+    "39": {
+      "sentence": "\"T.Y. Hilton threw a touchdown in the AFC divisional round.\"",
+      "gold": "yes"
+    },
+    "40": {
+      "sentence": "\"Robert Woods converted the first down.\"",
+      "gold": "yes"
+    },
+    "41": {
+      "sentence": "\"Julian Edelman fumbled the ball.\"",
+      "gold": "yes"
+    },
+    "42": {
+      "sentence": "\"Neymar took a backhand shot in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "43": {
+      "sentence": "\"Jonathan Marchessault scored on the power play in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "44": {
+      "sentence": "\"Fred VanVleet scored a freekick in the Champions League Final.\"",
+      "gold": "no"
+    },
+    "45": {
+      "sentence": "\"Santi Cazorla called for the screen.\"",
+      "gold": "no"
+    },
+    "46": {
+      "sentence": "\"Edinson Cavani caught the screen pass.\"",
+      "gold": "no"
+    },
+    "47": {
+      "sentence": "\"DJ Chark caught the back shoulder fade in the NFC divisional round.\"",
+      "gold": "yes"
+    },
+    "48": {
+      "sentence": "\"Petr Cech bricked the three pointer.\"",
+      "gold": "no"
+    },
+    "49": {
+      "sentence": "\"Michael Porter Jr. called for the screen.\"",
+      "gold": "yes"
+    },
+    "50": {
+      "sentence": "\"Robert Lewandowski threw a touchdown.\"",
+      "gold": "no"
+    },
+    "51": {
+      "sentence": "\"Philip Rivers launched a hail mary.\"",
+      "gold": "yes"
+    },
+    "52": {
+      "sentence": "\"Drew Brees went for it on fourth down.\"",
+      "gold": "yes"
+    },
+    "53": {
+      "sentence": "\"Kevin Durant hit a walkoff homer.\"",
+      "gold": "no"
+    },
+    "54": {
+      "sentence": "\"Santi Cazorla earned a red card in the Champions League Final.\"",
+      "gold": "yes"
+    },
+    "55": {
+      "sentence": "\"Ryan Tannehill hit a triple.\"",
+      "gold": "no"
+    },
+    "56": {
+      "sentence": "\"Gleyber Torres got a base hit.\"",
+      "gold": "yes"
+    },
+    "57": {
+      "sentence": "\"Kawhi Leonard took a turnaround jumper.\"",
+      "gold": "yes"
+    },
+    "58": {
+      "sentence": "\"Brandin Cooks went for it on fourth down.\"",
+      "gold": "yes"
+    },
+    "59": {
+      "sentence": "\"Clint Capela got into the endzone.\"",
+      "gold": "no"
+    },
+    "60": {
+      "sentence": "\"Javier Zanetti watched the pitch go by in the National League Championship Series.\"",
+      "gold": "no"
+    },
+    "61": {
+      "sentence": "\"Wayne Rooney threw a touchdown in the Superbowl.\"",
+      "gold": "no"
+    },
+    "62": {
+      "sentence": "\"Tyler Boyd hit the screen pass in the NFC divisional round.\"",
+      "gold": "yes"
+    },
+    "63": {
+      "sentence": "\"Marouane Fellaini scored in extra time.\"",
+      "gold": "yes"
+    },
+    "64": {
+      "sentence": "\"Joao Moutinho was out at third.\"",
+      "gold": "no"
+    },
+    "65": {
+      "sentence": "\"Vincent Kompany comitted a three second violation.\"",
+      "gold": "no"
+    },
+    "66": {
+      "sentence": "\"Tuukka Rask killed the powerplay.\"",
+      "gold": "yes"
+    },
+    "67": {
+      "sentence": "\"Juan Soto shot from beyond the arc.\"",
+      "gold": "no"
+    },
+    "68": {
+      "sentence": "\"Jordan Binnington scored in the third period.\"",
+      "gold": "yes"
+    },
+    "69": {
+      "sentence": "\"Malcolm Brogdon drove into the restricted area in the Eastern Conference Finals.\"",
+      "gold": "yes"
+    },
+    "70": {
+      "sentence": "\"Didier Drogba got into the endzone.\"",
+      "gold": "no"
+    },
+    "71": {
+      "sentence": "\"Mike Hoffman launched the half court shot in the Western Conference Finals.\"",
+      "gold": "no"
+    },
+    "72": {
+      "sentence": "\"Pedro struck out the side.\"",
+      "gold": "no"
+    },
+    "73": {
+      "sentence": "\"Fernando Tatis Jr. earned a red card.\"",
+      "gold": "no"
+    },
+    "74": {
+      "sentence": "\"Evander Kane hit the slant pass in the AFC divisional round.\"",
+      "gold": "no"
+    },
+    "75": {
+      "sentence": "\"Igor Shesterkin launched a hail mary.\"",
+      "gold": "no"
+    },
+    "76": {
+      "sentence": "\"Gerrit Cole committed a handball in the European Cup.\"",
+      "gold": "no"
+    },
+    "77": {
+      "sentence": "\"Philip Rivers drove into the restricted area.\"",
+      "gold": "no"
+    },
+    "78": {
+      "sentence": "\"Norman Powell committed a blocking foul.\"",
+      "gold": "yes"
+    },
+    "79": {
+      "sentence": "\"Nazem Kadri was out at home.\"",
+      "gold": "no"
+    },
+    "80": {
+      "sentence": "\"Sterling Shepard converted the first down.\"",
+      "gold": "yes"
+    },
+    "81": {
+      "sentence": "\"Mario Gomez scored a reverse layup.\"",
+      "gold": "no"
+    },
+    "82": {
+      "sentence": "\"Andres Iniesta performed a give and go.\"",
+      "gold": "yes"
+    },
+    "83": {
+      "sentence": "\"Drew Brees was flagged on the play.\"",
+      "gold": "yes"
+    },
+    "84": {
+      "sentence": "\"Ramires scored a header goal.\"",
+      "gold": "yes"
+    },
+    "85": {
+      "sentence": "\"Luis Robert was out at second.\"",
+      "gold": "yes"
+    },
+    "86": {
+      "sentence": "\"Matthew Stafford launched a hail mary.\"",
+      "gold": "yes"
+    },
+    "87": {
+      "sentence": "\"T.Y. Hilton drew a flag on the play.\"",
+      "gold": "yes"
+    },
+    "88": {
+      "sentence": "\"Courtland Sutton hit a triple.\"",
+      "gold": "no"
+    },
+    "89": {
+      "sentence": "\"Mark Stone spent time in the penalty box in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "90": {
+      "sentence": "\"Dejounte Murray took a side-step three.\"",
+      "gold": "yes"
+    },
+    "91": {
+      "sentence": "\"Mike Trout eurostepped to the basket.\"",
+      "gold": "no"
+    },
+    "92": {
+      "sentence": "\"Josh Allen hit the screen pass.\"",
+      "gold": "yes"
+    },
+    "93": {
+      "sentence": "\"Yaya Toure scored a freekick.\"",
+      "gold": "yes"
+    },
+    "94": {
+      "sentence": "\"Sean Couturier maradona'd the defender.\"",
+      "gold": "no"
+    },
+    "95": {
+      "sentence": "\"Mitchell Marner nutmegged the defender.\"",
+      "gold": "no"
+    },
+    "96": {
+      "sentence": "\"Calvin Ridley skated behind the net.\"",
+      "gold": "no"
+    },
+    "97": {
+      "sentence": "\"Walker Buehler earned a trip to the penalty box.\"",
+      "gold": "no"
+    },
+    "98": {
+      "sentence": "\"Carlos Tevez skated backwards.\"",
+      "gold": "no"
+    },
+    "99": {
+      "sentence": "\"Ben Simmons was called for the goal tend.\"",
+      "gold": "yes"
+    },
+    "100": {
+      "sentence": "\"Marvin Jones lost control of the puck.\"",
+      "gold": "no"
+    },
+    "101": {
+      "sentence": "\"Brad Hand hit the wheel route.\"",
+      "gold": "no"
+    },
+    "102": {
+      "sentence": "\"Aleksander Barkov bricked the three pointer.\"",
+      "gold": "no"
+    },
+    "103": {
+      "sentence": "\"Josh Allen caught the screen pass.\"",
+      "gold": "yes"
+    },
+    "104": {
+      "sentence": "\"Connor McDavid threw a touchdown in the NFC divisional round.\"",
+      "gold": "no"
+    },
+    "105": {
+      "sentence": "\"Amari Cooper scored a penalty kick.\"",
+      "gold": "no"
+    },
+    "106": {
+      "sentence": "\"Mario Balotelli took a left footed shot in the Champions League Final.\"",
+      "gold": "yes"
+    },
+    "107": {
+      "sentence": "\"Willian killed the powerplay.\"",
+      "gold": "no"
+    },
+    "108": {
+      "sentence": "\"Kendrick Nunn took a charge.\"",
+      "gold": "yes"
+    },
+    "109": {
+      "sentence": "\"Cooper Kupp scored in the third period in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "110": {
+      "sentence": "\"Sean Couturier passed the puck in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "111": {
+      "sentence": "\"Sterling Shepard hit a walkoff homer.\"",
+      "gold": "no"
+    },
+    "112": {
+      "sentence": "\"Jesus Luzardo was called for slashing.\"",
+      "gold": "no"
+    },
+    "113": {
+      "sentence": "\"Keenan Allen drew a flag on the play in the NFC championship.\"",
+      "gold": "yes"
+    },
+    "114": {
+      "sentence": "\"Jamal Murray walked on ball four.\"",
+      "gold": "no"
+    },
+    "115": {
+      "sentence": "\"Toni Kroos performed a give and go.\"",
+      "gold": "yes"
+    },
+    "116": {
+      "sentence": "\"Mitchell Trubisky caught the screen pass.\"",
+      "gold": "yes"
+    },
+    "117": {
+      "sentence": "\"Sergio Busquets got on base.\"",
+      "gold": "no"
+    },
+    "118": {
+      "sentence": "\"Domantas Sabonis gained five yards in the AFC championship.\"",
+      "gold": "no"
+    },
+    "119": {
+      "sentence": "\"De'Aaron Fox scored a bicycle kick.\"",
+      "gold": "no"
+    },
+    "120": {
+      "sentence": "\"James Harden shot from outside the eighteen.\"",
+      "gold": "no"
+    },
+    "121": {
+      "sentence": "\"Patrick Kane backhanded a shot in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "122": {
+      "sentence": "\"Malcolm Brogdon eurostepped to the basket in the NBA Championship.\"",
+      "gold": "yes"
+    },
+    "123": {
+      "sentence": "\"James Karinchak crossed the blue line.\"",
+      "gold": "no"
+    },
+    "124": {
+      "sentence": "\"Joe Burrow gained five yards.\"",
+      "gold": "yes"
+    },
+    "125": {
+      "sentence": "\"Steven Stamkos hit the slant pass.\"",
+      "gold": "no"
+    },
+    "126": {
+      "sentence": "\"John Carlson entered the attacking zone in the Stanley Cup.\"",
+      "gold": "yes"
+    },
+    "127": {
+      "sentence": "\"Patrice Bergeron converted the first down.\"",
+      "gold": "no"
+    },
+    "128": {
+      "sentence": "\"Luke Voit was out at first.\"",
+      "gold": "yes"
+    },
+    "129": {
+      "sentence": "\"Timo Meier nutmegged the defender in the FA Cup.\"",
+      "gold": "no"
+    },
+    "130": {
+      "sentence": "\"Max Scherzer was safe at first.\"",
+      "gold": "yes"
+    },
+    "131": {
+      "sentence": "\"Eden Hazard hit the buzzer beater.\"",
+      "gold": "no"
+    },
+    "132": {
+      "sentence": "\"Neal Pionk shot from the six yard line.\"",
+      "gold": "no"
+    },
+    "133": {
+      "sentence": "\"Nick Castellanos hit the wheel route.\"",
+      "gold": "no"
+    },
+    "134": {
+      "sentence": "\"Tom Brady was safe at first.\"",
+      "gold": "no"
+    },
+    "135": {
+      "sentence": "\"Sergio Ramos hit nothing but net.\"",
+      "gold": "no"
+    },
+    "136": {
+      "sentence": "\"Khyri Thomas\u00a0 changed direction in the backfield in the NFC championship.\"",
+      "gold": "no"
+    },
+    "137": {
+      "sentence": "\"Leon Draisaitl grounded out to second base in the National League Championship Series.\"",
+      "gold": "no"
+    },
+    "138": {
+      "sentence": "\"Bastian Schweinsteiger scored in added time.\"",
+      "gold": "yes"
+    },
+    "139": {
+      "sentence": "\"Aaron Nola converted the first down.\"",
+      "gold": "no"
+    },
+    "140": {
+      "sentence": "\"Ketel Marte got into the endzone.\"",
+      "gold": "no"
+    },
+    "141": {
+      "sentence": "\"Travis Konecny did a maradona on the defender.\"",
+      "gold": "no"
+    },
+    "142": {
+      "sentence": "\"Pierre-Luc Dubois skated backwards.\"",
+      "gold": "yes"
+    },
+    "143": {
+      "sentence": "\"Ryan O'Reilly wristed a shot.\"",
+      "gold": "yes"
+    },
+    "144": {
+      "sentence": "\"Miro Heiskanen earned a trip to the penalty box.\"",
+      "gold": "yes"
+    },
+    "145": {
+      "sentence": "\"Angel Di Maria scored in extra time.\"",
+      "gold": "yes"
+    },
+    "146": {
+      "sentence": "\"Sam Darnold scored on the power play in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "147": {
+      "sentence": "\"Gleyber Torres scored a bicycle kick.\"",
+      "gold": "no"
+    },
+    "148": {
+      "sentence": "\"Tyler Glasnow scored a penalty kick.\"",
+      "gold": "no"
+    },
+    "149": {
+      "sentence": "\"DeVante Parker was called for icing.\"",
+      "gold": "no"
+    },
+    "150": {
+      "sentence": "\"Jayson Tatum was called for the goal tend.\"",
+      "gold": "yes"
+    },
+    "151": {
+      "sentence": "\"Carson Wentz caught the screen pass.\"",
+      "gold": "yes"
+    },
+    "152": {
+      "sentence": "\"Bryce Harper fumbled the ball.\"",
+      "gold": "no"
+    },
+    "153": {
+      "sentence": "\"Keenan Allen beat the buzzer in the Western Conference Finals.\"",
+      "gold": "no"
+    },
+    "154": {
+      "sentence": "\"Marcell Ozuna scored a touchdown.\"",
+      "gold": "no"
+    },
+    "155": {
+      "sentence": "\"Brandon Woodruff set the hard screen in the Eastern Conference Finals.\"",
+      "gold": "no"
+    },
+    "156": {
+      "sentence": "\"Jonas Valanciunas beat the buzzer.\"",
+      "gold": "yes"
+    },
+    "157": {
+      "sentence": "\"Nerlens Noel was out at home.\"",
+      "gold": "no"
+    },
+    "158": {
+      "sentence": "\"Paulinho earned an indirect kick in the FA Cup.\"",
+      "gold": "yes"
+    },
+    "159": {
+      "sentence": "\"Klaas Jan Huntelaar shot the puck.\"",
+      "gold": "no"
+    },
+    "160": {
+      "sentence": "\"David Pastrnak skated backwards.\"",
+      "gold": "yes"
+    },
+    "161": {
+      "sentence": "\"Joe Burrow caught the back shoulder fade in the Superbowl.\"",
+      "gold": "yes"
+    },
+    "162": {
+      "sentence": "\"Sergio Aguero maradona'd the defender.\"",
+      "gold": "yes"
+    },
+    "163": {
+      "sentence": "\"Gerrit Cole set the hard screen.\"",
+      "gold": "no"
+    },
+    "164": {
+      "sentence": "\"CJ McCollum shot from the six yard line.\"",
+      "gold": "no"
+    },
+    "165": {
+      "sentence": "\"Kyle Tucker took a left footed shot.\"",
+      "gold": "no"
+    },
+    "166": {
+      "sentence": "\"Jakub Vrana skated backwards.\"",
+      "gold": "yes"
+    },
+    "167": {
+      "sentence": "\"Deshaun Watson was flagged on the play.\"",
+      "gold": "yes"
+    },
+    "168": {
+      "sentence": "\"Tyler Glasnow watched the pitch go by.\"",
+      "gold": "yes"
+    },
+    "169": {
+      "sentence": "\"Juan Soto took ball four.\"",
+      "gold": "yes"
+    },
+    "170": {
+      "sentence": "\"Anthony Davis beat the buzzer.\"",
+      "gold": "yes"
+    },
+    "171": {
+      "sentence": "\"Caris LeVert scored a reverse layup.\"",
+      "gold": "yes"
+    },
+    "172": {
+      "sentence": "\"Andrei Svechnikov took ball four.\"",
+      "gold": "no"
+    },
+    "173": {
+      "sentence": "\"Trae Young got into the endzone.\"",
+      "gold": "no"
+    },
+    "174": {
+      "sentence": "\"Nathan MacKinnon bricked the three pointer in the Eastern Conference Finals.\"",
+      "gold": "no"
+    },
+    "175": {
+      "sentence": "\"A.J. Green scored in the third period.\"",
+      "gold": "no"
+    },
+    "176": {
+      "sentence": "\"Elias Lindholm took the snap.\"",
+      "gold": "no"
+    },
+    "177": {
+      "sentence": "\"Fred VanVleet passed the puck.\"",
+      "gold": "no"
+    },
+    "178": {
+      "sentence": "\"Frederik Andersen converted the first down.\"",
+      "gold": "no"
+    },
+    "179": {
+      "sentence": "\"Javier Mascherano took a left footed shot.\"",
+      "gold": "yes"
+    },
+    "180": {
+      "sentence": "\"Mike Trout hit a walkoff homer.\"",
+      "gold": "yes"
+    },
+    "181": {
+      "sentence": "\"Pete Alonso hit a triple in the World Series.\"",
+      "gold": "yes"
+    },
+    "182": {
+      "sentence": "\"Anthony Rizzo skated backwards in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "183": {
+      "sentence": "\"Francisco Lindor walked on ball four.\"",
+      "gold": "yes"
+    },
+    "184": {
+      "sentence": "\"Klaas Jan Huntelaar scored the easy layup.\"",
+      "gold": "no"
+    },
+    "185": {
+      "sentence": "\"Stefon Diggs hit the slant pass.\"",
+      "gold": "yes"
+    },
+    "186": {
+      "sentence": "\"Diego Forlan did a maradona on the defender.\"",
+      "gold": "yes"
+    },
+    "187": {
+      "sentence": "\"George Springer committed a blocking foul.\"",
+      "gold": "no"
+    },
+    "188": {
+      "sentence": "\"Arjen Robben crossed the blue line in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "189": {
+      "sentence": "\"Mitchell Robinson airballed the shot.\"",
+      "gold": "yes"
+    },
+    "190": {
+      "sentence": "\"Gabriel Landeskog launched the desperation heave.\"",
+      "gold": "no"
+    },
+    "191": {
+      "sentence": "\"Vincent Kompany scored a bicycle kick.\"",
+      "gold": "yes"
+    },
+    "192": {
+      "sentence": "\"Mathew Barzal called for the screen.\"",
+      "gold": "no"
+    },
+    "193": {
+      "sentence": "\"Kailer Yamamoto caught the back shoulder fade.\"",
+      "gold": "no"
+    },
+    "194": {
+      "sentence": "\"Patrice Bergeron took a backhand shot.\"",
+      "gold": "yes"
+    },
+    "195": {
+      "sentence": "\"Collin Sexton hit the buzzer beater.\"",
+      "gold": "yes"
+    },
+    "196": {
+      "sentence": "\"Stephan El Shaarawy shot with the left foot.\"",
+      "gold": "yes"
+    },
+    "197": {
+      "sentence": "\"Nick Foles lost control of the puck.\"",
+      "gold": "no"
+    },
+    "198": {
+      "sentence": "\"Ryan Nugent-Hopkins killed the powerplay.\"",
+      "gold": "yes"
+    },
+    "199": {
+      "sentence": "\"Kyle Connor eurostepped to the basket in the Western Conference Finals.\"",
+      "gold": "no"
+    },
+    "200": {
+      "sentence": "\"Luka Modric went in studs up in the FA Cup.\"",
+      "gold": "yes"
+    },
+    "201": {
+      "sentence": "\"Dani Alves took the snap.\"",
+      "gold": "no"
+    },
+    "202": {
+      "sentence": "\"Russell Westbrook scored on the power play.\"",
+      "gold": "no"
+    },
+    "203": {
+      "sentence": "\"Mark Stone hit a triple.\"",
+      "gold": "no"
+    },
+    "204": {
+      "sentence": "\"Teuvo Teravainen shot the puck.\"",
+      "gold": "yes"
+    },
+    "205": {
+      "sentence": "\"John Brown went for it on fourth down in the NFC championship.\"",
+      "gold": "yes"
+    },
+    "206": {
+      "sentence": "\"Kwadwo Asamoah beat the shot clock in the Eastern Conference Finals.\"",
+      "gold": "no"
+    },
+    "207": {
+      "sentence": "\"Kyle Tucker stepped on first base.\"",
+      "gold": "yes"
+    },
+    "208": {
+      "sentence": "\"Neymar did a maradona on the defender in the Champions Leage Semifinal.\"",
+      "gold": "yes"
+    },
+    "209": {
+      "sentence": "\"Mookie Betts took a side-step three.\"",
+      "gold": "no"
+    },
+    "210": {
+      "sentence": "\"Sonny Gray was out at second.\"",
+      "gold": "yes"
+    },
+    "211": {
+      "sentence": "\"Juan Soto did a double stepover.\"",
+      "gold": "no"
+    },
+    "212": {
+      "sentence": "\"Juan Mata scored a bicycle kick in the Champions League Final.\"",
+      "gold": "yes"
+    },
+    "213": {
+      "sentence": "\"Dylan Larkin walked on ball four.\"",
+      "gold": "no"
+    },
+    "214": {
+      "sentence": "\"Brandon Lowe took a left footed shot.\"",
+      "gold": "no"
+    },
+    "215": {
+      "sentence": "\"Caris LeVert scored a reverse dunk.\"",
+      "gold": "yes"
+    },
+    "216": {
+      "sentence": "\"Emmanuel Sanders got a base hit.\"",
+      "gold": "no"
+    },
+    "217": {
+      "sentence": "\"Robert Woods killed the powerplay.\"",
+      "gold": "no"
+    },
+    "218": {
+      "sentence": "\"Jonathan Marchessault went five hole.\"",
+      "gold": "yes"
+    },
+    "219": {
+      "sentence": "\"Tristan Jarry dunked the ball.\"",
+      "gold": "no"
+    },
+    "220": {
+      "sentence": "\"Wayne Rooney watched the pitch go by.\"",
+      "gold": "no"
+    },
+    "221": {
+      "sentence": "\"Michael Thomas took the snap.\"",
+      "gold": "yes"
+    },
+    "222": {
+      "sentence": "\"Deshaun Watson took a corner kick.\"",
+      "gold": "no"
+    },
+    "223": {
+      "sentence": "\"Mookie Betts scored on the power play.\"",
+      "gold": "no"
+    },
+    "224": {
+      "sentence": "\"Tuukka Rask hit a double.\"",
+      "gold": "no"
+    },
+    "225": {
+      "sentence": "\"Toni Kroos took a throw in in the Champions Leage Semifinal.\"",
+      "gold": "yes"
+    },
+    "226": {
+      "sentence": "\"Mike Williams fumbled the ball in the Superbowl.\"",
+      "gold": "yes"
+    },
+    "227": {
+      "sentence": "\"Allen Robinson gained five yards.\"",
+      "gold": "yes"
+    },
+    "228": {
+      "sentence": "\"Mario Gomez scored a reverse layup.\"",
+      "gold": "no"
+    },
+    "229": {
+      "sentence": "\"Juan Mata caught the screen pass.\"",
+      "gold": "no"
+    },
+    "230": {
+      "sentence": "\"Jamison Crowder drew a flag on the play.\"",
+      "gold": "yes"
+    },
+    "231": {
+      "sentence": "\"Mike Williams scored a bicycle kick in the FA Cup.\"",
+      "gold": "no"
+    },
+    "232": {
+      "sentence": "\"Petr Cech was safe at first.\"",
+      "gold": "no"
+    },
+    "233": {
+      "sentence": "\"Jayson Tatum took a side-step three in the NBA Championship.\"",
+      "gold": "yes"
+    },
+    "234": {
+      "sentence": "\"Thomas Muller hit a triple.\"",
+      "gold": "no"
+    },
+    "235": {
+      "sentence": "\"James Karinchak worked a full count.\"",
+      "gold": "yes"
+    },
+    "236": {
+      "sentence": "\"Jerry Jeudy killed the powerplay.\"",
+      "gold": "no"
+    },
+    "237": {
+      "sentence": "\"Stephen Curry scored a reverse layup.\"",
+      "gold": "yes"
+    },
+    "238": {
+      "sentence": "\"Mikal Bridges scored a windmill dunk.\"",
+      "gold": "yes"
+    },
+    "239": {
+      "sentence": "\"Ryan Fitzpatrick scored a touchdown.\"",
+      "gold": "yes"
+    },
+    "240": {
+      "sentence": "\"Jaylen Brown comitted a three second violation.\"",
+      "gold": "yes"
+    },
+    "241": {
+      "sentence": "\"Kenta Maeda caught the screen pass.\"",
+      "gold": "no"
+    },
+    "242": {
+      "sentence": "\"Chris Godwin crossed the blue line in the Stanley Cup.\"",
+      "gold": "no"
+    },
+    "243": {
+      "sentence": "\"Justin Herbert maradona'd the defender.\"",
+      "gold": "no"
+    },
+    "244": {
+      "sentence": "\"Blake Snell hit a single.\"",
+      "gold": "yes"
+    },
+    "245": {
+      "sentence": "\"Darius Slayton ran out of bounds in the AFC championship.\"",
+      "gold": "yes"
+    },
+    "246": {
+      "sentence": "\"Nicklas Backstrom earned a trip to the penalty box.\"",
+      "gold": "yes"
+    },
+    "247": {
+      "sentence": "\"Pepe converted the first down.\"",
+      "gold": "no"
+    },
+    "248": {
+      "sentence": "\"Kenta Maeda threw to first base in the American League Championship Series.\"",
+      "gold": "yes"
+    },
+    "249": {
+      "sentence": "\"Ryan O'Reilly hit the wheel route.\"",
+      "gold": "no"
+    },
+    "250": {
+      "sentence": "\"Marcell Ozuna hit into a double play.\"",
+      "gold": "yes"
+    }
+  }
+}

@@ -1,0 +1,8016 @@
+{
+  "benchmark": "LMentry",
+  "task": "last_word",
+  "description": "Task: Last word of the sentence\nExample: Q: What is the last word of the sentence \"There is a bench for you to sit on\"?",
+  "format": "classification",
+  "num_of_instances": 1000,
+  "more_info": {
+    "input_templates": [
+      "Q: What is the last word of the sentence \"{sentence}\"?\nA:",
+      "Q: In the sentence \"{sentence}\", what is the last word?\nA:",
+      "Write the last word of the sentence \"{sentence}\":\n"
+    ]
+  },
+  "examples": {
+    "1": {
+      "sentence": "He has left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "2": {
+      "sentence": "Donna fixed a sandwich for me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "3": {
+      "sentence": "Carmen bought a dress from Diana",
+      "gold": "Diana",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Diana"
+      }
+    },
+    "4": {
+      "sentence": "Bill alleged that Roger has eaten the cake",
+      "gold": "cake",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cake"
+      }
+    },
+    "5": {
+      "sentence": "I want to go",
+      "gold": "go",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "go"
+      }
+    },
+    "6": {
+      "sentence": "The dog chased the cat for days",
+      "gold": "days",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "days"
+      }
+    },
+    "7": {
+      "sentence": "He stopped writing poems",
+      "gold": "poems",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "poems"
+      }
+    },
+    "8": {
+      "sentence": "We ate at a really fancy restaurant",
+      "gold": "restaurant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "restaurant"
+      }
+    },
+    "9": {
+      "sentence": "The sexual revolution makes some people uncomfortable",
+      "gold": "uncomfortable",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "uncomfortable"
+      }
+    },
+    "10": {
+      "sentence": "He fed the children",
+      "gold": "children",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "children"
+      }
+    },
+    "11": {
+      "sentence": "Mickey slips up all the time",
+      "gold": "time",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "time"
+      }
+    },
+    "12": {
+      "sentence": "I put the books on the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "13": {
+      "sentence": "Carla was shoveling the walk",
+      "gold": "walk",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "walk"
+      }
+    },
+    "14": {
+      "sentence": "John told us which book we should review",
+      "gold": "review",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "review"
+      }
+    },
+    "15": {
+      "sentence": "He continued writing poems",
+      "gold": "poems",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "poems"
+      }
+    },
+    "16": {
+      "sentence": "The jury seemed ready to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "17": {
+      "sentence": "I lifted the books",
+      "gold": "books",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "books"
+      }
+    },
+    "18": {
+      "sentence": "They made him into a monster",
+      "gold": "monster",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "monster"
+      }
+    },
+    "19": {
+      "sentence": "The meat cuts easily",
+      "gold": "easily",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "easily"
+      }
+    },
+    "20": {
+      "sentence": "A pregnant woman hit a girl",
+      "gold": "girl",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "girl"
+      }
+    },
+    "21": {
+      "sentence": "Tom bathed Fido in the garage",
+      "gold": "garage",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "garage"
+      }
+    },
+    "22": {
+      "sentence": "The crowd vanished",
+      "gold": "vanished",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "vanished"
+      }
+    },
+    "23": {
+      "sentence": "Carla poured lemonade into the pitcher",
+      "gold": "pitcher",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pitcher"
+      }
+    },
+    "24": {
+      "sentence": "The door was pushed open",
+      "gold": "open",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "open"
+      }
+    },
+    "25": {
+      "sentence": "I sent it to you",
+      "gold": "you",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "you"
+      }
+    },
+    "26": {
+      "sentence": "The river runs from the lake to the sea",
+      "gold": "sea",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sea"
+      }
+    },
+    "27": {
+      "sentence": "His friend kicked a ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "28": {
+      "sentence": "few clues could be found",
+      "gold": "found",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "found"
+      }
+    },
+    "29": {
+      "sentence": "We abandoned the area",
+      "gold": "area",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "area"
+      }
+    },
+    "30": {
+      "sentence": "John fears dogs",
+      "gold": "dogs",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dogs"
+      }
+    },
+    "31": {
+      "sentence": "Henry saw that Bill left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "32": {
+      "sentence": "It was Tom who spilled beer on this couch",
+      "gold": "couch",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "couch"
+      }
+    },
+    "33": {
+      "sentence": "The fly fell into the soup",
+      "gold": "soup",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "soup"
+      }
+    },
+    "34": {
+      "sentence": "Mary managed to go abroad",
+      "gold": "abroad",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "abroad"
+      }
+    },
+    "35": {
+      "sentence": "I am more angry than sad",
+      "gold": "sad",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sad"
+      }
+    },
+    "36": {
+      "sentence": "I had eaten the deep fried muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "37": {
+      "sentence": "It is likely that Bill likes chocolate",
+      "gold": "chocolate",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "chocolate"
+      }
+    },
+    "38": {
+      "sentence": "No reading of Shakespeare satisfied me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "39": {
+      "sentence": "She is dancing",
+      "gold": "dancing",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dancing"
+      }
+    },
+    "40": {
+      "sentence": "I admired his honesty",
+      "gold": "honesty",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "honesty"
+      }
+    },
+    "41": {
+      "sentence": "Vera is knitting there",
+      "gold": "there",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "there"
+      }
+    },
+    "42": {
+      "sentence": "John spoke intimately to Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "43": {
+      "sentence": "Anne met with Cathy",
+      "gold": "Cathy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Cathy"
+      }
+    },
+    "44": {
+      "sentence": "It is certain that John has loved Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "45": {
+      "sentence": "Julie felt he was there",
+      "gold": "there",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "there"
+      }
+    },
+    "46": {
+      "sentence": "Sally believes that she is brilliant",
+      "gold": "brilliant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "brilliant"
+      }
+    },
+    "47": {
+      "sentence": "The cat had been eating",
+      "gold": "eating",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eating"
+      }
+    },
+    "48": {
+      "sentence": "They have no car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "49": {
+      "sentence": "The bell rang",
+      "gold": "rang",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "rang"
+      }
+    },
+    "50": {
+      "sentence": "Students objected to the teacher",
+      "gold": "teacher",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "teacher"
+      }
+    },
+    "51": {
+      "sentence": "It is likely that John will leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "52": {
+      "sentence": "I might eat deep fried muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "53": {
+      "sentence": "Paula hit the fence",
+      "gold": "fence",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fence"
+      }
+    },
+    "54": {
+      "sentence": "Golfers can be good company",
+      "gold": "company",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "company"
+      }
+    },
+    "55": {
+      "sentence": "Carmen bought a dress for Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "56": {
+      "sentence": "There seems to be a fountain in the park",
+      "gold": "park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "park"
+      }
+    },
+    "57": {
+      "sentence": "A man kicked that ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "58": {
+      "sentence": "Smith inscribed his name over the door",
+      "gold": "door",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "door"
+      }
+    },
+    "59": {
+      "sentence": "The muffins were eaten",
+      "gold": "eaten",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eaten"
+      }
+    },
+    "60": {
+      "sentence": "Mary confidently answered any objections",
+      "gold": "objections",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "objections"
+      }
+    },
+    "61": {
+      "sentence": "He looks more formidable than he is",
+      "gold": "is",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "is"
+      }
+    },
+    "62": {
+      "sentence": "I wonder whether Mary will win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "win"
+      }
+    },
+    "63": {
+      "sentence": "John included his name in the list",
+      "gold": "list",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "list"
+      }
+    },
+    "64": {
+      "sentence": "The strong winds cleared the skies",
+      "gold": "skies",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "skies"
+      }
+    },
+    "65": {
+      "sentence": "The moon glows in the darkness",
+      "gold": "darkness",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "darkness"
+      }
+    },
+    "66": {
+      "sentence": "The children were uneducated",
+      "gold": "uneducated",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "uneducated"
+      }
+    },
+    "67": {
+      "sentence": "Everyone thinks he is smart",
+      "gold": "smart",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "smart"
+      }
+    },
+    "68": {
+      "sentence": "A magnificent diamond sparkled on his finger",
+      "gold": "finger",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "finger"
+      }
+    },
+    "69": {
+      "sentence": "The students felt comfortable in the class",
+      "gold": "class",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "class"
+      }
+    },
+    "70": {
+      "sentence": "I broke those twigs and branches apart",
+      "gold": "apart",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "apart"
+      }
+    },
+    "71": {
+      "sentence": "Mary plays the violin beautifully",
+      "gold": "beautifully",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "beautifully"
+      }
+    },
+    "72": {
+      "sentence": "Mary has more than two friends",
+      "gold": "friends",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "friends"
+      }
+    },
+    "73": {
+      "sentence": "He looked the number up",
+      "gold": "up",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "up"
+      }
+    },
+    "74": {
+      "sentence": "Never had Sir Thomas been so offended",
+      "gold": "offended",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "offended"
+      }
+    },
+    "75": {
+      "sentence": "The witch poisoned Snow White",
+      "gold": "White",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "White"
+      }
+    },
+    "76": {
+      "sentence": "The explorers cut their way through the jungle",
+      "gold": "jungle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "jungle"
+      }
+    },
+    "77": {
+      "sentence": "The captain sank the boat with a torpedo",
+      "gold": "torpedo",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "torpedo"
+      }
+    },
+    "78": {
+      "sentence": "The tree was looked after by Kim",
+      "gold": "Kim",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Kim"
+      }
+    },
+    "79": {
+      "sentence": "The tuna will be eaten",
+      "gold": "eaten",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eaten"
+      }
+    },
+    "80": {
+      "sentence": "The dentist is eager to examine Pat",
+      "gold": "Pat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Pat"
+      }
+    },
+    "81": {
+      "sentence": "Herman whipped the cream",
+      "gold": "cream",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cream"
+      }
+    },
+    "82": {
+      "sentence": "She held him by the arm",
+      "gold": "arm",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "arm"
+      }
+    },
+    "83": {
+      "sentence": "The Minister has arrived",
+      "gold": "arrived",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "arrived"
+      }
+    },
+    "84": {
+      "sentence": "Almost every lawyer could answer that question",
+      "gold": "question",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "question"
+      }
+    },
+    "85": {
+      "sentence": "I mixed the soap and the water",
+      "gold": "water",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "water"
+      }
+    },
+    "86": {
+      "sentence": "Six students got shot accidentally",
+      "gold": "accidentally",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "accidentally"
+      }
+    },
+    "87": {
+      "sentence": "I doubt his sincerity",
+      "gold": "sincerity",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sincerity"
+      }
+    },
+    "88": {
+      "sentence": "John made Mary cook Korean food",
+      "gold": "food",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "food"
+      }
+    },
+    "89": {
+      "sentence": "I ate the apple",
+      "gold": "apple",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "apple"
+      }
+    },
+    "90": {
+      "sentence": "I sent a surprise present to John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "91": {
+      "sentence": "He gave my binoculars to that girl",
+      "gold": "girl",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "girl"
+      }
+    },
+    "92": {
+      "sentence": "John sent her to Seoul",
+      "gold": "Seoul",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Seoul"
+      }
+    },
+    "93": {
+      "sentence": "A boy did not laugh",
+      "gold": "laugh",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "laugh"
+      }
+    },
+    "94": {
+      "sentence": "They talked to Kim and to each other",
+      "gold": "other",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "other"
+      }
+    },
+    "95": {
+      "sentence": "Water fills the tub",
+      "gold": "tub",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tub"
+      }
+    },
+    "96": {
+      "sentence": "I read a statement which was about that man",
+      "gold": "man",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "man"
+      }
+    },
+    "97": {
+      "sentence": "Mary taught linguistics to John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "98": {
+      "sentence": "I ordered John to drink his beer",
+      "gold": "beer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "beer"
+      }
+    },
+    "99": {
+      "sentence": "John seems to like pictures of himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "100": {
+      "sentence": "He turned off the light",
+      "gold": "light",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "light"
+      }
+    },
+    "101": {
+      "sentence": "John got the book from Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "102": {
+      "sentence": "He took John to the school by the park",
+      "gold": "park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "park"
+      }
+    },
+    "103": {
+      "sentence": "John is as intelligent as Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "104": {
+      "sentence": "The weights stretched the rope over the pulley",
+      "gold": "pulley",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pulley"
+      }
+    },
+    "105": {
+      "sentence": "Susan wanted Jane to study German",
+      "gold": "German",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "German"
+      }
+    },
+    "106": {
+      "sentence": "You may pick any flower",
+      "gold": "flower",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flower"
+      }
+    },
+    "107": {
+      "sentence": "John sang beautifully",
+      "gold": "beautifully",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "beautifully"
+      }
+    },
+    "108": {
+      "sentence": "They prefer for Mary to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "109": {
+      "sentence": "Margaret cut Bill on the arm",
+      "gold": "arm",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "arm"
+      }
+    },
+    "110": {
+      "sentence": "John tries to fix the computer",
+      "gold": "computer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "computer"
+      }
+    },
+    "111": {
+      "sentence": "Larry hunted all the foxes",
+      "gold": "foxes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "foxes"
+      }
+    },
+    "112": {
+      "sentence": "Fanny loved talking to Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "113": {
+      "sentence": "The son took care of his parents",
+      "gold": "parents",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "parents"
+      }
+    },
+    "114": {
+      "sentence": "Helen wiped the wall",
+      "gold": "wall",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wall"
+      }
+    },
+    "115": {
+      "sentence": "Andy promised we would go",
+      "gold": "go",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "go"
+      }
+    },
+    "116": {
+      "sentence": "Fabio asked if Claus had run a marathon",
+      "gold": "marathon",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "marathon"
+      }
+    },
+    "117": {
+      "sentence": "John promised us to be gentle",
+      "gold": "gentle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "gentle"
+      }
+    },
+    "118": {
+      "sentence": "They gave the bicycle to me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "119": {
+      "sentence": "Almost any lawyer could answer that question",
+      "gold": "question",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "question"
+      }
+    },
+    "120": {
+      "sentence": "Susan rode a bright blue train from New York",
+      "gold": "York",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "York"
+      }
+    },
+    "121": {
+      "sentence": "John drove the car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "122": {
+      "sentence": "They hit the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "123": {
+      "sentence": "Rutherford understands himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "124": {
+      "sentence": "They saw Bill leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "125": {
+      "sentence": "He planted the garden last November with roses",
+      "gold": "roses",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "roses"
+      }
+    },
+    "126": {
+      "sentence": "John has taken Bill to the library",
+      "gold": "library",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "library"
+      }
+    },
+    "127": {
+      "sentence": "John promised Mary to cut the grass",
+      "gold": "grass",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "grass"
+      }
+    },
+    "128": {
+      "sentence": "John shot the ball perfectly",
+      "gold": "perfectly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "perfectly"
+      }
+    },
+    "129": {
+      "sentence": "He got what he wanted",
+      "gold": "wanted",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wanted"
+      }
+    },
+    "130": {
+      "sentence": "John knows that she left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "131": {
+      "sentence": "I took it for granted that she was lying",
+      "gold": "lying",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lying"
+      }
+    },
+    "132": {
+      "sentence": "I know several people that she kissed",
+      "gold": "kissed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "kissed"
+      }
+    },
+    "133": {
+      "sentence": "You are a student",
+      "gold": "student",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "student"
+      }
+    },
+    "134": {
+      "sentence": "Linda taped the label and the cover together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "135": {
+      "sentence": "Almost no lawyer could answer that question",
+      "gold": "question",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "question"
+      }
+    },
+    "136": {
+      "sentence": "Mary talks to any student",
+      "gold": "student",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "student"
+      }
+    },
+    "137": {
+      "sentence": "Columbus believed the earth to be round",
+      "gold": "round",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "round"
+      }
+    },
+    "138": {
+      "sentence": "Under the bed is a safe place to hide",
+      "gold": "hide",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hide"
+      }
+    },
+    "139": {
+      "sentence": "John is easy to please",
+      "gold": "please",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "please"
+      }
+    },
+    "140": {
+      "sentence": "We were glad it was over",
+      "gold": "over",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "over"
+      }
+    },
+    "141": {
+      "sentence": "John is very fond of Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "142": {
+      "sentence": "He was hoping for more than we offered",
+      "gold": "offered",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "offered"
+      }
+    },
+    "143": {
+      "sentence": "Frank bought something for Jane",
+      "gold": "Jane",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Jane"
+      }
+    },
+    "144": {
+      "sentence": "Bill has been dancing",
+      "gold": "dancing",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dancing"
+      }
+    },
+    "145": {
+      "sentence": "Doug cleared the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "146": {
+      "sentence": "Bill slowly recited his lines",
+      "gold": "lines",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lines"
+      }
+    },
+    "147": {
+      "sentence": "The garden flowered with roses",
+      "gold": "roses",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "roses"
+      }
+    },
+    "148": {
+      "sentence": "the pencil with which he is writing broke",
+      "gold": "broke",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "broke"
+      }
+    },
+    "149": {
+      "sentence": "Amanda carried the package",
+      "gold": "package",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "package"
+      }
+    },
+    "150": {
+      "sentence": "The captain named the ship Seafarer",
+      "gold": "Seafarer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Seafarer"
+      }
+    },
+    "151": {
+      "sentence": "Jean tried to behave",
+      "gold": "behave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "behave"
+      }
+    },
+    "152": {
+      "sentence": "The executive committee approved the new policy",
+      "gold": "policy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "policy"
+      }
+    },
+    "153": {
+      "sentence": "Philippa cried herself to sleep",
+      "gold": "sleep",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sleep"
+      }
+    },
+    "154": {
+      "sentence": "The sofa was longer than the desk was",
+      "gold": "was",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "was"
+      }
+    },
+    "155": {
+      "sentence": "Louise broke the cup",
+      "gold": "cup",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cup"
+      }
+    },
+    "156": {
+      "sentence": "Gary and Kevin ran themselves into exhaustion",
+      "gold": "exhaustion",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "exhaustion"
+      }
+    },
+    "157": {
+      "sentence": "Everyone should be able to defend himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "158": {
+      "sentence": "John is happy about the outcome",
+      "gold": "outcome",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "outcome"
+      }
+    },
+    "159": {
+      "sentence": "They lent me a bicycle",
+      "gold": "bicycle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bicycle"
+      }
+    },
+    "160": {
+      "sentence": "I saw the brilliant student",
+      "gold": "student",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "student"
+      }
+    },
+    "161": {
+      "sentence": "John was seeing his children",
+      "gold": "children",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "children"
+      }
+    },
+    "162": {
+      "sentence": "A hundred men lifted the table together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "163": {
+      "sentence": "I asked who she kissed",
+      "gold": "kissed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "kissed"
+      }
+    },
+    "164": {
+      "sentence": "There remained just a few problems to be solved",
+      "gold": "solved",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "solved"
+      }
+    },
+    "165": {
+      "sentence": "I wonder if you will come back tomorrow",
+      "gold": "tomorrow",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tomorrow"
+      }
+    },
+    "166": {
+      "sentence": "Frank threw himself into the sofa",
+      "gold": "sofa",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sofa"
+      }
+    },
+    "167": {
+      "sentence": "We persuaded the dentist to examine us",
+      "gold": "us",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "us"
+      }
+    },
+    "168": {
+      "sentence": "Poseidon appears to own a dragon",
+      "gold": "dragon",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dragon"
+      }
+    },
+    "169": {
+      "sentence": "The news pleased the students",
+      "gold": "students",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "students"
+      }
+    },
+    "170": {
+      "sentence": "I never have a pen when I need it",
+      "gold": "it",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "it"
+      }
+    },
+    "171": {
+      "sentence": "You married no one",
+      "gold": "one",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "one"
+      }
+    },
+    "172": {
+      "sentence": "Give the baby the bottle full",
+      "gold": "full",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "full"
+      }
+    },
+    "173": {
+      "sentence": "Mary received an award from the department",
+      "gold": "department",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "department"
+      }
+    },
+    "174": {
+      "sentence": "the girls likes themselves",
+      "gold": "themselves",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "themselves"
+      }
+    },
+    "175": {
+      "sentence": "I know a taller man than John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "176": {
+      "sentence": "Steve tossed the ball into the garden",
+      "gold": "garden",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "garden"
+      }
+    },
+    "177": {
+      "sentence": "They praised the volunteers for their dedication",
+      "gold": "dedication",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dedication"
+      }
+    },
+    "178": {
+      "sentence": "Dracula thought himself to be the Prince of Darkness",
+      "gold": "Darkness",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Darkness"
+      }
+    },
+    "179": {
+      "sentence": "I compared Ginger to Fred",
+      "gold": "Fred",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Fred"
+      }
+    },
+    "180": {
+      "sentence": "I broke the twig and the branch apart",
+      "gold": "apart",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "apart"
+      }
+    },
+    "181": {
+      "sentence": "Steve tossed the softball",
+      "gold": "softball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "softball"
+      }
+    },
+    "182": {
+      "sentence": "One of the people was dying of thirst",
+      "gold": "thirst",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thirst"
+      }
+    },
+    "183": {
+      "sentence": "He is not finishing",
+      "gold": "finishing",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "finishing"
+      }
+    },
+    "184": {
+      "sentence": "Someone attended every seminar",
+      "gold": "seminar",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "seminar"
+      }
+    },
+    "185": {
+      "sentence": "John received the parcel",
+      "gold": "parcel",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "parcel"
+      }
+    },
+    "186": {
+      "sentence": "Stacy danced at the palace",
+      "gold": "palace",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "palace"
+      }
+    },
+    "187": {
+      "sentence": "Gerry became quite conservative",
+      "gold": "conservative",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "conservative"
+      }
+    },
+    "188": {
+      "sentence": "Carla slid those books across the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "189": {
+      "sentence": "The new policy was approved by the executive committee",
+      "gold": "committee",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "committee"
+      }
+    },
+    "190": {
+      "sentence": "He ought to leave his luggage here",
+      "gold": "here",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "here"
+      }
+    },
+    "191": {
+      "sentence": "A boy hit the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "192": {
+      "sentence": "The gardener watered the flowers",
+      "gold": "flowers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flowers"
+      }
+    },
+    "193": {
+      "sentence": "The child broke the teapot by accident",
+      "gold": "accident",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "accident"
+      }
+    },
+    "194": {
+      "sentence": "The child clung to her mother",
+      "gold": "mother",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mother"
+      }
+    },
+    "195": {
+      "sentence": "I saw only the student",
+      "gold": "student",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "student"
+      }
+    },
+    "196": {
+      "sentence": "John seems to be honest",
+      "gold": "honest",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "honest"
+      }
+    },
+    "197": {
+      "sentence": "Dana is longing for a sunny day",
+      "gold": "day",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "day"
+      }
+    },
+    "198": {
+      "sentence": "Tom placed it under the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "199": {
+      "sentence": "Bill went to London on Monday",
+      "gold": "Monday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Monday"
+      }
+    },
+    "200": {
+      "sentence": "even the student left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "201": {
+      "sentence": "I did it more in jest than in anger",
+      "gold": "anger",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "anger"
+      }
+    },
+    "202": {
+      "sentence": "Car sales have surprised the stockbrokers",
+      "gold": "stockbrokers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "stockbrokers"
+      }
+    },
+    "203": {
+      "sentence": "Fanny regretted talking to Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "204": {
+      "sentence": "John has been chosen for the position",
+      "gold": "position",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "position"
+      }
+    },
+    "205": {
+      "sentence": "The farmer loaded apples into the cart",
+      "gold": "cart",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cart"
+      }
+    },
+    "206": {
+      "sentence": "Melissa searched for a clue in the papers",
+      "gold": "papers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "papers"
+      }
+    },
+    "207": {
+      "sentence": "Ellen and Helen conferred",
+      "gold": "conferred",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "conferred"
+      }
+    },
+    "208": {
+      "sentence": "Press the stamp against the pad completely",
+      "gold": "completely",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "completely"
+      }
+    },
+    "209": {
+      "sentence": "A professional dancer would be able to do it",
+      "gold": "it",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "it"
+      }
+    },
+    "210": {
+      "sentence": "Brutus murdered Julius Caesar",
+      "gold": "Caesar",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Caesar"
+      }
+    },
+    "211": {
+      "sentence": "John learned a lesson",
+      "gold": "lesson",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lesson"
+      }
+    },
+    "212": {
+      "sentence": "I ate the sugar",
+      "gold": "sugar",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sugar"
+      }
+    },
+    "213": {
+      "sentence": "It may rain",
+      "gold": "rain",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "rain"
+      }
+    },
+    "214": {
+      "sentence": "That was why she looked so nice",
+      "gold": "nice",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "nice"
+      }
+    },
+    "215": {
+      "sentence": "Crystal vases break easily",
+      "gold": "easily",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "easily"
+      }
+    },
+    "216": {
+      "sentence": "John fed rice to the baby",
+      "gold": "baby",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "baby"
+      }
+    },
+    "217": {
+      "sentence": "Joseph has forgotten how many matches he has won",
+      "gold": "won",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "won"
+      }
+    },
+    "218": {
+      "sentence": "There are strangers in that garden",
+      "gold": "garden",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "garden"
+      }
+    },
+    "219": {
+      "sentence": "The judge offered a prize to the winner",
+      "gold": "winner",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "winner"
+      }
+    },
+    "220": {
+      "sentence": "John said Mary went to the store quickly",
+      "gold": "quickly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "quickly"
+      }
+    },
+    "221": {
+      "sentence": "John immediately learned French perfectly",
+      "gold": "perfectly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "perfectly"
+      }
+    },
+    "222": {
+      "sentence": "Reading about herself in the tabloids always annoys Sandra",
+      "gold": "Sandra",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Sandra"
+      }
+    },
+    "223": {
+      "sentence": "John hit the ball with a bat",
+      "gold": "bat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bat"
+      }
+    },
+    "224": {
+      "sentence": "Some rare old manuscripts have been gotten hold of",
+      "gold": "of",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "of"
+      }
+    },
+    "225": {
+      "sentence": "I mailed the sweater to Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "226": {
+      "sentence": "The tree dropped fruit to the ground",
+      "gold": "ground",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ground"
+      }
+    },
+    "227": {
+      "sentence": "Shannon sent Dan an email",
+      "gold": "email",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "email"
+      }
+    },
+    "228": {
+      "sentence": "John remained somewhat calm",
+      "gold": "calm",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "calm"
+      }
+    },
+    "229": {
+      "sentence": "John wants him to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "230": {
+      "sentence": "John is eager to find a new home",
+      "gold": "home",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "home"
+      }
+    },
+    "231": {
+      "sentence": "That chisel carved the statue",
+      "gold": "statue",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "statue"
+      }
+    },
+    "232": {
+      "sentence": "There appeared a ship on the horizon",
+      "gold": "horizon",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "horizon"
+      }
+    },
+    "233": {
+      "sentence": "Sir Walter Elliott imagined that he was still handsome",
+      "gold": "handsome",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "handsome"
+      }
+    },
+    "234": {
+      "sentence": "Brutus murdered Julius Caesar with a dagger",
+      "gold": "dagger",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dagger"
+      }
+    },
+    "235": {
+      "sentence": "Amanda carried the package from Boston to New York",
+      "gold": "York",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "York"
+      }
+    },
+    "236": {
+      "sentence": "John put books in the box",
+      "gold": "box",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "box"
+      }
+    },
+    "237": {
+      "sentence": "The dog barked at the cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cat"
+      }
+    },
+    "238": {
+      "sentence": "John believes that Bill has slept",
+      "gold": "slept",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "slept"
+      }
+    },
+    "239": {
+      "sentence": "Kim sang and was accompanied by Sandy",
+      "gold": "Sandy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Sandy"
+      }
+    },
+    "240": {
+      "sentence": "The dentist is likely to examine Pat",
+      "gold": "Pat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Pat"
+      }
+    },
+    "241": {
+      "sentence": "Spot ate a cat treat",
+      "gold": "treat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "treat"
+      }
+    },
+    "242": {
+      "sentence": "I have six more of them",
+      "gold": "them",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "them"
+      }
+    },
+    "243": {
+      "sentence": "Mary always prefers lemons to limes",
+      "gold": "limes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "limes"
+      }
+    },
+    "244": {
+      "sentence": "Jasmine pushed the door open",
+      "gold": "open",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "open"
+      }
+    },
+    "245": {
+      "sentence": "I think she is pregnant",
+      "gold": "pregnant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pregnant"
+      }
+    },
+    "246": {
+      "sentence": "Brown equipped Jones with a camera",
+      "gold": "camera",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "camera"
+      }
+    },
+    "247": {
+      "sentence": "He did not leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "248": {
+      "sentence": "Dana longs for a sunny day",
+      "gold": "day",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "day"
+      }
+    },
+    "249": {
+      "sentence": "That picture of her pleases Jenny",
+      "gold": "Jenny",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Jenny"
+      }
+    },
+    "250": {
+      "sentence": "Each child should have a daily glass of milk",
+      "gold": "milk",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "milk"
+      }
+    },
+    "251": {
+      "sentence": "Sue was given the book by Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "252": {
+      "sentence": "I believe strongly that the world is round",
+      "gold": "round",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "round"
+      }
+    },
+    "253": {
+      "sentence": "Ellen warned Helen about the traffic jam",
+      "gold": "jam",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "jam"
+      }
+    },
+    "254": {
+      "sentence": "He attributed the fire to a short circuit",
+      "gold": "circuit",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "circuit"
+      }
+    },
+    "255": {
+      "sentence": "Sonatas are easy to play on this violin",
+      "gold": "violin",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "violin"
+      }
+    },
+    "256": {
+      "sentence": "I read him two statements about himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "257": {
+      "sentence": "Tess was knocking at the door",
+      "gold": "door",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "door"
+      }
+    },
+    "258": {
+      "sentence": "Many fish are in the sea",
+      "gold": "sea",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sea"
+      }
+    },
+    "259": {
+      "sentence": "She might be pregnant",
+      "gold": "pregnant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pregnant"
+      }
+    },
+    "260": {
+      "sentence": "Smith was scribbling his notes",
+      "gold": "notes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "notes"
+      }
+    },
+    "261": {
+      "sentence": "The clown amused the children",
+      "gold": "children",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "children"
+      }
+    },
+    "262": {
+      "sentence": "The roof of the building is leaking",
+      "gold": "leaking",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leaking"
+      }
+    },
+    "263": {
+      "sentence": "A dog lay in the corner",
+      "gold": "corner",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "corner"
+      }
+    },
+    "264": {
+      "sentence": "Mary regretted that she did anything to help him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "265": {
+      "sentence": "I ate deep fried muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "266": {
+      "sentence": "John asks in which box he put the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "book"
+      }
+    },
+    "267": {
+      "sentence": "Some tourists visited all the museums",
+      "gold": "museums",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "museums"
+      }
+    },
+    "268": {
+      "sentence": "He always eats deep fried muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "269": {
+      "sentence": "Odysseus planned to hear the sirens",
+      "gold": "sirens",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sirens"
+      }
+    },
+    "270": {
+      "sentence": "The child became a man",
+      "gold": "man",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "man"
+      }
+    },
+    "271": {
+      "sentence": "The music echoed",
+      "gold": "echoed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "echoed"
+      }
+    },
+    "272": {
+      "sentence": "The eggs mixed with the cream",
+      "gold": "cream",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cream"
+      }
+    },
+    "273": {
+      "sentence": "The beaver built a dam",
+      "gold": "dam",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dam"
+      }
+    },
+    "274": {
+      "sentence": "The boy swims",
+      "gold": "swims",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "swims"
+      }
+    },
+    "275": {
+      "sentence": "The chicken has eaten",
+      "gold": "eaten",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eaten"
+      }
+    },
+    "276": {
+      "sentence": "We made enough puddings to last for days",
+      "gold": "days",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "days"
+      }
+    },
+    "277": {
+      "sentence": "This building got taller and taller",
+      "gold": "taller",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "taller"
+      }
+    },
+    "278": {
+      "sentence": "I hoped that you would defeat him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "279": {
+      "sentence": "You may pick every flower",
+      "gold": "flower",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flower"
+      }
+    },
+    "280": {
+      "sentence": "John believes Sally to be polite",
+      "gold": "polite",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "polite"
+      }
+    },
+    "281": {
+      "sentence": "Mary is taller than six feet",
+      "gold": "feet",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "feet"
+      }
+    },
+    "282": {
+      "sentence": "Jake kicked the ball halfway to Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "283": {
+      "sentence": "The teacher is proud of his students",
+      "gold": "students",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "students"
+      }
+    },
+    "284": {
+      "sentence": "Mike will sing if you will",
+      "gold": "will",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "will"
+      }
+    },
+    "285": {
+      "sentence": "They have no TV",
+      "gold": "TV",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "TV"
+      }
+    },
+    "286": {
+      "sentence": "John offers many suggestions",
+      "gold": "suggestions",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "suggestions"
+      }
+    },
+    "287": {
+      "sentence": "Kelly buttered the bread with unsalted butter",
+      "gold": "butter",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "butter"
+      }
+    },
+    "288": {
+      "sentence": "Any pilot could be flying this plane",
+      "gold": "plane",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "plane"
+      }
+    },
+    "289": {
+      "sentence": "Jean is likely to dance",
+      "gold": "dance",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dance"
+      }
+    },
+    "290": {
+      "sentence": "Kim is fond of Lee",
+      "gold": "Lee",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Lee"
+      }
+    },
+    "291": {
+      "sentence": "The agency classified the documents",
+      "gold": "documents",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "documents"
+      }
+    },
+    "292": {
+      "sentence": "He looks so formidable",
+      "gold": "formidable",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "formidable"
+      }
+    },
+    "293": {
+      "sentence": "Pat is either stupid or a liar",
+      "gold": "liar",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "liar"
+      }
+    },
+    "294": {
+      "sentence": "Sharon sprayed the plants with water",
+      "gold": "water",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "water"
+      }
+    },
+    "295": {
+      "sentence": "The rats ran through the maze",
+      "gold": "maze",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "maze"
+      }
+    },
+    "296": {
+      "sentence": "Jack sprayed the wall with paint",
+      "gold": "paint",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "paint"
+      }
+    },
+    "297": {
+      "sentence": "The defendant denied the accusation",
+      "gold": "accusation",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "accusation"
+      }
+    },
+    "298": {
+      "sentence": "Clouds cleared from the sky",
+      "gold": "sky",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sky"
+      }
+    },
+    "299": {
+      "sentence": "Henri will paint the floor for an hour",
+      "gold": "hour",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hour"
+      }
+    },
+    "300": {
+      "sentence": "John put his gold under the bathtub",
+      "gold": "bathtub",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bathtub"
+      }
+    },
+    "301": {
+      "sentence": "John hopes to sleep",
+      "gold": "sleep",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sleep"
+      }
+    },
+    "302": {
+      "sentence": "Frances hid the presents behind the books",
+      "gold": "books",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "books"
+      }
+    },
+    "303": {
+      "sentence": "No one could remove the blood on the wall",
+      "gold": "wall",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wall"
+      }
+    },
+    "304": {
+      "sentence": "I did not understand",
+      "gold": "understand",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "understand"
+      }
+    },
+    "305": {
+      "sentence": "John is as tall as that man",
+      "gold": "man",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "man"
+      }
+    },
+    "306": {
+      "sentence": "John will kick the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "307": {
+      "sentence": "The heat melted the ice cream",
+      "gold": "cream",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cream"
+      }
+    },
+    "308": {
+      "sentence": "The dentist was persuaded to examine Pat",
+      "gold": "Pat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Pat"
+      }
+    },
+    "309": {
+      "sentence": "Jackie chased after the thief",
+      "gold": "thief",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thief"
+      }
+    },
+    "310": {
+      "sentence": "I know I bought the book you recommended",
+      "gold": "recommended",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "recommended"
+      }
+    },
+    "311": {
+      "sentence": "There exists a solution to this problem",
+      "gold": "problem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "problem"
+      }
+    },
+    "312": {
+      "sentence": "The president declared Smith press secretary",
+      "gold": "secretary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "secretary"
+      }
+    },
+    "313": {
+      "sentence": "We all thought he was unhappy",
+      "gold": "unhappy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "unhappy"
+      }
+    },
+    "314": {
+      "sentence": "I cycled around France",
+      "gold": "France",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "France"
+      }
+    },
+    "315": {
+      "sentence": "Dina posed as a lawyer",
+      "gold": "lawyer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lawyer"
+      }
+    },
+    "316": {
+      "sentence": "Her sister hurried",
+      "gold": "hurried",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hurried"
+      }
+    },
+    "317": {
+      "sentence": "Rory eats muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "318": {
+      "sentence": "the student who won the prize left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "319": {
+      "sentence": "They believed that everybody would pass the test",
+      "gold": "test",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "test"
+      }
+    },
+    "320": {
+      "sentence": "Heidi saw drawings of her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "321": {
+      "sentence": "The kids have all eaten the chocolate",
+      "gold": "chocolate",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "chocolate"
+      }
+    },
+    "322": {
+      "sentence": "The king loved peanut butter cookies",
+      "gold": "cookies",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cookies"
+      }
+    },
+    "323": {
+      "sentence": "John promised Mary that he would leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "324": {
+      "sentence": "The brave are not afraid to die",
+      "gold": "die",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "die"
+      }
+    },
+    "325": {
+      "sentence": "John sang a song and danced to the music",
+      "gold": "music",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "music"
+      }
+    },
+    "326": {
+      "sentence": "The old and new carts banged together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "327": {
+      "sentence": "The party lasted till midnight",
+      "gold": "midnight",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "midnight"
+      }
+    },
+    "328": {
+      "sentence": "The cook saved no scraps for the dog",
+      "gold": "dog",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dog"
+      }
+    },
+    "329": {
+      "sentence": "John is easy to please",
+      "gold": "please",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "please"
+      }
+    },
+    "330": {
+      "sentence": "Any lawyer could tell you that",
+      "gold": "that",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "that"
+      }
+    },
+    "331": {
+      "sentence": "John put carrots from his garden in the salad",
+      "gold": "salad",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "salad"
+      }
+    },
+    "332": {
+      "sentence": "Fanny regretted having talked to Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "333": {
+      "sentence": "Jane played the piano",
+      "gold": "piano",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "piano"
+      }
+    },
+    "334": {
+      "sentence": "Captain Oates died in order to save his comrades",
+      "gold": "comrades",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "comrades"
+      }
+    },
+    "335": {
+      "sentence": "Robert is eager to do his homework",
+      "gold": "homework",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "homework"
+      }
+    },
+    "336": {
+      "sentence": "I blew it up",
+      "gold": "up",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "up"
+      }
+    },
+    "337": {
+      "sentence": "Roses flowered in the garden",
+      "gold": "garden",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "garden"
+      }
+    },
+    "338": {
+      "sentence": "The bandits murdered innocent victims",
+      "gold": "victims",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "victims"
+      }
+    },
+    "339": {
+      "sentence": "I like Mary and she likes me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "340": {
+      "sentence": "I believe that the sun was out",
+      "gold": "out",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "out"
+      }
+    },
+    "341": {
+      "sentence": "The tigers hunt prey at night",
+      "gold": "night",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "night"
+      }
+    },
+    "342": {
+      "sentence": "Karen asked where to put the chairs",
+      "gold": "chairs",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "chairs"
+      }
+    },
+    "343": {
+      "sentence": "My eyes are itching",
+      "gold": "itching",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "itching"
+      }
+    },
+    "344": {
+      "sentence": "The teacher made students happy",
+      "gold": "happy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "happy"
+      }
+    },
+    "345": {
+      "sentence": "The hair dryer dried the clothes",
+      "gold": "clothes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "clothes"
+      }
+    },
+    "346": {
+      "sentence": "John deprived his sons of game cards",
+      "gold": "cards",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cards"
+      }
+    },
+    "347": {
+      "sentence": "Ellen and Helen talked together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "348": {
+      "sentence": "Sally eats caviar more than I had expected",
+      "gold": "expected",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "expected"
+      }
+    },
+    "349": {
+      "sentence": "Mike will sing if you will sing",
+      "gold": "sing",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sing"
+      }
+    },
+    "350": {
+      "sentence": "I admired him for his courage",
+      "gold": "courage",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "courage"
+      }
+    },
+    "351": {
+      "sentence": "John saw Fred",
+      "gold": "Fred",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Fred"
+      }
+    },
+    "352": {
+      "sentence": "I bought some flowers for Manuel",
+      "gold": "Manuel",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Manuel"
+      }
+    },
+    "353": {
+      "sentence": "This sweater washes well",
+      "gold": "well",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "well"
+      }
+    },
+    "354": {
+      "sentence": "They skated along the canals",
+      "gold": "canals",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "canals"
+      }
+    },
+    "355": {
+      "sentence": "Mary has more enemies than Bill has friends",
+      "gold": "friends",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "friends"
+      }
+    },
+    "356": {
+      "sentence": "Cynthia ate the peach with a fork",
+      "gold": "fork",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fork"
+      }
+    },
+    "357": {
+      "sentence": "She was the nicest teacher in the Senior School",
+      "gold": "School",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "School"
+      }
+    },
+    "358": {
+      "sentence": "John is certain that the Mets will win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "win"
+      }
+    },
+    "359": {
+      "sentence": "I was hunting in the woods",
+      "gold": "woods",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "woods"
+      }
+    },
+    "360": {
+      "sentence": "It is obvious to everybody that Tasha likes Misha",
+      "gold": "Misha",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Misha"
+      }
+    },
+    "361": {
+      "sentence": "The boat sank",
+      "gold": "sank",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sank"
+      }
+    },
+    "362": {
+      "sentence": "Tony broke her arm",
+      "gold": "arm",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "arm"
+      }
+    },
+    "363": {
+      "sentence": "There seems to be no student absent",
+      "gold": "absent",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "absent"
+      }
+    },
+    "364": {
+      "sentence": "Sue knows the answer",
+      "gold": "answer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "answer"
+      }
+    },
+    "365": {
+      "sentence": "I asked where you found it",
+      "gold": "it",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "it"
+      }
+    },
+    "366": {
+      "sentence": "There is a bench for you to sit on",
+      "gold": "on",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "on"
+      }
+    },
+    "367": {
+      "sentence": "Angus is not leaving",
+      "gold": "leaving",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leaving"
+      }
+    },
+    "368": {
+      "sentence": "Mary was visited by Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "369": {
+      "sentence": "I herded the cattle",
+      "gold": "cattle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cattle"
+      }
+    },
+    "370": {
+      "sentence": "Nora sent the book to Peter",
+      "gold": "Peter",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Peter"
+      }
+    },
+    "371": {
+      "sentence": "My brother likes collecting jazz records",
+      "gold": "records",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "records"
+      }
+    },
+    "372": {
+      "sentence": "Tessa sprained her ankle",
+      "gold": "ankle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ankle"
+      }
+    },
+    "373": {
+      "sentence": "The audience watched the movie",
+      "gold": "movie",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "movie"
+      }
+    },
+    "374": {
+      "sentence": "Jake threw the ball all the way to Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "375": {
+      "sentence": "It seems that John is likely to win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "win"
+      }
+    },
+    "376": {
+      "sentence": "The wall is being touched by John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "377": {
+      "sentence": "Paul had an affair",
+      "gold": "affair",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "affair"
+      }
+    },
+    "378": {
+      "sentence": "I climbed up the tree",
+      "gold": "tree",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tree"
+      }
+    },
+    "379": {
+      "sentence": "It seems that John is honest",
+      "gold": "honest",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "honest"
+      }
+    },
+    "380": {
+      "sentence": "John deposited some money in the bank",
+      "gold": "bank",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bank"
+      }
+    },
+    "381": {
+      "sentence": "My friends wanted to quickly leave the party",
+      "gold": "party",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "party"
+      }
+    },
+    "382": {
+      "sentence": "Dracula thought that he was the Prince of Darkness",
+      "gold": "Darkness",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Darkness"
+      }
+    },
+    "383": {
+      "sentence": "He was a bully",
+      "gold": "bully",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bully"
+      }
+    },
+    "384": {
+      "sentence": "He talked with a girl about swimming",
+      "gold": "swimming",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "swimming"
+      }
+    },
+    "385": {
+      "sentence": "They wondered what she did yesterday",
+      "gold": "yesterday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "yesterday"
+      }
+    },
+    "386": {
+      "sentence": "Jake threw the ball halfway to Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "387": {
+      "sentence": "A book was sent to Louis",
+      "gold": "Louis",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Louis"
+      }
+    },
+    "388": {
+      "sentence": "Bill drank from the hose",
+      "gold": "hose",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hose"
+      }
+    },
+    "389": {
+      "sentence": "Tom drives like that man",
+      "gold": "man",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "man"
+      }
+    },
+    "390": {
+      "sentence": "Bill sent Tom a package",
+      "gold": "package",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "package"
+      }
+    },
+    "391": {
+      "sentence": "They ignored the suggestion that Lee made",
+      "gold": "made",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "made"
+      }
+    },
+    "392": {
+      "sentence": "There are more chemical substances involved in nerve transmission",
+      "gold": "transmission",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "transmission"
+      }
+    },
+    "393": {
+      "sentence": "She writes more clearly than she speaks",
+      "gold": "speaks",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "speaks"
+      }
+    },
+    "394": {
+      "sentence": "Steve tossed the ball at Anna",
+      "gold": "Anna",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Anna"
+      }
+    },
+    "395": {
+      "sentence": "John is eager to please Kim",
+      "gold": "Kim",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Kim"
+      }
+    },
+    "396": {
+      "sentence": "The socks are ready for you to put on",
+      "gold": "on",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "on"
+      }
+    },
+    "397": {
+      "sentence": "Jason persuaded Medea to desert her family",
+      "gold": "family",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "family"
+      }
+    },
+    "398": {
+      "sentence": "I discovered an old English poem",
+      "gold": "poem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "poem"
+      }
+    },
+    "399": {
+      "sentence": "The student knows the answers",
+      "gold": "answers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "answers"
+      }
+    },
+    "400": {
+      "sentence": "John is in the room",
+      "gold": "room",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "room"
+      }
+    },
+    "401": {
+      "sentence": "Margaret cut the string",
+      "gold": "string",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "string"
+      }
+    },
+    "402": {
+      "sentence": "Michelle kept the papers behind the desk",
+      "gold": "desk",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "desk"
+      }
+    },
+    "403": {
+      "sentence": "I wanted him to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "404": {
+      "sentence": "Sandy sang me a song",
+      "gold": "song",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "song"
+      }
+    },
+    "405": {
+      "sentence": "Kim is easy to please",
+      "gold": "please",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "please"
+      }
+    },
+    "406": {
+      "sentence": "I think John likes his beer",
+      "gold": "beer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "beer"
+      }
+    },
+    "407": {
+      "sentence": "The gardener grew an oak tree from that acorn",
+      "gold": "acorn",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "acorn"
+      }
+    },
+    "408": {
+      "sentence": "Mary believed John to have loved her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "409": {
+      "sentence": "Elizabeth regretted that she had met Wickham",
+      "gold": "Wickham",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Wickham"
+      }
+    },
+    "410": {
+      "sentence": "The director praised the volunteers",
+      "gold": "volunteers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "volunteers"
+      }
+    },
+    "411": {
+      "sentence": "Nora sent the book to London",
+      "gold": "London",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "London"
+      }
+    },
+    "412": {
+      "sentence": "An owl hunts mice",
+      "gold": "mice",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mice"
+      }
+    },
+    "413": {
+      "sentence": "John tried to kiss Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "414": {
+      "sentence": "She fell in love",
+      "gold": "love",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "love"
+      }
+    },
+    "415": {
+      "sentence": "Brian was wiping the wall behind the stove",
+      "gold": "stove",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "stove"
+      }
+    },
+    "416": {
+      "sentence": "John put a book on the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "417": {
+      "sentence": "Mary sang for anyone who wanted to hear her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "418": {
+      "sentence": "Mary taught John linguistics",
+      "gold": "linguistics",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "linguistics"
+      }
+    },
+    "419": {
+      "sentence": "Mary laughed at John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "420": {
+      "sentence": "Kim jogs on the hill",
+      "gold": "hill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hill"
+      }
+    },
+    "421": {
+      "sentence": "Last year I saw this film several times",
+      "gold": "times",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "times"
+      }
+    },
+    "422": {
+      "sentence": "Pat promised Leslie to be aggressive",
+      "gold": "aggressive",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "aggressive"
+      }
+    },
+    "423": {
+      "sentence": "Kim relies on Sandy",
+      "gold": "Sandy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Sandy"
+      }
+    },
+    "424": {
+      "sentence": "A choir sang in the church",
+      "gold": "church",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "church"
+      }
+    },
+    "425": {
+      "sentence": "His girlfriend bought this computer",
+      "gold": "computer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "computer"
+      }
+    },
+    "426": {
+      "sentence": "George sang to himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "427": {
+      "sentence": "John did not leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "428": {
+      "sentence": "They made him president",
+      "gold": "president",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "president"
+      }
+    },
+    "429": {
+      "sentence": "The package weighed ten pounds",
+      "gold": "pounds",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pounds"
+      }
+    },
+    "430": {
+      "sentence": "Ellen warned against skating on thin ice",
+      "gold": "ice",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ice"
+      }
+    },
+    "431": {
+      "sentence": "The dog fears thunder",
+      "gold": "thunder",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thunder"
+      }
+    },
+    "432": {
+      "sentence": "The lasagna tasted delicious",
+      "gold": "delicious",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "delicious"
+      }
+    },
+    "433": {
+      "sentence": "The men would not enjoy that",
+      "gold": "that",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "that"
+      }
+    },
+    "434": {
+      "sentence": "I like circus performers",
+      "gold": "performers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "performers"
+      }
+    },
+    "435": {
+      "sentence": "I lifted the book onto the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "436": {
+      "sentence": "No one believes that he is a fool",
+      "gold": "fool",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fool"
+      }
+    },
+    "437": {
+      "sentence": "The jeweller decorated the ring",
+      "gold": "ring",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ring"
+      }
+    },
+    "438": {
+      "sentence": "The kids have arrived safely",
+      "gold": "safely",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "safely"
+      }
+    },
+    "439": {
+      "sentence": "Jean is reluctant",
+      "gold": "reluctant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "reluctant"
+      }
+    },
+    "440": {
+      "sentence": "The mouse was chased by the cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cat"
+      }
+    },
+    "441": {
+      "sentence": "The car was driven by Alison",
+      "gold": "Alison",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Alison"
+      }
+    },
+    "442": {
+      "sentence": "Tom will not leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "443": {
+      "sentence": "The twins might have both been at the party",
+      "gold": "party",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "party"
+      }
+    },
+    "444": {
+      "sentence": "Someone stole my car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "445": {
+      "sentence": "I love her so much",
+      "gold": "much",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "much"
+      }
+    },
+    "446": {
+      "sentence": "Lucy seems to have been mugged",
+      "gold": "mugged",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mugged"
+      }
+    },
+    "447": {
+      "sentence": "My car was stolen",
+      "gold": "stolen",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "stolen"
+      }
+    },
+    "448": {
+      "sentence": "Lilly should buy salmon and Mary should too",
+      "gold": "too",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "too"
+      }
+    },
+    "449": {
+      "sentence": "I doubt that Mary reads mysteries",
+      "gold": "mysteries",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mysteries"
+      }
+    },
+    "450": {
+      "sentence": "John tries to be honest",
+      "gold": "honest",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "honest"
+      }
+    },
+    "451": {
+      "sentence": "The roses bloomed",
+      "gold": "bloomed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bloomed"
+      }
+    },
+    "452": {
+      "sentence": "The Beatles all came to Merle Park",
+      "gold": "Park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Park"
+      }
+    },
+    "453": {
+      "sentence": "Bill visited Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "454": {
+      "sentence": "I hope to study in France",
+      "gold": "France",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "France"
+      }
+    },
+    "455": {
+      "sentence": "a stone blocked the road",
+      "gold": "road",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "road"
+      }
+    },
+    "456": {
+      "sentence": "Jackie chased the thief down the street",
+      "gold": "street",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "street"
+      }
+    },
+    "457": {
+      "sentence": "Jessica sprayed paint under the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "458": {
+      "sentence": "There were several doctors available",
+      "gold": "available",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "available"
+      }
+    },
+    "459": {
+      "sentence": "He kissed her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "460": {
+      "sentence": "She could not have been working",
+      "gold": "working",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "working"
+      }
+    },
+    "461": {
+      "sentence": "Several people are sick",
+      "gold": "sick",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sick"
+      }
+    },
+    "462": {
+      "sentence": "Mary scratched her arm too",
+      "gold": "too",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "too"
+      }
+    },
+    "463": {
+      "sentence": "Louis begged Kate to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "464": {
+      "sentence": "Jennifer craned her neck",
+      "gold": "neck",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "neck"
+      }
+    },
+    "465": {
+      "sentence": "Some student from Australia speaks Chinese",
+      "gold": "Chinese",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Chinese"
+      }
+    },
+    "466": {
+      "sentence": "The truck spread salt",
+      "gold": "salt",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "salt"
+      }
+    },
+    "467": {
+      "sentence": "Carrie touched the cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cat"
+      }
+    },
+    "468": {
+      "sentence": "Bill wants Susan to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "469": {
+      "sentence": "I think that he eats asparagus",
+      "gold": "asparagus",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "asparagus"
+      }
+    },
+    "470": {
+      "sentence": "Bill works with him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "471": {
+      "sentence": "The barber shaved my chin",
+      "gold": "chin",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "chin"
+      }
+    },
+    "472": {
+      "sentence": "The librarian likes books",
+      "gold": "books",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "books"
+      }
+    },
+    "473": {
+      "sentence": "I will speak to Hector about this",
+      "gold": "this",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "this"
+      }
+    },
+    "474": {
+      "sentence": "Many people drink beer or wine",
+      "gold": "wine",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wine"
+      }
+    },
+    "475": {
+      "sentence": "John gave a book to the student",
+      "gold": "student",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "student"
+      }
+    },
+    "476": {
+      "sentence": "The butcher cuts the meat",
+      "gold": "meat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "meat"
+      }
+    },
+    "477": {
+      "sentence": "Mary loves him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "478": {
+      "sentence": "Susan will never sing at weddings",
+      "gold": "weddings",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "weddings"
+      }
+    },
+    "479": {
+      "sentence": "John is taller than Dill",
+      "gold": "Dill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Dill"
+      }
+    },
+    "480": {
+      "sentence": "John asked whether she left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "481": {
+      "sentence": "A pilot must be flying this plane",
+      "gold": "plane",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "plane"
+      }
+    },
+    "482": {
+      "sentence": "Felicia wrote a fine paper on Zapotec",
+      "gold": "Zapotec",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Zapotec"
+      }
+    },
+    "483": {
+      "sentence": "They depend on Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "484": {
+      "sentence": "The tree dropped its fruit to the ground",
+      "gold": "ground",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ground"
+      }
+    },
+    "485": {
+      "sentence": "The concert started when the bell rang",
+      "gold": "rang",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "rang"
+      }
+    },
+    "486": {
+      "sentence": "Students sent letters to the teacher",
+      "gold": "teacher",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "teacher"
+      }
+    },
+    "487": {
+      "sentence": "There seems to be a nurse available",
+      "gold": "available",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "available"
+      }
+    },
+    "488": {
+      "sentence": "John left his wife",
+      "gold": "wife",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wife"
+      }
+    },
+    "489": {
+      "sentence": "A serious accident happened in front of them",
+      "gold": "them",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "them"
+      }
+    },
+    "490": {
+      "sentence": "Bill cried himself to sleep",
+      "gold": "sleep",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sleep"
+      }
+    },
+    "491": {
+      "sentence": "He figured out the answer",
+      "gold": "answer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "answer"
+      }
+    },
+    "492": {
+      "sentence": "He washed himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "493": {
+      "sentence": "John loves Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "494": {
+      "sentence": "Martha carved a toy for the baby",
+      "gold": "baby",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "baby"
+      }
+    },
+    "495": {
+      "sentence": "The officer carefully inspected the license",
+      "gold": "license",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "license"
+      }
+    },
+    "496": {
+      "sentence": "Carmen obtained a spare part from Diana",
+      "gold": "Diana",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Diana"
+      }
+    },
+    "497": {
+      "sentence": "The press conjectured that Smith would be the appointee",
+      "gold": "appointee",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "appointee"
+      }
+    },
+    "498": {
+      "sentence": "Few approve of our remedy",
+      "gold": "remedy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "remedy"
+      }
+    },
+    "499": {
+      "sentence": "Those bandits attacked Emma and Harriet yesterday",
+      "gold": "yesterday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "yesterday"
+      }
+    },
+    "500": {
+      "sentence": "The hanging gardens are a sight to behold",
+      "gold": "behold",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "behold"
+      }
+    },
+    "501": {
+      "sentence": "Mickey looked up the reference",
+      "gold": "reference",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "reference"
+      }
+    },
+    "502": {
+      "sentence": "The scene of the movie was in Chicago",
+      "gold": "Chicago",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Chicago"
+      }
+    },
+    "503": {
+      "sentence": "Bill dried the clothes",
+      "gold": "clothes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "clothes"
+      }
+    },
+    "504": {
+      "sentence": "They believe it to be easy to annoy Ben",
+      "gold": "Ben",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Ben"
+      }
+    },
+    "505": {
+      "sentence": "He blew out the candle",
+      "gold": "candle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "candle"
+      }
+    },
+    "506": {
+      "sentence": "John will see you",
+      "gold": "you",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "you"
+      }
+    },
+    "507": {
+      "sentence": "I showed Mary several portraits of herself",
+      "gold": "herself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "herself"
+      }
+    },
+    "508": {
+      "sentence": "Amanda drove the package to Pamela",
+      "gold": "Pamela",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Pamela"
+      }
+    },
+    "509": {
+      "sentence": "I have never seen this movie",
+      "gold": "movie",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "movie"
+      }
+    },
+    "510": {
+      "sentence": "Tamara poured water into the bowl",
+      "gold": "bowl",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bowl"
+      }
+    },
+    "511": {
+      "sentence": "Lucy sent Jane a letter",
+      "gold": "letter",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "letter"
+      }
+    },
+    "512": {
+      "sentence": "We contributed our paycheck to her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "513": {
+      "sentence": "Jennifer shook her finger at the naughty child",
+      "gold": "child",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "child"
+      }
+    },
+    "514": {
+      "sentence": "Sincerity is an important quality",
+      "gold": "quality",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "quality"
+      }
+    },
+    "515": {
+      "sentence": "He offers more than we had hoped for",
+      "gold": "for",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "for"
+      }
+    },
+    "516": {
+      "sentence": "Kim put the book in the box",
+      "gold": "box",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "box"
+      }
+    },
+    "517": {
+      "sentence": "I weighed the package",
+      "gold": "package",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "package"
+      }
+    },
+    "518": {
+      "sentence": "I believe she is pregnant",
+      "gold": "pregnant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pregnant"
+      }
+    },
+    "519": {
+      "sentence": "Paula trimmed the bush",
+      "gold": "bush",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bush"
+      }
+    },
+    "520": {
+      "sentence": "I admired the honesty in him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "521": {
+      "sentence": "I thought she was pregnant",
+      "gold": "pregnant",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pregnant"
+      }
+    },
+    "522": {
+      "sentence": "The eggs and the cream mixed together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "523": {
+      "sentence": "Tokyo has not loosened trade restrictions",
+      "gold": "restrictions",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "restrictions"
+      }
+    },
+    "524": {
+      "sentence": "I saw these dancers and those musicians smoking something",
+      "gold": "something",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "something"
+      }
+    },
+    "525": {
+      "sentence": "Visiting relatives can be boring",
+      "gold": "boring",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "boring"
+      }
+    },
+    "526": {
+      "sentence": "Cynthia devoured the pizza",
+      "gold": "pizza",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "pizza"
+      }
+    },
+    "527": {
+      "sentence": "Ayala sent back the diamond necklace",
+      "gold": "necklace",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "necklace"
+      }
+    },
+    "528": {
+      "sentence": "Hard work resulted in high grades",
+      "gold": "grades",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "grades"
+      }
+    },
+    "529": {
+      "sentence": "John believes that Bill saw him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "530": {
+      "sentence": "Susan whispered to Rachel",
+      "gold": "Rachel",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Rachel"
+      }
+    },
+    "531": {
+      "sentence": "I wanted to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "532": {
+      "sentence": "Dave and Alina left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "533": {
+      "sentence": "Mary did not avoid Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Bill"
+      }
+    },
+    "534": {
+      "sentence": "Not speaking English is a disadvantage",
+      "gold": "disadvantage",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "disadvantage"
+      }
+    },
+    "535": {
+      "sentence": "His friend learned dancing",
+      "gold": "dancing",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dancing"
+      }
+    },
+    "536": {
+      "sentence": "A serious accident happened yesterday",
+      "gold": "yesterday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "yesterday"
+      }
+    },
+    "537": {
+      "sentence": "The oil and vinegar separated",
+      "gold": "separated",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "separated"
+      }
+    },
+    "538": {
+      "sentence": "Water filled the cup",
+      "gold": "cup",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cup"
+      }
+    },
+    "539": {
+      "sentence": "Paula swatted the fly",
+      "gold": "fly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fly"
+      }
+    },
+    "540": {
+      "sentence": "Kim regrets not having seen the movie",
+      "gold": "movie",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "movie"
+      }
+    },
+    "541": {
+      "sentence": "I expect John to win and Harry to lose",
+      "gold": "lose",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lose"
+      }
+    },
+    "542": {
+      "sentence": "The model resembles Kim in nearly every detail",
+      "gold": "detail",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "detail"
+      }
+    },
+    "543": {
+      "sentence": "I hope nobody will hurt himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "himself"
+      }
+    },
+    "544": {
+      "sentence": "The bed which Tom slept on was hard",
+      "gold": "hard",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hard"
+      }
+    },
+    "545": {
+      "sentence": "Jessica sprayed water at me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "546": {
+      "sentence": "John is eager to examine the patient",
+      "gold": "patient",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "patient"
+      }
+    },
+    "547": {
+      "sentence": "He planted the garden with roses last November",
+      "gold": "November",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "November"
+      }
+    },
+    "548": {
+      "sentence": "Few doctors approve of our remedy",
+      "gold": "remedy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "remedy"
+      }
+    },
+    "549": {
+      "sentence": "John is taller than Pete is",
+      "gold": "is",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "is"
+      }
+    },
+    "550": {
+      "sentence": "Molly gave Calvin a kiss",
+      "gold": "kiss",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "kiss"
+      }
+    },
+    "551": {
+      "sentence": "John took Bill to be a fool",
+      "gold": "fool",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fool"
+      }
+    },
+    "552": {
+      "sentence": "The peanut butter has got moldy",
+      "gold": "moldy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "moldy"
+      }
+    },
+    "553": {
+      "sentence": "The medal was given to the soldier by Phillip",
+      "gold": "Phillip",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Phillip"
+      }
+    },
+    "554": {
+      "sentence": "That is a bird",
+      "gold": "bird",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bird"
+      }
+    },
+    "555": {
+      "sentence": "I wonder what John bought",
+      "gold": "bought",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bought"
+      }
+    },
+    "556": {
+      "sentence": "John told Mary to kiss him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "him"
+      }
+    },
+    "557": {
+      "sentence": "Amanda drove the package from Boston",
+      "gold": "Boston",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Boston"
+      }
+    },
+    "558": {
+      "sentence": "Martha climbed the mountain",
+      "gold": "mountain",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mountain"
+      }
+    },
+    "559": {
+      "sentence": "Janet broke the vase",
+      "gold": "vase",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "vase"
+      }
+    },
+    "560": {
+      "sentence": "Bill broke the bathtub",
+      "gold": "bathtub",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bathtub"
+      }
+    },
+    "561": {
+      "sentence": "We reminded him of the agreement",
+      "gold": "agreement",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "agreement"
+      }
+    },
+    "562": {
+      "sentence": "It is likely that Jean left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "563": {
+      "sentence": "It will rain tomorrow",
+      "gold": "tomorrow",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tomorrow"
+      }
+    },
+    "564": {
+      "sentence": "Ellen told Helen a story",
+      "gold": "story",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "story"
+      }
+    },
+    "565": {
+      "sentence": "Carla shoveled the snow from the walk",
+      "gold": "walk",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "walk"
+      }
+    },
+    "566": {
+      "sentence": "That joke never fails to amuse",
+      "gold": "amuse",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "amuse"
+      }
+    },
+    "567": {
+      "sentence": "Louis was forgiven by Susan",
+      "gold": "Susan",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Susan"
+      }
+    },
+    "568": {
+      "sentence": "I am drinking lemonade and eating a brownie",
+      "gold": "brownie",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "brownie"
+      }
+    },
+    "569": {
+      "sentence": "That whole wheat flour bakes wonderful bread",
+      "gold": "bread",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bread"
+      }
+    },
+    "570": {
+      "sentence": "He began writing poems",
+      "gold": "poems",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "poems"
+      }
+    },
+    "571": {
+      "sentence": "She put the pictures of Bill on your desk",
+      "gold": "desk",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "desk"
+      }
+    },
+    "572": {
+      "sentence": "she will win the race",
+      "gold": "race",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "race"
+      }
+    },
+    "573": {
+      "sentence": "Oil spread over the sea shore",
+      "gold": "shore",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "shore"
+      }
+    },
+    "574": {
+      "sentence": "Henri wants to buy these books about cooking",
+      "gold": "cooking",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cooking"
+      }
+    },
+    "575": {
+      "sentence": "Mary would solve the problem",
+      "gold": "problem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "problem"
+      }
+    },
+    "576": {
+      "sentence": "They paid a lot of attention to the matter",
+      "gold": "matter",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "matter"
+      }
+    },
+    "577": {
+      "sentence": "Mary or Sue could tell you that",
+      "gold": "that",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "that"
+      }
+    },
+    "578": {
+      "sentence": "She was sent to Seoul",
+      "gold": "Seoul",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Seoul"
+      }
+    },
+    "579": {
+      "sentence": "We were thankful that no one had been hurt",
+      "gold": "hurt",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hurt"
+      }
+    },
+    "580": {
+      "sentence": "I told the story to Daniel",
+      "gold": "Daniel",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Daniel"
+      }
+    },
+    "581": {
+      "sentence": "He could not have been working",
+      "gold": "working",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "working"
+      }
+    },
+    "582": {
+      "sentence": "That monkey is eating the banana",
+      "gold": "banana",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "banana"
+      }
+    },
+    "583": {
+      "sentence": "Yesterday Lydia eloped with Wickham",
+      "gold": "Wickham",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Wickham"
+      }
+    },
+    "584": {
+      "sentence": "Jill embraced Sarah",
+      "gold": "Sarah",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Sarah"
+      }
+    },
+    "585": {
+      "sentence": "I saw all the students",
+      "gold": "students",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "students"
+      }
+    },
+    "586": {
+      "sentence": "Clean your desk before tomorrow",
+      "gold": "tomorrow",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tomorrow"
+      }
+    },
+    "587": {
+      "sentence": "The car collided with the fence",
+      "gold": "fence",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fence"
+      }
+    },
+    "588": {
+      "sentence": "I hit the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "589": {
+      "sentence": "The man I saw left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "590": {
+      "sentence": "This book is easy to read",
+      "gold": "read",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "read"
+      }
+    },
+    "591": {
+      "sentence": "Most boys did not laugh",
+      "gold": "laugh",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "laugh"
+      }
+    },
+    "592": {
+      "sentence": "John will leave the party earlier",
+      "gold": "earlier",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "earlier"
+      }
+    },
+    "593": {
+      "sentence": "Tony broke the window",
+      "gold": "window",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "window"
+      }
+    },
+    "594": {
+      "sentence": "He figured it out",
+      "gold": "out",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "out"
+      }
+    },
+    "595": {
+      "sentence": "A fire raged all through the mountains",
+      "gold": "mountains",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mountains"
+      }
+    },
+    "596": {
+      "sentence": "John studied hard to pass the exam",
+      "gold": "exam",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "exam"
+      }
+    },
+    "597": {
+      "sentence": "He has not finished",
+      "gold": "finished",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "finished"
+      }
+    },
+    "598": {
+      "sentence": "I would like for John to win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "win"
+      }
+    },
+    "599": {
+      "sentence": "Fiona persuaded Arthur to bake a cake",
+      "gold": "cake",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cake"
+      }
+    },
+    "600": {
+      "sentence": "We took the car to the town",
+      "gold": "town",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "town"
+      }
+    },
+    "601": {
+      "sentence": "The thief smashed the window with a hammer",
+      "gold": "hammer",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hammer"
+      }
+    },
+    "602": {
+      "sentence": "Someone tried to leave the town",
+      "gold": "town",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "town"
+      }
+    },
+    "603": {
+      "sentence": "The force of the wind broke the window",
+      "gold": "window",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "window"
+      }
+    },
+    "604": {
+      "sentence": "Don swatted the mosquito with the newspaper",
+      "gold": "newspaper",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "newspaper"
+      }
+    },
+    "605": {
+      "sentence": "The hotel where Gloria stays is being remodelled",
+      "gold": "remodelled",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "remodelled"
+      }
+    },
+    "606": {
+      "sentence": "Peter was at the party",
+      "gold": "party",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "party"
+      }
+    },
+    "607": {
+      "sentence": "John bit the apple",
+      "gold": "apple",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "apple"
+      }
+    },
+    "608": {
+      "sentence": "The fans were deliberately provoked by a rival group",
+      "gold": "group",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "group"
+      }
+    },
+    "609": {
+      "sentence": "Susan has a cold",
+      "gold": "cold",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cold"
+      }
+    },
+    "610": {
+      "sentence": "I think he will eat asparagus",
+      "gold": "asparagus",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "asparagus"
+      }
+    },
+    "611": {
+      "sentence": "Jason expected Medea to be treated by the doctor",
+      "gold": "doctor",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "doctor"
+      }
+    },
+    "612": {
+      "sentence": "Terry touched Bill on the shoulder",
+      "gold": "shoulder",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "shoulder"
+      }
+    },
+    "613": {
+      "sentence": "The tiger bled to death",
+      "gold": "death",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "death"
+      }
+    },
+    "614": {
+      "sentence": "Mary is more than six feet tall",
+      "gold": "tall",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tall"
+      }
+    },
+    "615": {
+      "sentence": "Max gave the car a shove",
+      "gold": "shove",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "shove"
+      }
+    },
+    "616": {
+      "sentence": "There seemed to be a fountain in the park",
+      "gold": "park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "park"
+      }
+    },
+    "617": {
+      "sentence": "The cake was eaten",
+      "gold": "eaten",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eaten"
+      }
+    },
+    "618": {
+      "sentence": "They investigated the problem",
+      "gold": "problem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "problem"
+      }
+    },
+    "619": {
+      "sentence": "The secretary transcribed the speech into the record",
+      "gold": "record",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "record"
+      }
+    },
+    "620": {
+      "sentence": "Kim jogs over the hill",
+      "gold": "hill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hill"
+      }
+    },
+    "621": {
+      "sentence": "Ron definitely has bought a dog",
+      "gold": "dog",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dog"
+      }
+    },
+    "622": {
+      "sentence": "Stephen seemed to be intelligent",
+      "gold": "intelligent",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "intelligent"
+      }
+    },
+    "623": {
+      "sentence": "Fred threw the ball behind the tree",
+      "gold": "tree",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tree"
+      }
+    },
+    "624": {
+      "sentence": "He talked to a girl about swimming",
+      "gold": "swimming",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "swimming"
+      }
+    },
+    "625": {
+      "sentence": "That barn has seven pine trees behind it",
+      "gold": "it",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "it"
+      }
+    },
+    "626": {
+      "sentence": "John spoke to Mary intimately",
+      "gold": "intimately",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "intimately"
+      }
+    },
+    "627": {
+      "sentence": "There is every book by Chomsky in this library",
+      "gold": "library",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "library"
+      }
+    },
+    "628": {
+      "sentence": "I could have been flying helicopters by now",
+      "gold": "now",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "now"
+      }
+    },
+    "629": {
+      "sentence": "I broke twigs off those branches",
+      "gold": "branches",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "branches"
+      }
+    },
+    "630": {
+      "sentence": "Jason was killed",
+      "gold": "killed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "killed"
+      }
+    },
+    "631": {
+      "sentence": "There is a description of Aristotle in the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "book"
+      }
+    },
+    "632": {
+      "sentence": "I shipped the package halfway around the world",
+      "gold": "world",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "world"
+      }
+    },
+    "633": {
+      "sentence": "Much of that theory is unfounded",
+      "gold": "unfounded",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "unfounded"
+      }
+    },
+    "634": {
+      "sentence": "I would dance with anybody",
+      "gold": "anybody",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "anybody"
+      }
+    },
+    "635": {
+      "sentence": "Bill rolled the ball down the hill",
+      "gold": "hill",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hill"
+      }
+    },
+    "636": {
+      "sentence": "I ate some popcorn and drank some soda",
+      "gold": "soda",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "soda"
+      }
+    },
+    "637": {
+      "sentence": "Leslie was in the flood zone",
+      "gold": "zone",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "zone"
+      }
+    },
+    "638": {
+      "sentence": "Mira blamed Terry for the accident",
+      "gold": "accident",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "accident"
+      }
+    },
+    "639": {
+      "sentence": "Amanda carried packages to New York",
+      "gold": "York",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "York"
+      }
+    },
+    "640": {
+      "sentence": "We placed the cheese in the refrigerator",
+      "gold": "refrigerator",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "refrigerator"
+      }
+    },
+    "641": {
+      "sentence": "The train reached the station",
+      "gold": "station",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "station"
+      }
+    },
+    "642": {
+      "sentence": "The room reeked of onions",
+      "gold": "onions",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "onions"
+      }
+    },
+    "643": {
+      "sentence": "The banana is being eaten by that monkey",
+      "gold": "monkey",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "monkey"
+      }
+    },
+    "644": {
+      "sentence": "The scandal was talked about for days",
+      "gold": "days",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "days"
+      }
+    },
+    "645": {
+      "sentence": "The man killed the king with the knife",
+      "gold": "knife",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "knife"
+      }
+    },
+    "646": {
+      "sentence": "Over the fort fluttered a large flag",
+      "gold": "flag",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flag"
+      }
+    },
+    "647": {
+      "sentence": "We made them take the money",
+      "gold": "money",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "money"
+      }
+    },
+    "648": {
+      "sentence": "It seems to be easy to fool Ben",
+      "gold": "Ben",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Ben"
+      }
+    },
+    "649": {
+      "sentence": "The noise gave Terry a headache",
+      "gold": "headache",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "headache"
+      }
+    },
+    "650": {
+      "sentence": "The scientist made her a robot",
+      "gold": "robot",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "robot"
+      }
+    },
+    "651": {
+      "sentence": "A large ship appeared on the horizon",
+      "gold": "horizon",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "horizon"
+      }
+    },
+    "652": {
+      "sentence": "They went to the theater in London",
+      "gold": "London",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "London"
+      }
+    },
+    "653": {
+      "sentence": "She tried to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "654": {
+      "sentence": "The moon glows",
+      "gold": "glows",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "glows"
+      }
+    },
+    "655": {
+      "sentence": "Nora sent the book from Paris to London",
+      "gold": "London",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "London"
+      }
+    },
+    "656": {
+      "sentence": "I searched for treasure in the cave",
+      "gold": "cave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cave"
+      }
+    },
+    "657": {
+      "sentence": "The army destroyed the palace",
+      "gold": "palace",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "palace"
+      }
+    },
+    "658": {
+      "sentence": "The book was donated to the hospital",
+      "gold": "hospital",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hospital"
+      }
+    },
+    "659": {
+      "sentence": "Wickham eloped with Lydia",
+      "gold": "Lydia",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Lydia"
+      }
+    },
+    "660": {
+      "sentence": "Many people were dying of thirst",
+      "gold": "thirst",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thirst"
+      }
+    },
+    "661": {
+      "sentence": "I should not eat plums",
+      "gold": "plums",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "plums"
+      }
+    },
+    "662": {
+      "sentence": "John is touching the wall",
+      "gold": "wall",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "wall"
+      }
+    },
+    "663": {
+      "sentence": "The analysis of the problem was flawed",
+      "gold": "flawed",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flawed"
+      }
+    },
+    "664": {
+      "sentence": "The student enjoyed his English syntax class last semester",
+      "gold": "semester",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "semester"
+      }
+    },
+    "665": {
+      "sentence": "There is a riot in the park",
+      "gold": "park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "park"
+      }
+    },
+    "666": {
+      "sentence": "Fred kicked the ball over the fence",
+      "gold": "fence",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "fence"
+      }
+    },
+    "667": {
+      "sentence": "John was wondering whether to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "668": {
+      "sentence": "Cats ate the spider",
+      "gold": "spider",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "spider"
+      }
+    },
+    "669": {
+      "sentence": "Carla shoveled the snow from near the bushes",
+      "gold": "bushes",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bushes"
+      }
+    },
+    "670": {
+      "sentence": "John persuaded Stephen to be more careful",
+      "gold": "careful",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "careful"
+      }
+    },
+    "671": {
+      "sentence": "Paula spanked the naughty child on the back",
+      "gold": "back",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "back"
+      }
+    },
+    "672": {
+      "sentence": "Stephen persuaded Ben to be careful",
+      "gold": "careful",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "careful"
+      }
+    },
+    "673": {
+      "sentence": "Alison poked the needle into the cloth",
+      "gold": "cloth",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cloth"
+      }
+    },
+    "674": {
+      "sentence": "Susan hopes to sleep",
+      "gold": "sleep",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sleep"
+      }
+    },
+    "675": {
+      "sentence": "No one expected him to to win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "win"
+      }
+    },
+    "676": {
+      "sentence": "The tourists will go to the park",
+      "gold": "park",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "park"
+      }
+    },
+    "677": {
+      "sentence": "Those monkeys are eating the banana",
+      "gold": "banana",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "banana"
+      }
+    },
+    "678": {
+      "sentence": "They pushed the prisoners into the truck",
+      "gold": "truck",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "truck"
+      }
+    },
+    "679": {
+      "sentence": "Doug went to Chicago",
+      "gold": "Chicago",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Chicago"
+      }
+    },
+    "680": {
+      "sentence": "I saw him leaving the main building",
+      "gold": "building",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "building"
+      }
+    },
+    "681": {
+      "sentence": "Nora brought the book to Pamela",
+      "gold": "Pamela",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Pamela"
+      }
+    },
+    "682": {
+      "sentence": "He replied that he was happy",
+      "gold": "happy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "happy"
+      }
+    },
+    "683": {
+      "sentence": "John knows whether she will come back",
+      "gold": "back",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "back"
+      }
+    },
+    "684": {
+      "sentence": "Ellen talked with Helen",
+      "gold": "Helen",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Helen"
+      }
+    },
+    "685": {
+      "sentence": "John wrote books",
+      "gold": "books",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "books"
+      }
+    },
+    "686": {
+      "sentence": "John promised Bill to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leave"
+      }
+    },
+    "687": {
+      "sentence": "The witch vanished into the forest",
+      "gold": "forest",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "forest"
+      }
+    },
+    "688": {
+      "sentence": "He became fond of peanuts",
+      "gold": "peanuts",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "peanuts"
+      }
+    },
+    "689": {
+      "sentence": "The box contains the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "690": {
+      "sentence": "I gave my brother a birthday present",
+      "gold": "present",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "present"
+      }
+    },
+    "691": {
+      "sentence": "I have some papers to grade",
+      "gold": "grade",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "grade"
+      }
+    },
+    "692": {
+      "sentence": "Ellen talked with Helen about the problem",
+      "gold": "problem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "problem"
+      }
+    },
+    "693": {
+      "sentence": "Arthur tried to bake a cake",
+      "gold": "cake",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cake"
+      }
+    },
+    "694": {
+      "sentence": "The mushrooms were sliced by the cook",
+      "gold": "cook",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cook"
+      }
+    },
+    "695": {
+      "sentence": "You may pick almost any flower",
+      "gold": "flower",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flower"
+      }
+    },
+    "696": {
+      "sentence": "Rosie got struck by lightning",
+      "gold": "lightning",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lightning"
+      }
+    },
+    "697": {
+      "sentence": "I shaved my face",
+      "gold": "face",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "face"
+      }
+    },
+    "698": {
+      "sentence": "I know a man who hates me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "699": {
+      "sentence": "Mary solved the problem",
+      "gold": "problem",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "problem"
+      }
+    },
+    "700": {
+      "sentence": "John did not like Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "701": {
+      "sentence": "It is likely that Jean will dance",
+      "gold": "dance",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dance"
+      }
+    },
+    "702": {
+      "sentence": "Shakespeare wrote his plays a long time ago",
+      "gold": "ago",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ago"
+      }
+    },
+    "703": {
+      "sentence": "Susan bought some flowers for her mother",
+      "gold": "mother",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mother"
+      }
+    },
+    "704": {
+      "sentence": "Bill cooked the rice",
+      "gold": "rice",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "rice"
+      }
+    },
+    "705": {
+      "sentence": "Rory must have eaten the muffins",
+      "gold": "muffins",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "muffins"
+      }
+    },
+    "706": {
+      "sentence": "I doubt you can help me in understanding this",
+      "gold": "this",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "this"
+      }
+    },
+    "707": {
+      "sentence": "John suddenly got off the bus",
+      "gold": "bus",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bus"
+      }
+    },
+    "708": {
+      "sentence": "Mary has never kissed a Man taller than John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "709": {
+      "sentence": "John is running to the car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "710": {
+      "sentence": "An old woman lived in the forest",
+      "gold": "forest",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "forest"
+      }
+    },
+    "711": {
+      "sentence": "The truck spread salts",
+      "gold": "salts",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "salts"
+      }
+    },
+    "712": {
+      "sentence": "I went to the store and bought some whisky",
+      "gold": "whisky",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "whisky"
+      }
+    },
+    "713": {
+      "sentence": "John and Mary met in Vienna",
+      "gold": "Vienna",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Vienna"
+      }
+    },
+    "714": {
+      "sentence": "I would prefer for John to be the candidate",
+      "gold": "candidate",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "candidate"
+      }
+    },
+    "715": {
+      "sentence": "He kicked the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "ball"
+      }
+    },
+    "716": {
+      "sentence": "I screamed at some children who were watching me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "717": {
+      "sentence": "All the men lifted the table together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "together"
+      }
+    },
+    "718": {
+      "sentence": "All the foxes were hunted by Larry",
+      "gold": "Larry",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Larry"
+      }
+    },
+    "719": {
+      "sentence": "These books disappoint me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "me"
+      }
+    },
+    "720": {
+      "sentence": "There appears to be a problem with this solution",
+      "gold": "solution",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "solution"
+      }
+    },
+    "721": {
+      "sentence": "The intense cold killed the climbers",
+      "gold": "climbers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "climbers"
+      }
+    },
+    "722": {
+      "sentence": "John will drive the car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "723": {
+      "sentence": "Vera is knitting in the lounge",
+      "gold": "lounge",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "lounge"
+      }
+    },
+    "724": {
+      "sentence": "The clown wobbled down the hall",
+      "gold": "hall",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hall"
+      }
+    },
+    "725": {
+      "sentence": "Many of the people were dying of thirst",
+      "gold": "thirst",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thirst"
+      }
+    },
+    "726": {
+      "sentence": "Most of the children are here",
+      "gold": "here",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "here"
+      }
+    },
+    "727": {
+      "sentence": "The books slid across the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "table"
+      }
+    },
+    "728": {
+      "sentence": "Mary cuts the paper easily",
+      "gold": "easily",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "easily"
+      }
+    },
+    "729": {
+      "sentence": "He treats John very nicely",
+      "gold": "nicely",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "nicely"
+      }
+    },
+    "730": {
+      "sentence": "little information was provided",
+      "gold": "provided",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "provided"
+      }
+    },
+    "731": {
+      "sentence": "The termites destroyed the sand castle",
+      "gold": "castle",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "castle"
+      }
+    },
+    "732": {
+      "sentence": "David constructed the house",
+      "gold": "house",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "house"
+      }
+    },
+    "733": {
+      "sentence": "Mary sang for everyone who wanted to hear her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "734": {
+      "sentence": "John said he was sick",
+      "gold": "sick",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sick"
+      }
+    },
+    "735": {
+      "sentence": "We offered her a job",
+      "gold": "job",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "job"
+      }
+    },
+    "736": {
+      "sentence": "An ancient treasure trove was found in this cave",
+      "gold": "cave",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cave"
+      }
+    },
+    "737": {
+      "sentence": "Fanny pulled the blanket over her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "738": {
+      "sentence": "Carla mopped the floor under the furniture",
+      "gold": "furniture",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "furniture"
+      }
+    },
+    "739": {
+      "sentence": "Rosemary hates New York",
+      "gold": "York",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "York"
+      }
+    },
+    "740": {
+      "sentence": "The dog caught the cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cat"
+      }
+    },
+    "741": {
+      "sentence": "I read a statement about that man",
+      "gold": "man",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "man"
+      }
+    },
+    "742": {
+      "sentence": "His expectations are always lower than mine",
+      "gold": "mine",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mine"
+      }
+    },
+    "743": {
+      "sentence": "Joe is taller than Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Mary"
+      }
+    },
+    "744": {
+      "sentence": "Dave was given the margarita mix",
+      "gold": "mix",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "mix"
+      }
+    },
+    "745": {
+      "sentence": "Ron certainly will buy a dog",
+      "gold": "dog",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dog"
+      }
+    },
+    "746": {
+      "sentence": "Drowning cats is against the law",
+      "gold": "law",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "law"
+      }
+    },
+    "747": {
+      "sentence": "John talked to any politician who is powerful",
+      "gold": "powerful",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "powerful"
+      }
+    },
+    "748": {
+      "sentence": "Harriet told Emma the whole story",
+      "gold": "story",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "story"
+      }
+    },
+    "749": {
+      "sentence": "The terrier attacked the burglar",
+      "gold": "burglar",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "burglar"
+      }
+    },
+    "750": {
+      "sentence": "John seems to sleep all day",
+      "gold": "day",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "day"
+      }
+    },
+    "751": {
+      "sentence": "I never liked his analysis",
+      "gold": "analysis",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "analysis"
+      }
+    },
+    "752": {
+      "sentence": "John died last night",
+      "gold": "night",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "night"
+      }
+    },
+    "753": {
+      "sentence": "They want to be kind to her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "her"
+      }
+    },
+    "754": {
+      "sentence": "John has been driving the car",
+      "gold": "car",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "car"
+      }
+    },
+    "755": {
+      "sentence": "This arch is supporting the weight of the tower",
+      "gold": "tower",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "tower"
+      }
+    },
+    "756": {
+      "sentence": "John learned French perfectly",
+      "gold": "perfectly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "perfectly"
+      }
+    },
+    "757": {
+      "sentence": "John scratched his arm and Mary did too",
+      "gold": "too",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "too"
+      }
+    },
+    "758": {
+      "sentence": "It would be difficult to please John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "John"
+      }
+    },
+    "759": {
+      "sentence": "The policeman kissed the puppy",
+      "gold": "puppy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "puppy"
+      }
+    },
+    "760": {
+      "sentence": "People from Tucson think very highly of themselves",
+      "gold": "themselves",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "themselves"
+      }
+    },
+    "761": {
+      "sentence": "The contract is subject to approval by my committee",
+      "gold": "committee",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "committee"
+      }
+    },
+    "762": {
+      "sentence": "Frank gave a piano to Jane Fairfax",
+      "gold": "Fairfax",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Fairfax"
+      }
+    },
+    "763": {
+      "sentence": "She always wore purple dresses",
+      "gold": "dresses",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "dresses"
+      }
+    },
+    "764": {
+      "sentence": "The student knew the answers",
+      "gold": "answers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "answers"
+      }
+    },
+    "765": {
+      "sentence": "John whined that he was hungry",
+      "gold": "hungry",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hungry"
+      }
+    },
+    "766": {
+      "sentence": "Alison poked the needle through the cloth",
+      "gold": "cloth",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cloth"
+      }
+    },
+    "767": {
+      "sentence": "Mary will play the violin soon",
+      "gold": "soon",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "soon"
+      }
+    },
+    "768": {
+      "sentence": "Calvin was eating",
+      "gold": "eating",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "eating"
+      }
+    },
+    "769": {
+      "sentence": "Dane is a doctor",
+      "gold": "doctor",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "doctor"
+      }
+    },
+    "770": {
+      "sentence": "Mary convinced me that the argument was sound",
+      "gold": "sound",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "sound"
+      }
+    },
+    "771": {
+      "sentence": "Bill gave Sue the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "book"
+      }
+    },
+    "772": {
+      "sentence": "It bit me on the leg",
+      "gold": "leg",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "leg"
+      }
+    },
+    "773": {
+      "sentence": "John whispered that Mary left",
+      "gold": "left",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "left"
+      }
+    },
+    "774": {
+      "sentence": "I saw people playing there on the beach",
+      "gold": "beach",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "beach"
+      }
+    },
+    "775": {
+      "sentence": "Martina is deathly afraid of spiders",
+      "gold": "spiders",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "spiders"
+      }
+    },
+    "776": {
+      "sentence": "Heidi hit herself on the head with a zucchini",
+      "gold": "zucchini",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "zucchini"
+      }
+    },
+    "777": {
+      "sentence": "Celia brushed her hair",
+      "gold": "hair",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "hair"
+      }
+    },
+    "778": {
+      "sentence": "Bill went on Monday to London",
+      "gold": "London",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "London"
+      }
+    },
+    "779": {
+      "sentence": "The paper is readable",
+      "gold": "readable",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "readable"
+      }
+    },
+    "780": {
+      "sentence": "This should be the beginning of a beautiful friendship",
+      "gold": "friendship",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "friendship"
+      }
+    },
+    "781": {
+      "sentence": "John went to the store",
+      "gold": "store",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "store"
+      }
+    },
+    "782": {
+      "sentence": "Jackie chased the thief",
+      "gold": "thief",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "thief"
+      }
+    },
+    "783": {
+      "sentence": "He treats John very badly",
+      "gold": "badly",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "badly"
+      }
+    },
+    "784": {
+      "sentence": "I saw John on Sunday",
+      "gold": "Sunday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Sunday"
+      }
+    },
+    "785": {
+      "sentence": "John considers him a nice guy",
+      "gold": "guy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "guy"
+      }
+    },
+    "786": {
+      "sentence": "I want him to eat asparagus",
+      "gold": "asparagus",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "asparagus"
+      }
+    },
+    "787": {
+      "sentence": "David constructed a house from bricks",
+      "gold": "bricks",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "bricks"
+      }
+    },
+    "788": {
+      "sentence": "The drooling dog kissed the big boy",
+      "gold": "boy",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "boy"
+      }
+    },
+    "789": {
+      "sentence": "I presented a solution yesterday",
+      "gold": "yesterday",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "yesterday"
+      }
+    },
+    "790": {
+      "sentence": "Maggie hurried through the museum",
+      "gold": "museum",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "museum"
+      }
+    },
+    "791": {
+      "sentence": "They made him angry",
+      "gold": "angry",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "angry"
+      }
+    },
+    "792": {
+      "sentence": "He has not eaten yet today",
+      "gold": "today",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "today"
+      }
+    },
+    "793": {
+      "sentence": "I am fond of circus performers",
+      "gold": "performers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "performers"
+      }
+    },
+    "794": {
+      "sentence": "The soldier was given the medal by Phillip",
+      "gold": "Phillip",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "Phillip"
+      }
+    },
+    "795": {
+      "sentence": "I gave Jack a picture of myself",
+      "gold": "myself",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "myself"
+      }
+    },
+    "796": {
+      "sentence": "I bought Manuel some flowers",
+      "gold": "flowers",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "flowers"
+      }
+    },
+    "797": {
+      "sentence": "John became a success",
+      "gold": "success",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "success"
+      }
+    },
+    "798": {
+      "sentence": "Students intended to surprise the teacher",
+      "gold": "teacher",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "teacher"
+      }
+    },
+    "799": {
+      "sentence": "The computer will calculate the value of the variable",
+      "gold": "variable",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "variable"
+      }
+    },
+    "800": {
+      "sentence": "The farmer dumped apples into the cart",
+      "gold": "cart",
+      "more_info": {
+        "sentence_source": "Train",
+        "answer": "cart"
+      }
+    },
+    "801": {
+      "sentence": "The weights made the rope stretch over the pulley",
+      "gold": "pulley",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "pulley"
+      }
+    },
+    "802": {
+      "sentence": "John was lots more obnoxious than Fred",
+      "gold": "Fred",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Fred"
+      }
+    },
+    "803": {
+      "sentence": "Marianne did not leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "leave"
+      }
+    },
+    "804": {
+      "sentence": "He could not have been working",
+      "gold": "working",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "working"
+      }
+    },
+    "805": {
+      "sentence": "You will believe Bob",
+      "gold": "Bob",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Bob"
+      }
+    },
+    "806": {
+      "sentence": "John has not kissed Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Mary"
+      }
+    },
+    "807": {
+      "sentence": "There tended to be a lot of discussion",
+      "gold": "discussion",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "discussion"
+      }
+    },
+    "808": {
+      "sentence": "John tried to be a good boy",
+      "gold": "boy",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "boy"
+      }
+    },
+    "809": {
+      "sentence": "John is eager",
+      "gold": "eager",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "eager"
+      }
+    },
+    "810": {
+      "sentence": "We want John to win",
+      "gold": "win",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "win"
+      }
+    },
+    "811": {
+      "sentence": "The tub leaked water",
+      "gold": "water",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "water"
+      }
+    },
+    "812": {
+      "sentence": "John lay the ball in the box",
+      "gold": "box",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "box"
+      }
+    },
+    "813": {
+      "sentence": "John owns the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "book"
+      }
+    },
+    "814": {
+      "sentence": "We persuaded Mary to leave and Sue to stay",
+      "gold": "stay",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "stay"
+      }
+    },
+    "815": {
+      "sentence": "The men will all leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "leave"
+      }
+    },
+    "816": {
+      "sentence": "John went home",
+      "gold": "home",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "home"
+      }
+    },
+    "817": {
+      "sentence": "It is nice to go abroad",
+      "gold": "abroad",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "abroad"
+      }
+    },
+    "818": {
+      "sentence": "I remembered having kissed Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Mary"
+      }
+    },
+    "819": {
+      "sentence": "John often meets Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Mary"
+      }
+    },
+    "820": {
+      "sentence": "A hundred men surrounded the fort",
+      "gold": "fort",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "fort"
+      }
+    },
+    "821": {
+      "sentence": "Mary has always preferred lemons to limes",
+      "gold": "limes",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "limes"
+      }
+    },
+    "822": {
+      "sentence": "Mary saw the boy walking toward the railroad station",
+      "gold": "station",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "station"
+      }
+    },
+    "823": {
+      "sentence": "I feel that Arch will show up",
+      "gold": "up",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "up"
+      }
+    },
+    "824": {
+      "sentence": "Mike talked about politics yesterday to my friends",
+      "gold": "friends",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "friends"
+      }
+    },
+    "825": {
+      "sentence": "I talked to Winston about himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "himself"
+      }
+    },
+    "826": {
+      "sentence": "Maxwell is quite a doctor",
+      "gold": "doctor",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "doctor"
+      }
+    },
+    "827": {
+      "sentence": "I have to try to finish grading some papers",
+      "gold": "papers",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "papers"
+      }
+    },
+    "828": {
+      "sentence": "It is easy to play sonatas on this violin",
+      "gold": "violin",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "violin"
+      }
+    },
+    "829": {
+      "sentence": "This violin is difficult to play sonatas on",
+      "gold": "on",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "on"
+      }
+    },
+    "830": {
+      "sentence": "That girl was given my binoculars by him",
+      "gold": "him",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "him"
+      }
+    },
+    "831": {
+      "sentence": "Felicia kicked the ball off the bench",
+      "gold": "bench",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "bench"
+      }
+    },
+    "832": {
+      "sentence": "I sent the package halfway around the world",
+      "gold": "world",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "world"
+      }
+    },
+    "833": {
+      "sentence": "Park Square has a festive air",
+      "gold": "air",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "air"
+      }
+    },
+    "834": {
+      "sentence": "The worker will have a job",
+      "gold": "job",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "job"
+      }
+    },
+    "835": {
+      "sentence": "The farmer loaded the cart with apples",
+      "gold": "apples",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "apples"
+      }
+    },
+    "836": {
+      "sentence": "Martha carved the baby a toy out of wood",
+      "gold": "wood",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "wood"
+      }
+    },
+    "837": {
+      "sentence": "The bread cuts easily",
+      "gold": "easily",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "easily"
+      }
+    },
+    "838": {
+      "sentence": "Janet broke the cup",
+      "gold": "cup",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "cup"
+      }
+    },
+    "839": {
+      "sentence": "The visitor rang the bell",
+      "gold": "bell",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "bell"
+      }
+    },
+    "840": {
+      "sentence": "We pulled free",
+      "gold": "free",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "free"
+      }
+    },
+    "841": {
+      "sentence": "That movie always shocks people",
+      "gold": "people",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "people"
+      }
+    },
+    "842": {
+      "sentence": "Bill sent a package to Tom",
+      "gold": "Tom",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Tom"
+      }
+    },
+    "843": {
+      "sentence": "That acorn will grow into an oak tree",
+      "gold": "tree",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "tree"
+      }
+    },
+    "844": {
+      "sentence": "He turned into a frog",
+      "gold": "frog",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "frog"
+      }
+    },
+    "845": {
+      "sentence": "I mixed the sugar into the butter",
+      "gold": "butter",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "butter"
+      }
+    },
+    "846": {
+      "sentence": "Mira condemned Terry for the accident",
+      "gold": "accident",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "accident"
+      }
+    },
+    "847": {
+      "sentence": "We investigated the area for bombs",
+      "gold": "bombs",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "bombs"
+      }
+    },
+    "848": {
+      "sentence": "I sensed his eagerness",
+      "gold": "eagerness",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "eagerness"
+      }
+    },
+    "849": {
+      "sentence": "The earth was believed to be round",
+      "gold": "round",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "round"
+      }
+    },
+    "850": {
+      "sentence": "Sarah smiled a charming smile",
+      "gold": "smile",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "smile"
+      }
+    },
+    "851": {
+      "sentence": "Sandra beamed a cheerful welcome",
+      "gold": "welcome",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "welcome"
+      }
+    },
+    "852": {
+      "sentence": "Jessica loaded boxes under the wagon",
+      "gold": "wagon",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "wagon"
+      }
+    },
+    "853": {
+      "sentence": "Jessica loaded boxes on the wagon",
+      "gold": "wagon",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "wagon"
+      }
+    },
+    "854": {
+      "sentence": "Carla shoveled the walk",
+      "gold": "walk",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "walk"
+      }
+    },
+    "855": {
+      "sentence": "Nora sent the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "book"
+      }
+    },
+    "856": {
+      "sentence": "Nora sent Peter the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "book"
+      }
+    },
+    "857": {
+      "sentence": "Carla slid the book",
+      "gold": "book",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "book"
+      }
+    },
+    "858": {
+      "sentence": "Amanda carried the package to Pamela",
+      "gold": "Pamela",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Pamela"
+      }
+    },
+    "859": {
+      "sentence": "We offered a job to her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "her"
+      }
+    },
+    "860": {
+      "sentence": "Carmen bought Mary a dress",
+      "gold": "dress",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "dress"
+      }
+    },
+    "861": {
+      "sentence": "Carmen obtained the spare part at the hardware store",
+      "gold": "store",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "store"
+      }
+    },
+    "862": {
+      "sentence": "Frances hid the presents in the drawer",
+      "gold": "drawer",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "drawer"
+      }
+    },
+    "863": {
+      "sentence": "The needle poked the cloth",
+      "gold": "cloth",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "cloth"
+      }
+    },
+    "864": {
+      "sentence": "Carrie touched that cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "cat"
+      }
+    },
+    "865": {
+      "sentence": "Linda taped the picture to the wall",
+      "gold": "wall",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "wall"
+      }
+    },
+    "866": {
+      "sentence": "Linda taped the picture onto the wall",
+      "gold": "wall",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "wall"
+      }
+    },
+    "867": {
+      "sentence": "The child and her mother clung together",
+      "gold": "together",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "together"
+      }
+    },
+    "868": {
+      "sentence": "This flyer and that flyer differ",
+      "gold": "differ",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "differ"
+      }
+    },
+    "869": {
+      "sentence": "The gardener grew that acorn into an oak tree",
+      "gold": "tree",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "tree"
+      }
+    },
+    "870": {
+      "sentence": "Susan whispered the news",
+      "gold": "news",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "news"
+      }
+    },
+    "871": {
+      "sentence": "Susan whispered at Rachel",
+      "gold": "Rachel",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Rachel"
+      }
+    },
+    "872": {
+      "sentence": "Ellen said that melons were selling well",
+      "gold": "well",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "well"
+      }
+    },
+    "873": {
+      "sentence": "Ellen warned Helen against skating on thin ice",
+      "gold": "ice",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "ice"
+      }
+    },
+    "874": {
+      "sentence": "Paul laughed at Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Mary"
+      }
+    },
+    "875": {
+      "sentence": "Sharon fainted from hunger",
+      "gold": "hunger",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "hunger"
+      }
+    },
+    "876": {
+      "sentence": "The witch poisoned the children",
+      "gold": "children",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "children"
+      }
+    },
+    "877": {
+      "sentence": "The voices echoed in the hall",
+      "gold": "hall",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "hall"
+      }
+    },
+    "878": {
+      "sentence": "The stream twists through the valley",
+      "gold": "valley",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "valley"
+      }
+    },
+    "879": {
+      "sentence": "Out of the box jumped a little white rabbit",
+      "gold": "rabbit",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "rabbit"
+      }
+    },
+    "880": {
+      "sentence": "Penny skated around the rink",
+      "gold": "rink",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "rink"
+      }
+    },
+    "881": {
+      "sentence": "Jackie accompanied Rose",
+      "gold": "Rose",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Rose"
+      }
+    },
+    "882": {
+      "sentence": "We recommend to eat less cake and pastry",
+      "gold": "pastry",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "pastry"
+      }
+    },
+    "883": {
+      "sentence": "I saw that gas can explode",
+      "gold": "explode",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "explode"
+      }
+    },
+    "884": {
+      "sentence": "He washed her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "her"
+      }
+    },
+    "885": {
+      "sentence": "John put old books in the box",
+      "gold": "box",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "box"
+      }
+    },
+    "886": {
+      "sentence": "John called the president a fool",
+      "gold": "fool",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "fool"
+      }
+    },
+    "887": {
+      "sentence": "I forgot how good beer tastes",
+      "gold": "tastes",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "tastes"
+      }
+    },
+    "888": {
+      "sentence": "This teacher is a genius",
+      "gold": "genius",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "genius"
+      }
+    },
+    "889": {
+      "sentence": "John ate his noodle quietly",
+      "gold": "quietly",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "quietly"
+      }
+    },
+    "890": {
+      "sentence": "A smith hammered the metal",
+      "gold": "metal",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "metal"
+      }
+    },
+    "891": {
+      "sentence": "Sandy removed her ballet shoes",
+      "gold": "shoes",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "shoes"
+      }
+    },
+    "892": {
+      "sentence": "This week will be a difficult one for us",
+      "gold": "us",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "us"
+      }
+    },
+    "893": {
+      "sentence": "Everyone hoped that she would sing",
+      "gold": "sing",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "sing"
+      }
+    },
+    "894": {
+      "sentence": "The crocodile devoured the doughnut",
+      "gold": "doughnut",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "doughnut"
+      }
+    },
+    "895": {
+      "sentence": "John put the book in the box",
+      "gold": "box",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "box"
+      }
+    },
+    "896": {
+      "sentence": "Most of the fruit is rotten",
+      "gold": "rotten",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "rotten"
+      }
+    },
+    "897": {
+      "sentence": "The boy in the doorway waved to his father",
+      "gold": "father",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "father"
+      }
+    },
+    "898": {
+      "sentence": "John tried to please Stephen",
+      "gold": "Stephen",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "Stephen"
+      }
+    },
+    "899": {
+      "sentence": "John can kick the ball",
+      "gold": "ball",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "ball"
+      }
+    },
+    "900": {
+      "sentence": "John was found in the office",
+      "gold": "office",
+      "more_info": {
+        "sentence_source": "In domain dev",
+        "answer": "office"
+      }
+    },
+    "901": {
+      "sentence": "I served leek soup to my guests",
+      "gold": "guests",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "guests"
+      }
+    },
+    "902": {
+      "sentence": "I served my guests",
+      "gold": "guests",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "guests"
+      }
+    },
+    "903": {
+      "sentence": "That professor is feared by all students",
+      "gold": "students",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "students"
+      }
+    },
+    "904": {
+      "sentence": "Mary was respected by John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "John"
+      }
+    },
+    "905": {
+      "sentence": "Ted was bitten by the spider",
+      "gold": "spider",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "spider"
+      }
+    },
+    "906": {
+      "sentence": "The book was seen by Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Mary"
+      }
+    },
+    "907": {
+      "sentence": "The table was wiped clean by John",
+      "gold": "John",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "John"
+      }
+    },
+    "908": {
+      "sentence": "The car was driven by John to Maine",
+      "gold": "Maine",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Maine"
+      }
+    },
+    "909": {
+      "sentence": "Jack hates Sue and is loved by Mary",
+      "gold": "Mary",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Mary"
+      }
+    },
+    "910": {
+      "sentence": "Bill ate more peaches than Harry did grapes",
+      "gold": "grapes",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "grapes"
+      }
+    },
+    "911": {
+      "sentence": "Jerry attempted to blow up the Pentagon",
+      "gold": "Pentagon",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Pentagon"
+      }
+    },
+    "912": {
+      "sentence": "The book which inspired them was very long",
+      "gold": "long",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "long"
+      }
+    },
+    "913": {
+      "sentence": "I know the person whose mother died",
+      "gold": "died",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "died"
+      }
+    },
+    "914": {
+      "sentence": "I wonder whose mother died",
+      "gold": "died",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "died"
+      }
+    },
+    "915": {
+      "sentence": "I wonder to whom they dedicated the building",
+      "gold": "building",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "building"
+      }
+    },
+    "916": {
+      "sentence": "I believe there to be no way out",
+      "gold": "out",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "out"
+      }
+    },
+    "917": {
+      "sentence": "I know the people that voted in the election",
+      "gold": "election",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "election"
+      }
+    },
+    "918": {
+      "sentence": "I thought that you were sick",
+      "gold": "sick",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "sick"
+      }
+    },
+    "919": {
+      "sentence": "I dislike the person with whom we were talking",
+      "gold": "talking",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "talking"
+      }
+    },
+    "920": {
+      "sentence": "Everything you like is on the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "table"
+      }
+    },
+    "921": {
+      "sentence": "Nobody likes us",
+      "gold": "us",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "us"
+      }
+    },
+    "922": {
+      "sentence": "She voted for herself",
+      "gold": "herself",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "herself"
+      }
+    },
+    "923": {
+      "sentence": "We gave ourselves presents",
+      "gold": "presents",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "presents"
+      }
+    },
+    "924": {
+      "sentence": "We think that Leslie likes us",
+      "gold": "us",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "us"
+      }
+    },
+    "925": {
+      "sentence": "Our friends like us",
+      "gold": "us",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "us"
+      }
+    },
+    "926": {
+      "sentence": "Leslie used a pen",
+      "gold": "pen",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "pen"
+      }
+    },
+    "927": {
+      "sentence": "I forgot how good beer tastes",
+      "gold": "tastes",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "tastes"
+      }
+    },
+    "928": {
+      "sentence": "Visiting relatives can be boring",
+      "gold": "boring",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "boring"
+      }
+    },
+    "929": {
+      "sentence": "Max is on the phone now",
+      "gold": "now",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "now"
+      }
+    },
+    "930": {
+      "sentence": "That surprised me",
+      "gold": "me",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "me"
+      }
+    },
+    "931": {
+      "sentence": "A large dog chased a small cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "cat"
+      }
+    },
+    "932": {
+      "sentence": "Some people yell at noisy dogs",
+      "gold": "dogs",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dogs"
+      }
+    },
+    "933": {
+      "sentence": "Some people yell at dogs",
+      "gold": "dogs",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dogs"
+      }
+    },
+    "934": {
+      "sentence": "Some people consider the noisy dogs dangerous",
+      "gold": "dangerous",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dangerous"
+      }
+    },
+    "935": {
+      "sentence": "Some people consider the dogs in my neighborhood dangerous",
+      "gold": "dangerous",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dangerous"
+      }
+    },
+    "936": {
+      "sentence": "This disease gave Leslie a fever in Rome",
+      "gold": "Rome",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Rome"
+      }
+    },
+    "937": {
+      "sentence": "The defendant denied the accusation",
+      "gold": "accusation",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "accusation"
+      }
+    },
+    "938": {
+      "sentence": "The bird sings",
+      "gold": "sings",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "sings"
+      }
+    },
+    "939": {
+      "sentence": "Kerry remarked it was late",
+      "gold": "late",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "late"
+      }
+    },
+    "940": {
+      "sentence": "The child put the toy on the table",
+      "gold": "table",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "table"
+      }
+    },
+    "941": {
+      "sentence": "The teacher became angry with the students",
+      "gold": "students",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "students"
+      }
+    },
+    "942": {
+      "sentence": "The jury believed the defendant lied",
+      "gold": "lied",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "lied"
+      }
+    },
+    "943": {
+      "sentence": "The guests dined",
+      "gold": "dined",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dined"
+      }
+    },
+    "944": {
+      "sentence": "We relied on Leslie",
+      "gold": "Leslie",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Leslie"
+      }
+    },
+    "945": {
+      "sentence": "We celebrated in the streets",
+      "gold": "streets",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "streets"
+      }
+    },
+    "946": {
+      "sentence": "A magazine appeared on the newsstands",
+      "gold": "newsstands",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "newsstands"
+      }
+    },
+    "947": {
+      "sentence": "A magazine about crime appeared on the newsstands",
+      "gold": "newsstands",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "newsstands"
+      }
+    },
+    "948": {
+      "sentence": "The report that crime was declining surprised many people",
+      "gold": "people",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "people"
+      }
+    },
+    "949": {
+      "sentence": "The book surprised many people",
+      "gold": "people",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "people"
+      }
+    },
+    "950": {
+      "sentence": "The storm arrived after the picnic",
+      "gold": "picnic",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "picnic"
+      }
+    },
+    "951": {
+      "sentence": "The storm arrived while we ate lunch",
+      "gold": "lunch",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "lunch"
+      }
+    },
+    "952": {
+      "sentence": "These dogs barked",
+      "gold": "barked",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "barked"
+      }
+    },
+    "953": {
+      "sentence": "A chair was broken",
+      "gold": "broken",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "broken"
+      }
+    },
+    "954": {
+      "sentence": "The dogs barked",
+      "gold": "barked",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "barked"
+      }
+    },
+    "955": {
+      "sentence": "I walk and Dana runs",
+      "gold": "runs",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "runs"
+      }
+    },
+    "956": {
+      "sentence": "Kim likes dogs",
+      "gold": "dogs",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "dogs"
+      }
+    },
+    "957": {
+      "sentence": "Dogs like Kim",
+      "gold": "Kim",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Kim"
+      }
+    },
+    "958": {
+      "sentence": "Susan frightens her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "her"
+      }
+    },
+    "959": {
+      "sentence": "Susan told her a story",
+      "gold": "story",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "story"
+      }
+    },
+    "960": {
+      "sentence": "Susan devoted herself to linguistics",
+      "gold": "linguistics",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "linguistics"
+      }
+    },
+    "961": {
+      "sentence": "That picture of Susan offended her",
+      "gold": "her",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "her"
+      }
+    },
+    "962": {
+      "sentence": "Kris donated a book to the library",
+      "gold": "library",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "library"
+      }
+    },
+    "963": {
+      "sentence": "The police sprayed the protesters with water",
+      "gold": "water",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "water"
+      }
+    },
+    "964": {
+      "sentence": "The police sprayed water on the protesters",
+      "gold": "protesters",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "protesters"
+      }
+    },
+    "965": {
+      "sentence": "The evidence assembled by the prosecution convinced the jury",
+      "gold": "jury",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "jury"
+      }
+    },
+    "966": {
+      "sentence": "Lou forgot the umbrella",
+      "gold": "umbrella",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "umbrella"
+      }
+    },
+    "967": {
+      "sentence": "Lou forgot the umbrella in the closet",
+      "gold": "closet",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "closet"
+      }
+    },
+    "968": {
+      "sentence": "Lou put the umbrella in the closet",
+      "gold": "closet",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "closet"
+      }
+    },
+    "969": {
+      "sentence": "The artist drew the child with a pencil",
+      "gold": "pencil",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "pencil"
+      }
+    },
+    "970": {
+      "sentence": "The dog bit the cat",
+      "gold": "cat",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "cat"
+      }
+    },
+    "971": {
+      "sentence": "The patient died",
+      "gold": "died",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "died"
+      }
+    },
+    "972": {
+      "sentence": "He was arrested by the police",
+      "gold": "police",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "police"
+      }
+    },
+    "973": {
+      "sentence": "The cat got bitten",
+      "gold": "bitten",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "bitten"
+      }
+    },
+    "974": {
+      "sentence": "It is obvious that Pat is lying",
+      "gold": "lying",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "lying"
+      }
+    },
+    "975": {
+      "sentence": "Pat is the captain of the team",
+      "gold": "team",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "team"
+      }
+    },
+    "976": {
+      "sentence": "There is a seat available",
+      "gold": "available",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "available"
+      }
+    },
+    "977": {
+      "sentence": "Many people were fond of Pat",
+      "gold": "Pat",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Pat"
+      }
+    },
+    "978": {
+      "sentence": "People are looking through the window",
+      "gold": "window",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "window"
+      }
+    },
+    "979": {
+      "sentence": "It annoys people that dogs bark",
+      "gold": "bark",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "bark"
+      }
+    },
+    "980": {
+      "sentence": "We forgot our invitations",
+      "gold": "invitations",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "invitations"
+      }
+    },
+    "981": {
+      "sentence": "The bucket was kicked by Pat",
+      "gold": "Pat",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Pat"
+      }
+    },
+    "982": {
+      "sentence": "John loaded the wagon full with hay",
+      "gold": "hay",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "hay"
+      }
+    },
+    "983": {
+      "sentence": "John became rich",
+      "gold": "rich",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "rich"
+      }
+    },
+    "984": {
+      "sentence": "I gave John gold apples",
+      "gold": "apples",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "apples"
+      }
+    },
+    "985": {
+      "sentence": "John is near Larry",
+      "gold": "Larry",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Larry"
+      }
+    },
+    "986": {
+      "sentence": "John promised Bill to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "987": {
+      "sentence": "John tried to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "988": {
+      "sentence": "there is nothing to do",
+      "gold": "do",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "do"
+      }
+    },
+    "989": {
+      "sentence": "I would prefer to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "990": {
+      "sentence": "I would hate for John to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "991": {
+      "sentence": "I would prefer for John to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "992": {
+      "sentence": "John wants to leave",
+      "gold": "leave",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "leave"
+      }
+    },
+    "993": {
+      "sentence": "It is a problem that he is here",
+      "gold": "here",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "here"
+      }
+    },
+    "994": {
+      "sentence": "It bothers me that he is here",
+      "gold": "here",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "here"
+      }
+    },
+    "995": {
+      "sentence": "I bought it to read",
+      "gold": "read",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "read"
+      }
+    },
+    "996": {
+      "sentence": "I wrote to Bill",
+      "gold": "Bill",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "Bill"
+      }
+    },
+    "997": {
+      "sentence": "I gave a book to Bill to read",
+      "gold": "read",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "read"
+      }
+    },
+    "998": {
+      "sentence": "John considers Bill to be silly",
+      "gold": "silly",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "silly"
+      }
+    },
+    "999": {
+      "sentence": "John arranged for himself to get the prize",
+      "gold": "prize",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "prize"
+      }
+    },
+    "1000": {
+      "sentence": "John talked to Bill about himself",
+      "gold": "himself",
+      "more_info": {
+        "sentence_source": "Out of domain dev",
+        "answer": "himself"
+      }
+    }
+  }
+}

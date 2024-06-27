@@ -1,0 +1,1041 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "navigate",
+  "format": "classification (yes/no)",
+  "task_type": "algorithmic",
+  "num_of_instances": 250,
+  "description": "Given a series of navigation instructions, determine whether one would end up back at the starting point.",
+  "more_info": {
+    "input_templates": [
+      "Q: If you follow these instructions, do you return to the starting point?\n{instructions}\nOptions:\n- Yes\n- No\nA:"
+    ],
+    "key_names": [
+      "instructions"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "instructions": "Turn left. Turn around. Turn left. Take 7 steps. Take 2 steps. Take 4 steps. Take 8 steps.",
+        "gold": "No",
+        "explanation": "We start at the origin (0, 0), facing the positive y-axis.\n(1) Turn left: (0, 0), facing the negative x-axis.\n(2) Turn around: (0, 0), facing the positive x-axis.\n(3) Turn left: (0, 0), facing the positive y-axis.\n(4) Take 7 steps: (0, 7), facing the positive y-axis.\n(5) Take 2 steps: (0, 9), facing the positive y-axis.\n(6) Take 4 steps: (0, 13), facing the positive y-axis.\n(7) Take 8 steps: (0, 21), facing the positive y-axis.\nSince (0, 21) is not (0, 0), we are not where we started. So the answer is No."
+      },
+      "1": {
+        "instructions": "Turn around. Take 1 step. Take 6 steps. Turn around. Take 6 steps. Take 9 steps. Take 1 step.",
+        "gold": "No",
+        "explanation": "We start at the origin (0, 0), facing the positive y-axis.\n(1) Turn around: (0, 0), facing the negative y-axis.\n(2) Take 1 step: (0, -1), facing the negative y-axis.\n(3) Take 6 steps: (0, -7), facing the negative y-axis.\n(4) Turn around: (0, -7), facing the positive y-axis.\n(5) Take 6 steps: (0, -1), facing the positive y-axis.\n(6) Take 9 steps: (0, 8), facing the positive y-axis.\n(7) Take 1 step: (0, 9), facing the positive y-axis.\nSince (0, 9) is not (0, 0), we are not where we started. So the answer is No."
+      },
+      "2": {
+        "instructions": "Always face forward. Take 2 steps right. Take 9 steps left. Take 7 steps right.",
+        "gold": "Yes",
+        "explanation": "We start at the origin (0, 0), facing the positive y-axis.\n(1) Always face forward: (0, 0), facing the positive y-axis.\n(2) Take 2 steps right: (0, 2), facing the positive y-axis.\n(3) Take 9 steps left: (0, -7), facing the positive y-axis.\n(4) Take 7 steps right: (0, 7), facing the positive y-axis.\nSince (0, 0) is (0, 0), we are indeed where we started. So the answer is Yes."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: If you follow these instructions, do you return to the starting point? Turn left. Turn around. Turn left. Take 7 steps. Take 2 steps. Take 4 steps. Take 8 steps.\nOptions:\n- Yes\n- No\nA: No\nExplanation:\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Turn left: (0, 0), facing the negative x-axis.\n(2) Turn around: (0, 0), facing the positive x-axis.\n(3) Turn left: (0, 0), facing the positive y-axis.\n(4) Take 7 steps: (0, 7), facing the positive y-axis.\n(5) Take 2 steps: (0, 9), facing the positive y-axis.\n(6) Take 4 steps: (0, 13), facing the positive y-axis.\n(7) Take 8 steps: (0, 21), facing the positive y-axis.\nSince (0, 21) is not (0, 0), we are not where we started. So the answer is No.",
+      "Q: If you follow these instructions, do you return to the starting point? Turn around. Take 1 step. Take 6 steps. Turn around. Take 6 steps. Take 9 steps. Take 1 step.\nOptions:\n- Yes\n- No\nA: No\nExplanation:\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Turn around: (0, 0), facing the negative y-axis.\n(2) Take 1 step: (0, -1), facing the negative y-axis.\n(3) Take 6 steps: (0, -7), facing the negative y-axis.\n(4) Turn around: (0, -7), facing the positive y-axis.\n(5) Take 6 steps: (0, -1), facing the positive y-axis.\n(6) Take 9 steps: (0, 8), facing the positive y-axis.\n(7) Take 1 step: (0, 9), facing the positive y-axis.\nSince (0, 9) is not (0, 0), we are not where we started. So the answer is No.",
+      "Q: If you follow these instructions, do you return to the starting point? Always face forward. Take 2 steps right. Take 9 steps left. Take 7 steps right.\nOptions:\n- Yes\n- No\nA: Yes\nExplanation:\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Always face forward: (0, 0), facing the positive y-axis.\n(2) Take 2 steps right: (0, 2), facing the positive y-axis.\n(3) Take 9 steps left: (0, -7), facing the positive y-axis.\n(4) Take 7 steps right: (0, 7), facing the positive y-axis.\nSince (0, 0) is (0, 0), we are indeed where we started. So the answer is Yes."
+    ],
+    "cot_prompt_intro": "Given a series of navigation instructions, determine whether one would end up back at the starting point.\n\nQ: If you follow these instructions, do you return to the starting point? Turn left. Turn around. Turn left. Take 7 steps. Take 2 steps. Take 4 steps. Take 8 steps.\nOptions:\n- Yes\n- No\nA: Let's think step by step.\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Turn left: (0, 0), facing the negative x-axis.\n(2) Turn around: (0, 0), facing the positive x-axis.\n(3) Turn left: (0, 0), facing the positive y-axis.\n(4) Take 7 steps: (0, 7), facing the positive y-axis.\n(5) Take 2 steps: (0, 9), facing the positive y-axis.\n(6) Take 4 steps: (0, 13), facing the positive y-axis.\n(7) Take 8 steps: (0, 21), facing the positive y-axis.\nSince (0, 21) is not (0, 0), we are not where we started. So the answer is No.\n\nQ: If you follow these instructions, do you return to the starting point? Turn around. Take 1 step. Take 6 steps. Turn around. Take 6 steps. Take 9 steps. Take 1 step.\nOptions:\n- Yes\n- No\nA: Let's think step by step.\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Turn around: (0, 0), facing the negative y-axis.\n(2) Take 1 step: (0, -1), facing the negative y-axis.\n(3) Take 6 steps: (0, -7), facing the negative y-axis.\n(4) Turn around: (0, -7), facing the positive y-axis.\n(5) Take 6 steps: (0, -1), facing the positive y-axis.\n(6) Take 9 steps: (0, 8), facing the positive y-axis.\n(7) Take 1 step: (0, 9), facing the positive y-axis.\nSince (0, 9) is not (0, 0), we are not where we started. So the answer is No.\n\nQ: If you follow these instructions, do you return to the starting point? Always face forward. Take 2 steps right. Take 9 steps left. Take 7 steps right.\nOptions:\n- Yes\n- No\nA: Let's think step by step.\nWe start at the origin (0, 0), facing the positive y-axis.\n(1) Always face forward: (0, 0), facing the positive y-axis.\n(2) Take 2 steps right: (0, 2), facing the positive y-axis.\n(3) Take 9 steps left: (0, -7), facing the positive y-axis.\n(4) Take 7 steps right: (0, 7), facing the positive y-axis.\nSince (0, 0) is (0, 0), we are indeed where we started. So the answer is Yes."
+  },
+  "examples": {
+    "1": {
+      "instructions": "Always face forward. Take 1 step backward. Take 9 steps left. Take 2 steps backward. Take 6 steps forward. Take 4 steps forward. Take 4 steps backward. Take 3 steps right.",
+      "gold": "No"
+    },
+    "2": {
+      "instructions": "Always face forward. Take 10 steps left. Take 10 steps forward. Take 7 steps forward. Take 2 steps forward.",
+      "gold": "No"
+    },
+    "3": {
+      "instructions": "Take 1 step. Take 10 steps. Take 4 steps. Take 1 step. Take 10 steps. Turn right. Turn around.",
+      "gold": "No"
+    },
+    "4": {
+      "instructions": "Always face forward. Take 1 step right. Take 3 steps left. Take 2 steps right.",
+      "gold": "Yes"
+    },
+    "5": {
+      "instructions": "Always face forward. Take 10 steps backward. Take 7 steps backward. Take 8 steps right. Take 6 steps right. Take 3 steps left.",
+      "gold": "No"
+    },
+    "6": {
+      "instructions": "Take 8 steps. Turn around. Take 8 steps.",
+      "gold": "Yes"
+    },
+    "7": {
+      "instructions": "Always face forward. Take 6 steps right. Take 1 step forward. Take 10 steps left. Take 8 steps forward. Take 9 steps backward. Take 4 steps right.",
+      "gold": "Yes"
+    },
+    "8": {
+      "instructions": "Always face forward. Take 6 steps forward. Take 7 steps backward. Take 7 steps backward. Take 8 steps forward.",
+      "gold": "Yes"
+    },
+    "9": {
+      "instructions": "Take 5 steps. Take 4 steps. Take 3 steps.",
+      "gold": "No"
+    },
+    "10": {
+      "instructions": "Always face forward. Take 8 steps backward. Take 9 steps forward. Take 4 steps forward. Take 2 steps left. Take 4 steps forward. Take 6 steps forward. Take 10 steps backward. Take 8 steps right. Take 1 step left.",
+      "gold": "No"
+    },
+    "11": {
+      "instructions": "Take 8 steps. Take 5 steps. Take 5 steps. Take 10 steps. Take 5 steps.",
+      "gold": "No"
+    },
+    "12": {
+      "instructions": "Take 3 steps. Take 6 steps. Take 8 steps. Take 5 steps. Take 6 steps. Take 2 steps. Take 1 step. Take 2 steps.",
+      "gold": "No"
+    },
+    "13": {
+      "instructions": "Take 3 steps. Turn around. Take 3 steps. Turn right.",
+      "gold": "Yes"
+    },
+    "14": {
+      "instructions": "Always face forward. Take 5 steps backward. Take 2 steps left. Take 5 steps right. Take 3 steps left. Take 5 steps backward. Take 10 steps forward.",
+      "gold": "Yes"
+    },
+    "15": {
+      "instructions": "Always face forward. Take 3 steps left. Take 10 steps right. Take 7 steps left.",
+      "gold": "Yes"
+    },
+    "16": {
+      "instructions": "Turn left. Turn right. Turn around. Turn left. Take 4 steps. Turn left. Turn around. Take 3 steps.",
+      "gold": "No"
+    },
+    "17": {
+      "instructions": "Always face forward. Take 9 steps forward. Take 1 step backward. Take 4 steps backward. Take 4 steps backward.",
+      "gold": "Yes"
+    },
+    "18": {
+      "instructions": "Take 3 steps. Turn around. Take 5 steps. Turn right. Turn right. Take 1 step. Take 1 step.",
+      "gold": "Yes"
+    },
+    "19": {
+      "instructions": "Take 3 steps. Take 6 steps. Take 9 steps.",
+      "gold": "No"
+    },
+    "20": {
+      "instructions": "Take 8 steps. Turn left. Take 9 steps. Take 7 steps. Turn around.",
+      "gold": "No"
+    },
+    "21": {
+      "instructions": "Always face forward. Take 6 steps backward. Take 6 steps forward. Take 6 steps right.",
+      "gold": "No"
+    },
+    "22": {
+      "instructions": "Take 4 steps. Take 2 steps. Turn around. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "23": {
+      "instructions": "Always face forward. Take 1 step forward. Take 10 steps left. Take 4 steps forward.",
+      "gold": "No"
+    },
+    "24": {
+      "instructions": "Take 7 steps. Turn right. Turn right. Take 6 steps. Turn right.",
+      "gold": "No"
+    },
+    "25": {
+      "instructions": "Always face forward. Take 2 steps backward. Take 8 steps backward.",
+      "gold": "No"
+    },
+    "26": {
+      "instructions": "Take 9 steps. Take 6 steps. Take 9 steps. Take 6 steps. Take 2 steps. Turn left. Take 6 steps. Turn around. Take 8 steps.",
+      "gold": "No"
+    },
+    "27": {
+      "instructions": "Take 10 steps. Turn around. Take 4 steps. Take 6 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "28": {
+      "instructions": "Always face forward. Take 8 steps forward. Take 5 steps backward. Take 5 steps left. Take 5 steps forward.",
+      "gold": "No"
+    },
+    "29": {
+      "instructions": "Turn left. Take 5 steps. Turn around. Turn right.",
+      "gold": "No"
+    },
+    "30": {
+      "instructions": "Always face forward. Take 5 steps forward. Take 7 steps backward. Take 10 steps backward.",
+      "gold": "No"
+    },
+    "31": {
+      "instructions": "Take 7 steps. Take 7 steps. Take 10 steps. Take 1 step. Turn left. Take 7 steps.",
+      "gold": "No"
+    },
+    "32": {
+      "instructions": "Always face forward. Take 4 steps forward. Take 5 steps right. Take 7 steps left.",
+      "gold": "No"
+    },
+    "33": {
+      "instructions": "Take 10 steps. Turn left. Turn left. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "34": {
+      "instructions": "Take 3 steps. Take 5 steps. Take 8 steps. Turn right. Turn right. Take 5 steps. Turn around. Take 2 steps. Take 4 steps.",
+      "gold": "No"
+    },
+    "35": {
+      "instructions": "Take 7 steps. Take 8 steps. Turn right. Turn right. Take 1 step. Take 7 steps. Take 6 steps. Take 1 step.",
+      "gold": "Yes"
+    },
+    "36": {
+      "instructions": "Always face forward. Take 7 steps forward. Take 4 steps backward. Take 4 steps backward. Take 5 steps forward. Take 7 steps forward. Take 10 steps backward. Take 1 step backward.",
+      "gold": "Yes"
+    },
+    "37": {
+      "instructions": "Always face forward. Take 9 steps forward. Take 7 steps left. Take 5 steps backward. Take 4 steps right. Take 3 steps right. Take 4 steps backward.",
+      "gold": "Yes"
+    },
+    "38": {
+      "instructions": "Always face forward. Take 6 steps right. Take 5 steps right. Take 7 steps left. Take 3 steps left. Take 7 steps left. Take 6 steps right.",
+      "gold": "Yes"
+    },
+    "39": {
+      "instructions": "Take 1 step. Take 5 steps. Turn around. Turn around. Turn around. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "40": {
+      "instructions": "Always face forward. Take 2 steps forward. Take 2 steps backward.",
+      "gold": "Yes"
+    },
+    "41": {
+      "instructions": "Always face forward. Take 8 steps left. Take 6 steps right. Take 10 steps right. Take 2 steps left. Take 5 steps left. Take 1 step left.",
+      "gold": "Yes"
+    },
+    "42": {
+      "instructions": "Take 6 steps. Take 10 steps. Take 10 steps. Take 1 step. Take 7 steps. Take 5 steps. Turn around.",
+      "gold": "No"
+    },
+    "43": {
+      "instructions": "Always face forward. Take 7 steps left. Take 2 steps backward. Take 7 steps backward. Take 7 steps backward. Take 3 steps forward.",
+      "gold": "No"
+    },
+    "44": {
+      "instructions": "Take 6 steps. Take 8 steps. Take 7 steps. Turn around. Take 6 steps.",
+      "gold": "No"
+    },
+    "45": {
+      "instructions": "Always face forward. Take 7 steps forward. Take 7 steps backward. Take 10 steps backward. Take 10 steps forward.",
+      "gold": "Yes"
+    },
+    "46": {
+      "instructions": "Turn right. Take 9 steps. Turn around. Take 9 steps. Turn right.",
+      "gold": "Yes"
+    },
+    "47": {
+      "instructions": "Turn right. Take 9 steps. Take 10 steps. Turn left. Take 10 steps. Turn right. Turn around. Take 4 steps.",
+      "gold": "No"
+    },
+    "48": {
+      "instructions": "Turn left. Turn around. Take 1 step. Take 10 steps. Turn around. Take 7 steps. Take 4 steps.",
+      "gold": "Yes"
+    },
+    "49": {
+      "instructions": "Always face forward. Take 2 steps right. Take 4 steps right. Take 6 steps left.",
+      "gold": "Yes"
+    },
+    "50": {
+      "instructions": "Always face forward. Take 7 steps right. Take 1 step forward. Take 3 steps left. Take 2 steps left.",
+      "gold": "No"
+    },
+    "51": {
+      "instructions": "Take 10 steps. Take 7 steps. Turn around. Take 8 steps. Take 9 steps.",
+      "gold": "Yes"
+    },
+    "52": {
+      "instructions": "Always face forward. Take 2 steps right. Take 2 steps right. Take 4 steps left.",
+      "gold": "Yes"
+    },
+    "53": {
+      "instructions": "Always face forward. Take 6 steps left. Take 7 steps forward. Take 8 steps left. Take 7 steps left. Take 6 steps forward. Take 1 step forward. Take 4 steps forward.",
+      "gold": "No"
+    },
+    "54": {
+      "instructions": "Take 9 steps. Take 5 steps. Take 2 steps. Take 10 steps. Turn right. Take 10 steps. Take 8 steps.",
+      "gold": "No"
+    },
+    "55": {
+      "instructions": "Turn right. Take 3 steps. Turn around. Take 3 steps. Turn left.",
+      "gold": "Yes"
+    },
+    "56": {
+      "instructions": "Always face forward. Take 9 steps left. Take 4 steps backward.",
+      "gold": "No"
+    },
+    "57": {
+      "instructions": "Take 9 steps. Turn left. Turn left. Take 5 steps. Take 4 steps. Turn left. Turn left.",
+      "gold": "Yes"
+    },
+    "58": {
+      "instructions": "Take 4 steps. Take 2 steps. Take 7 steps.",
+      "gold": "No"
+    },
+    "59": {
+      "instructions": "Take 8 steps. Take 1 step. Take 8 steps. Turn right.",
+      "gold": "No"
+    },
+    "60": {
+      "instructions": "Always face forward. Take 5 steps left. Take 5 steps left. Take 10 steps right.",
+      "gold": "Yes"
+    },
+    "61": {
+      "instructions": "Take 6 steps. Take 2 steps. Take 6 steps.",
+      "gold": "No"
+    },
+    "62": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 10 steps right. Take 10 steps backward. Take 3 steps forward. Take 7 steps forward. Take 9 steps left.",
+      "gold": "No"
+    },
+    "63": {
+      "instructions": "Always face forward. Take 7 steps left. Take 8 steps left. Take 1 step left. Take 9 steps left. Take 10 steps forward. Take 5 steps forward.",
+      "gold": "No"
+    },
+    "64": {
+      "instructions": "Always face forward. Take 1 step right. Take 9 steps left. Take 9 steps right. Take 1 step backward. Take 3 steps right. Take 6 steps backward.",
+      "gold": "No"
+    },
+    "65": {
+      "instructions": "Turn left. Take 4 steps. Turn around. Take 4 steps.",
+      "gold": "Yes"
+    },
+    "66": {
+      "instructions": "Always face forward. Take 7 steps forward. Take 3 steps backward. Take 4 steps backward.",
+      "gold": "Yes"
+    },
+    "67": {
+      "instructions": "Take 5 steps. Turn around. Take 10 steps. Turn right. Take 10 steps.",
+      "gold": "No"
+    },
+    "68": {
+      "instructions": "Always face forward. Take 1 step right. Take 4 steps right. Take 5 steps left.",
+      "gold": "Yes"
+    },
+    "69": {
+      "instructions": "Take 3 steps. Turn left. Turn left. Turn around. Take 5 steps. Turn around. Take 5 steps.",
+      "gold": "No"
+    },
+    "70": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 4 steps backward. Take 6 steps forward.",
+      "gold": "No"
+    },
+    "71": {
+      "instructions": "Always face forward. Take 8 steps backward. Take 2 steps backward. Take 10 steps forward.",
+      "gold": "Yes"
+    },
+    "72": {
+      "instructions": "Always face forward. Take 6 steps forward. Take 2 steps backward. Take 4 steps backward.",
+      "gold": "Yes"
+    },
+    "73": {
+      "instructions": "Take 5 steps. Take 5 steps. Take 2 steps. Turn around. Take 8 steps. Take 4 steps.",
+      "gold": "Yes"
+    },
+    "74": {
+      "instructions": "Always face forward. Take 4 steps forward. Take 2 steps backward. Take 10 steps backward.",
+      "gold": "No"
+    },
+    "75": {
+      "instructions": "Always face forward. Take 9 steps left. Take 7 steps forward. Take 9 steps right. Take 7 steps left. Take 7 steps backward. Take 8 steps right. Take 10 steps left. Take 1 step backward. Take 1 step forward.",
+      "gold": "No"
+    },
+    "76": {
+      "instructions": "Always face forward. Take 9 steps backward. Take 2 steps forward. Take 1 step backward. Take 8 steps forward.",
+      "gold": "Yes"
+    },
+    "77": {
+      "instructions": "Take 1 step. Take 5 steps. Take 1 step. Take 6 steps. Turn left. Take 7 steps. Take 2 steps. Take 4 steps.",
+      "gold": "No"
+    },
+    "78": {
+      "instructions": "Always face forward. Take 1 step backward. Take 5 steps right. Take 3 steps left. Take 1 step backward. Take 5 steps backward. Take 4 steps forward. Take 3 steps forward. Take 2 steps left.",
+      "gold": "Yes"
+    },
+    "79": {
+      "instructions": "Always face forward. Take 5 steps right. Take 8 steps backward. Take 1 step right. Take 7 steps backward.",
+      "gold": "No"
+    },
+    "80": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 4 steps forward. Take 7 steps backward. Take 7 steps backward.",
+      "gold": "Yes"
+    },
+    "81": {
+      "instructions": "Turn around. Turn left. Take 1 step. Take 2 steps. Turn around. Turn around. Turn around. Take 3 steps.",
+      "gold": "Yes"
+    },
+    "82": {
+      "instructions": "Always face forward. Take 8 steps forward. Take 9 steps right. Take 2 steps forward. Take 10 steps backward. Take 9 steps left.",
+      "gold": "Yes"
+    },
+    "83": {
+      "instructions": "Take 8 steps. Take 1 step. Turn left. Turn left. Take 9 steps.",
+      "gold": "Yes"
+    },
+    "84": {
+      "instructions": "Take 2 steps. Turn around. Turn right. Turn left. Take 2 steps. Turn around. Turn around.",
+      "gold": "Yes"
+    },
+    "85": {
+      "instructions": "Always face forward. Take 1 step backward. Take 5 steps forward. Take 10 steps backward. Take 9 steps forward. Take 7 steps right.",
+      "gold": "No"
+    },
+    "86": {
+      "instructions": "Always face forward. Take 1 step forward. Take 10 steps forward. Take 6 steps backward. Take 7 steps backward. Take 1 step left. Take 10 steps right.",
+      "gold": "No"
+    },
+    "87": {
+      "instructions": "Always face forward. Take 10 steps left. Take 4 steps forward. Take 1 step left. Take 4 steps backward.",
+      "gold": "No"
+    },
+    "88": {
+      "instructions": "Always face forward. Take 3 steps right. Take 5 steps right. Take 2 steps backward.",
+      "gold": "No"
+    },
+    "89": {
+      "instructions": "Turn left. Turn right. Take 8 steps. Take 4 steps. Turn right. Turn right. Take 10 steps. Take 1 step. Take 1 step.",
+      "gold": "Yes"
+    },
+    "90": {
+      "instructions": "Turn around. Turn around. Take 7 steps. Take 6 steps. Take 5 steps.",
+      "gold": "No"
+    },
+    "91": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 8 steps right. Take 8 steps right. Take 9 steps left. Take 6 steps right. Take 2 steps forward. Take 9 steps backward.",
+      "gold": "No"
+    },
+    "92": {
+      "instructions": "Turn left. Take 9 steps. Take 9 steps.",
+      "gold": "No"
+    },
+    "93": {
+      "instructions": "Always face forward. Take 6 steps left. Take 3 steps backward. Take 3 steps left.",
+      "gold": "No"
+    },
+    "94": {
+      "instructions": "Take 7 steps. Turn around. Take 10 steps. Take 2 steps. Turn around. Take 5 steps. Turn left.",
+      "gold": "Yes"
+    },
+    "95": {
+      "instructions": "Turn left. Turn left. Take 10 steps. Take 6 steps. Turn left. Take 3 steps. Take 3 steps.",
+      "gold": "No"
+    },
+    "96": {
+      "instructions": "Take 2 steps. Take 8 steps. Take 8 steps. Take 6 steps.",
+      "gold": "No"
+    },
+    "97": {
+      "instructions": "Take 6 steps. Turn right. Turn right. Take 7 steps. Turn around. Take 1 step.",
+      "gold": "Yes"
+    },
+    "98": {
+      "instructions": "Always face forward. Take 9 steps right. Take 6 steps right. Take 10 steps backward. Take 9 steps left. Take 4 steps left.",
+      "gold": "No"
+    },
+    "99": {
+      "instructions": "Take 3 steps. Take 6 steps. Take 6 steps. Turn left. Take 8 steps. Take 1 step. Take 3 steps. Take 7 steps. Take 8 steps.",
+      "gold": "No"
+    },
+    "100": {
+      "instructions": "Always face forward. Take 6 steps backward. Take 2 steps backward. Take 1 step forward. Take 6 steps forward. Take 3 steps forward.",
+      "gold": "No"
+    },
+    "101": {
+      "instructions": "Take 7 steps. Turn around. Take 7 steps. Turn left. Turn around. Turn around. Turn left.",
+      "gold": "Yes"
+    },
+    "102": {
+      "instructions": "Turn around. Turn right. Take 7 steps. Turn right.",
+      "gold": "No"
+    },
+    "103": {
+      "instructions": "Always face forward. Take 4 steps right. Take 7 steps right. Take 1 step left. Take 4 steps left. Take 6 steps left.",
+      "gold": "Yes"
+    },
+    "104": {
+      "instructions": "Turn left. Take 7 steps. Turn left. Turn left. Take 9 steps. Take 2 steps. Turn left. Take 4 steps.",
+      "gold": "No"
+    },
+    "105": {
+      "instructions": "Take 6 steps. Turn left. Take 4 steps. Take 4 steps.",
+      "gold": "No"
+    },
+    "106": {
+      "instructions": "Take 6 steps. Turn left. Take 6 steps. Turn around. Take 2 steps. Take 10 steps.",
+      "gold": "No"
+    },
+    "107": {
+      "instructions": "Take 2 steps. Take 2 steps. Turn around. Take 4 steps. Turn right.",
+      "gold": "Yes"
+    },
+    "108": {
+      "instructions": "Always face forward. Take 5 steps right. Take 7 steps left. Take 8 steps right. Take 6 steps left.",
+      "gold": "Yes"
+    },
+    "109": {
+      "instructions": "Take 5 steps. Take 8 steps. Take 2 steps. Turn right. Take 8 steps. Turn left. Take 6 steps. Take 6 steps.",
+      "gold": "No"
+    },
+    "110": {
+      "instructions": "Take 10 steps. Take 8 steps. Turn left. Take 3 steps. Take 1 step. Take 6 steps. Take 7 steps.",
+      "gold": "No"
+    },
+    "111": {
+      "instructions": "Turn around. Turn left. Take 6 steps. Take 4 steps.",
+      "gold": "No"
+    },
+    "112": {
+      "instructions": "Always face forward. Take 5 steps left. Take 4 steps left. Take 1 step left. Take 2 steps left. Take 2 steps right. Take 3 steps left. Take 5 steps forward. Take 3 steps backward.",
+      "gold": "No"
+    },
+    "113": {
+      "instructions": "Take 8 steps. Take 9 steps. Turn around. Take 5 steps. Turn left.",
+      "gold": "No"
+    },
+    "114": {
+      "instructions": "Always face forward. Take 10 steps left. Take 10 steps right. Take 7 steps backward. Take 7 steps forward.",
+      "gold": "Yes"
+    },
+    "115": {
+      "instructions": "Always face forward. Take 10 steps left. Take 7 steps right. Take 4 steps right. Take 1 step left.",
+      "gold": "Yes"
+    },
+    "116": {
+      "instructions": "Take 8 steps. Take 2 steps. Turn right. Turn right. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "117": {
+      "instructions": "Always face forward. Take 7 steps backward. Take 6 steps forward. Take 6 steps backward. Take 7 steps forward.",
+      "gold": "Yes"
+    },
+    "118": {
+      "instructions": "Take 6 steps. Turn left. Turn left. Take 1 step. Take 5 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "119": {
+      "instructions": "Always face forward. Take 4 steps backward. Take 8 steps forward. Take 10 steps backward. Take 2 steps forward. Take 4 steps forward.",
+      "gold": "Yes"
+    },
+    "120": {
+      "instructions": "Always face forward. Take 3 steps forward. Take 3 steps backward.",
+      "gold": "Yes"
+    },
+    "121": {
+      "instructions": "Take 7 steps. Take 6 steps. Take 5 steps. Turn around. Take 5 steps. Take 3 steps. Take 4 steps. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "122": {
+      "instructions": "Always face forward. Take 4 steps right. Take 5 steps right. Take 9 steps left.",
+      "gold": "Yes"
+    },
+    "123": {
+      "instructions": "Turn left. Turn left. Turn around. Take 1 step. Take 6 steps. Turn left. Turn left. Take 7 steps.",
+      "gold": "Yes"
+    },
+    "124": {
+      "instructions": "Take 6 steps. Take 5 steps. Take 6 steps.",
+      "gold": "No"
+    },
+    "125": {
+      "instructions": "Always face forward. Take 9 steps right. Take 10 steps left. Take 10 steps backward. Take 3 steps backward. Take 5 steps backward. Take 8 steps forward.",
+      "gold": "No"
+    },
+    "126": {
+      "instructions": "Turn right. Take 2 steps. Take 8 steps. Turn around.",
+      "gold": "No"
+    },
+    "127": {
+      "instructions": "Always face forward. Take 6 steps backward. Take 8 steps left. Take 3 steps right. Take 7 steps forward. Take 3 steps right. Take 9 steps right. Take 1 step backward. Take 7 steps left.",
+      "gold": "Yes"
+    },
+    "128": {
+      "instructions": "Turn left. Take 5 steps. Take 9 steps. Take 7 steps. Turn around. Take 1 step. Take 10 steps.",
+      "gold": "No"
+    },
+    "129": {
+      "instructions": "Always face forward. Take 7 steps backward. Take 1 step forward. Take 1 step backward. Take 5 steps forward. Take 6 steps backward. Take 8 steps forward.",
+      "gold": "Yes"
+    },
+    "130": {
+      "instructions": "Always face forward. Take 8 steps right. Take 5 steps forward. Take 10 steps forward.",
+      "gold": "No"
+    },
+    "131": {
+      "instructions": "Take 10 steps. Take 2 steps. Take 3 steps. Turn around. Take 4 steps. Turn around. Take 4 steps.",
+      "gold": "No"
+    },
+    "132": {
+      "instructions": "Always face forward. Take 1 step right. Take 2 steps forward. Take 2 steps right. Take 4 steps right.",
+      "gold": "No"
+    },
+    "133": {
+      "instructions": "Always face forward. Take 2 steps forward. Take 2 steps backward. Take 4 steps right. Take 7 steps right.",
+      "gold": "No"
+    },
+    "134": {
+      "instructions": "Take 5 steps. Take 4 steps. Turn around. Take 10 steps. Take 8 steps. Turn around. Take 2 steps. Take 7 steps.",
+      "gold": "Yes"
+    },
+    "135": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 3 steps backward.",
+      "gold": "No"
+    },
+    "136": {
+      "instructions": "Always face forward. Take 9 steps left. Take 4 steps forward. Take 2 steps forward.",
+      "gold": "No"
+    },
+    "137": {
+      "instructions": "Always face forward. Take 2 steps left. Take 4 steps backward. Take 10 steps right. Take 2 steps left. Take 3 steps left. Take 7 steps right.",
+      "gold": "No"
+    },
+    "138": {
+      "instructions": "Take 2 steps. Turn right. Take 6 steps. Take 10 steps. Take 7 steps.",
+      "gold": "No"
+    },
+    "139": {
+      "instructions": "Always face forward. Take 1 step right. Take 4 steps forward. Take 8 steps forward. Take 6 steps backward. Take 1 step left. Take 6 steps right.",
+      "gold": "No"
+    },
+    "140": {
+      "instructions": "Always face forward. Take 9 steps left. Take 5 steps right. Take 2 steps left. Take 2 steps right. Take 6 steps forward. Take 10 steps backward. Take 1 step forward. Take 6 steps left.",
+      "gold": "No"
+    },
+    "141": {
+      "instructions": "Always face forward. Take 8 steps left. Take 8 steps right.",
+      "gold": "Yes"
+    },
+    "142": {
+      "instructions": "Take 5 steps. Take 10 steps. Turn around.",
+      "gold": "No"
+    },
+    "143": {
+      "instructions": "Always face forward. Take 5 steps left. Take 7 steps left. Take 2 steps left.",
+      "gold": "No"
+    },
+    "144": {
+      "instructions": "Take 1 step. Take 5 steps. Take 10 steps. Take 4 steps. Take 4 steps. Take 1 step. Turn right.",
+      "gold": "No"
+    },
+    "145": {
+      "instructions": "Turn left. Turn right. Take 5 steps. Take 4 steps. Turn around. Take 9 steps.",
+      "gold": "Yes"
+    },
+    "146": {
+      "instructions": "Turn around. Turn around. Turn left. Take 7 steps. Take 8 steps.",
+      "gold": "No"
+    },
+    "147": {
+      "instructions": "Turn right. Turn around. Take 2 steps. Take 6 steps. Take 4 steps.",
+      "gold": "No"
+    },
+    "148": {
+      "instructions": "Always face forward. Take 8 steps left. Take 9 steps right. Take 1 step right.",
+      "gold": "No"
+    },
+    "149": {
+      "instructions": "Take 1 step. Take 5 steps. Take 1 step. Turn left. Turn left. Take 9 steps.",
+      "gold": "No"
+    },
+    "150": {
+      "instructions": "Take 2 steps. Turn around. Take 9 steps. Take 7 steps. Take 6 steps. Turn left. Take 2 steps.",
+      "gold": "No"
+    },
+    "151": {
+      "instructions": "Take 7 steps. Take 8 steps. Take 10 steps. Turn around. Turn around. Take 5 steps. Turn around.",
+      "gold": "No"
+    },
+    "152": {
+      "instructions": "Take 9 steps. Turn left. Turn left. Take 9 steps.",
+      "gold": "Yes"
+    },
+    "153": {
+      "instructions": "Always face forward. Take 3 steps forward. Take 9 steps backward.",
+      "gold": "No"
+    },
+    "154": {
+      "instructions": "Always face forward. Take 5 steps forward. Take 7 steps backward. Take 4 steps right. Take 10 steps backward. Take 4 steps backward.",
+      "gold": "No"
+    },
+    "155": {
+      "instructions": "Always face forward. Take 10 steps right. Take 3 steps forward. Take 8 steps right. Take 2 steps right.",
+      "gold": "No"
+    },
+    "156": {
+      "instructions": "Always face forward. Take 8 steps right. Take 8 steps left.",
+      "gold": "Yes"
+    },
+    "157": {
+      "instructions": "Always face forward. Take 1 step backward. Take 4 steps left. Take 4 steps left.",
+      "gold": "No"
+    },
+    "158": {
+      "instructions": "Always face forward. Take 5 steps forward. Take 8 steps backward. Take 4 steps forward. Take 4 steps right.",
+      "gold": "No"
+    },
+    "159": {
+      "instructions": "Take 5 steps. Turn around. Take 4 steps. Take 1 step. Turn left. Turn around. Turn left.",
+      "gold": "Yes"
+    },
+    "160": {
+      "instructions": "Take 10 steps. Turn around. Take 1 step. Take 9 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "161": {
+      "instructions": "Take 7 steps. Turn around. Take 7 steps.",
+      "gold": "Yes"
+    },
+    "162": {
+      "instructions": "Always face forward. Take 5 steps backward. Take 8 steps forward. Take 7 steps forward. Take 5 steps backward.",
+      "gold": "No"
+    },
+    "163": {
+      "instructions": "Always face forward. Take 1 step forward. Take 4 steps left. Take 6 steps left. Take 10 steps right. Take 7 steps backward. Take 5 steps left.",
+      "gold": "No"
+    },
+    "164": {
+      "instructions": "Take 1 step. Take 7 steps. Take 1 step.",
+      "gold": "No"
+    },
+    "165": {
+      "instructions": "Turn left. Turn left. Take 6 steps. Take 3 steps. Turn around. Take 1 step. Take 3 steps. Take 5 steps.",
+      "gold": "Yes"
+    },
+    "166": {
+      "instructions": "Take 10 steps. Turn around. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "167": {
+      "instructions": "Take 2 steps. Take 1 step. Take 8 steps. Take 4 steps. Turn right. Turn right. Take 4 steps. Turn left. Turn around.",
+      "gold": "No"
+    },
+    "168": {
+      "instructions": "Take 4 steps. Take 5 steps. Take 9 steps. Take 3 steps. Turn right.",
+      "gold": "No"
+    },
+    "169": {
+      "instructions": "Take 3 steps. Take 1 step. Take 10 steps.",
+      "gold": "No"
+    },
+    "170": {
+      "instructions": "Always face forward. Take 8 steps left. Take 2 steps right. Take 6 steps right.",
+      "gold": "Yes"
+    },
+    "171": {
+      "instructions": "Turn right. Take 10 steps. Turn around. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "172": {
+      "instructions": "Always face forward. Take 10 steps right. Take 8 steps backward. Take 1 step backward. Take 8 steps backward. Take 8 steps forward.",
+      "gold": "No"
+    },
+    "173": {
+      "instructions": "Always face forward. Take 7 steps backward. Take 4 steps left. Take 7 steps left. Take 7 steps right. Take 8 steps forward.",
+      "gold": "No"
+    },
+    "174": {
+      "instructions": "Take 10 steps. Turn left. Turn around. Take 9 steps. Take 8 steps. Turn right. Turn around. Take 8 steps.",
+      "gold": "No"
+    },
+    "175": {
+      "instructions": "Take 1 step. Take 2 steps. Turn right. Take 6 steps.",
+      "gold": "No"
+    },
+    "176": {
+      "instructions": "Take 2 steps. Take 10 steps. Turn around. Take 6 steps. Turn left. Turn right. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "177": {
+      "instructions": "Take 7 steps. Take 4 steps. Take 3 steps. Take 10 steps. Turn left. Turn around.",
+      "gold": "No"
+    },
+    "178": {
+      "instructions": "Always face forward. Take 8 steps backward. Take 8 steps forward. Take 10 steps forward. Take 8 steps backward. Take 8 steps right. Take 6 steps backward. Take 7 steps forward. Take 8 steps forward.",
+      "gold": "No"
+    },
+    "179": {
+      "instructions": "Turn left. Turn around. Take 4 steps. Take 5 steps. Turn left. Take 3 steps.",
+      "gold": "No"
+    },
+    "180": {
+      "instructions": "Take 6 steps. Take 2 steps. Take 2 steps. Turn left. Take 5 steps. Take 8 steps. Turn around.",
+      "gold": "No"
+    },
+    "181": {
+      "instructions": "Always face forward. Take 10 steps left. Take 7 steps right. Take 4 steps backward.",
+      "gold": "No"
+    },
+    "182": {
+      "instructions": "Take 10 steps. Take 4 steps. Take 7 steps. Take 1 step. Take 2 steps. Take 10 steps.",
+      "gold": "No"
+    },
+    "183": {
+      "instructions": "Always face forward. Take 6 steps forward. Take 10 steps right. Take 8 steps right.",
+      "gold": "No"
+    },
+    "184": {
+      "instructions": "Take 7 steps. Turn around. Take 7 steps. Turn left.",
+      "gold": "Yes"
+    },
+    "185": {
+      "instructions": "Always face forward. Take 4 steps forward. Take 5 steps left. Take 6 steps forward. Take 8 steps backward. Take 5 steps backward. Take 1 step backward. Take 1 step backward.",
+      "gold": "No"
+    },
+    "186": {
+      "instructions": "Take 2 steps. Take 3 steps. Turn around. Take 5 steps.",
+      "gold": "Yes"
+    },
+    "187": {
+      "instructions": "Take 2 steps. Take 10 steps. Take 8 steps.",
+      "gold": "No"
+    },
+    "188": {
+      "instructions": "Turn left. Take 9 steps. Take 2 steps. Take 5 steps. Turn right. Turn right. Take 5 steps. Take 10 steps. Take 1 step.",
+      "gold": "Yes"
+    },
+    "189": {
+      "instructions": "Turn right. Take 5 steps. Take 6 steps. Take 4 steps. Take 1 step. Turn around. Take 6 steps. Take 10 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "190": {
+      "instructions": "Always face forward. Take 8 steps left. Take 9 steps left. Take 8 steps right. Take 8 steps left. Take 3 steps right.",
+      "gold": "No"
+    },
+    "191": {
+      "instructions": "Always face forward. Take 9 steps backward. Take 9 steps forward.",
+      "gold": "Yes"
+    },
+    "192": {
+      "instructions": "Take 2 steps. Take 3 steps. Turn around. Take 4 steps. Take 1 step.",
+      "gold": "Yes"
+    },
+    "193": {
+      "instructions": "Always face forward. Take 10 steps backward. Take 9 steps backward. Take 9 steps backward. Take 9 steps left. Take 10 steps right. Take 3 steps right. Take 3 steps forward. Take 9 steps right.",
+      "gold": "No"
+    },
+    "194": {
+      "instructions": "Take 3 steps. Turn right. Turn left. Take 5 steps. Take 10 steps. Take 7 steps. Turn left.",
+      "gold": "No"
+    },
+    "195": {
+      "instructions": "Always face forward. Take 10 steps left. Take 10 steps right.",
+      "gold": "Yes"
+    },
+    "196": {
+      "instructions": "Take 1 step. Take 8 steps. Turn around. Take 8 steps.",
+      "gold": "No"
+    },
+    "197": {
+      "instructions": "Always face forward. Take 10 steps forward. Take 8 steps left. Take 3 steps backward. Take 7 steps right. Take 2 steps forward. Take 4 steps forward. Take 10 steps forward.",
+      "gold": "No"
+    },
+    "198": {
+      "instructions": "Always face forward. Take 4 steps forward. Take 9 steps right. Take 6 steps right. Take 8 steps right.",
+      "gold": "No"
+    },
+    "199": {
+      "instructions": "Take 3 steps. Take 5 steps. Turn around. Take 3 steps. Take 5 steps. Turn right. Turn right.",
+      "gold": "Yes"
+    },
+    "200": {
+      "instructions": "Always face forward. Take 2 steps backward. Take 5 steps backward. Take 5 steps right. Take 9 steps right.",
+      "gold": "No"
+    },
+    "201": {
+      "instructions": "Always face forward. Take 9 steps left. Take 10 steps forward. Take 9 steps right. Take 10 steps backward.",
+      "gold": "Yes"
+    },
+    "202": {
+      "instructions": "Take 4 steps. Turn around. Take 4 steps. Turn around. Turn right.",
+      "gold": "Yes"
+    },
+    "203": {
+      "instructions": "Take 6 steps. Take 4 steps. Turn around. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "204": {
+      "instructions": "Take 7 steps. Take 1 step. Take 7 steps. Turn left. Take 5 steps.",
+      "gold": "No"
+    },
+    "205": {
+      "instructions": "Take 10 steps. Turn left. Turn left. Take 9 steps. Take 3 steps. Take 3 steps. Turn around. Take 5 steps.",
+      "gold": "Yes"
+    },
+    "206": {
+      "instructions": "Turn left. Turn right. Take 7 steps. Turn around. Take 7 steps. Turn right. Turn left. Turn right.",
+      "gold": "Yes"
+    },
+    "207": {
+      "instructions": "Take 8 steps. Take 9 steps. Turn right. Turn right. Take 8 steps. Take 9 steps.",
+      "gold": "Yes"
+    },
+    "208": {
+      "instructions": "Take 6 steps. Turn around. Take 8 steps. Take 2 steps.",
+      "gold": "No"
+    },
+    "209": {
+      "instructions": "Always face forward. Take 1 step left. Take 4 steps forward. Take 6 steps forward.",
+      "gold": "No"
+    },
+    "210": {
+      "instructions": "Take 3 steps. Take 9 steps. Turn around. Take 2 steps. Take 7 steps. Take 3 steps.",
+      "gold": "Yes"
+    },
+    "211": {
+      "instructions": "Always face forward. Take 1 step backward. Take 1 step backward. Take 1 step backward. Take 3 steps forward.",
+      "gold": "Yes"
+    },
+    "212": {
+      "instructions": "Always face forward. Take 6 steps backward. Take 8 steps right. Take 1 step backward. Take 5 steps left. Take 2 steps left.",
+      "gold": "No"
+    },
+    "213": {
+      "instructions": "Always face forward. Take 9 steps left. Take 10 steps left. Take 3 steps left. Take 1 step left. Take 3 steps backward. Take 6 steps left. Take 3 steps forward. Take 4 steps right.",
+      "gold": "No"
+    },
+    "214": {
+      "instructions": "Always face forward. Take 4 steps left. Take 3 steps forward. Take 1 step right.",
+      "gold": "No"
+    },
+    "215": {
+      "instructions": "Always face forward. Take 3 steps right. Take 1 step backward. Take 6 steps left. Take 1 step forward. Take 3 steps right.",
+      "gold": "Yes"
+    },
+    "216": {
+      "instructions": "Turn right. Turn right. Turn around. Turn left. Take 4 steps. Take 10 steps. Take 8 steps.",
+      "gold": "No"
+    },
+    "217": {
+      "instructions": "Take 10 steps. Turn around. Take 9 steps. Take 10 steps. Turn around. Take 3 steps. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "218": {
+      "instructions": "Take 7 steps. Take 9 steps. Turn around. Turn right.",
+      "gold": "No"
+    },
+    "219": {
+      "instructions": "Turn around. Take 1 step. Take 2 steps. Take 9 steps. Take 7 steps. Turn left.",
+      "gold": "No"
+    },
+    "220": {
+      "instructions": "Turn right. Take 1 step. Take 7 steps. Take 1 step. Take 5 steps.",
+      "gold": "No"
+    },
+    "221": {
+      "instructions": "Take 1 step. Take 1 step. Take 3 steps. Turn left. Take 6 steps.",
+      "gold": "No"
+    },
+    "222": {
+      "instructions": "Take 5 steps. Take 3 steps. Take 2 steps. Turn around. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "223": {
+      "instructions": "Take 3 steps. Take 7 steps. Turn around. Take 10 steps.",
+      "gold": "Yes"
+    },
+    "224": {
+      "instructions": "Always face forward. Take 7 steps left. Take 2 steps right. Take 5 steps backward. Take 8 steps left. Take 7 steps forward. Take 7 steps right. Take 9 steps forward.",
+      "gold": "No"
+    },
+    "225": {
+      "instructions": "Always face forward. Take 7 steps backward. Take 9 steps left.",
+      "gold": "No"
+    },
+    "226": {
+      "instructions": "Turn around. Take 4 steps. Turn around. Take 4 steps.",
+      "gold": "Yes"
+    },
+    "227": {
+      "instructions": "Always face forward. Take 6 steps left. Take 6 steps right.",
+      "gold": "Yes"
+    },
+    "228": {
+      "instructions": "Turn right. Take 5 steps. Turn around. Take 5 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "229": {
+      "instructions": "Always face forward. Take 2 steps backward. Take 3 steps backward. Take 3 steps backward. Take 8 steps forward.",
+      "gold": "Yes"
+    },
+    "230": {
+      "instructions": "Take 3 steps. Take 10 steps. Take 4 steps. Take 1 step.",
+      "gold": "No"
+    },
+    "231": {
+      "instructions": "Take 9 steps. Turn around. Take 9 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "232": {
+      "instructions": "Always face forward. Take 10 steps right. Take 7 steps backward. Take 3 steps left. Take 8 steps backward. Take 3 steps backward. Take 8 steps right.",
+      "gold": "No"
+    },
+    "233": {
+      "instructions": "Take 7 steps. Turn around. Turn around. Turn around. Take 1 step. Take 6 steps.",
+      "gold": "Yes"
+    },
+    "234": {
+      "instructions": "Always face forward. Take 5 steps backward. Take 4 steps backward. Take 9 steps forward.",
+      "gold": "Yes"
+    },
+    "235": {
+      "instructions": "Always face forward. Take 5 steps left. Take 1 step backward. Take 4 steps right. Take 1 step backward. Take 8 steps left. Take 6 steps left.",
+      "gold": "No"
+    },
+    "236": {
+      "instructions": "Always face forward. Take 3 steps forward. Take 3 steps backward. Take 3 steps backward. Take 7 steps left. Take 7 steps right. Take 8 steps backward. Take 4 steps backward.",
+      "gold": "No"
+    },
+    "237": {
+      "instructions": "Turn around. Take 2 steps. Take 8 steps. Turn around. Take 10 steps. Turn around.",
+      "gold": "Yes"
+    },
+    "238": {
+      "instructions": "Always face forward. Take 6 steps forward. Take 4 steps forward. Take 9 steps backward. Take 1 step backward.",
+      "gold": "Yes"
+    },
+    "239": {
+      "instructions": "Take 5 steps. Take 5 steps. Take 7 steps. Take 10 steps.",
+      "gold": "No"
+    },
+    "240": {
+      "instructions": "Always face forward. Take 6 steps backward. Take 7 steps left. Take 4 steps backward. Take 8 steps backward. Take 3 steps left.",
+      "gold": "No"
+    },
+    "241": {
+      "instructions": "Always face forward. Take 2 steps backward. Take 4 steps backward. Take 6 steps forward.",
+      "gold": "Yes"
+    },
+    "242": {
+      "instructions": "Take 10 steps. Turn around. Turn right. Turn left.",
+      "gold": "No"
+    },
+    "243": {
+      "instructions": "Always face forward. Take 7 steps left. Take 8 steps right. Take 10 steps backward. Take 4 steps left.",
+      "gold": "No"
+    },
+    "244": {
+      "instructions": "Always face forward. Take 5 steps right. Take 4 steps backward. Take 8 steps left. Take 5 steps left. Take 6 steps backward. Take 9 steps forward. Take 5 steps right. Take 1 step forward. Take 3 steps right.",
+      "gold": "Yes"
+    },
+    "245": {
+      "instructions": "Always face forward. Take 6 steps right. Take 1 step forward. Take 4 steps right. Take 4 steps left. Take 8 steps left. Take 2 steps forward. Take 9 steps forward. Take 3 steps left.",
+      "gold": "No"
+    },
+    "246": {
+      "instructions": "Turn left. Take 9 steps. Take 3 steps. Turn right.",
+      "gold": "No"
+    },
+    "247": {
+      "instructions": "Always face forward. Take 6 steps right. Take 9 steps left. Take 5 steps left. Take 8 steps right.",
+      "gold": "Yes"
+    },
+    "248": {
+      "instructions": "Always face forward. Take 4 steps left. Take 5 steps backward. Take 2 steps forward.",
+      "gold": "No"
+    },
+    "249": {
+      "instructions": "Always face forward. Take 10 steps backward. Take 8 steps backward. Take 10 steps forward. Take 7 steps backward. Take 1 step forward. Take 7 steps right. Take 1 step left. Take 1 step right.",
+      "gold": "No"
+    },
+    "250": {
+      "instructions": "Always face forward. Take 7 steps backward. Take 10 steps right. Take 4 steps forward. Take 1 step left.",
+      "gold": "No"
+    }
+  }
+}

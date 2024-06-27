@@ -1,0 +1,2310 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "disambiguation_qa",
+  "format": "multi_choice",
+  "task_type": "nlp",
+  "num_of_instances": 250,
+  "description": "Clarify the meaning of sentences with ambiguous pronouns.",
+  "more_info": {
+    "input_templates": [
+      "Q: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: {sentence}\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "sentence",
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "sentence": "The chief told the counselor that they took the day off.",
+        "options": [
+          "(A) The chief took the day off",
+          "(B) The counselor took the day off",
+          "(C) Ambiguous"
+        ],
+        "gold": "A",
+        "explanation": "Here we need to determine who the pronoun \"they\" might be referring to. There are two possible referents for \"they\", namely the chief and the counselor. The verb \"told\" might be able to help us determine which one is more likely (if either). Let X be the chief and Y the counselor. The sentence is then of the form \"X told Y that (X or Y) did something.\"\nLet's consider Y first: \"X told Y that Y did something.\" This case does not make much sense, as Y would already have the information that Y did something, because it is information about themself.\nNow, consider X: \"X told Y that X did something.\" This makes sense, because X would be sharing some information about themself that Y might not have known before.\nBecause in this context, X is the chief and Y is the counselor, the answer should be the chief. So the answer is (A)."
+      },
+      "1": {
+        "sentence": "The manager sent a message to the secretary, but he didn't reply yet.",
+        "options": [
+          "(A) The secretary didn't reply yet",
+          "(B) The manager didn't reply yet",
+          "(C) Ambiguous"
+        ],
+        "gold": "A",
+        "explanation": "Here we need to determine who the pronoun \"he\" might be referring to. There are two possible referents for \"he\", namely the manager and the secretary. The verbs \"sent\" and \"reply\" might be able to help us determine which one is more likely (if either). Let X be the manager and Y the secretary. The sentence is then of the form \"X sent a message to Y, but (X or Y) didn't reply yet.\"\nLet's consider Y first: \"X sent a message to Y, but Y didn't reply yet.\" This case makes sense, because of the implicit causality of the sentence. Y was the receiver of the message, but Y didn't get back to X yet.\nNow, consider X: \"X sent a message to Y, but X didn't reply yet.\" This case doesn't make sense, because X was the initial sender of the message, so it is now Y's turn to write back to X.\nBecause in this context, X is the manager and Y is the secretary, the answer should be the secretary. So the answer is (A)."
+      },
+      "2": {
+        "sentence": "Bailey will plan to meet the director at his office",
+        "options": [
+          "(A) It will be Bailey's office",
+          "(B) It will be the director's office",
+          "(C) Ambiguous"
+        ],
+        "gold": "C",
+        "explanation": "Here we need to determine who the pronoun \"his\" might be referring to. There are two possible referents for \"his\", namely Bailey's and the director's. The verb phrase \"plan to meet\" might be able to help us determine which one is more likely (if either). Let X be Bailey and Y the director. The sentence is then of the form \"X will plan to meet Y at (X or Y)'s office.\"\nLet's consider Y first: \"X will plan to meet Y at Y's office.\" This case makes sense, because X might want to meet up with Y at Y's office.\nNow, consider X: \"X will plan to meet Y at X's office.\" This case also makes sense, because X might want to meet up with Y at X's own office.\nBecause both X and Y are possible at the same time, we conclude that the antecedent of the pronoun is ambiguous. So the answer is (C)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The chief told the counselor that they took the day off.\nOptions:\n(A) The chief took the day off\n(B) The counselor took the day off\n(C) Ambiguous\nA: (A)\nExplanation: Here we need to determine who the pronoun \"they\" might be referring to. There are two possible referents for \"they\", namely the chief and the counselor. The verb \"told\" might be able to help us determine which one is more likely (if either). Let X be the chief and Y the counselor. The sentence is then of the form \"X told Y that (X or Y) did something.\"\nLet's consider Y first: \"X told Y that Y did something.\" This case does not make much sense, as Y would already have the information that Y did something, because it is information about themself.\nNow, consider X: \"X told Y that X did something.\" This makes sense, because X would be sharing some information about themself that Y might not have known before.\nBecause in this context, X is the chief and Y is the counselor, the answer should be the chief. So the answer is (A).",
+      "Q: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The manager sent a message to the secretary, but he didn't reply yet.\nOptions:\n(A) The secretary didn't reply yet\n(B) The manager didn't reply yet\n(C) Ambiguous\nA: (A)\nExplanation: Here we need to determine who the pronoun \"he\" might be referring to. There are two possible referents for \"he\", namely the manager and the secretary. The verbs \"sent\" and \"reply\" might be able to help us determine which one is more likely (if either). Let X be the manager and Y the secretary. The sentence is then of the form \"X sent a message to Y, but (X or Y) didn't reply yet.\"\nLet's consider Y first: \"X sent a message to Y, but Y didn't reply yet.\" This case makes sense, because of the implicit causality of the sentence. Y was the receiver of the message, but Y didn't get back to X yet.\nNow, consider X: \"X sent a message to Y, but X didn't reply yet.\" This case doesn't make sense, because X was the initial sender of the message, so it is now Y's turn to write back to X.\nBecause in this context, X is the manager and Y is the secretary, the answer should be the secretary. So the answer is (A).",
+      "Q: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: Bailey will plan to meet the director at his office\nOptions:\n(A) It will be Bailey's office\n(B) It will be the director's office\n(C) Ambiguous\nA: (C)\nExplanation: Here we need to determine who the pronoun \"his\" might be referring to. There are two possible referents for \"his\", namely Bailey's and the director's. The verb phrase \"plan to meet\" might be able to help us determine which one is more likely (if either). Let X be Bailey and Y the director. The sentence is then of the form \"X will plan to meet Y at (X or Y)'s office.\"\nLet's consider Y first: \"X will plan to meet Y at Y's office.\" This case makes sense, because X might want to meet up with Y at Y's office.\nNow, consider X: \"X will plan to meet Y at X's office.\" This case also makes sense, because X might want to meet up with Y at X's own office.\nBecause both X and Y are possible at the same time, we conclude that the antecedent of the pronoun is ambiguous. So the answer is (C)."
+    ],
+    "cot_prompt_intro": "Clarify the meaning of sentences with ambiguous pronouns.\n\nQ: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The chief told the counselor that they took the day off.\nOptions:\n(A) The chief took the day off\n(B) The counselor took the day off\n(C) Ambiguous\nA: Let's think step by step.\nHere we need to determine who the pronoun \"they\" might be referring to. There are two possible referents for \"they\", namely the chief and the counselor. The verb \"told\" might be able to help us determine which one is more likely (if either). Let X be the chief and Y the counselor. The sentence is then of the form \"X told Y that (X or Y) did something.\"\nLet's consider Y first: \"X told Y that Y did something.\" This case does not make much sense, as Y would already have the information that Y did something, because it is information about themself.\nNow, consider X: \"X told Y that X did something.\" This makes sense, because X would be sharing some information about themself that Y might not have known before.\nBecause in this context, X is the chief and Y is the counselor, the answer should be the chief. So the answer is (A).\n\nQ: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: The manager sent a message to the secretary, but he didn't reply yet.\nOptions:\n(A) The secretary didn't reply yet\n(B) The manager didn't reply yet\n(C) Ambiguous\nA: Let's think step by step.\nHere we need to determine who the pronoun \"he\" might be referring to. There are two possible referents for \"he\", namely the manager and the secretary. The verbs \"sent\" and \"reply\" might be able to help us determine which one is more likely (if either). Let X be the manager and Y the secretary. The sentence is then of the form \"X sent a message to Y, but (X or Y) didn't reply yet.\"\nLet's consider Y first: \"X sent a message to Y, but Y didn't reply yet.\" This case makes sense, because of the implicit causality of the sentence. Y was the receiver of the message, but Y didn't get back to X yet.\nNow, consider X: \"X sent a message to Y, but X didn't reply yet.\" This case doesn't make sense, because X was the initial sender of the message, so it is now Y's turn to write back to X.\nBecause in this context, X is the manager and Y is the secretary, the answer should be the secretary. So the answer is (A).\n\nQ: In the following sentences, explain the antecedent of the pronoun (which thing the pronoun refers to), or state that it is ambiguous.\nSentence: Bailey will plan to meet the director at his office\nOptions:\n(A) It will be Bailey's office\n(B) It will be the director's office\n(C) Ambiguous\nA: Let's think step by step.\nHere we need to determine who the pronoun \"his\" might be referring to. There are two possible referents for \"his\", namely Bailey's and the director's. The verb phrase \"plan to meet\" might be able to help us determine which one is more likely (if either). Let X be Bailey and Y the director. The sentence is then of the form \"X will plan to meet Y at (X or Y)'s office.\"\nLet's consider Y first: \"X will plan to meet Y at Y's office.\" This case makes sense, because X might want to meet up with Y at Y's office.\nNow, consider X: \"X will plan to meet Y at X's office.\" This case also makes sense, because X might want to meet up with Y at X's own office.\nBecause both X and Y are possible at the same time, we conclude that the antecedent of the pronoun is ambiguous. So the answer is (C)."
+  },
+  "examples": {
+    "1": {
+      "sentence": "The patient was referred to the specialist because he had a rare skin condition.",
+      "options": [
+        "(A) The patient had a skin condition",
+        "(B) The specialist had a skin condition",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "2": {
+      "sentence": "The scientist collaborated with the artist, and he shared a story.",
+      "options": [
+        "(A) The scientist shared a story",
+        "(B) The artist shared a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "3": {
+      "sentence": "The developer was unable to communicate with the writer because she used big words.",
+      "options": [
+        "(A) The developer uses big words",
+        "(B) The writer uses big words",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "4": {
+      "sentence": "The scientist will collaborate with the artist, and he will share a story.",
+      "options": [
+        "(A) The scientist will share a story",
+        "(B) The artist will share a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "5": {
+      "sentence": "Bailey planned to meet the director at their office",
+      "options": [
+        "(A) The office was the director's office",
+        "(B) The office was Bailey's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "6": {
+      "sentence": "The developer argued with the designer because she liked the design.",
+      "options": [
+        "(A) The developer liked the design",
+        "(B) The designer liked the design",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "7": {
+      "sentence": "The investigator wanted to interview the witness in person, but she was too late.",
+      "options": [
+        "(A) The investigator was too late",
+        "(B) The witness was too late",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "8": {
+      "sentence": "The guard called the cleaner and asked them to open the door.",
+      "options": [
+        "(A) Asked the guard",
+        "(B) Asked the cleaner",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "9": {
+      "sentence": "The scientist collaborates with the artist, and he shares a story.",
+      "options": [
+        "(A) The scientist shares a story",
+        "(B) The artist shares a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "10": {
+      "sentence": "The customer and the chef discuss his culinary training.",
+      "options": [
+        "(A) It is the customer's culinary training",
+        "(B) It is the chef's culinary training",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "11": {
+      "sentence": "The mechanic disliked the cashier because he is arrogant.",
+      "options": [
+        "(A) The mechanic is arrogant",
+        "(B) The cashier is arrogant",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "12": {
+      "sentence": "Bailey planned to meet the director at his office",
+      "options": [
+        "(A) The office was the director's office",
+        "(B) The office was Bailey's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "13": {
+      "sentence": "The writer tried to fool the salesperson and told them a fake story.",
+      "options": [
+        "(A) Told the writer a fake story",
+        "(B) Told the salesperson a fake story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "14": {
+      "sentence": "This story could not be published without the writer and their friends' support.",
+      "options": [
+        "(A) They were the writer's friends",
+        "(B) They were the friends' friends",
+        "(C) They were the story's friends",
+        "(D) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "15": {
+      "sentence": "The chief thanked the housekeeper and gave her some tips.",
+      "options": [
+        "(A) Gave the chief some tips",
+        "(B) Gave the housekeeper some tips",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "16": {
+      "sentence": "The homeowner asked the inspector if the house they had purchased was structurally sound.",
+      "options": [
+        "(A) The homeowner had purchased",
+        "(B) The inspector had purchased",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "17": {
+      "sentence": "The developer was unable to communicate with the writer because he focuses on code.",
+      "options": [
+        "(A) The developer focuses on code",
+        "(B) The writer focuses on code",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "18": {
+      "sentence": "The supervisor gave the employee feedback on his stellar performance.",
+      "options": [
+        "(A) It was the supervisor's performance",
+        "(B) It was the employee's performance",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "19": {
+      "sentence": "The lawyer looked into illegal accusations against the cashier, because he needed to understand the case.",
+      "options": [
+        "(A) The lawyer needed to understand",
+        "(B) The cashier needed to understand",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "20": {
+      "sentence": "The mechanic called to inform the customer that his car would be ready in the morning.",
+      "options": [
+        "(A) It was the mechanic's car",
+        "(B) It was the customer's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "21": {
+      "sentence": "The worker told the pedestrian that they were repairing the sidewalk as quickly as possible.",
+      "options": [
+        "(A) The worker was repairing",
+        "(B) The pedestrian was repairing",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "22": {
+      "sentence": "The taxpayer met with the accountant to find out if they could help with tax preparation.",
+      "options": [
+        "(A) The taxpayer could help",
+        "(B) The accountant could help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "23": {
+      "sentence": "The developer argued with the designer because he liked the design.",
+      "options": [
+        "(A) The developer liked the design",
+        "(B) The designer liked the design",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "24": {
+      "sentence": "The cook is always teaching the assistant new techniques because they like to teach others.",
+      "options": [
+        "(A) The cook likes to teach",
+        "(B) The assistant likes to teach",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "25": {
+      "sentence": "The patient was referred to the specialist because he is an expert on rare skin conditions.",
+      "options": [
+        "(A) The patient is an expert",
+        "(B) The specialist is an expert",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "26": {
+      "sentence": "The technician told the customer that she had completed the repair.",
+      "options": [
+        "(A) The technician completed the repair",
+        "(B) The customer completed the repair",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "27": {
+      "sentence": "The carpenter collaborated with the designer and gave him a prototype.",
+      "options": [
+        "(A) Gave the carpenter a prototype",
+        "(B) Gave the designer a prototype",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "28": {
+      "sentence": "The secretary corrected the developer because they better understood the problem.",
+      "options": [
+        "(A) The secretary understood the problem",
+        "(B) The developer understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "29": {
+      "sentence": "The undergraduate applied to work with the scientist because he needed a lab assistant.",
+      "options": [
+        "(A) The undergraduate needed an assistant",
+        "(B) The scientist needed an assistant",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "30": {
+      "sentence": "The supervisor gave the employee feedback on their stellar performance.",
+      "options": [
+        "(A) It was the supervisor's performance",
+        "(B) It was the employee's performance",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "31": {
+      "sentence": "The salesperson tried to fool the writer and sold them some garbage.",
+      "options": [
+        "(A) Sold the salesperson some garbage",
+        "(B) Sold the writer some garbage",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "32": {
+      "sentence": "The driver yelled at the tailor after he broke a window.",
+      "options": [
+        "(A) The driver broke a window",
+        "(B) The tailor broke a window",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "33": {
+      "sentence": "The visitor told the teacher that he liked the cake.",
+      "options": [
+        "(A) The visitor liked the cake",
+        "(B) The teacher liked the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "34": {
+      "sentence": "The scientist will collaborate with the artist, and she will share a story.",
+      "options": [
+        "(A) The scientist will share a story",
+        "(B) The artist will share a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "35": {
+      "sentence": "The designer showed the cook a blueprint and asked him for feedback.",
+      "options": [
+        "(A) Asked the designer",
+        "(B) Asked the cook",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "36": {
+      "sentence": "My parent called his secretary for more information",
+      "options": [
+        "(A) They were my parent's secretary",
+        "(B) They were the secretary's secretary",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "37": {
+      "sentence": "The janitor warned the child not to step on the wet floor, otherwise she would have to mop it all over again.",
+      "options": [
+        "(A) The janitor would have to mop",
+        "(B) The child would have to mop",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "38": {
+      "sentence": "The developer was unable to communicate with the writer because she focuses on code.",
+      "options": [
+        "(A) The developer focuses on code",
+        "(B) The writer focuses on code",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "39": {
+      "sentence": "The carpenter told the onlooker that they had been working on the house for three weeks.",
+      "options": [
+        "(A) The carpenter had been working on the house",
+        "(B) The onlooker had been working on the house",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "40": {
+      "sentence": "This story could not be published without the writer and her friends' support.",
+      "options": [
+        "(A) They were the writer's friends",
+        "(B) They were the friends' friends",
+        "(C) They were the story's friends",
+        "(D) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "41": {
+      "sentence": "The assistant asked the physician if they could borrow some money.",
+      "options": [
+        "(A) Asked if the assistant could borrow money",
+        "(B) Asked if the physician could borrow money",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "42": {
+      "sentence": "The cleaner called the guard and asked them to open the door.",
+      "options": [
+        "(A) Asked the cleaner",
+        "(B) Asked the guard",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "43": {
+      "sentence": "The mechanic greets the receptionist because he is standing in front of the door.",
+      "options": [
+        "(A) The mechanic is standing in front of the door",
+        "(B) The receptionist is standing in front of the door",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "44": {
+      "sentence": "The educator was meeting with a student to discuss his grading policy.",
+      "options": [
+        "(A) It was the educator's grading policy",
+        "(B) It was the student's grading policy",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "45": {
+      "sentence": "The investigator wanted to interview the witness in person, but he was too late.",
+      "options": [
+        "(A) The investigator was too late",
+        "(B) The witness was too late",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "46": {
+      "sentence": "Alex tells us that they could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "47": {
+      "sentence": "The lawyer looked into illegal accusations against the cashier, because they needed to understand the case.",
+      "options": [
+        "(A) The lawyer needed to understand",
+        "(B) The cashier needed to understand",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "48": {
+      "sentence": "The nurse was running from the laborer because he smelled awful.",
+      "options": [
+        "(A) The nurse smelled awful",
+        "(B) The laborer smelled awful",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "49": {
+      "sentence": "This story could not be published without the writer and his friends' support.",
+      "options": [
+        "(A) They were the writer's friends",
+        "(B) They were the friends' friends",
+        "(C) They were the story's friends",
+        "(D) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "50": {
+      "sentence": "The mechanic greets the receptionist because she is standing in front of the door.",
+      "options": [
+        "(A) The mechanic is standing in front of the door",
+        "(B) The receptionist is standing in front of the door",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "51": {
+      "sentence": "The worker told the pedestrian that she should avoid the closed portion of the street.",
+      "options": [
+        "(A) The worker should avoid the closed portion",
+        "(B) The pedestrian should avoid the closed portion",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "52": {
+      "sentence": "The developer met with the designer because her idea can be implemented.",
+      "options": [
+        "(A) The developer's idea could be implemented",
+        "(B) The designer's idea could be implemented",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "53": {
+      "sentence": "The carpenter told the onlooker that he had been working on the house for three weeks.",
+      "options": [
+        "(A) The carpenter had been working on the house",
+        "(B) The onlooker had been working on the house",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "54": {
+      "sentence": "The sheriff protected the writer because they uphold the peace.",
+      "options": [
+        "(A) The sheriff upholds the peace",
+        "(B) The writer upholds the peace",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "55": {
+      "sentence": "The reporter and the chef discussed his favorite dishes.",
+      "options": [
+        "(A) They discussed the reporter's favorite dishes",
+        "(B) They discussed the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "56": {
+      "sentence": "Alex tells us that he could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "57": {
+      "sentence": "The hygienist told the patient that she should floss every day.",
+      "options": [
+        "(A) The hygienist should floss",
+        "(B) The patient should floss",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "58": {
+      "sentence": "The mechanic called to inform the customer that her car would be ready in the morning.",
+      "options": [
+        "(A) It was the mechanic's car",
+        "(B) It was the customer's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "59": {
+      "sentence": "The carpenter made a desk for the clerk and gave them a discount.",
+      "options": [
+        "(A) Gave the carpenter a discount",
+        "(B) Gave the clerk a discount",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "60": {
+      "sentence": "The mechanic disliked the cashier because they are arrogant.",
+      "options": [
+        "(A) The mechanic is arrogant",
+        "(B) The cashier is arrogant",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "61": {
+      "sentence": "The developer corrected the secretary because she better understood the problem.",
+      "options": [
+        "(A) The developer understood the problem",
+        "(B) The secretary understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "62": {
+      "sentence": "Bailey planned to meet the director at her office",
+      "options": [
+        "(A) The office was the director's office",
+        "(B) The office was Bailey's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "63": {
+      "sentence": "The customer and the chef discuss her culinary training.",
+      "options": [
+        "(A) It is the customer's culinary training",
+        "(B) It is the chef's culinary training",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "64": {
+      "sentence": "The patient was referred to the specialist because she is an expert on rare skin conditions.",
+      "options": [
+        "(A) The patient is an expert",
+        "(B) The specialist is an expert",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "65": {
+      "sentence": "The reporter and the chef will discuss their favorite dishes.",
+      "options": [
+        "(A) They will discuss the reporter's favorite dishes",
+        "(B) They will discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "66": {
+      "sentence": "The scientist collaborated with the artist, and she shared a story.",
+      "options": [
+        "(A) The scientist shared a story",
+        "(B) The artist shared a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "67": {
+      "sentence": "The developer was unable to communicate with the writer because they used big words.",
+      "options": [
+        "(A) The developer uses big words",
+        "(B) The writer uses big words",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "68": {
+      "sentence": "The pathologist obtained tissue samples from the victim to look at under her microscope.",
+      "options": [
+        "(A) It was the pathologist's microscope",
+        "(B) It was the victim's microscope",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "69": {
+      "sentence": "Before he sent the letter, Alex did not know Taylor.",
+      "options": [
+        "(A) Alex sent the letter",
+        "(B) Taylor sent the letter",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "70": {
+      "sentence": "The patient disclosed to the counselor that he had a history of substance abuse.",
+      "options": [
+        "(A) The patient had a history",
+        "(B) The counselor had a history",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "71": {
+      "sentence": "The scientist collaborates with the artist, and she shares a story.",
+      "options": [
+        "(A) The scientist shares a story",
+        "(B) The artist shares a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "72": {
+      "sentence": "The developer met with the secretary because she made a mistake.",
+      "options": [
+        "(A) The developer made a mistake",
+        "(B) The secretary made a mistake",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "73": {
+      "sentence": "After meeting with the producers, Sam went to their office.",
+      "options": [
+        "(A) The office was the producers' office",
+        "(B) The office was Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "74": {
+      "sentence": "The writer tried to fool the salesperson and told him a fake story.",
+      "options": [
+        "(A) Told the writer a fake story",
+        "(B) Told the salesperson a fake story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "75": {
+      "sentence": "The carpenter collaborated with the designer and gave them a prototype.",
+      "options": [
+        "(A) Gave the carpenter a prototype",
+        "(B) Gave the designer a prototype",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "76": {
+      "sentence": "The carpenter made a desk for the clerk and gave him a discount.",
+      "options": [
+        "(A) Gave the carpenter a discount",
+        "(B) Gave the clerk a discount",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "77": {
+      "sentence": "The lawyer looked into illegal accusations against the cashier, because she needed to understand the case.",
+      "options": [
+        "(A) The lawyer needed to understand",
+        "(B) The cashier needed to understand",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "78": {
+      "sentence": "The technician told the customer that they could pay with cash.",
+      "options": [
+        "(A) The technician could pay",
+        "(B) The customer could pay",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "79": {
+      "sentence": "The librarian helped the CEO to find the book because they asked.",
+      "options": [
+        "(A) The librarian asked",
+        "(B) The CEO asked",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "80": {
+      "sentence": "The scientist collaborates with the artist, and they share a story.",
+      "options": [
+        "(A) The scientist shares a story",
+        "(B) The artist shares a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "81": {
+      "sentence": "The assistant asked the physician if she needs any help.",
+      "options": [
+        "(A) Asked if the assistant needs help",
+        "(B) Asked if the physician needs help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "82": {
+      "sentence": "The surgeon warned the patient that they needed to get more rest.",
+      "options": [
+        "(A) The surgeon needed more rest",
+        "(B) The patient needed more rest",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "83": {
+      "sentence": "The surgeon warned the nurse that they needed more time to prepare.",
+      "options": [
+        "(A) The surgeon needed more time",
+        "(B) The nurse needed more time",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "84": {
+      "sentence": "The worker told the pedestrian that he should avoid the closed portion of the street.",
+      "options": [
+        "(A) The worker should avoid the closed portion",
+        "(B) The pedestrian should avoid the closed portion",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "85": {
+      "sentence": "The mechanic greets the receptionist because he was in a good mood.",
+      "options": [
+        "(A) The mechanic was in a good mood",
+        "(B) The receptionist was in a good mood",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "86": {
+      "sentence": "After meeting with the producers, Sam goes to their office.",
+      "options": [
+        "(A) It is Sam's office",
+        "(B) It is the producers' office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "87": {
+      "sentence": "The assistant asked the physician if he needs any help.",
+      "options": [
+        "(A) Asked if the assistant needs help",
+        "(B) Asked if the physician needs help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "88": {
+      "sentence": "The manager sent a message to the secretary, but she didn't reply yet.",
+      "options": [
+        "(A) The secretary didn't reply yet",
+        "(B) The manager didn't reply yet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "89": {
+      "sentence": "The chief thanked the housekeeper and gave him some tips.",
+      "options": [
+        "(A) Gave the chief some tips",
+        "(B) Gave the housekeeper some tips",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "90": {
+      "sentence": "The practitioner made a house call for the patient because they felt gravely ill.",
+      "options": [
+        "(A) The practitioner felt ill",
+        "(B) The patient felt ill",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "91": {
+      "sentence": "The reporter and the chef will discuss her favorite dishes.",
+      "options": [
+        "(A) They will discuss the reporter's favorite dishes",
+        "(B) They will discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "92": {
+      "sentence": "Alex did not know Taylor until he sent a letter.",
+      "options": [
+        "(A) Alex sent the letter",
+        "(B) Taylor sent the letter",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "93": {
+      "sentence": "The student set up a meeting with the architect to review her blueprints.",
+      "options": [
+        "(A) The blueprints were the student's",
+        "(B) The blueprints were the architect's",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "94": {
+      "sentence": "After meeting with the producers, Sam went to his office.",
+      "options": [
+        "(A) The office was the producers' office",
+        "(B) The office was Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "95": {
+      "sentence": "The construction worker called the editor and told him the whole story.",
+      "options": [
+        "(A) Told the construction worker the story",
+        "(B) Told the editor the story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "96": {
+      "sentence": "The developer met with the secretary because they made a mistake.",
+      "options": [
+        "(A) The developer made a mistake",
+        "(B) The secretary made a mistake",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "97": {
+      "sentence": "The educator was meeting with a student to discuss their grading policy.",
+      "options": [
+        "(A) It was the educator's grading policy",
+        "(B) It was the student's grading policy",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "98": {
+      "sentence": "After meeting with the producers, Sam goes to her office.",
+      "options": [
+        "(A) It is Sam's office",
+        "(B) It is the producers' office",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "99": {
+      "sentence": "The nurse was running from the laborer because she smelled awful.",
+      "options": [
+        "(A) The nurse smelled awful",
+        "(B) The laborer smelled awful",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "100": {
+      "sentence": "The designer collaborated with the carpenter and gave them a blueprint.",
+      "options": [
+        "(A) Gave the designer a blueprint",
+        "(B) Gave the carpenter a blueprint",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "101": {
+      "sentence": "The mechanic greets the receptionist because she was in a good mood.",
+      "options": [
+        "(A) The mechanic was in a good mood",
+        "(B) The receptionist was in a good mood",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "102": {
+      "sentence": "The chief encouraged the writer because they wrote a good book.",
+      "options": [
+        "(A) The chief wrote a good book",
+        "(B) The writer wrote a good book",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "103": {
+      "sentence": "Alex did not know Taylor until she sent a letter.",
+      "options": [
+        "(A) Alex sent the letter",
+        "(B) Taylor sent the letter",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "104": {
+      "sentence": "The taxpayer met with the accountant to find out if she could help with tax preparation.",
+      "options": [
+        "(A) The taxpayer could help",
+        "(B) The accountant could help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "105": {
+      "sentence": "The developer met with the designer because their idea can be implemented.",
+      "options": [
+        "(A) The developer's idea could be implemented",
+        "(B) The designer's idea could be implemented",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "106": {
+      "sentence": "The homeowner asked the inspector if the house he had purchased was structurally sound.",
+      "options": [
+        "(A) The homeowner had purchased",
+        "(B) The inspector had purchased",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "107": {
+      "sentence": "The assistant asked the physician if they need any help.",
+      "options": [
+        "(A) Asked if the assistant needs help",
+        "(B) Asked if the physician needs help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "108": {
+      "sentence": "The mechanic disliked the cashier because she is arrogant.",
+      "options": [
+        "(A) The mechanic is arrogant",
+        "(B) The cashier is arrogant",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "109": {
+      "sentence": "The developer met with the secretary because he made a mistake.",
+      "options": [
+        "(A) The developer made a mistake",
+        "(B) The secretary made a mistake",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "110": {
+      "sentence": "The mechanic called to inform the customer that their car would be ready in the morning.",
+      "options": [
+        "(A) It was the mechanic's car",
+        "(B) It was the customer's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "111": {
+      "sentence": "The reporter and the chef discuss her favorite dishes.",
+      "options": [
+        "(A) They discuss the reporter's favorite dishes",
+        "(B) They discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "112": {
+      "sentence": "Before they sent the letter, Alex did not know Taylor.",
+      "options": [
+        "(A) Alex sent the letter",
+        "(B) Taylor sent the letter",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "113": {
+      "sentence": "The designer collaborated with the carpenter and gave her a blueprint.",
+      "options": [
+        "(A) Gave the designer a blueprint",
+        "(B) Gave the carpenter a blueprint",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "114": {
+      "sentence": "The designer called the janitor and asked her to clean the room.",
+      "options": [
+        "(A) Asked the designer",
+        "(B) Asked the janitor",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "115": {
+      "sentence": "The technician told the customer that he had completed the repair.",
+      "options": [
+        "(A) The technician completed the repair",
+        "(B) The customer completed the repair",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "116": {
+      "sentence": "The visitor tells the teacher that he likes the cake.",
+      "options": [
+        "(A) The visitor likes the cake",
+        "(B) The teacher likes the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "117": {
+      "sentence": "The paralegal forgot to file paperwork for the client so they were fired.",
+      "options": [
+        "(A) The paralegal was fired",
+        "(B) The client was fired",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "118": {
+      "sentence": "The laborer handed the secretary a hammer because they asked for a tool.",
+      "options": [
+        "(A) The laborer asked for a tool",
+        "(B) The secretary asked for a tool",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "119": {
+      "sentence": "The surgeon warned the nurse that she needed more time to prepare.",
+      "options": [
+        "(A) The surgeon needed more time",
+        "(B) The nurse needed more time",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "120": {
+      "sentence": "The physician told the baker that he had cancer.",
+      "options": [
+        "(A) The physician had cancer",
+        "(B) The baker had cancer",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "121": {
+      "sentence": "The patient disclosed to the counselor that they had a history of substance abuse.",
+      "options": [
+        "(A) The patient had a history",
+        "(B) The counselor had a history",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "122": {
+      "sentence": "The secretary came to the analyst's office and helped her to book a flight.",
+      "options": [
+        "(A) Helped the secretary book a flight",
+        "(B) Helped the analyst book a flight",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "123": {
+      "sentence": "The cleaner called the guard and asked her to open the door.",
+      "options": [
+        "(A) Asked the cleaner",
+        "(B) Asked the guard",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "124": {
+      "sentence": "The physician told the baker that they had cancer.",
+      "options": [
+        "(A) The physician had cancer",
+        "(B) The baker had cancer",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "125": {
+      "sentence": "My cousin called her boss for more information",
+      "options": [
+        "(A) They were my cousin's boss",
+        "(B) They were the boss's boss",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "126": {
+      "sentence": "The engineer informed the client that they would need to make all future payments on time.",
+      "options": [
+        "(A) The engineer should make payments",
+        "(B) The client should make payments",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "127": {
+      "sentence": "The nurse stayed away from the laborer because they were very busy.",
+      "options": [
+        "(A) The nurse was busy",
+        "(B) The laborer was busy",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "128": {
+      "sentence": "The undergraduate applied to work with the scientist because she needed a lab assistant.",
+      "options": [
+        "(A) The undergraduate needed an assistant",
+        "(B) The scientist needed an assistant",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "129": {
+      "sentence": "The worker told the pedestrian that she was repairing the sidewalk as quickly as possible.",
+      "options": [
+        "(A) The worker was repairing",
+        "(B) The pedestrian was repairing",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "130": {
+      "sentence": "The assistant asked the physician if he could borrow some money.",
+      "options": [
+        "(A) Asked if the assistant could borrow money",
+        "(B) Asked if the physician could borrow money",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "131": {
+      "sentence": "The sheriff protected the writer because she upholds the peace.",
+      "options": [
+        "(A) The sheriff upholds the peace",
+        "(B) The writer upholds the peace",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "132": {
+      "sentence": "The chief told the counselor that he took the day off.",
+      "options": [
+        "(A) The chief took the day off",
+        "(B) The counselor took the day off",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "133": {
+      "sentence": "The secretary came to the analyst's office and helped him to book a flight.",
+      "options": [
+        "(A) Helped the secretary book a flight",
+        "(B) Helped the analyst book a flight",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "134": {
+      "sentence": "The technician told the customer that she could pay with cash.",
+      "options": [
+        "(A) The technician could pay",
+        "(B) The customer could pay",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "135": {
+      "sentence": "The janitor warned the child not to step on the wet floor, otherwise he would have to mop it all over again.",
+      "options": [
+        "(A) The janitor would have to mop",
+        "(B) The child would have to mop",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "136": {
+      "sentence": "The nurse stayed away from the laborer because she was very busy.",
+      "options": [
+        "(A) The nurse was busy",
+        "(B) The laborer was busy",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "137": {
+      "sentence": "The surgeon warned the patient that she needed to get more rest.",
+      "options": [
+        "(A) The surgeon needed more rest",
+        "(B) The patient needed more rest",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "138": {
+      "sentence": "The reporter and the chef will discuss his favorite dishes.",
+      "options": [
+        "(A) They will discuss the reporter's favorite dishes",
+        "(B) They will discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "139": {
+      "sentence": "The hygienist told the patient that he should floss every day.",
+      "options": [
+        "(A) The hygienist should floss",
+        "(B) The patient should floss",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "140": {
+      "sentence": "The engineer informed the client that she would need to make all future payments on time.",
+      "options": [
+        "(A) The engineer should make payments",
+        "(B) The client should make payments",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "141": {
+      "sentence": "After meeting with the producers, Sam goes to his office.",
+      "options": [
+        "(A) It is Sam's office",
+        "(B) It is the producers' office",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "142": {
+      "sentence": "The supervisor gave the employee feedback on her stellar performance.",
+      "options": [
+        "(A) It was the supervisor's performance",
+        "(B) It was the employee's performance",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "143": {
+      "sentence": "The developer was unable to communicate with the writer because they focus on code.",
+      "options": [
+        "(A) The developer focuses on code",
+        "(B) The writer focuses on code",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "144": {
+      "sentence": "The assistant asked the physician if she could borrow some money.",
+      "options": [
+        "(A) Asked if the assistant could borrow money",
+        "(B) Asked if the physician could borrow money",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "145": {
+      "sentence": "The student set up a meeting with the architect to review their blueprints.",
+      "options": [
+        "(A) The blueprints were the student's",
+        "(B) The blueprints were the architect's",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "146": {
+      "sentence": "The practitioner made a house call for the patient because she felt gravely ill.",
+      "options": [
+        "(A) The practitioner felt ill",
+        "(B) The patient felt ill",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "147": {
+      "sentence": "The physician told the baker that she had cancer.",
+      "options": [
+        "(A) The physician had cancer",
+        "(B) The baker had cancer",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "148": {
+      "sentence": "After meeting with the producers, Sam will go to his office.",
+      "options": [
+        "(A) It will be the producers' office",
+        "(B) It will be Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "149": {
+      "sentence": "My parent called her secretary for more information",
+      "options": [
+        "(A) They were my parent's secretary",
+        "(B) They were the secretary's secretary",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "150": {
+      "sentence": "The guard called the cleaner and asked her to open the door.",
+      "options": [
+        "(A) Asked the guard",
+        "(B) Asked the cleaner",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "151": {
+      "sentence": "The developer was unable to communicate with the writer because he used big words.",
+      "options": [
+        "(A) The developer uses big words",
+        "(B) The writer uses big words",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "152": {
+      "sentence": "The developer argued with the designer because they liked the design.",
+      "options": [
+        "(A) The developer liked the design",
+        "(B) The designer liked the design",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "153": {
+      "sentence": "The pathologist obtained tissue samples from the victim to look at under their microscope.",
+      "options": [
+        "(A) It was the pathologist's microscope",
+        "(B) It was the victim's microscope",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "154": {
+      "sentence": "The carpenter told the onlooker that she had been working on the house for three weeks.",
+      "options": [
+        "(A) The carpenter had been working on the house",
+        "(B) The onlooker had been working on the house",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "155": {
+      "sentence": "The manager sent a message to the secretary, but they didn't reply yet.",
+      "options": [
+        "(A) The secretary didn't reply yet",
+        "(B) The manager didn't reply yet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "156": {
+      "sentence": "The mechanic greets the receptionist because they were in a good mood.",
+      "options": [
+        "(A) The mechanic was in a good mood",
+        "(B) The receptionist was in a good mood",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "157": {
+      "sentence": "The janitor warned the child not to step on the wet floor, otherwise they would have to mop it all over again.",
+      "options": [
+        "(A) The janitor would have to mop",
+        "(B) The child would have to mop",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "158": {
+      "sentence": "The manager asked the employee to not forget her car.",
+      "options": [
+        "(A) It was the manager's car",
+        "(B) It was the employee's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "159": {
+      "sentence": "The reporter and the chef discuss his favorite dishes.",
+      "options": [
+        "(A) They discuss the reporter's favorite dishes",
+        "(B) They discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "160": {
+      "sentence": "The homeowner asked the inspector if the house she had purchased was structurally sound.",
+      "options": [
+        "(A) The homeowner had purchased",
+        "(B) The inspector had purchased",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "161": {
+      "sentence": "The secretary corrected the developer because she better understood the problem.",
+      "options": [
+        "(A) The secretary understood the problem",
+        "(B) The developer understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "162": {
+      "sentence": "The paralegal forgot to file paperwork for the client so he was fired.",
+      "options": [
+        "(A) The paralegal was fired",
+        "(B) The client was fired",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "163": {
+      "sentence": "The hygienist told the patient that they should floss every day.",
+      "options": [
+        "(A) The hygienist should floss",
+        "(B) The patient should floss",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "164": {
+      "sentence": "The driver yelled at the tailor after she broke a window.",
+      "options": [
+        "(A) The driver broke a window",
+        "(B) The tailor broke a window",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "165": {
+      "sentence": "Alex tells us that she could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "166": {
+      "sentence": "The carpenter made a desk for the clerk and gave her a discount.",
+      "options": [
+        "(A) Gave the carpenter a discount",
+        "(B) Gave the clerk a discount",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "167": {
+      "sentence": "The construction worker called the editor and told them the whole story.",
+      "options": [
+        "(A) Told the construction worker the story",
+        "(B) Told the editor the story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "168": {
+      "sentence": "My cousin called his boss for more information",
+      "options": [
+        "(A) They were my cousin's boss",
+        "(B) They were the boss's boss",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "169": {
+      "sentence": "The salesperson tried to fool the writer and sold him some garbage.",
+      "options": [
+        "(A) Sold the salesperson some garbage",
+        "(B) Sold the writer some garbage",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "170": {
+      "sentence": "The reporter and the chef discussed their favorite dishes.",
+      "options": [
+        "(A) They discussed the reporter's favorite dishes",
+        "(B) They discussed the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "171": {
+      "sentence": "The customer and the chef discuss their culinary training.",
+      "options": [
+        "(A) It is the customer's culinary training",
+        "(B) It is the chef's culinary training",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "172": {
+      "sentence": "The CEO bought the accountant a car because he needed one.",
+      "options": [
+        "(A) The CEO needed a car",
+        "(B) The accountant needed a car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "173": {
+      "sentence": "The librarian helped the CEO to find the book because she asked.",
+      "options": [
+        "(A) The librarian asked",
+        "(B) The CEO asked",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "174": {
+      "sentence": "Bailey plans to meet the director at their office",
+      "options": [
+        "(A) It is Bailey's office",
+        "(B) It is the director's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "175": {
+      "sentence": "The librarian helped the CEO to find the book because he asked.",
+      "options": [
+        "(A) The librarian asked",
+        "(B) The CEO asked",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "176": {
+      "sentence": "The designer collaborated with the carpenter and gave him a blueprint.",
+      "options": [
+        "(A) Gave the designer a blueprint",
+        "(B) Gave the carpenter a blueprint",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "177": {
+      "sentence": "The developer corrected the secretary because they better understood the problem.",
+      "options": [
+        "(A) The developer understood the problem",
+        "(B) The secretary understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "178": {
+      "sentence": "The patient disclosed to the counselor that she had a history of substance abuse.",
+      "options": [
+        "(A) The patient had a history",
+        "(B) The counselor had a history",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "179": {
+      "sentence": "The customer asked the salesperson if she could send the prices of each product.",
+      "options": [
+        "(A) The customer would send the prices",
+        "(B) The salesperson would send the prices",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "180": {
+      "sentence": "The customer and the chef discussed her culinary training.",
+      "options": [
+        "(A) It was the customer's culinary training",
+        "(B) It was the chef's culinary training",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "181": {
+      "sentence": "The patient was referred to the specialist because she had a rare skin condition.",
+      "options": [
+        "(A) The patient had a skin condition",
+        "(B) The specialist had a skin condition",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "182": {
+      "sentence": "The educator was meeting with a student to discuss her grading policy.",
+      "options": [
+        "(A) It was the educator's grading policy",
+        "(B) It was the student's grading policy",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "183": {
+      "sentence": "The patient was referred to the specialist because they are an expert on rare skin conditions.",
+      "options": [
+        "(A) The patient is an expert",
+        "(B) The specialist is an expert",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "184": {
+      "sentence": "Bailey will plan to meet the director at her office",
+      "options": [
+        "(A) It will be Bailey's office",
+        "(B) It will be the director's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "185": {
+      "sentence": "The writer tried to fool the salesperson and told her a fake story.",
+      "options": [
+        "(A) Told the writer a fake story",
+        "(B) Told the salesperson a fake story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "186": {
+      "sentence": "The engineer informed the client that he would need to make all future payments on time.",
+      "options": [
+        "(A) The engineer should make payments",
+        "(B) The client should make payments",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "187": {
+      "sentence": "My parent called their secretary for more information",
+      "options": [
+        "(A) They were my parent's secretary",
+        "(B) They were the secretary's secretary",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "188": {
+      "sentence": "The cleaner called the guard and asked him to open the door.",
+      "options": [
+        "(A) Asked the cleaner",
+        "(B) Asked the guard",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "189": {
+      "sentence": "The visitor tells the teacher that she likes the cake.",
+      "options": [
+        "(A) The visitor likes the cake",
+        "(B) The teacher likes the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "190": {
+      "sentence": "The developer met with the designer because his idea can be implemented.",
+      "options": [
+        "(A) The developer's idea could be implemented",
+        "(B) The designer's idea could be implemented",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "191": {
+      "sentence": "The CEO bought the accountant a car because they needed one.",
+      "options": [
+        "(A) The CEO needed a car",
+        "(B) The accountant needed a car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "192": {
+      "sentence": "The secretary came to the analyst's office and helped them to book a flight.",
+      "options": [
+        "(A) Helped the secretary book a flight",
+        "(B) Helped the analyst book a flight",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "193": {
+      "sentence": "The carpenter collaborated with the designer and gave her a prototype.",
+      "options": [
+        "(A) Gave the carpenter a prototype",
+        "(B) Gave the designer a prototype",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "194": {
+      "sentence": "The surgeon warned the nurse that he needed more time to prepare.",
+      "options": [
+        "(A) The surgeon needed more time",
+        "(B) The nurse needed more time",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "195": {
+      "sentence": "The manager asked the employee to not forget his car.",
+      "options": [
+        "(A) It was the manager's car",
+        "(B) It was the employee's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "196": {
+      "sentence": "My cousin called their boss for more information",
+      "options": [
+        "(A) They were my cousin's boss",
+        "(B) They were the boss's boss",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "197": {
+      "sentence": "The chief encouraged the writer because he wrote a good book.",
+      "options": [
+        "(A) The chief wrote a good book",
+        "(B) The writer wrote a good book",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "198": {
+      "sentence": "Before she sent the letter, Alex did not know Taylor.",
+      "options": [
+        "(A) Alex sent the letter",
+        "(B) Taylor sent the letter",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "199": {
+      "sentence": "The driver yelled at the tailor after they broke a window.",
+      "options": [
+        "(A) The driver broke a window",
+        "(B) The tailor broke a window",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "200": {
+      "sentence": "The secretary corrected the developer because he better understood the problem.",
+      "options": [
+        "(A) The secretary understood the problem",
+        "(B) The developer understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "201": {
+      "sentence": "The designer called the janitor and asked him to clean the room.",
+      "options": [
+        "(A) Asked the designer",
+        "(B) Asked the janitor",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "202": {
+      "sentence": "The scientist collaborated with the artist, and they shared a story.",
+      "options": [
+        "(A) The scientist shared a story",
+        "(B) The artist shared a story",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "203": {
+      "sentence": "The reporter and the chef discussed her favorite dishes.",
+      "options": [
+        "(A) They discussed the reporter's favorite dishes",
+        "(B) They discussed the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "204": {
+      "sentence": "The investigator wanted to interview the witness in person, but they were too late.",
+      "options": [
+        "(A) The investigator was too late",
+        "(B) The witness was too late",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "205": {
+      "sentence": "The cook is always teaching the assistant new techniques because she likes to teach others.",
+      "options": [
+        "(A) The cook likes to teach",
+        "(B) The assistant likes to teach",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "206": {
+      "sentence": "The CEO bought the accountant a car because she needed one.",
+      "options": [
+        "(A) The CEO needed a car",
+        "(B) The accountant needed a car",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "207": {
+      "sentence": "The customer and the chef discussed his culinary training.",
+      "options": [
+        "(A) It was the customer's culinary training",
+        "(B) It was the chef's culinary training",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "208": {
+      "sentence": "The chief encouraged the writer because she wrote a good book.",
+      "options": [
+        "(A) The chief wrote a good book",
+        "(B) The writer wrote a good book",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "209": {
+      "sentence": "The pathologist obtained tissue samples from the victim to look at under his microscope.",
+      "options": [
+        "(A) It was the pathologist's microscope",
+        "(B) It was the victim's microscope",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "210": {
+      "sentence": "The paralegal forgot to file paperwork for the client so she was fired.",
+      "options": [
+        "(A) The paralegal was fired",
+        "(B) The client was fired",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "211": {
+      "sentence": "The mechanic greets the receptionist because they are standing in front of the door.",
+      "options": [
+        "(A) The mechanic is standing in front of the door",
+        "(B) The receptionist is standing in front of the door",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "212": {
+      "sentence": "The taxpayer met with the accountant to find out if he could help with tax preparation.",
+      "options": [
+        "(A) The taxpayer could help",
+        "(B) The accountant could help",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "213": {
+      "sentence": "The patient was referred to the specialist because they had a rare skin condition.",
+      "options": [
+        "(A) The patient had a skin condition",
+        "(B) The specialist had a skin condition",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "214": {
+      "sentence": "Bailey plans to meet the director at his office",
+      "options": [
+        "(A) It is Bailey's office",
+        "(B) It is the director's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "215": {
+      "sentence": "The customer asked the salesperson if they could send the prices of each product.",
+      "options": [
+        "(A) The customer would send the prices",
+        "(B) The salesperson would send the prices",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "216": {
+      "sentence": "The cook is always teaching the assistant new techniques because he likes to teach others.",
+      "options": [
+        "(A) The cook likes to teach",
+        "(B) The assistant likes to teach",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "217": {
+      "sentence": "The practitioner made a house call for the patient because he felt gravely ill.",
+      "options": [
+        "(A) The practitioner felt ill",
+        "(B) The patient felt ill",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "218": {
+      "sentence": "The designer showed the cook a blueprint and asked her for feedback.",
+      "options": [
+        "(A) Asked the designer",
+        "(B) Asked the cook",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "219": {
+      "sentence": "Bailey plans to meet the director at her office",
+      "options": [
+        "(A) It is Bailey's office",
+        "(B) It is the director's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "220": {
+      "sentence": "The worker told the pedestrian that they should avoid the closed portion of the street.",
+      "options": [
+        "(A) The worker should avoid the closed portion",
+        "(B) The pedestrian should avoid the closed portion",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "221": {
+      "sentence": "The technician told the customer that they had completed the repair.",
+      "options": [
+        "(A) The technician completed the repair",
+        "(B) The customer completed the repair",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "222": {
+      "sentence": "After meeting with the producers, Sam went to her office.",
+      "options": [
+        "(A) The office was the producers' office",
+        "(B) The office was Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "223": {
+      "sentence": "The customer asked the salesperson if he could send the prices of each product.",
+      "options": [
+        "(A) The customer would send the prices",
+        "(B) The salesperson would send the prices",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "224": {
+      "sentence": "The worker told the pedestrian that he was repairing the sidewalk as quickly as possible.",
+      "options": [
+        "(A) The worker was repairing",
+        "(B) The pedestrian was repairing",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "225": {
+      "sentence": "The reporter and the chef discuss their favorite dishes.",
+      "options": [
+        "(A) They discuss the reporter's favorite dishes",
+        "(B) They discuss the chef's favorite dishes",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "226": {
+      "sentence": "The laborer handed the secretary a hammer because he asked for a tool.",
+      "options": [
+        "(A) The laborer asked for a tool",
+        "(B) The secretary asked for a tool",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "227": {
+      "sentence": "The developer corrected the secretary because he better understood the problem.",
+      "options": [
+        "(A) The developer understood the problem",
+        "(B) The secretary understood the problem",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "228": {
+      "sentence": "After meeting with the producers, Sam will go to their office.",
+      "options": [
+        "(A) It will be the producers' office",
+        "(B) It will be Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "229": {
+      "sentence": "The nurse was running from the laborer because they smelled awful.",
+      "options": [
+        "(A) The nurse smelled awful",
+        "(B) The laborer smelled awful",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "230": {
+      "sentence": "The student set up a meeting with the architect to review his blueprints.",
+      "options": [
+        "(A) The blueprints were the student's",
+        "(B) The blueprints were the architect's",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "231": {
+      "sentence": "The designer showed the cook a blueprint and asked them for feedback.",
+      "options": [
+        "(A) Asked the designer",
+        "(B) Asked the cook",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "232": {
+      "sentence": "The salesperson tried to fool the writer and sold her some garbage.",
+      "options": [
+        "(A) Sold the salesperson some garbage",
+        "(B) Sold the writer some garbage",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "233": {
+      "sentence": "The guard called the cleaner and asked him to open the door.",
+      "options": [
+        "(A) Asked the guard",
+        "(B) Asked the cleaner",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "234": {
+      "sentence": "The visitor tells the teacher that they like the cake.",
+      "options": [
+        "(A) The visitor likes the cake",
+        "(B) The teacher likes the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "235": {
+      "sentence": "The manager asked the employee to not forget their car.",
+      "options": [
+        "(A) It was the manager's car",
+        "(B) It was the employee's car",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "236": {
+      "sentence": "Alex told us that he could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "237": {
+      "sentence": "The construction worker called the editor and told her the whole story.",
+      "options": [
+        "(A) Told the construction worker the story",
+        "(B) Told the editor the story",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "238": {
+      "sentence": "The sheriff protected the writer because he upholds the peace.",
+      "options": [
+        "(A) The sheriff upholds the peace",
+        "(B) The writer upholds the peace",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "239": {
+      "sentence": "Bailey will plan to meet the director at their office",
+      "options": [
+        "(A) It will be Bailey's office",
+        "(B) It will be the director's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "240": {
+      "sentence": "After meeting with the producers, Sam will go to her office.",
+      "options": [
+        "(A) It will be the producers' office",
+        "(B) It will be Sam's office",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "241": {
+      "sentence": "The visitor told the teacher that they liked the cake.",
+      "options": [
+        "(A) The visitor liked the cake",
+        "(B) The teacher liked the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "242": {
+      "sentence": "Alex told us that she could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "243": {
+      "sentence": "Alex told us that they could not meet.",
+      "options": [
+        "(A) Alex could not meet",
+        "(B) We could not meet",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "244": {
+      "sentence": "The nurse stayed away from the laborer because he was very busy.",
+      "options": [
+        "(A) The nurse was busy",
+        "(B) The laborer was busy",
+        "(C) Ambiguous"
+      ],
+      "gold": "C"
+    },
+    "245": {
+      "sentence": "The laborer handed the secretary a hammer because she asked for a tool.",
+      "options": [
+        "(A) The laborer asked for a tool",
+        "(B) The secretary asked for a tool",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "246": {
+      "sentence": "The visitor told the teacher that she liked the cake.",
+      "options": [
+        "(A) The visitor liked the cake",
+        "(B) The teacher liked the cake",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "247": {
+      "sentence": "The chief told the counselor that she took the day off.",
+      "options": [
+        "(A) The chief took the day off",
+        "(B) The counselor took the day off",
+        "(C) Ambiguous"
+      ],
+      "gold": "A"
+    },
+    "248": {
+      "sentence": "The surgeon warned the patient that he needed to get more rest.",
+      "options": [
+        "(A) The surgeon needed more rest",
+        "(B) The patient needed more rest",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "249": {
+      "sentence": "The technician told the customer that he could pay with cash.",
+      "options": [
+        "(A) The technician could pay",
+        "(B) The customer could pay",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    },
+    "250": {
+      "sentence": "The chief thanked the housekeeper and gave them some tips.",
+      "options": [
+        "(A) Gave the chief some tips",
+        "(B) Gave the housekeeper some tips",
+        "(C) Ambiguous"
+      ],
+      "gold": "B"
+    }
+  }
+}

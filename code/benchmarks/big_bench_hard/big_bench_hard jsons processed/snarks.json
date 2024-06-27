@@ -1,0 +1,1295 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "snarks",
+  "format": "multi_choice",
+  "task_type": "nlp",
+  "num_of_instances": 178,
+  "description": "Determine which of two sentences is sarcastic.",
+  "more_info": {
+    "input_templates": [
+      "Q: Which statement is sarcastic?\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "options": [
+          "(A) Yes, because having interests and actively researching them is a huge waste",
+          "(B) Yes, because having interests and actively researching them is a huge deal"
+        ],
+        "gold": "A",
+        "explanation": "If we look at (A), it says that having interests and actively researching them is a huge waste, implying that it is a useless effort. However, we know that having interests and actively researching them is typically not a waste but rather is beneficial to the individual. The presence of such a juxtaposition in (A) suggests that it contains a taste of irony and sarcasm.\nIf we look at (B), it says that having interests and actively researching them is a huge deal, implying that it is an important and consequential effort. This is arguably a neutral and correct statement.\nAbove the above, the sarcastic option is (A). So the answer is (A)."
+      },
+      "1": {
+        "options": [
+          "(A) No one is going to disagree with you on this. Avoiding ad hominem attacks really help your case",
+          "(B) No one is going to disagree with you on this. Ad hominem attacks really help your case"
+        ],
+        "gold": "B",
+        "explanation": "If we look at (A), it says that avoiding ad hominem attacks really help your case, implying that ad hominem attacks are adverse and injurious. Because ad hominem attacks are adressed at a person rather than an idea, it is indeed true that avoiding them is often useful and helpful; so, (A) is a neutral (valid and agreeable) statement.\nIf we look at (B), it says that ad hominem attacks really help your case, implying that ad hominem attacks are a positive thing. However, we stated previously that ad hominem attacks are often not useful or constructive. The speaker in this sentence therefore seems to mean the opposite of what they are saying; so, there appears to have a taste of irony and sarcasm in (B).\nAbove the above, the sarcastic option is (B). So the answer is (B)."
+      },
+      "2": {
+        "options": [
+          "(A) Consistency in the league's punishments? What do you think this is supposed to be, politics?",
+          "(B) Consistency in the league's punishments? What do you think this is supposed to be, moral?"
+        ],
+        "gold": "A",
+        "explanation": "If we look at (A), it likens the consistency in the league's punishments with that in politics. Because politics or political affairs are often not considered to be consistent or dependable, this sentence appears to be satirical.\nIf we look at (B), it likens the consistency in the league's punishments with that in morality. Discussing the consistency of the league's punishments in the context of morality, ethics, or law makes sense and does not appear to make a satirical point about anything.\nAbove the above, the sarcastic option is (A). So the answer is (A)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Which statement is sarcastic?\nOptions:\n(A) Yes, because having interests and actively researching them is a huge waste\n(B) Yes, because having interests and actively researching them is a huge deal\nA: (A)\nExplanation:\nIf we look at (A), it says that having interests and actively researching them is a huge waste, implying that it is a useless effort. However, we know that having interests and actively researching them is typically not a waste but rather is beneficial to the individual. The presence of such a juxtaposition in (A) suggests that it contains a taste of irony and sarcasm.\nIf we look at (B), it says that having interests and actively researching them is a huge deal, implying that it is an important and consequential effort. This is arguably a neutral and correct statement.\nAbove the above, the sarcastic option is (A). So the answer is (A).",
+      "Q: Which statement is sarcastic?\nOptions:\n(A) No one is going to disagree with you on this. Avoiding ad hominem attacks really help your case\n(B) No one is going to disagree with you on this. Ad hominem attacks really help your case\nA: (B)\nExplanation:\nIf we look at (A), it says that avoiding ad hominem attacks really help your case, implying that ad hominem attacks are adverse and injurious. Because ad hominem attacks are adressed at a person rather than an idea, it is indeed true that avoiding them is often useful and helpful; so, (A) is a neutral (valid and agreeable) statement.\nIf we look at (B), it says that ad hominem attacks really help your case, implying that ad hominem attacks are a positive thing. However, we stated previously that ad hominem attacks are often not useful or constructive. The speaker in this sentence therefore seems to mean the opposite of what they are saying; so, there appears to have a taste of irony and sarcasm in (B).\nAbove the above, the sarcastic option is (B). So the answer is (B).",
+      "Q: Which statement is sarcastic?\nOptions:\n(A) Consistency in the league's punishments? What do you think this is supposed to be, politics?\n(B) Consistency in the league's punishments? What do you think this is supposed to be, moral?\nA: (A)\nExplanation:\nIf we look at (A), it likens the consistency in the league's punishments with that in politics. Because politics or political affairs are often not considered to be consistent or dependable, this sentence appears to be satirical.\nIf we look at (B), it likens the consistency in the league's punishments with that in morality. Discussing the consistency of the league's punishments in the context of morality, ethics, or law makes sense and does not appear to make a satirical point about anything.\nAbove the above, the sarcastic option is (A). So the answer is (A)."
+    ],
+    "cot_prompt_intro": "Determine which of two sentences is sarcastic.\n\nAccording to Cambridge University Dictionary, sarcasm is \"the use of remarks that clearly mean the opposite of what they say, made in order to hurt someone's feelings or to criticize something in a humorous way.\" Sarcastic sentences often contain satirical or ironic utterances, hyperboles, ambivalent or witty remarks.\n\nQ: Which statement is sarcastic?\nOptions:\n(A) Yes, because having interests and actively researching them is a huge waste\n(B) Yes, because having interests and actively researching them is a huge deal\nA: Let's think step by step.\nIf we look at (A), it says that having interests and actively researching them is a huge waste, implying that it is a useless effort. However, we know that having interests and actively researching them is typically not a waste but rather is beneficial to the individual. The presence of such a juxtaposition in (A) suggests that it contains a taste of irony and sarcasm.\nIf we look at (B), it says that having interests and actively researching them is a huge deal, implying that it is an important and consequential effort. This is arguably a neutral and correct statement.\nAbove the above, the sarcastic option is (A). So the answer is (A).\n\nQ: Which statement is sarcastic?\nOptions:\n(A) No one is going to disagree with you on this. Avoiding ad hominem attacks really help your case\n(B) No one is going to disagree with you on this. Ad hominem attacks really help your case\nA: Let's think step by step.\nIf we look at (A), it says that avoiding ad hominem attacks really help your case, implying that ad hominem attacks are adverse and injurious. Because ad hominem attacks are adressed at a person rather than an idea, it is indeed true that avoiding them is often useful and helpful; so, (A) is a neutral (valid and agreeable) statement.\nIf we look at (B), it says that ad hominem attacks really help your case, implying that ad hominem attacks are a positive thing. However, we stated previously that ad hominem attacks are often not useful or constructive. The speaker in this sentence therefore seems to mean the opposite of what they are saying; so, there appears to have a taste of irony and sarcasm in (B).\nAbove the above, the sarcastic option is (B). So the answer is (B).\n\nQ: Which statement is sarcastic?\nOptions:\n(A) Consistency in the league's punishments? What do you think this is supposed to be, politics?\n(B) Consistency in the league's punishments? What do you think this is supposed to be, moral?\nA: Let's think step by step.\nIf we look at (A), it likens the consistency in the league's punishments with that in politics. Because politics or political affairs are often not considered to be consistent or dependable, this sentence appears to be satirical.\nIf we look at (B), it likens the consistency in the league's punishments with that in morality. Discussing the consistency of the league's punishments in the context of morality, ethics, or law makes sense and does not appear to make a satirical point about anything.\nAbove the above, the sarcastic option is (A). So the answer is (A)."
+  },
+  "examples": {
+    "1": {
+      "options": [
+        "(A) He's a generous person, trying to promote a charity stream that has raised millions to help kids in need",
+        "(B) He's a terrible person, trying to promote a charity stream that has raised millions to help kids in need"
+      ],
+      "gold": "B"
+    },
+    "2": {
+      "options": [
+        "(A) Hey just be happy then you won't be depressed anymore",
+        "(B) Hey just be happy that you won't be depressed anymore"
+      ],
+      "gold": "A"
+    },
+    "3": {
+      "options": [
+        "(A) Just memeing about being racist, that's what keeps it okay",
+        "(B) Just memeing about being racist, that's what keeps it toxic"
+      ],
+      "gold": "A"
+    },
+    "4": {
+      "options": [
+        "(A) You are mistaken when you say that he should have just let them get away for assaulting him",
+        "(B) You are right when you say that he should have just let them get away for assaulting him"
+      ],
+      "gold": "B"
+    },
+    "5": {
+      "options": [
+        "(A) He didn't threaten, he only urged; totally different",
+        "(B) He didn't threaten, he only pleaded; totally different"
+      ],
+      "gold": "A"
+    },
+    "6": {
+      "options": [
+        "(A) Wow thats crazy, I've never had a takeout meal that used hardwood containers before!",
+        "(B) Wow thats crazy, I've never had a takeout meal that used plastic containers before!"
+      ],
+      "gold": "B"
+    },
+    "7": {
+      "options": [
+        "(A) Have you tried not being poor? It is much easier",
+        "(B) Have you tried not being rude? It is much easier"
+      ],
+      "gold": "A"
+    },
+    "8": {
+      "options": [
+        "(A) Yeah. Let's get rid of the trams and build carriages instead",
+        "(B) Yeah. Let's get rid of the trams and build lightrail instead"
+      ],
+      "gold": "A"
+    },
+    "9": {
+      "options": [
+        "(A) Yeah, I've noticed he's been drinking every day recently, what a great transformation",
+        "(B) Yeah, I've noticed he's been exercising every day recently, what a great transformation"
+      ],
+      "gold": "A"
+    },
+    "10": {
+      "options": [
+        "(A) He's over six feet, so he must be tall",
+        "(B) He's over six feet, so he must be wonderful"
+      ],
+      "gold": "B"
+    },
+    "11": {
+      "options": [
+        "(A) Working at a restaurant has made me an amazing chef",
+        "(B) Working at a McDonald's has made me an amazing chef"
+      ],
+      "gold": "B"
+    },
+    "12": {
+      "options": [
+        "(A) Yes, the game is over after the second half",
+        "(B) Yes, the game is over after the first half"
+      ],
+      "gold": "B"
+    },
+    "13": {
+      "options": [
+        "(A) Yeah, anarchism is taught as a prime example of a governing system",
+        "(B) Yeah, democracy is taught as a prime example of a governing system"
+      ],
+      "gold": "A"
+    },
+    "14": {
+      "options": [
+        "(A) Everyone knows salt is the highlight of gourmet sophistication",
+        "(B) Everyone knows caviar is the highlight of gourmet sophistication"
+      ],
+      "gold": "A"
+    },
+    "15": {
+      "options": [
+        "(A) One of the worst things to do working in retail was pushing a trolley of returns around the store putting them back",
+        "(B) One of the enjoyable things to do working in retail was pushing a trolley of returns around the store putting them back"
+      ],
+      "gold": "B"
+    },
+    "16": {
+      "options": [
+        "(A) The best way to defeat a stronger/larger and better regimented force is by fighting on their terms",
+        "(B) The best way to defeat a stronger/larger and better regimented force is by fighting on your terms"
+      ],
+      "gold": "A"
+    },
+    "17": {
+      "options": [
+        "(A) He's such terrible relationship material when he's drunk",
+        "(B) He's such great relationship material when he's drunk"
+      ],
+      "gold": "B"
+    },
+    "18": {
+      "options": [
+        "(A) Welp, my $1000 dollar phone has bad battery life, guess I'll just have to return it",
+        "(B) Welp, my $1000 dollar phone has bad battery life, guess I'll just have to dumpster it"
+      ],
+      "gold": "B"
+    },
+    "19": {
+      "options": [
+        "(A) This website is well known to post falsehoods and spread false rumors. Rock-solid source if you ask me",
+        "(B) This website is well known to post falsehoods and spread false rumors. Suspicious source if you ask me"
+      ],
+      "gold": "A"
+    },
+    "20": {
+      "options": [
+        "(A) Violence is a perfect way to unleash your frustrations",
+        "(B) Exercise is a perfect way to unleash your frustrations"
+      ],
+      "gold": "A"
+    },
+    "21": {
+      "options": [
+        "(A) Working the printer is too complex for me",
+        "(B) Working the microprocessor is too complex for me"
+      ],
+      "gold": "A"
+    },
+    "22": {
+      "options": [
+        "(A) Because no world needs more kids with trust issues and psychological problems than we already have!",
+        "(B) Because this world needs more kids with trust issues and psychological problems than we already have!"
+      ],
+      "gold": "B"
+    },
+    "23": {
+      "options": [
+        "(A) You mean Knuth up arrow notation isn't unfamiliar for you?",
+        "(B) You mean Knuth up arrow notation isn't normal for you?"
+      ],
+      "gold": "B"
+    },
+    "24": {
+      "options": [
+        "(A) You're right, it's the first week of winter! It will definitely get warmer in a couple weeks for our first playoff game",
+        "(B) You're right, it's the last week of winter! It will definitely get warmer in a couple weeks for our first playoff game"
+      ],
+      "gold": "A"
+    },
+    "25": {
+      "options": [
+        "(A) Sneaking out of a government facility with dangerous contraband isn't going to be easy",
+        "(B) Sneaking out of a government facility with dangerous contraband isn't going to be illegal"
+      ],
+      "gold": "B"
+    },
+    "26": {
+      "options": [
+        "(A) Good thing things aren't more expensive now than they were eight years ago",
+        "(B) Good thing things aren't more expensive now than they were eight days ago"
+      ],
+      "gold": "A"
+    },
+    "27": {
+      "options": [
+        "(A) You're welcome my dear friend. Always glad to feed the elephants, that woefully endangered species",
+        "(B) You're welcome my dear friend. Always glad to feed the trolls, that woefully endangered species"
+      ],
+      "gold": "B"
+    },
+    "28": {
+      "options": [
+        "(A) Without the river there's no water and no electricity. Blocking it is such a smart move!",
+        "(B) Without the river there's no water and no electricity. Blocking it is such a terrible move!"
+      ],
+      "gold": "A"
+    },
+    "29": {
+      "options": [
+        "(A) What a poor guy, years of work and he only got a $50,000 scholarship",
+        "(B) What a poor guy, years of work and he only got a $50 scholarship"
+      ],
+      "gold": "A"
+    },
+    "30": {
+      "options": [
+        "(A) That's only about $0.15 per mile for a van, perfectly reasonable fuel costs",
+        "(B) That's only about $10 per mile for a van, perfectly reasonable fuel costs"
+      ],
+      "gold": "B"
+    },
+    "31": {
+      "options": [
+        "(A) So he's planning to continue leaving useless space junk in orbit literally just because he can. What a horrible person",
+        "(B) So he's planning to continue leaving useless space junk in orbit literally just because he can. What a brilliant person"
+      ],
+      "gold": "B"
+    },
+    "32": {
+      "options": [
+        "(A) I earn money for winning? Sign me up!",
+        "(B) I lose money for winning? Sign me up!"
+      ],
+      "gold": "B"
+    },
+    "33": {
+      "options": [
+        "(A) Only rich people can afford healthy food",
+        "(B) Not only rich people can afford healthy food"
+      ],
+      "gold": "A"
+    },
+    "34": {
+      "options": [
+        "(A) I love it when people mock other people for trying to get healthier. It's so classy",
+        "(B) I love it when people encourage other people for trying to get healthier. It's so classy"
+      ],
+      "gold": "A"
+    },
+    "35": {
+      "options": [
+        "(A) Her wheel wobbling several millimeters in either direction wasn't enough to suggest that the bike was unsafe",
+        "(B) Her wheel wobbling several feet in either direction wasn't enough to suggest that the bike was unsafe"
+      ],
+      "gold": "B"
+    },
+    "36": {
+      "options": [
+        "(A) The two minute wait in line is too long for me, I think i'll just leave",
+        "(B) The two hour wait in line is too long for me, I think i'll just leave"
+      ],
+      "gold": "A"
+    },
+    "37": {
+      "options": [
+        "(A) Hey genocide is clearly the most rational decision",
+        "(B) Hey compromise is clearly the most rational decision"
+      ],
+      "gold": "A"
+    },
+    "38": {
+      "options": [
+        "(A) He's just kindhearted. Okay, well nothing wrong with him running the country in that case!",
+        "(B) He's just demented. Okay, well nothing wrong with him running the country in that case!"
+      ],
+      "gold": "B"
+    },
+    "39": {
+      "options": [
+        "(A) Yeah, he's clearly apathetic to earning minutes based on his lackluster play and the fact that he's grabbing hot dogs at half time..",
+        "(B) Yeah, he's clearly dedicated to earning minutes based on his lackluster play and the fact that he's grabbing hot dogs at half time.."
+      ],
+      "gold": "B"
+    },
+    "40": {
+      "options": [
+        "(A) An NFL Head coach with a losing record that hasn't been on a field on ten years? This is gonna go great",
+        "(B) An NFL Head coach with a losing record that hasn't been on a field on ten years? This is gonna go terribly"
+      ],
+      "gold": "A"
+    },
+    "41": {
+      "options": [
+        "(A) Protein supplements are way more expensive than $1 breakfast gruel",
+        "(B) Protein supplements are way more expensive than $1 breakfast burritos"
+      ],
+      "gold": "B"
+    },
+    "42": {
+      "options": [
+        "(A) I personally don't believe the 7 time felon that just got done murdering a random woman wouldn't lie",
+        "(B) I personally don't believe the 7 time felon that just got done murdering a random woman would lie"
+      ],
+      "gold": "B"
+    },
+    "43": {
+      "options": [
+        "(A) I'm just going to leave it to endlessly pile up until my email count goes off the screen and then it becomes a server threatening issue",
+        "(B) I'm just going to leave it to endlessly pile up until my email count goes off the screen and then it becomes a life threatening issue"
+      ],
+      "gold": "B"
+    },
+    "44": {
+      "options": [
+        "(A) Why would they have weapons drawn when they've been called to the scene of a fire?",
+        "(B) Why would they have weapons drawn when they've been called to the scene of a shooting?"
+      ],
+      "gold": "B"
+    },
+    "45": {
+      "options": [
+        "(A) People never foment wars to relinquish territory",
+        "(B) People never foment wars to conquer territory"
+      ],
+      "gold": "B"
+    },
+    "46": {
+      "options": [
+        "(A) Yeah, let's crucify this nonprofit for making money, they shouldn't be doing that",
+        "(B) Yeah, let's crucify this company for making money, they shouldn't be doing that"
+      ],
+      "gold": "B"
+    },
+    "47": {
+      "options": [
+        "(A) Every package I get from Amazon is 2 to 3 days late, busted up, doesn't work right, and sometimes not even what I ordered. So disappointed I pay for free shipping with Prime",
+        "(B) Every package I get from Amazon is 2 to 3 days late, busted up, doesn't work right, and sometimes not even what I ordered. So happy I pay for free shipping with Prime"
+      ],
+      "gold": "B"
+    },
+    "48": {
+      "options": [
+        "(A) But America is a more free country because they have democracy to protect them from that sort of tyranny",
+        "(B) But America is a more free country because they have guns to protect them from that sort of tyranny"
+      ],
+      "gold": "B"
+    },
+    "49": {
+      "options": [
+        "(A) No, you misunderstand. Those who make more money are inherently better",
+        "(B) No, you misunderstand. Those who make more money aren't inherently better"
+      ],
+      "gold": "A"
+    },
+    "50": {
+      "options": [
+        "(A) Just healthy meals wouldn't cut it for his active lifestyle",
+        "(B) Just healthy meals cut it for his active lifestyle"
+      ],
+      "gold": "A"
+    },
+    "51": {
+      "options": [
+        "(A) Impossible, as there's no one on the internet",
+        "(B) Impossible, as there's no one on the Moon"
+      ],
+      "gold": "A"
+    },
+    "52": {
+      "options": [
+        "(A) Oh, it's not happened before? I guess it must not be in the lawbooks then",
+        "(B) Oh, it's not happened before? I guess it must not be against the lawbooks then"
+      ],
+      "gold": "B"
+    },
+    "53": {
+      "options": [
+        "(A) It's not our job to fund education! It should be the government paying the maintenance to keep schools open",
+        "(B) It's not our job to fund education! It should be the kids paying the maintenance to keep schools open"
+      ],
+      "gold": "B"
+    },
+    "54": {
+      "options": [
+        "(A) Yeah the presence of those inner city criminals, and welfare leeches have truly caused me to suffer",
+        "(B) Yeah the presence of those inner city criminals, and welfare leeches have truly caused me to thrive"
+      ],
+      "gold": "B"
+    },
+    "55": {
+      "options": [
+        "(A) We all know diamonds are worthless",
+        "(B) We all know diamonds are valuable"
+      ],
+      "gold": "A"
+    },
+    "56": {
+      "options": [
+        "(A) Because women are totally incapable of doing everyday tasks like pumping gas without a partner taking over and doing it for her",
+        "(B) Because women are totally capable of doing everyday tasks like pumping gas without a partner taking over and doing it for her"
+      ],
+      "gold": "A"
+    },
+    "57": {
+      "options": [
+        "(A) Right, because everyone buys insurance based on the possibility of a riot",
+        "(B) Right, because everyone buys insurance based on the possibility of an accident"
+      ],
+      "gold": "A"
+    },
+    "58": {
+      "options": [
+        "(A) We should start a petition to ban breathing",
+        "(B) We should start a petition to ban vaping"
+      ],
+      "gold": "A"
+    },
+    "59": {
+      "options": [
+        "(A) You mean you're only into bullies with narcissistic personality disorder?",
+        "(B) You mean you're not into bullies with narcissistic personality disorder?"
+      ],
+      "gold": "B"
+    },
+    "60": {
+      "options": [
+        "(A) It's cultural celebration at its finest!",
+        "(B) It's cultural appropriation at its finest!"
+      ],
+      "gold": "B"
+    },
+    "61": {
+      "options": [
+        "(A) Since corporate restriction equals free speech this is actually a big win for democracy",
+        "(B) Since corporate money equals free speech this is actually a big win for democracy"
+      ],
+      "gold": "B"
+    },
+    "62": {
+      "options": [
+        "(A) I mean their graphics guy did spend 15 minutes max on doing the day's work and the rest messing around. Their employees are always the laziest!",
+        "(B) I mean their graphics guy did spend 15 minutes max on doing the day's work and the rest messing around. Their employees are always the best!"
+      ],
+      "gold": "B"
+    },
+    "63": {
+      "options": [
+        "(A) Isn't it just the best? This has been me for the past several days as well. It's been less than enough sleep for the past week",
+        "(B) Isn't it just the best? This has been me for the past several days as well. It's been more than enough sleep for the past week"
+      ],
+      "gold": "A"
+    },
+    "64": {
+      "options": [
+        "(A) Ah yes, late night vote on a bill written behind closed doors by one party. How undemocratic",
+        "(B) Ah yes, late night vote on a bill written behind closed doors by one party. How democratic"
+      ],
+      "gold": "B"
+    },
+    "65": {
+      "options": [
+        "(A) Of course there's no security cameras in the White House in the game, they said it's just like real life!",
+        "(B) Of course there's several security cameras in the White House in the game, they said it's just like real life!"
+      ],
+      "gold": "A"
+    },
+    "66": {
+      "options": [
+        "(A) Muslims love celebrating Christmas",
+        "(B) Muslims love celebrating Eid"
+      ],
+      "gold": "A"
+    },
+    "67": {
+      "options": [
+        "(A) ARE U INSANE SAYIN U LIKE THIS SYSTEM HERE ??? Have my up vote for being rational",
+        "(B) ARE U INSANE SAYIN U LIKE THIS SYSTEM HERE ??? Have my down vote for being rational"
+      ],
+      "gold": "B"
+    },
+    "68": {
+      "options": [
+        "(A) A wave of hypothermia and drownings will be a great way to start the year",
+        "(B) A wave of hypothermia and drownings will be a terrible way to start the year"
+      ],
+      "gold": "A"
+    },
+    "69": {
+      "options": [
+        "(A) One of my least-favorite things to do working was taking out and smelling the trash",
+        "(B) One of my favorite things to do working was taking out and smelling the trash"
+      ],
+      "gold": "B"
+    },
+    "70": {
+      "options": [
+        "(A) Basically you just have to be horribly rude and demanding. Make people feel bad and you'll get tons of trashy stuff",
+        "(B) Basically you just have to be horribly rude and demanding. Make people feel bad and you'll get tons of free stuff"
+      ],
+      "gold": "B"
+    },
+    "71": {
+      "options": [
+        "(A) Calling a whole electorate 'morons' because they don't share the same political beliefs as you is a terrible way to win them over",
+        "(B) Calling a whole electorate 'morons' because they don't share the same political beliefs as you is a great way to win them over"
+      ],
+      "gold": "B"
+    },
+    "72": {
+      "options": [
+        "(A) Wow, you only applied to 200 internships this past week?",
+        "(B) Wow, you only applied to 2 internships this past week?"
+      ],
+      "gold": "A"
+    },
+    "73": {
+      "options": [
+        "(A) Armed revolutionaries have not been making a lot of change for middle class Americans lately",
+        "(B) Armed revolutionaries have been making a lot of change for middle class Americans lately"
+      ],
+      "gold": "B"
+    },
+    "74": {
+      "options": [
+        "(A) College is happening: forgetting assignments, stressing over grades, worrying about finals, etc. It's been a stressful semester",
+        "(B) College is happening: forgetting assignments, stressing over grades, worrying about finals, etc. It's been a fun semester"
+      ],
+      "gold": "B"
+    },
+    "75": {
+      "options": [
+        "(A) don't forget there are people in Antarctica",
+        "(B) don't forget there are people in suffering"
+      ],
+      "gold": "A"
+    },
+    "76": {
+      "options": [
+        "(A) And the likelihood of internet-connected cars being hacked and controlled remotely,....zero",
+        "(B) And the likelihood of internet-connected cars being hacked and controlled remotely,....high"
+      ],
+      "gold": "A"
+    },
+    "77": {
+      "options": [
+        "(A) Never had as much fun in my life as when the cops found my backpack of weed in my car trunk",
+        "(B) Never had as much anxiety in my life when the cops found my backpack of weed in my car trunk"
+      ],
+      "gold": "A"
+    },
+    "78": {
+      "options": [
+        "(A) Wow. You're right. All those memes in the bitcoin sub and people posting about making money and what they're going to buy with it sure turned on people investing from in it",
+        "(B) Wow. You're right. All those memes in the bitcoin sub and people posting about making money and what they're going to buy with it sure turned off people investing from in it"
+      ],
+      "gold": "B"
+    },
+    "79": {
+      "options": [
+        "(A) God, to think of how good it could have been having a person who prepared for things ahead of time in office",
+        "(B) God, to think of how bad it could have been having a person who prepared for things ahead of time in office"
+      ],
+      "gold": "B"
+    },
+    "80": {
+      "options": [
+        "(A) Yeah, the Christian church had such a lock in Buddhist China",
+        "(B) Yeah, the Christian church had such a struggle in Buddhist China"
+      ],
+      "gold": "A"
+    },
+    "81": {
+      "options": [
+        "(A) I'm sure you wouldn't have remained completely calm if a teacher attacked you",
+        "(B) I'm sure you would have remained completely calm if a teacher attacked you"
+      ],
+      "gold": "B"
+    },
+    "82": {
+      "options": [
+        "(A) How could Government control of the internet be bad?",
+        "(B) How could Government control of the internet be beneficial?"
+      ],
+      "gold": "A"
+    },
+    "83": {
+      "options": [
+        "(A) You didn't realize that bikes are a stationary object?",
+        "(B) You didn't realize that bikes aren't a stationary object?"
+      ],
+      "gold": "A"
+    },
+    "84": {
+      "options": [
+        "(A) Yeah, pay-to-win gated content is much more fun and accessible to everyone",
+        "(B) Yeah, pay-to-win gated content is much less fun and accessible to everyone"
+      ],
+      "gold": "A"
+    },
+    "85": {
+      "options": [
+        "(A) People these days are so rich. Back in my day we didn't have luxuries",
+        "(B) People these days are so rich. Back in my day we didn't have houses"
+      ],
+      "gold": "B"
+    },
+    "86": {
+      "options": [
+        "(A) We all know that no government in the world would ever ban anything that kills innovation",
+        "(B) We all know that no inventor in the world would ever ban anything that kills innovation"
+      ],
+      "gold": "A"
+    },
+    "87": {
+      "options": [
+        "(A) It's easy to get into politics, all you have to do to is be outrageous",
+        "(B) It's easy to get into politics, all you have to do to is be outrageous"
+      ],
+      "gold": "A"
+    },
+    "88": {
+      "options": [
+        "(A) You mean your team did the most damage, then you just did the final blow. Amazing display of team skill",
+        "(B) You mean your team did the most damage, then you just did the final blow. Amazing display of individual skill"
+      ],
+      "gold": "B"
+    },
+    "89": {
+      "options": [
+        "(A) The NB"
+      ],
+      "gold": "A"
+    },
+    "90": {
+      "options": [
+        "(A) I'm headed to college within a year expecting barely any income during that time. Removing tax breaks for students will be helpful, right?",
+        "(B) I'm headed to college within a year expecting barely any income during that time. Adding tax breaks for students will be helpful, right?"
+      ],
+      "gold": "A"
+    },
+    "91": {
+      "options": [
+        "(A) Yeah, I'm sure you'd be so much happier if we never did anything for anyone ever",
+        "(B) Yeah, I'm sure you'd be so much lonelier if we never did anything for anyone ever"
+      ],
+      "gold": "A"
+    },
+    "92": {
+      "options": [
+        "(A) When you're at halfcourt and have a wide open pass, the obvious choice is to pass",
+        "(B) When you're at halfcourt and have a wide open pass, the obvious choice is to shoot"
+      ],
+      "gold": "B"
+    },
+    "93": {
+      "options": [
+        "(A) Bought the stock at $10.50 and sold at $100. Such profits being made",
+        "(B) Bought the stock at $1050 and sold at $100. Such profits being made"
+      ],
+      "gold": "B"
+    },
+    "94": {
+      "options": [
+        "(A) But his eyes were on the ball, shouldn't be a red",
+        "(B) But his cleats were on the ball, shouldn't be a red"
+      ],
+      "gold": "A"
+    },
+    "95": {
+      "options": [
+        "(A) Concrete plates. Very beautiful",
+        "(B) Stained-glass plates. Very beautiful"
+      ],
+      "gold": "A"
+    },
+    "96": {
+      "options": [
+        "(A) My laptop didn't work when I brought it underwater, therefore it must be Asus's fault that it broke down",
+        "(B) My laptop didn't work when I brought it underwater, therefore it must be my fault that it broke down"
+      ],
+      "gold": "A"
+    },
+    "97": {
+      "options": [
+        "(A) They're losing to a team with a terrible record. I for one am shocked",
+        "(B) They're losing to a team with a winning record. I for one am shocked"
+      ],
+      "gold": "B"
+    },
+    "98": {
+      "options": [
+        "(A) Just like Hitler. A True warrior",
+        "(B) Just like Hitler. A True demagogue"
+      ],
+      "gold": "A"
+    },
+    "99": {
+      "options": [
+        "(A) He doesn't want high risk investment? He should put it all on bitcoin!",
+        "(B) He doesn't want low risk investment? He should put it all on bitcoin!"
+      ],
+      "gold": "A"
+    },
+    "100": {
+      "options": [
+        "(A) SCIENCE CAUSES VACCINES!",
+        "(B) EVOLUTION CAUSES VACCINES!"
+      ],
+      "gold": "B"
+    },
+    "101": {
+      "options": [
+        "(A) A civil war with at least 500,000 deaths is essential to a healthy democracy",
+        "(B) A civil war with at least 500,000 deaths is detrimental to a healthy democracy"
+      ],
+      "gold": "A"
+    },
+    "102": {
+      "options": [
+        "(A) That violent oppressive dictator didn't think that people would get mad at him? How pragmatic",
+        "(B) That violent oppressive dictator didn't think that people would get mad at him? How naive"
+      ],
+      "gold": "A"
+    },
+    "103": {
+      "options": [
+        "(A) We all know diamonds are valuable",
+        "(B) We all know diamonds are worthless"
+      ],
+      "gold": "B"
+    },
+    "104": {
+      "options": [
+        "(A) Psshh, everyone knows women can't earn profit",
+        "(B) Psshh, everyone knows women can earn profit"
+      ],
+      "gold": "A"
+    },
+    "105": {
+      "options": [
+        "(A) Everyone knows that ignorance of the law excuses nobody from following the law",
+        "(B) Everyone knows ignorance of the law excuses you from following the law"
+      ],
+      "gold": "B"
+    },
+    "106": {
+      "options": [
+        "(A) See the trick is not to see your fwb as a person, so you're still independent",
+        "(B) See the trick is not to see your fwb as a liability, so you're still independent"
+      ],
+      "gold": "A"
+    },
+    "107": {
+      "options": [
+        "(A) Yeah i dont know where people get the audacity to think they can protest against a major corporation",
+        "(B) Yeah I don't know where people get the audacity to think they can riot against a major corporation"
+      ],
+      "gold": "A"
+    },
+    "108": {
+      "options": [
+        "(A) Only first-world citizens deserve freedom",
+        "(B) Not only first-world citizens deserve freedom"
+      ],
+      "gold": "A"
+    },
+    "109": {
+      "options": [
+        "(A) Whistleblowers are great, heroes, they're in the public interest. They're accusing one of us? Back them up",
+        "(B) Whistleblowers are great, heroes, they're in the public interest. They're accusing one of us? Lock them up"
+      ],
+      "gold": "B"
+    },
+    "110": {
+      "options": [
+        "(A) So they got him for lying to the FBI, and they want him to testify now? Because his word is clearly worth not so much..",
+        "(B) So they got him for lying to the FBI, and they want him to testify now? Because his word is clearly worth so much.."
+      ],
+      "gold": "B"
+    },
+    "111": {
+      "options": [
+        "(A) Assuming the country that historically is constantly over throwing its government doesn't like their government is an unreasonable assumption",
+        "(B) Assuming the country that historically is constantly over throwing its government doesn't like their government is a reasonable assumption"
+      ],
+      "gold": "A"
+    },
+    "112": {
+      "options": [
+        "(A) Why use Netflix when you can just pay less to Comcast for On Demand?",
+        "(B) Why use Netflix when you can just pay more to Comcast for On Demand?"
+      ],
+      "gold": "B"
+    },
+    "113": {
+      "options": [
+        "(A) It's not addiction if it's legal, right?",
+        "(B) It's not suspicious if it's legal, right?"
+      ],
+      "gold": "A"
+    },
+    "114": {
+      "options": [
+        "(A) Yeah, obviously that startup has terrible support because they are just tiny indie company",
+        "(B) Yeah, obviously that megaconglomerate has terrible support because they are just tiny indie company"
+      ],
+      "gold": "B"
+    },
+    "115": {
+      "options": [
+        "(A) Yeah war is tragic",
+        "(B) Yeah war is pacifying"
+      ],
+      "gold": "B"
+    },
+    "116": {
+      "options": [
+        "(A) Isn't it super sexist that on the internet everyone is male until proven otherwise?",
+        "(B) Isn't it super fun that on the internet everyone is male until proven otherwise?"
+      ],
+      "gold": "B"
+    },
+    "117": {
+      "options": [
+        "(A) you mean, you don't seek validation from the multitude of sociopaths on the internet?",
+        "(B) you mean, you don't seek validation from the multitude of users on the internet?"
+      ],
+      "gold": "A"
+    },
+    "118": {
+      "options": [
+        "(A) Obviously monolithic services are the best solution for everyone, because of the webscale",
+        "(B) Obviously microservices are the best solution for everyone, because of the webscale"
+      ],
+      "gold": "B"
+    },
+    "119": {
+      "options": [
+        "(A) Everybody is moving out, that's why the prices keep going up",
+        "(B) Everybody is moving out, that's why the prices keep going down"
+      ],
+      "gold": "A"
+    },
+    "120": {
+      "options": [
+        "(A) So if there are more dollars, more people can get rich right?",
+        "(B) So if there are more dollars, more people can get loans right?"
+      ],
+      "gold": "A"
+    },
+    "121": {
+      "options": [
+        "(A) It means if small businesses start struggling, the government ramps up their spending to help out",
+        "(B) It means if small businesses start struggling, the government ramps up their taxes to help out"
+      ],
+      "gold": "B"
+    },
+    "122": {
+      "options": [
+        "(A) Yeah, it's totally reasonable to deny someone a chance at a loving family because of the color of their skin",
+        "(B) Yeah, it's totally ridiculous to deny someone a chance at a loving family because of the color of their skin"
+      ],
+      "gold": "A"
+    },
+    "123": {
+      "options": [
+        "(A) You can still achieve the American Dream after working at Walmart",
+        "(B) You can still achieve the American Dream of working at Walmart"
+      ],
+      "gold": "B"
+    },
+    "124": {
+      "options": [
+        "(A) So impressive winning cups in a league with 2 teams",
+        "(B) So impressive winning cups in a league with 60 teams"
+      ],
+      "gold": "A"
+    },
+    "125": {
+      "options": [
+        "(A) What could possibly be attractive about supporting history's greatest dictator?",
+        "(B) What could possibly be wrong about supporting history's greatest dictator?"
+      ],
+      "gold": "B"
+    },
+    "126": {
+      "options": [
+        "(A) When driving, it's very helpful to keep your foot in one place you know",
+        "(B) When driving, it's very difficult to keep your foot in one place you know"
+      ],
+      "gold": "B"
+    },
+    "127": {
+      "options": [
+        "(A) conspiracy theory, sounds suspicious",
+        "(B) conspiracy theory, sounds legit"
+      ],
+      "gold": "B"
+    },
+    "128": {
+      "options": [
+        "(A) I'll have you know my friend was very displeased to hear you lumping her in with such trash",
+        "(B) I'll have you know my friend was very pleased to hear you lumping her in with such trash"
+      ],
+      "gold": "B"
+    },
+    "129": {
+      "options": [
+        "(A) Are you implying history repeats itself if people ignore it? What an absurd claim",
+        "(B) Are you implying history repeats itself if people ignore it? What an insightful claim"
+      ],
+      "gold": "A"
+    },
+    "130": {
+      "options": [
+        "(A) But that could never happen in reality where software never malfunctions",
+        "(B) But that could never happen in reality where software often malfunctions"
+      ],
+      "gold": "A"
+    },
+    "131": {
+      "options": [
+        "(A) Yeah, the amount of injuries on the squad and lack of consistent O-line play had everything to do with this",
+        "(B) Yeah, the amount of injuries on the squad and lack of consistent O-line play had nothing to do with this"
+      ],
+      "gold": "B"
+    },
+    "132": {
+      "options": [
+        "(A) Of course. It is not like something you do in a private setting could never be held against you in a professional matter",
+        "(B) Of course. It is not like something you do in a private setting could ever be held against you in a professional matter"
+      ],
+      "gold": "B"
+    },
+    "133": {
+      "options": [
+        "(A) His reaction is understandable\u2014he didn't get a reply in 2 years",
+        "(B) His reaction is understandable\u2014he didn't get a reply in 2 minutes"
+      ],
+      "gold": "B"
+    },
+    "134": {
+      "options": [
+        "(A) You don't think you could float a bunch of ancient boats across the entire pacific ocean undetected and invade the inline northwest with their soviet-era MIGs?",
+        "(B) I don't think you could float a bunch of ancient boats across the entire pacific ocean undetected and invade the inline northwest with their soviet-era MIGs"
+      ],
+      "gold": "A"
+    },
+    "135": {
+      "options": [
+        "(A) Ah yes, self-centeredness: 'why should anyone give a shit about someone else's feelings if you're getting what you want out of a situation?'",
+        "(B) Ah yes, generosity: 'why should anyone give a shit about someone else's feelings if you're getting what you want out of a situation?'"
+      ],
+      "gold": "B"
+    },
+    "136": {
+      "options": [
+        "(A) Hmm, stifling of free speech and political opinions . . . I've seen that before",
+        "(B) Hmm, stifling of free speech and political opinions . . . never seen that before"
+      ],
+      "gold": "B"
+    },
+    "137": {
+      "options": [
+        "(A) Yeah, history is rarely black and white",
+        "(B) Yeah, history is usually black and white"
+      ],
+      "gold": "B"
+    },
+    "138": {
+      "options": [
+        "(A) I'm a serious symphony fan so when I go I hope the crowd is dead silent and everyone is in their seats so I can pay extra good attention",
+        "(B) I'm a serious hockey fan so when I go I hope the crowd is dead silent and everyone is in their seats so I can pay extra good attention"
+      ],
+      "gold": "B"
+    },
+    "139": {
+      "options": [
+        "(A) Showing up for work everyday helps makes you a great lawmaker",
+        "(B) Showing up for work everyday alone makes you a great lawmaker"
+      ],
+      "gold": "B"
+    },
+    "140": {
+      "options": [
+        "(A) Thank you stranger on the internet, I won't trust your three word post without any sources over someone offering solid advice claiming to actually be from the country in question",
+        "(B) Thank you stranger on the internet, I will trust your three word post without any sources over someone offering solid advice claiming to actually be from the country in question"
+      ],
+      "gold": "B"
+    },
+    "141": {
+      "options": [
+        "(A) Impossible!! There are no girls on the internet!",
+        "(B) Impossible!! There are many girls on the internet!"
+      ],
+      "gold": "A"
+    },
+    "142": {
+      "options": [
+        "(A) You forget, he was just a fresh-faced 40 year old",
+        "(B) You forget, he was just a fresh-faced 18 year old"
+      ],
+      "gold": "A"
+    },
+    "143": {
+      "options": [
+        "(A) If it's on Britannica it must be True..",
+        "(B) If it's on reddit it must be True.."
+      ],
+      "gold": "B"
+    },
+    "144": {
+      "options": [
+        "(A) That's how the internet works, it's a series of networks",
+        "(B) That's how the internet works, it's a series of tubes"
+      ],
+      "gold": "B"
+    },
+    "145": {
+      "options": [
+        "(A) Oh no the cleats with the new spikes didn't solve the problem?",
+        "(B) Oh no the cleats with the new spikes didn't solve every problem?"
+      ],
+      "gold": "B"
+    },
+    "146": {
+      "options": [
+        "(A) Soggy fries covered in bacon grease sounds unhealthy",
+        "(B) Soggy fries covered in bacon grease sounds delicious"
+      ],
+      "gold": "B"
+    },
+    "147": {
+      "options": [
+        "(A) The real tragedy here is that someone is buying a fraud",
+        "(B) The real tragedy here is that someone is buying a Mustang"
+      ],
+      "gold": "B"
+    },
+    "148": {
+      "options": [
+        "(A) Remind me, how do you print a legal-sized piece of paper?",
+        "(B) Remind me, how do you print a blank piece of paper?"
+      ],
+      "gold": "B"
+    },
+    "149": {
+      "options": [
+        "(A) But only 10000 economists said it will help the economy..",
+        "(B) But only 2 economists said it will help the economy.."
+      ],
+      "gold": "A"
+    },
+    "150": {
+      "options": [
+        "(A) how dare you use violence!!!",
+        "(B) how dare you use logic!!!"
+      ],
+      "gold": "B"
+    },
+    "151": {
+      "options": [
+        "(A) Stop putting people in neat little compartments to protect your view point \u2014\u00a0good idea",
+        "(B) Keep putting people in neat little compartments to protect your view point \u2014\u00a0good idea"
+      ],
+      "gold": "B"
+    },
+    "152": {
+      "options": [
+        "(A) What a wonderful, baseless accusation",
+        "(B) What a striking, baseless accusation"
+      ],
+      "gold": "A"
+    },
+    "153": {
+      "options": [
+        "(A) Just like we're all better off for not spinning our own clothes, mining our own steel, and forging our own tools",
+        "(B) Just like we're all worse off for not spinning our own clothes, mining our own steel, and forging our own tools"
+      ],
+      "gold": "B"
+    },
+    "154": {
+      "options": [
+        "(A) One failed test 6 years ago is simply insufficient proof of her cheating in last night's fight",
+        "(B) One failed test 6 years ago is simply devastating proof of her cheating in last night's fight"
+      ],
+      "gold": "B"
+    },
+    "155": {
+      "options": [
+        "(A) Remember, his Batman score isn't the only Batman theme",
+        "(B) Remember, his Batman score is the only Batman theme"
+      ],
+      "gold": "B"
+    },
+    "156": {
+      "options": [
+        "(A) I'm just 800 points from 1k, this is easy",
+        "(B) I'm just 8 points from 1k, this is easy"
+      ],
+      "gold": "A"
+    },
+    "157": {
+      "options": [
+        "(A) A dozen or so people from a personal anecdote is really a good sample size to represent all 320 million people in America",
+        "(B) A dozen or so people from a personal anecdote is really a terrible sample size to represent all 320 million people in America"
+      ],
+      "gold": "A"
+    },
+    "158": {
+      "options": [
+        "(A) Better not buy any technology ever because in a few years something better will be released!!",
+        "(B) Better not buy any exorbitant technology ever because in a few years something better will be released!!"
+      ],
+      "gold": "A"
+    },
+    "159": {
+      "options": [
+        "(A) Boy, I sure love it when bigots show up in a thread and start getting nosy",
+        "(B) Boy, I sure love it when bigots show up in a thread and start getting roasted"
+      ],
+      "gold": "A"
+    },
+    "160": {
+      "options": [
+        "(A) Nice try, but everyone knows there are no women active on the internet",
+        "(B) Nice try, but everyone knows there are many women active on the internet"
+      ],
+      "gold": "A"
+    },
+    "161": {
+      "options": [
+        "(A) I'm spoiled by my instant access to entertainment and information",
+        "(B) I'm oppressed by my instant access to entertainment and information"
+      ],
+      "gold": "B"
+    },
+    "162": {
+      "options": [
+        "(A) Having massive watermarks over videos really enhances the experience..",
+        "(B) Having massive watermarks over videos really worsens the experience.."
+      ],
+      "gold": "A"
+    },
+    "163": {
+      "options": [
+        "(A) Try having your landscape fill the entirety of the photo. That'd look good",
+        "(B) Try having your face fill the entirety of the photo. That'd look good"
+      ],
+      "gold": "B"
+    },
+    "164": {
+      "options": [
+        "(A) Think of the poor man! What will he do without his job?",
+        "(B) Think of the poor man! What will he do without his yacht?"
+      ],
+      "gold": "B"
+    },
+    "165": {
+      "options": [
+        "(A) It only received the lowest gross sales for any recent action film. Yeah, no one is rewatching",
+        "(B) It only received the highest gross sales for any recent action film. Yeah, no one is rewatching"
+      ],
+      "gold": "B"
+    },
+    "166": {
+      "options": [
+        "(A) Yes, responsibility should be celebrated",
+        "(B) Yes, negligence should be celebrated"
+      ],
+      "gold": "B"
+    },
+    "167": {
+      "options": [
+        "(A) Because Romania is not a real country, obviously",
+        "(B) Because Atlantis is not a real country, obviously"
+      ],
+      "gold": "A"
+    },
+    "168": {
+      "options": [
+        "(A) I'll just bring my keyboard and mouse to the computer and plug it all in",
+        "(B) I'll just bring my keyboard and mouse to the bus and plug it all in"
+      ],
+      "gold": "B"
+    },
+    "169": {
+      "options": [
+        "(A) Anyone can be successful without having inherited all their money first",
+        "(B) Nobody can be successful without having inherited all their money first"
+      ],
+      "gold": "B"
+    },
+    "170": {
+      "options": [
+        "(A) Well, Alabama did beat the 1st ranked team. Surely that should be enough to get them in",
+        "(B) Well, Alabama did beat the 17th ranked team. Surely that should be enough to get them in"
+      ],
+      "gold": "B"
+    },
+    "171": {
+      "options": [
+        "(A) You're not allowed to walk in the park, you can only do it on your own property",
+        "(B) You're not allowed to smoke in the park, you can only do it on your own property"
+      ],
+      "gold": "A"
+    },
+    "172": {
+      "options": [
+        "(A) Handouts are unfair when they go to businesses, not consumers",
+        "(B) Handouts are fine when they go to businesses, not consumers"
+      ],
+      "gold": "B"
+    },
+    "173": {
+      "options": [
+        "(A) Good thing you can boil impurities out of water",
+        "(B) Good thing you can boil Uranium out of water"
+      ],
+      "gold": "B"
+    },
+    "174": {
+      "options": [
+        "(A) If I associate something bad witih it, then my depression will never let me forget it. Weirdest memorization plan ever",
+        "(B) If I associate something bad witih it, then my depression will never let me forget it. Best memorization plan ever"
+      ],
+      "gold": "B"
+    },
+    "175": {
+      "options": [
+        "(A) Quit fat-shaming the cat! They're people, too, you know",
+        "(B) Quit fat-shaming the cat! They're sensitive, too, you know"
+      ],
+      "gold": "A"
+    },
+    "176": {
+      "options": [
+        "(A) With new designs coming ten times slower than their competitors, Honda will soon be at the top of the market",
+        "(B) With new designs coming ten times faster than their competitors, Honda will soon be at the top of the market"
+      ],
+      "gold": "A"
+    },
+    "177": {
+      "options": [
+        "(A) Generalizing half the population and acting like women can't think for themselves will totally win you points with the ladies",
+        "(B) Generalizing half the population and acting like women can't think for themselves will totally lose you points with the ladies"
+      ],
+      "gold": "A"
+    },
+    "178": {
+      "options": [
+        "(A) We've not spoken since graduating high school 7 years ago, she's basically my bestie",
+        "(B) We've consistently spoken since graduating high school 7 years ago, she's basically my bestie"
+      ],
+      "gold": "A"
+    }
+  }
+}

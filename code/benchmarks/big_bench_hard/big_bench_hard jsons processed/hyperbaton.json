@@ -1,0 +1,1800 @@
+{
+  "benchmark": "big_bench_hard",
+  "task": "hyperbaton",
+  "format": "multi_choice",
+  "task_type": "nlp",
+  "num_of_instances": 250,
+  "description": "Order adjectives correctly in English sentences.",
+  "more_info": {
+    "input_templates": [
+      "Q: Which sentence has the correct adjective order:\nOptions:\n{options}\nA:"
+    ],
+    "key_names": [
+      "options"
+    ],
+    "few_shot_examples": {
+      "0": {
+        "options": [
+          "(A) rubber terrible ship",
+          "(B) terrible rubber ship"
+        ],
+        "gold": "B",
+        "explanation": "When there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"rubber terrible ship\". (1) rubber\" falls into the material category. (2) \"terrible\" falls into the opinion category. Option (A) has the following adjective order: [7. material] [1. opinion] (or, in numeric terms, 7 1). Because 7 < 1 is not correct, (A) does not have the correct ordering.\nOption (B): \"terrible rubber ship\". Option (B) has the following adjective order: [1. opinion] [7. material] (or, in numeric terms, 1 7). Because 1 < 7 is correct, (B) has the correct ordering. So the answer is (B)."
+      },
+      "1": {
+        "options": [
+          "(A) repulsive small Brazilian exercise ship",
+          "(B) Brazilian repulsive exercise small ship"
+        ],
+        "gold": "A",
+        "explanation": "When there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"repulsive small Brazilian exercise ship\". (1) \"repulsive\" falls into the opinion category. (2) \"small\" falls into the size category. (3) \"Brazilian\" falls into the origin category. (4) \"exercise\" falls into the purpose category. Option (A) has the following adjective order: [1. opinion] [2. size] [6. origin] [8. purpose] (or, in numeric terms, 1 2 6 8). Because 1 < 2 < 6 < 8 is correct, (A) has the correct ordering.\nOption (B): \"Brazilian repulsive exercise small ship\". Option (B) has the following adjective order: [6. origin] [1. opinion] [8. purpose] [2. size] (or, in numeric terms, 6 1 8 2). Because 6 < 1 < 8 < 2 is not correct, (B) does not have the correct ordering. So the answer is (A)."
+      },
+      "2": {
+        "options": [
+          "(A) blue gold wonderful square shoe",
+          "(B) wonderful square blue gold shoe"
+        ],
+        "gold": "B",
+        "explanation": "When there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"blue gold wonderful square shoe\". (1) \"blue\" falls into the color category. (2) \"gold\" falls into the material category. (3) \"wonderful\" falls into the opinion category. (4) \"square\" falls into the shape category. The adjective order that Option (A) has is [5. color] [7. material] [1. opinion] [4. shape] (or, in numeric terms, 5 7 1 4). Because 5 < 7 < 1 < 4 is not correct, (A) does not have the correct ordering.\nOption (B): \"wonderful square blue gold shoe\". Option (B) has the following adjective order: [1. opinion] [4. shape] [5. color] [7. material] (or, in numeric terms, 1 4 5 7 ). Because 1 < 4 < 5 < 7 is correct, (B) has the correct ordering. So the answer is (B)."
+      }
+    },
+    "examples_with_explanations": [
+      "Q: Which sentence has the correct adjective order:\nOptions:\n(A) rubber terrible ship\n(B) terrible rubber ship\nA: (B)\nExplanation:\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"rubber terrible ship\". (1) rubber\" falls into the material category. (2) \"terrible\" falls into the opinion category. Option (A) has the following adjective order: [7. material] [1. opinion] (or, in numeric terms, 7 1). Because 7 < 1 is not correct, (A) does not have the correct ordering.\nOption (B): \"terrible rubber ship\". Option (B) has the following adjective order: [1. opinion] [7. material] (or, in numeric terms, 1 7). Because 1 < 7 is correct, (B) has the correct ordering. So the answer is (B).",
+      "Q: Which sentence has the correct adjective order:\nOptions:\n(A) repulsive small Brazilian exercise ship\n(B) Brazilian repulsive exercise small ship\nA: (A)\nExplanation:\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"repulsive small Brazilian exercise ship\". (1) \"repulsive\" falls into the opinion category. (2) \"small\" falls into the size category. (3) \"Brazilian\" falls into the origin category. (4) \"exercise\" falls into the purpose category. Option (A) has the following adjective order: [1. opinion] [2. size] [6. origin] [8. purpose] (or, in numeric terms, 1 2 6 8). Because 1 < 2 < 6 < 8 is correct, (A) has the correct ordering.\nOption (B): \"Brazilian repulsive exercise small ship\". Option (B) has the following adjective order: [6. origin] [1. opinion] [8. purpose] [2. size] (or, in numeric terms, 6 1 8 2). Because 6 < 1 < 8 < 2 is not correct, (B) does not have the correct ordering. So the answer is (A).",
+      "Q: Which sentence has the correct adjective order:\nOptions:\n(A) blue gold wonderful square shoe\n(B) wonderful square blue gold shoe\nA: (B)\nExplanation:\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"blue gold wonderful square shoe\". (1) \"blue\" falls into the color category. (2) \"gold\" falls into the material category. (3) \"wonderful\" falls into the opinion category. (4) \"square\" falls into the shape category. The adjective order that Option (A) has is [5. color] [7. material] [1. opinion] [4. shape] (or, in numeric terms, 5 7 1 4). Because 5 < 7 < 1 < 4 is not correct, (A) does not have the correct ordering.\nOption (B): \"wonderful square blue gold shoe\". Option (B) has the following adjective order: [1. opinion] [4. shape] [5. color] [7. material] (or, in numeric terms, 1 4 5 7 ). Because 1 < 4 < 5 < 7 is correct, (B) has the correct ordering. So the answer is (B)."
+    ],
+    "cot_prompt_intro": "Order adjectives correctly in English sentences.\n\nQ: Which sentence has the correct adjective order:\nOptions:\n(A) rubber terrible ship\n(B) terrible rubber ship\nA: Let's think step by step.\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"rubber terrible ship\". (1) rubber\" falls into the material category. (2) \"terrible\" falls into the opinion category. Option (A) has the following adjective order: [7. material] [1. opinion] (or, in numeric terms, 7 1). Because 7 < 1 is not correct, (A) does not have the correct ordering.\nOption (B): \"terrible rubber ship\". Option (B) has the following adjective order: [1. opinion] [7. material] (or, in numeric terms, 1 7). Because 1 < 7 is correct, (B) has the correct ordering. So the answer is (B).\n\nQ: Which sentence has the correct adjective order:\nOptions:\n(A) repulsive small Brazilian exercise ship\n(B) Brazilian repulsive exercise small ship\nA: Let's think step by step.\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"repulsive small Brazilian exercise ship\". (1) \"repulsive\" falls into the opinion category. (2) \"small\" falls into the size category. (3) \"Brazilian\" falls into the origin category. (4) \"exercise\" falls into the purpose category. Option (A) has the following adjective order: [1. opinion] [2. size] [6. origin] [8. purpose] (or, in numeric terms, 1 2 6 8). Because 1 < 2 < 6 < 8 is correct, (A) has the correct ordering.\nOption (B): \"Brazilian repulsive exercise small ship\". Option (B) has the following adjective order: [6. origin] [1. opinion] [8. purpose] [2. size] (or, in numeric terms, 6 1 8 2). Because 6 < 1 < 8 < 2 is not correct, (B) does not have the correct ordering. So the answer is (A).\n\nQ: Which sentence has the correct adjective order:\nOptions:\n(A) blue gold wonderful square shoe\n(B) wonderful square blue gold shoe\nA: Let's think step by step.\nWhen there is more than one adjective before a noun, the adjectives need to respect the following order before a noun: \"[1. opinion] [2. size] [3. age] [4. shape] [5. color] [6. origin] [7. material] [8. purpose] noun\".\nOption (A): \"blue gold wonderful square shoe\". (1) \"blue\" falls into the color category. (2) \"gold\" falls into the material category. (3) \"wonderful\" falls into the opinion category. (4) \"square\" falls into the shape category. The adjective order that Option (A) has is [5. color] [7. material] [1. opinion] [4. shape] (or, in numeric terms, 5 7 1 4). Because 5 < 7 < 1 < 4 is not correct, (A) does not have the correct ordering.\nOption (B): \"wonderful square blue gold shoe\". Option (B) has the following adjective order: [1. opinion] [4. shape] [5. color] [7. material] (or, in numeric terms, 1 4 5 7 ). Because 1 < 4 < 5 < 7 is correct, (B) has the correct ordering. So the answer is (B)."
+  },
+  "examples": {
+    "1": {
+      "options": [
+        "(A) midsize old grey Brazilian sweater",
+        "(B) midsize grey Brazilian old sweater"
+      ],
+      "gold": "A"
+    },
+    "2": {
+      "options": [
+        "(A) rubber gray walking Mexican midsize cat",
+        "(B) midsize gray Mexican rubber walking cat"
+      ],
+      "gold": "B"
+    },
+    "3": {
+      "options": [
+        "(A) mysterious big Indian iron smoking motorcycle",
+        "(B) big smoking mysterious Indian iron motorcycle"
+      ],
+      "gold": "A"
+    },
+    "4": {
+      "options": [
+        "(A) cloth smoking rectangular motorcycle",
+        "(B) rectangular cloth smoking motorcycle"
+      ],
+      "gold": "B"
+    },
+    "5": {
+      "options": [
+        "(A) pyramidal American glass exercise surfboard",
+        "(B) glass exercise American pyramidal surfboard"
+      ],
+      "gold": "A"
+    },
+    "6": {
+      "options": [
+        "(A) midsize ancient spherical knife",
+        "(B) spherical ancient midsize knife"
+      ],
+      "gold": "A"
+    },
+    "7": {
+      "options": [
+        "(A) tan silly old-fashioned dog",
+        "(B) silly old-fashioned tan dog"
+      ],
+      "gold": "B"
+    },
+    "8": {
+      "options": [
+        "(A) wool repulsive prismlike American chair",
+        "(B) repulsive prismlike American wool chair"
+      ],
+      "gold": "B"
+    },
+    "9": {
+      "options": [
+        "(A) medium-size archaic prismlike purple American car",
+        "(B) archaic purple prismlike American medium-size car"
+      ],
+      "gold": "A"
+    },
+    "10": {
+      "options": [
+        "(A) enormous rectangular blue dog",
+        "(B) enormous blue rectangular dog"
+      ],
+      "gold": "A"
+    },
+    "11": {
+      "options": [
+        "(A) good pyramidal grey Indian cloth computer",
+        "(B) good pyramidal cloth Indian grey computer"
+      ],
+      "gold": "A"
+    },
+    "12": {
+      "options": [
+        "(A) terrible tiny new square Egyptian typing sock",
+        "(B) new typing square Egyptian tiny terrible sock"
+      ],
+      "gold": "A"
+    },
+    "13": {
+      "options": [
+        "(A) Pakistani normal-size white paper good snorkeling monkey",
+        "(B) good normal-size white Pakistani paper snorkeling monkey"
+      ],
+      "gold": "B"
+    },
+    "14": {
+      "options": [
+        "(A) silver square red chair",
+        "(B) square red silver chair"
+      ],
+      "gold": "B"
+    },
+    "15": {
+      "options": [
+        "(A) nice American computer",
+        "(B) American nice computer"
+      ],
+      "gold": "A"
+    },
+    "16": {
+      "options": [
+        "(A) enormous yellow Egyptian driving computer",
+        "(B) driving yellow enormous Egyptian computer"
+      ],
+      "gold": "A"
+    },
+    "17": {
+      "options": [
+        "(A) enormous yellow Egyptian monkey",
+        "(B) enormous Egyptian yellow monkey"
+      ],
+      "gold": "A"
+    },
+    "18": {
+      "options": [
+        "(A) lovely midsize green Filipino sock",
+        "(B) Filipino midsize lovely green sock"
+      ],
+      "gold": "A"
+    },
+    "19": {
+      "options": [
+        "(A) leather wonderful Pakistani white medium-size monkey",
+        "(B) wonderful medium-size white Pakistani leather monkey"
+      ],
+      "gold": "B"
+    },
+    "20": {
+      "options": [
+        "(A) repulsive big rectangular pink steel exercise shoe",
+        "(B) pink big exercise repulsive steel rectangular shoe"
+      ],
+      "gold": "A"
+    },
+    "21": {
+      "options": [
+        "(A) wonderful big circular orange Pakistani smoking car",
+        "(B) circular wonderful smoking Pakistani big orange car"
+      ],
+      "gold": "A"
+    },
+    "22": {
+      "options": [
+        "(A) medium-size prismlike grey cardboard cat",
+        "(B) prismlike cardboard grey medium-size cat"
+      ],
+      "gold": "A"
+    },
+    "23": {
+      "options": [
+        "(A) new white lead walking surfboard",
+        "(B) walking lead new white surfboard"
+      ],
+      "gold": "A"
+    },
+    "24": {
+      "options": [
+        "(A) ancient mysterious yellow walking cat",
+        "(B) mysterious ancient yellow walking cat"
+      ],
+      "gold": "B"
+    },
+    "25": {
+      "options": [
+        "(A) new leather big triangular American chair",
+        "(B) big new triangular American leather chair"
+      ],
+      "gold": "B"
+    },
+    "26": {
+      "options": [
+        "(A) rectangular silver ancient green ridiculous big knife",
+        "(B) ridiculous big ancient rectangular green silver knife"
+      ],
+      "gold": "B"
+    },
+    "27": {
+      "options": [
+        "(A) silly midsize tan computer",
+        "(B) midsize silly tan computer"
+      ],
+      "gold": "A"
+    },
+    "28": {
+      "options": [
+        "(A) ridiculous grey cardboard whittling motorcycle",
+        "(B) cardboard ridiculous whittling grey motorcycle"
+      ],
+      "gold": "A"
+    },
+    "29": {
+      "options": [
+        "(A) enormous brand-new German drinking motorcycle",
+        "(B) brand-new drinking German enormous motorcycle"
+      ],
+      "gold": "A"
+    },
+    "30": {
+      "options": [
+        "(A) square Congolese driving old-fashioned dog",
+        "(B) old-fashioned square Congolese driving dog"
+      ],
+      "gold": "B"
+    },
+    "31": {
+      "options": [
+        "(A) small grey square cloth Japanese shoe",
+        "(B) small square grey Japanese cloth shoe"
+      ],
+      "gold": "B"
+    },
+    "32": {
+      "options": [
+        "(A) Russian huge repulsive archaic triangular ship",
+        "(B) repulsive huge archaic triangular Russian ship"
+      ],
+      "gold": "B"
+    },
+    "33": {
+      "options": [
+        "(A) American triangular computer",
+        "(B) triangular American computer"
+      ],
+      "gold": "B"
+    },
+    "34": {
+      "options": [
+        "(A) hiking Japanese black medium-size cloth knife",
+        "(B) medium-size black Japanese cloth hiking knife"
+      ],
+      "gold": "B"
+    },
+    "35": {
+      "options": [
+        "(A) snorkeling iron prismlike orange midsize knife",
+        "(B) midsize prismlike orange iron snorkeling knife"
+      ],
+      "gold": "B"
+    },
+    "36": {
+      "options": [
+        "(A) silver new repulsive exercise green Pakistani computer",
+        "(B) repulsive new green Pakistani silver exercise computer"
+      ],
+      "gold": "B"
+    },
+    "37": {
+      "options": [
+        "(A) Indonesian triangular obnoxious gold red shoe",
+        "(B) obnoxious triangular red Indonesian gold shoe"
+      ],
+      "gold": "B"
+    },
+    "38": {
+      "options": [
+        "(A) repulsive ancient white cloth car",
+        "(B) cloth white ancient repulsive car"
+      ],
+      "gold": "A"
+    },
+    "39": {
+      "options": [
+        "(A) midsize whittling gray nice baby",
+        "(B) nice midsize gray whittling baby"
+      ],
+      "gold": "B"
+    },
+    "40": {
+      "options": [
+        "(A) green new chair",
+        "(B) new green chair"
+      ],
+      "gold": "B"
+    },
+    "41": {
+      "options": [
+        "(A) midsize old pyramidal American monkey",
+        "(B) American old midsize pyramidal monkey"
+      ],
+      "gold": "A"
+    },
+    "42": {
+      "options": [
+        "(A) archaic pink wood Vietnamese cat",
+        "(B) archaic pink Vietnamese wood cat"
+      ],
+      "gold": "B"
+    },
+    "43": {
+      "options": [
+        "(A) Russian steel awful chair",
+        "(B) awful Russian steel chair"
+      ],
+      "gold": "B"
+    },
+    "44": {
+      "options": [
+        "(A) archaic gold orange awful surfboard",
+        "(B) awful archaic orange gold surfboard"
+      ],
+      "gold": "B"
+    },
+    "45": {
+      "options": [
+        "(A) walking black medium-size rectangular wonderful car",
+        "(B) wonderful medium-size rectangular black walking car"
+      ],
+      "gold": "B"
+    },
+    "46": {
+      "options": [
+        "(A) wonderful tiny old tan iron driving motorcycle",
+        "(B) driving tiny wonderful iron old tan motorcycle"
+      ],
+      "gold": "A"
+    },
+    "47": {
+      "options": [
+        "(A) triangular yellow old awful motorcycle",
+        "(B) awful old triangular yellow motorcycle"
+      ],
+      "gold": "B"
+    },
+    "48": {
+      "options": [
+        "(A) tiny whittling grey brand-new Indian triangular dog",
+        "(B) tiny brand-new triangular grey Indian whittling dog"
+      ],
+      "gold": "B"
+    },
+    "49": {
+      "options": [
+        "(A) terrible midsize snorkeling baby",
+        "(B) terrible snorkeling midsize baby"
+      ],
+      "gold": "A"
+    },
+    "50": {
+      "options": [
+        "(A) enormous new triangular Nigerian lead cat",
+        "(B) enormous Nigerian triangular new lead cat"
+      ],
+      "gold": "A"
+    },
+    "51": {
+      "options": [
+        "(A) drinking Brazilian lovely triangular monkey",
+        "(B) lovely triangular Brazilian drinking monkey"
+      ],
+      "gold": "B"
+    },
+    "52": {
+      "options": [
+        "(A) green wool sweater",
+        "(B) wool green sweater"
+      ],
+      "gold": "A"
+    },
+    "53": {
+      "options": [
+        "(A) enormous spherical Indian drinking sock",
+        "(B) drinking enormous spherical Indian sock"
+      ],
+      "gold": "A"
+    },
+    "54": {
+      "options": [
+        "(A) repulsive large new rectangular red rubber whittling sweater",
+        "(B) red rubber repulsive new rectangular whittling large sweater"
+      ],
+      "gold": "A"
+    },
+    "55": {
+      "options": [
+        "(A) terrible old-fashioned Turkish baby",
+        "(B) old-fashioned terrible Turkish baby"
+      ],
+      "gold": "A"
+    },
+    "56": {
+      "options": [
+        "(A) silly huge old-fashioned triangular tan Pakistani baby",
+        "(B) triangular tan Pakistani silly huge old-fashioned baby"
+      ],
+      "gold": "A"
+    },
+    "57": {
+      "options": [
+        "(A) cloth hiking huge old-fashioned shoe",
+        "(B) huge old-fashioned cloth hiking shoe"
+      ],
+      "gold": "B"
+    },
+    "58": {
+      "options": [
+        "(A) exercise old-fashioned steel midsize Congolese match",
+        "(B) midsize old-fashioned Congolese steel exercise match"
+      ],
+      "gold": "B"
+    },
+    "59": {
+      "options": [
+        "(A) massive old-fashioned triangular pink cat",
+        "(B) old-fashioned pink massive triangular cat"
+      ],
+      "gold": "A"
+    },
+    "60": {
+      "options": [
+        "(A) Iranian nice lead old-fashioned monkey",
+        "(B) nice old-fashioned Iranian lead monkey"
+      ],
+      "gold": "B"
+    },
+    "61": {
+      "options": [
+        "(A) old-fashioned white Russian iron computer",
+        "(B) old-fashioned Russian white iron computer"
+      ],
+      "gold": "A"
+    },
+    "62": {
+      "options": [
+        "(A) cloth pink prismlike wonderful exercise large shoe",
+        "(B) wonderful large prismlike pink cloth exercise shoe"
+      ],
+      "gold": "B"
+    },
+    "63": {
+      "options": [
+        "(A) fiberglass large tan car",
+        "(B) large tan fiberglass car"
+      ],
+      "gold": "B"
+    },
+    "64": {
+      "options": [
+        "(A) old silver lovely monkey",
+        "(B) lovely old silver monkey"
+      ],
+      "gold": "B"
+    },
+    "65": {
+      "options": [
+        "(A) mysterious midsize old-fashioned purple chair",
+        "(B) mysterious purple midsize old-fashioned chair"
+      ],
+      "gold": "A"
+    },
+    "66": {
+      "options": [
+        "(A) Chinese drinking grey motorcycle",
+        "(B) grey Chinese drinking motorcycle"
+      ],
+      "gold": "B"
+    },
+    "67": {
+      "options": [
+        "(A) big circular pink Thai silver driving car",
+        "(B) silver circular driving big Thai pink car"
+      ],
+      "gold": "A"
+    },
+    "68": {
+      "options": [
+        "(A) big ancient square red American cardboard eating shoe",
+        "(B) red ancient big cardboard American square eating shoe"
+      ],
+      "gold": "A"
+    },
+    "69": {
+      "options": [
+        "(A) rectangular tiny purple fiberglass dog",
+        "(B) tiny rectangular purple fiberglass dog"
+      ],
+      "gold": "B"
+    },
+    "70": {
+      "options": [
+        "(A) ridiculous midsize old-fashioned pyramidal gray wool driving sock",
+        "(B) old-fashioned wool midsize pyramidal gray ridiculous driving sock"
+      ],
+      "gold": "A"
+    },
+    "71": {
+      "options": [
+        "(A) Turkish square terrible chair",
+        "(B) terrible square Turkish chair"
+      ],
+      "gold": "B"
+    },
+    "72": {
+      "options": [
+        "(A) whittling Nigerian computer",
+        "(B) Nigerian whittling computer"
+      ],
+      "gold": "B"
+    },
+    "73": {
+      "options": [
+        "(A) driving blue car",
+        "(B) blue driving car"
+      ],
+      "gold": "B"
+    },
+    "74": {
+      "options": [
+        "(A) drinking old monkey",
+        "(B) old drinking monkey"
+      ],
+      "gold": "B"
+    },
+    "75": {
+      "options": [
+        "(A) circular Pakistani exercise steel mysterious black old surfboard",
+        "(B) mysterious old circular black Pakistani steel exercise surfboard"
+      ],
+      "gold": "B"
+    },
+    "76": {
+      "options": [
+        "(A) snorkeling awful silver sweater",
+        "(B) awful silver snorkeling sweater"
+      ],
+      "gold": "B"
+    },
+    "77": {
+      "options": [
+        "(A) mysterious medium-size red Indonesian monkey",
+        "(B) mysterious Indonesian medium-size red monkey"
+      ],
+      "gold": "A"
+    },
+    "78": {
+      "options": [
+        "(A) terrible archaic pyramidal white Nigerian match",
+        "(B) pyramidal Nigerian terrible white archaic match"
+      ],
+      "gold": "A"
+    },
+    "79": {
+      "options": [
+        "(A) old purple Congolese rectangular sweater",
+        "(B) old rectangular purple Congolese sweater"
+      ],
+      "gold": "B"
+    },
+    "80": {
+      "options": [
+        "(A) midsize purple Russian gold snorkeling sock",
+        "(B) gold Russian midsize purple snorkeling sock"
+      ],
+      "gold": "A"
+    },
+    "81": {
+      "options": [
+        "(A) enormous triangular American walking car",
+        "(B) enormous walking American triangular car"
+      ],
+      "gold": "A"
+    },
+    "82": {
+      "options": [
+        "(A) enormous smoking square Russian car",
+        "(B) enormous square Russian smoking car"
+      ],
+      "gold": "B"
+    },
+    "83": {
+      "options": [
+        "(A) lovely ancient triangular orange Turkish wood smoking shoe",
+        "(B) Turkish wood smoking lovely orange ancient triangular shoe"
+      ],
+      "gold": "A"
+    },
+    "84": {
+      "options": [
+        "(A) old-fashioned huge obnoxious prismlike smoking motorcycle",
+        "(B) obnoxious huge old-fashioned prismlike smoking motorcycle"
+      ],
+      "gold": "B"
+    },
+    "85": {
+      "options": [
+        "(A) walking archaic terrible Vietnamese tan baby",
+        "(B) terrible archaic tan Vietnamese walking baby"
+      ],
+      "gold": "B"
+    },
+    "86": {
+      "options": [
+        "(A) brand-new pink ridiculous wood massive baby",
+        "(B) ridiculous massive brand-new pink wood baby"
+      ],
+      "gold": "B"
+    },
+    "87": {
+      "options": [
+        "(A) enormous pyramidal white Indonesian glass smoking cat",
+        "(B) pyramidal Indonesian enormous smoking white glass cat"
+      ],
+      "gold": "A"
+    },
+    "88": {
+      "options": [
+        "(A) little pink Indonesian drinking repulsive dog",
+        "(B) repulsive little pink Indonesian drinking dog"
+      ],
+      "gold": "B"
+    },
+    "89": {
+      "options": [
+        "(A) medium-size ancient rectangular Congolese whittling ship",
+        "(B) medium-size whittling rectangular ancient Congolese ship"
+      ],
+      "gold": "A"
+    },
+    "90": {
+      "options": [
+        "(A) lovely tiny triangular black knife",
+        "(B) black triangular tiny lovely knife"
+      ],
+      "gold": "A"
+    },
+    "91": {
+      "options": [
+        "(A) nice midsize brand-new drinking surfboard",
+        "(B) drinking nice brand-new midsize surfboard"
+      ],
+      "gold": "A"
+    },
+    "92": {
+      "options": [
+        "(A) obnoxious big prismlike orange Filipino glass knife",
+        "(B) obnoxious big prismlike Filipino orange glass knife"
+      ],
+      "gold": "A"
+    },
+    "93": {
+      "options": [
+        "(A) medium-size Filipino old-fashioned ship",
+        "(B) medium-size old-fashioned Filipino ship"
+      ],
+      "gold": "B"
+    },
+    "94": {
+      "options": [
+        "(A) huge snorkeling tan cloth spherical ship",
+        "(B) huge spherical tan cloth snorkeling ship"
+      ],
+      "gold": "B"
+    },
+    "95": {
+      "options": [
+        "(A) driving pyramidal small chair",
+        "(B) small pyramidal driving chair"
+      ],
+      "gold": "B"
+    },
+    "96": {
+      "options": [
+        "(A) nice little brand-new spherical purple lead chair",
+        "(B) little brand-new lead nice spherical purple chair"
+      ],
+      "gold": "A"
+    },
+    "97": {
+      "options": [
+        "(A) archaic nice snorkeling rectangular grey baby",
+        "(B) nice archaic rectangular grey snorkeling baby"
+      ],
+      "gold": "B"
+    },
+    "98": {
+      "options": [
+        "(A) big cloth typing Russian terrible computer",
+        "(B) terrible big Russian cloth typing computer"
+      ],
+      "gold": "B"
+    },
+    "99": {
+      "options": [
+        "(A) big square ship",
+        "(B) square big ship"
+      ],
+      "gold": "A"
+    },
+    "100": {
+      "options": [
+        "(A) nice enormous blue Bangladeshi dog",
+        "(B) Bangladeshi nice blue enormous dog"
+      ],
+      "gold": "A"
+    },
+    "101": {
+      "options": [
+        "(A) glass brown circular walking baby",
+        "(B) circular brown glass walking baby"
+      ],
+      "gold": "B"
+    },
+    "102": {
+      "options": [
+        "(A) brand-new circular Pakistani surfboard",
+        "(B) Pakistani circular brand-new surfboard"
+      ],
+      "gold": "A"
+    },
+    "103": {
+      "options": [
+        "(A) lovely purple Pakistani rectangular new typing sweater",
+        "(B) lovely new rectangular purple Pakistani typing sweater"
+      ],
+      "gold": "B"
+    },
+    "104": {
+      "options": [
+        "(A) archaic square orange wool dog",
+        "(B) archaic wool square orange dog"
+      ],
+      "gold": "A"
+    },
+    "105": {
+      "options": [
+        "(A) repulsive normal-size green old-fashioned cardboard surfboard",
+        "(B) repulsive normal-size old-fashioned green cardboard surfboard"
+      ],
+      "gold": "B"
+    },
+    "106": {
+      "options": [
+        "(A) midsize prismlike Japanese rubber exercise shoe",
+        "(B) prismlike exercise Japanese rubber midsize shoe"
+      ],
+      "gold": "A"
+    },
+    "107": {
+      "options": [
+        "(A) repulsive old-fashioned rectangular green Japanese exercise ship",
+        "(B) rectangular exercise green old-fashioned Japanese repulsive ship"
+      ],
+      "gold": "A"
+    },
+    "108": {
+      "options": [
+        "(A) tiny rubber archaic smoking ship",
+        "(B) tiny archaic rubber smoking ship"
+      ],
+      "gold": "B"
+    },
+    "109": {
+      "options": [
+        "(A) large red good chair",
+        "(B) good large red chair"
+      ],
+      "gold": "B"
+    },
+    "110": {
+      "options": [
+        "(A) new walking Turkish green sock",
+        "(B) new green Turkish walking sock"
+      ],
+      "gold": "B"
+    },
+    "111": {
+      "options": [
+        "(A) little black driving ship",
+        "(B) driving little black ship"
+      ],
+      "gold": "A"
+    },
+    "112": {
+      "options": [
+        "(A) lovely archaic cardboard cat",
+        "(B) cardboard archaic lovely cat"
+      ],
+      "gold": "A"
+    },
+    "113": {
+      "options": [
+        "(A) brand-new terrible large cat",
+        "(B) terrible large brand-new cat"
+      ],
+      "gold": "B"
+    },
+    "114": {
+      "options": [
+        "(A) rectangular American orange little shoe",
+        "(B) little rectangular orange American shoe"
+      ],
+      "gold": "B"
+    },
+    "115": {
+      "options": [
+        "(A) black typing awful computer",
+        "(B) awful black typing computer"
+      ],
+      "gold": "B"
+    },
+    "116": {
+      "options": [
+        "(A) paper Indian ancient pink pyramidal ship",
+        "(B) ancient pyramidal pink Indian paper ship"
+      ],
+      "gold": "B"
+    },
+    "117": {
+      "options": [
+        "(A) mysterious ancient Indonesian paper cat",
+        "(B) paper mysterious ancient Indonesian cat"
+      ],
+      "gold": "A"
+    },
+    "118": {
+      "options": [
+        "(A) big brand-new orange fiberglass snorkeling knife",
+        "(B) snorkeling fiberglass brand-new orange big knife"
+      ],
+      "gold": "A"
+    },
+    "119": {
+      "options": [
+        "(A) obnoxious midsize wood computer",
+        "(B) obnoxious wood midsize computer"
+      ],
+      "gold": "A"
+    },
+    "120": {
+      "options": [
+        "(A) mysterious little Bangladeshi silver baby",
+        "(B) silver mysterious little Bangladeshi baby"
+      ],
+      "gold": "A"
+    },
+    "121": {
+      "options": [
+        "(A) fiberglass old surfboard",
+        "(B) old fiberglass surfboard"
+      ],
+      "gold": "B"
+    },
+    "122": {
+      "options": [
+        "(A) massive cardboard good Thai sweater",
+        "(B) good massive Thai cardboard sweater"
+      ],
+      "gold": "B"
+    },
+    "123": {
+      "options": [
+        "(A) Thai tiny fiberglass eating car",
+        "(B) tiny Thai fiberglass eating car"
+      ],
+      "gold": "B"
+    },
+    "124": {
+      "options": [
+        "(A) nice little pyramidal red Nigerian drinking car",
+        "(B) little nice Nigerian red drinking pyramidal car"
+      ],
+      "gold": "A"
+    },
+    "125": {
+      "options": [
+        "(A) large archaic red Indonesian sock",
+        "(B) large red Indonesian archaic sock"
+      ],
+      "gold": "A"
+    },
+    "126": {
+      "options": [
+        "(A) good rubber cat",
+        "(B) rubber good cat"
+      ],
+      "gold": "A"
+    },
+    "127": {
+      "options": [
+        "(A) brand-new square black wool eating motorcycle",
+        "(B) eating square wool brand-new black motorcycle"
+      ],
+      "gold": "A"
+    },
+    "128": {
+      "options": [
+        "(A) glass spherical gray hiking ancient shoe",
+        "(B) ancient spherical gray glass hiking shoe"
+      ],
+      "gold": "B"
+    },
+    "129": {
+      "options": [
+        "(A) square massive sweater",
+        "(B) massive square sweater"
+      ],
+      "gold": "B"
+    },
+    "130": {
+      "options": [
+        "(A) Mexican paper baby",
+        "(B) paper Mexican baby"
+      ],
+      "gold": "A"
+    },
+    "131": {
+      "options": [
+        "(A) Japanese silver square awful motorcycle",
+        "(B) awful square Japanese silver motorcycle"
+      ],
+      "gold": "B"
+    },
+    "132": {
+      "options": [
+        "(A) wonderful large triangular Bangladeshi eating computer",
+        "(B) triangular eating large wonderful Bangladeshi computer"
+      ],
+      "gold": "A"
+    },
+    "133": {
+      "options": [
+        "(A) good ancient square Indian motorcycle",
+        "(B) ancient Indian good square motorcycle"
+      ],
+      "gold": "A"
+    },
+    "134": {
+      "options": [
+        "(A) orange large iron Iranian computer",
+        "(B) large orange Iranian iron computer"
+      ],
+      "gold": "B"
+    },
+    "135": {
+      "options": [
+        "(A) lovely fiberglass archaic pyramidal Nigerian brown motorcycle",
+        "(B) lovely archaic pyramidal brown Nigerian fiberglass motorcycle"
+      ],
+      "gold": "B"
+    },
+    "136": {
+      "options": [
+        "(A) iron midsize dog",
+        "(B) midsize iron dog"
+      ],
+      "gold": "B"
+    },
+    "137": {
+      "options": [
+        "(A) Pakistani snorkeling large old ship",
+        "(B) large old Pakistani snorkeling ship"
+      ],
+      "gold": "B"
+    },
+    "138": {
+      "options": [
+        "(A) good huge old black Iranian wood walking chair",
+        "(B) huge good black old walking Iranian wood chair"
+      ],
+      "gold": "A"
+    },
+    "139": {
+      "options": [
+        "(A) Nigerian silly old-fashioned hiking prismlike chair",
+        "(B) silly old-fashioned prismlike Nigerian hiking chair"
+      ],
+      "gold": "B"
+    },
+    "140": {
+      "options": [
+        "(A) new Turkish spherical silver obnoxious dog",
+        "(B) obnoxious new spherical Turkish silver dog"
+      ],
+      "gold": "B"
+    },
+    "141": {
+      "options": [
+        "(A) brand-new grey paper sweater",
+        "(B) grey paper brand-new sweater"
+      ],
+      "gold": "A"
+    },
+    "142": {
+      "options": [
+        "(A) old circular brown Turkish wool car",
+        "(B) brown circular Turkish wool old car"
+      ],
+      "gold": "A"
+    },
+    "143": {
+      "options": [
+        "(A) brand-new green cloth typing knife",
+        "(B) cloth brand-new green typing knife"
+      ],
+      "gold": "A"
+    },
+    "144": {
+      "options": [
+        "(A) purple new enormous drinking awful motorcycle",
+        "(B) awful enormous new purple drinking motorcycle"
+      ],
+      "gold": "B"
+    },
+    "145": {
+      "options": [
+        "(A) small archaic square leather sock",
+        "(B) archaic small leather square sock"
+      ],
+      "gold": "A"
+    },
+    "146": {
+      "options": [
+        "(A) terrible old prismlike Mexican hiking knife",
+        "(B) old hiking terrible prismlike Mexican knife"
+      ],
+      "gold": "A"
+    },
+    "147": {
+      "options": [
+        "(A) silly grey silver chair",
+        "(B) silver grey silly chair"
+      ],
+      "gold": "A"
+    },
+    "148": {
+      "options": [
+        "(A) Russian whittling lovely enormous motorcycle",
+        "(B) lovely enormous Russian whittling motorcycle"
+      ],
+      "gold": "B"
+    },
+    "149": {
+      "options": [
+        "(A) cardboard ridiculous old-fashioned cat",
+        "(B) ridiculous old-fashioned cardboard cat"
+      ],
+      "gold": "B"
+    },
+    "150": {
+      "options": [
+        "(A) massive prismlike smoking chair",
+        "(B) massive smoking prismlike chair"
+      ],
+      "gold": "A"
+    },
+    "151": {
+      "options": [
+        "(A) nice old Bangladeshi red hiking shoe",
+        "(B) nice old red Bangladeshi hiking shoe"
+      ],
+      "gold": "B"
+    },
+    "152": {
+      "options": [
+        "(A) midsize triangular Congolese drinking car",
+        "(B) Congolese triangular midsize drinking car"
+      ],
+      "gold": "A"
+    },
+    "153": {
+      "options": [
+        "(A) repulsive massive ancient eating shoe",
+        "(B) massive repulsive eating ancient shoe"
+      ],
+      "gold": "A"
+    },
+    "154": {
+      "options": [
+        "(A) tan snorkeling little match",
+        "(B) little tan snorkeling match"
+      ],
+      "gold": "B"
+    },
+    "155": {
+      "options": [
+        "(A) tiny new triangular gray walking car",
+        "(B) triangular new gray tiny walking car"
+      ],
+      "gold": "A"
+    },
+    "156": {
+      "options": [
+        "(A) square cardboard old-fashioned Japanese exercise white motorcycle",
+        "(B) old-fashioned square white Japanese cardboard exercise motorcycle"
+      ],
+      "gold": "B"
+    },
+    "157": {
+      "options": [
+        "(A) mysterious Indian pyramidal sock",
+        "(B) mysterious pyramidal Indian sock"
+      ],
+      "gold": "B"
+    },
+    "158": {
+      "options": [
+        "(A) wonderful fiberglass small new walking sock",
+        "(B) wonderful small new fiberglass walking sock"
+      ],
+      "gold": "B"
+    },
+    "159": {
+      "options": [
+        "(A) driving paper old-fashioned brown Bangladeshi good spherical shoe",
+        "(B) good old-fashioned spherical brown Bangladeshi paper driving shoe"
+      ],
+      "gold": "B"
+    },
+    "160": {
+      "options": [
+        "(A) nice enormous gold sock",
+        "(B) enormous nice gold sock"
+      ],
+      "gold": "A"
+    },
+    "161": {
+      "options": [
+        "(A) little ridiculous match",
+        "(B) ridiculous little match"
+      ],
+      "gold": "B"
+    },
+    "162": {
+      "options": [
+        "(A) tiny old-fashioned prismlike pink Chinese surfboard",
+        "(B) tiny old-fashioned pink prismlike Chinese surfboard"
+      ],
+      "gold": "A"
+    },
+    "163": {
+      "options": [
+        "(A) archaic spherical hiking match",
+        "(B) archaic hiking spherical match"
+      ],
+      "gold": "A"
+    },
+    "164": {
+      "options": [
+        "(A) little prismlike Russian nice knife",
+        "(B) nice little prismlike Russian knife"
+      ],
+      "gold": "B"
+    },
+    "165": {
+      "options": [
+        "(A) rectangular plastic drinking new tan computer",
+        "(B) new rectangular tan plastic drinking computer"
+      ],
+      "gold": "B"
+    },
+    "166": {
+      "options": [
+        "(A) red Ethiopian match",
+        "(B) Ethiopian red match"
+      ],
+      "gold": "A"
+    },
+    "167": {
+      "options": [
+        "(A) small obnoxious American spherical leather red ship",
+        "(B) obnoxious small spherical red American leather ship"
+      ],
+      "gold": "B"
+    },
+    "168": {
+      "options": [
+        "(A) good square Ethiopian snorkeling motorcycle",
+        "(B) Ethiopian square snorkeling good motorcycle"
+      ],
+      "gold": "A"
+    },
+    "169": {
+      "options": [
+        "(A) eating small circular nice chair",
+        "(B) nice small circular eating chair"
+      ],
+      "gold": "B"
+    },
+    "170": {
+      "options": [
+        "(A) Indian huge new tan dog",
+        "(B) huge new tan Indian dog"
+      ],
+      "gold": "B"
+    },
+    "171": {
+      "options": [
+        "(A) mysterious lead orange walking surfboard",
+        "(B) mysterious orange lead walking surfboard"
+      ],
+      "gold": "B"
+    },
+    "172": {
+      "options": [
+        "(A) awful huge iron walking sock",
+        "(B) huge awful iron walking sock"
+      ],
+      "gold": "A"
+    },
+    "173": {
+      "options": [
+        "(A) massive Congolese cloth smoking surfboard",
+        "(B) cloth smoking massive Congolese surfboard"
+      ],
+      "gold": "A"
+    },
+    "174": {
+      "options": [
+        "(A) old Congolese fiberglass snorkeling sweater",
+        "(B) snorkeling Congolese fiberglass old sweater"
+      ],
+      "gold": "A"
+    },
+    "175": {
+      "options": [
+        "(A) tiny new circular cloth sweater",
+        "(B) circular tiny new cloth sweater"
+      ],
+      "gold": "A"
+    },
+    "176": {
+      "options": [
+        "(A) mysterious massive brown Nigerian fiberglass whittling ship",
+        "(B) whittling brown Nigerian fiberglass massive mysterious ship"
+      ],
+      "gold": "A"
+    },
+    "177": {
+      "options": [
+        "(A) tan wool huge awful car",
+        "(B) awful huge tan wool car"
+      ],
+      "gold": "B"
+    },
+    "178": {
+      "options": [
+        "(A) archaic ridiculous prismlike tiny cardboard Thai sock",
+        "(B) ridiculous tiny archaic prismlike Thai cardboard sock"
+      ],
+      "gold": "B"
+    },
+    "179": {
+      "options": [
+        "(A) exercise rectangular brand-new lovely dog",
+        "(B) lovely brand-new rectangular exercise dog"
+      ],
+      "gold": "B"
+    },
+    "180": {
+      "options": [
+        "(A) smoking plastic blue ship",
+        "(B) blue plastic smoking ship"
+      ],
+      "gold": "B"
+    },
+    "181": {
+      "options": [
+        "(A) good old prismlike monkey",
+        "(B) prismlike good old monkey"
+      ],
+      "gold": "A"
+    },
+    "182": {
+      "options": [
+        "(A) green typing Brazilian archaic normal-size car",
+        "(B) normal-size archaic green Brazilian typing car"
+      ],
+      "gold": "B"
+    },
+    "183": {
+      "options": [
+        "(A) old snorkeling little green sweater",
+        "(B) little old green snorkeling sweater"
+      ],
+      "gold": "B"
+    },
+    "184": {
+      "options": [
+        "(A) terrible normal-size circular red fiberglass baby",
+        "(B) red normal-size circular fiberglass terrible baby"
+      ],
+      "gold": "A"
+    },
+    "185": {
+      "options": [
+        "(A) repulsive rectangular black huge lead match",
+        "(B) repulsive huge rectangular black lead match"
+      ],
+      "gold": "B"
+    },
+    "186": {
+      "options": [
+        "(A) tiny rubber pyramidal knife",
+        "(B) tiny pyramidal rubber knife"
+      ],
+      "gold": "B"
+    },
+    "187": {
+      "options": [
+        "(A) enormous circular Pakistani snorkeling gold yellow baby",
+        "(B) enormous circular yellow Pakistani gold snorkeling baby"
+      ],
+      "gold": "B"
+    },
+    "188": {
+      "options": [
+        "(A) old-fashioned rectangular Nigerian rubber snorkeling monkey",
+        "(B) Nigerian rectangular old-fashioned rubber snorkeling monkey"
+      ],
+      "gold": "A"
+    },
+    "189": {
+      "options": [
+        "(A) midsize circular fiberglass knife",
+        "(B) circular fiberglass midsize knife"
+      ],
+      "gold": "A"
+    },
+    "190": {
+      "options": [
+        "(A) lovely massive Russian baby",
+        "(B) massive lovely Russian baby"
+      ],
+      "gold": "A"
+    },
+    "191": {
+      "options": [
+        "(A) awful small paper ship",
+        "(B) paper awful small ship"
+      ],
+      "gold": "A"
+    },
+    "192": {
+      "options": [
+        "(A) enormous tan chair",
+        "(B) tan enormous chair"
+      ],
+      "gold": "A"
+    },
+    "193": {
+      "options": [
+        "(A) circular small brand-new car",
+        "(B) small brand-new circular car"
+      ],
+      "gold": "B"
+    },
+    "194": {
+      "options": [
+        "(A) spherical terrible pink typing chair",
+        "(B) terrible spherical pink typing chair"
+      ],
+      "gold": "B"
+    },
+    "195": {
+      "options": [
+        "(A) German gray lovely ship",
+        "(B) lovely gray German ship"
+      ],
+      "gold": "B"
+    },
+    "196": {
+      "options": [
+        "(A) triangular purple exercise cloth silly sweater",
+        "(B) silly triangular purple cloth exercise sweater"
+      ],
+      "gold": "B"
+    },
+    "197": {
+      "options": [
+        "(A) ridiculous pyramidal big leather sock",
+        "(B) ridiculous big pyramidal leather sock"
+      ],
+      "gold": "B"
+    },
+    "198": {
+      "options": [
+        "(A) awful little triangular paper motorcycle",
+        "(B) triangular awful paper little motorcycle"
+      ],
+      "gold": "A"
+    },
+    "199": {
+      "options": [
+        "(A) triangular new Vietnamese steel tiny awful pink match",
+        "(B) awful tiny new triangular pink Vietnamese steel match"
+      ],
+      "gold": "B"
+    },
+    "200": {
+      "options": [
+        "(A) blue Indian repulsive wool normal-size dog",
+        "(B) repulsive normal-size blue Indian wool dog"
+      ],
+      "gold": "B"
+    },
+    "201": {
+      "options": [
+        "(A) silly midsize rectangular Thai paper dog",
+        "(B) midsize Thai silly paper rectangular dog"
+      ],
+      "gold": "A"
+    },
+    "202": {
+      "options": [
+        "(A) good spherical shoe",
+        "(B) spherical good shoe"
+      ],
+      "gold": "A"
+    },
+    "203": {
+      "options": [
+        "(A) large brand-new spherical red Congolese plastic chair",
+        "(B) spherical Congolese brand-new red plastic large chair"
+      ],
+      "gold": "A"
+    },
+    "204": {
+      "options": [
+        "(A) lovely tiny old-fashioned pyramidal Pakistani glass eating cat",
+        "(B) pyramidal lovely old-fashioned Pakistani tiny eating glass cat"
+      ],
+      "gold": "A"
+    },
+    "205": {
+      "options": [
+        "(A) silly ancient brown smoking shoe",
+        "(B) brown silly smoking ancient shoe"
+      ],
+      "gold": "A"
+    },
+    "206": {
+      "options": [
+        "(A) plastic grey old-fashioned small sock",
+        "(B) small old-fashioned grey plastic sock"
+      ],
+      "gold": "B"
+    },
+    "207": {
+      "options": [
+        "(A) lovely little archaic prismlike black smoking motorcycle",
+        "(B) little lovely smoking archaic black prismlike motorcycle"
+      ],
+      "gold": "A"
+    },
+    "208": {
+      "options": [
+        "(A) old-fashioned circular rubber hiking cat",
+        "(B) rubber old-fashioned hiking circular cat"
+      ],
+      "gold": "A"
+    },
+    "209": {
+      "options": [
+        "(A) awful purple normal-size eating knife",
+        "(B) awful normal-size purple eating knife"
+      ],
+      "gold": "B"
+    },
+    "210": {
+      "options": [
+        "(A) lovely pink shoe",
+        "(B) pink lovely shoe"
+      ],
+      "gold": "A"
+    },
+    "211": {
+      "options": [
+        "(A) yellow hiking brand-new Turkish rubber repulsive knife",
+        "(B) repulsive brand-new yellow Turkish rubber hiking knife"
+      ],
+      "gold": "B"
+    },
+    "212": {
+      "options": [
+        "(A) terrible archaic paper knife",
+        "(B) archaic paper terrible knife"
+      ],
+      "gold": "A"
+    },
+    "213": {
+      "options": [
+        "(A) repulsive prismlike glass shoe",
+        "(B) glass repulsive prismlike shoe"
+      ],
+      "gold": "A"
+    },
+    "214": {
+      "options": [
+        "(A) driving Thai wool enormous circular dog",
+        "(B) enormous circular Thai wool driving dog"
+      ],
+      "gold": "B"
+    },
+    "215": {
+      "options": [
+        "(A) black hiking cardboard ancient spherical match",
+        "(B) ancient spherical black cardboard hiking match"
+      ],
+      "gold": "B"
+    },
+    "216": {
+      "options": [
+        "(A) silver prismlike hiking brown shoe",
+        "(B) prismlike brown silver hiking shoe"
+      ],
+      "gold": "B"
+    },
+    "217": {
+      "options": [
+        "(A) cloth Vietnamese little ancient sweater",
+        "(B) little ancient Vietnamese cloth sweater"
+      ],
+      "gold": "B"
+    },
+    "218": {
+      "options": [
+        "(A) large spherical purple smoking new sweater",
+        "(B) large new spherical purple smoking sweater"
+      ],
+      "gold": "B"
+    },
+    "219": {
+      "options": [
+        "(A) normal-size spherical Nigerian lovely exercise green ship",
+        "(B) lovely normal-size spherical green Nigerian exercise ship"
+      ],
+      "gold": "B"
+    },
+    "220": {
+      "options": [
+        "(A) massive ancient triangular orange silver hiking computer",
+        "(B) hiking ancient triangular silver massive orange computer"
+      ],
+      "gold": "A"
+    },
+    "221": {
+      "options": [
+        "(A) silver medium-size dog",
+        "(B) medium-size silver dog"
+      ],
+      "gold": "B"
+    },
+    "222": {
+      "options": [
+        "(A) ridiculous paper shoe",
+        "(B) paper ridiculous shoe"
+      ],
+      "gold": "A"
+    },
+    "223": {
+      "options": [
+        "(A) old-fashioned rectangular brown Russian baby",
+        "(B) Russian brown old-fashioned rectangular baby"
+      ],
+      "gold": "A"
+    },
+    "224": {
+      "options": [
+        "(A) small ancient spherical brown Russian fiberglass sock",
+        "(B) Russian spherical ancient fiberglass small brown sock"
+      ],
+      "gold": "A"
+    },
+    "225": {
+      "options": [
+        "(A) repulsive Ethiopian large red smoking pyramidal chair",
+        "(B) repulsive large pyramidal red Ethiopian smoking chair"
+      ],
+      "gold": "B"
+    },
+    "226": {
+      "options": [
+        "(A) midsize brand-new purple Vietnamese fiberglass sweater",
+        "(B) fiberglass midsize brand-new Vietnamese purple sweater"
+      ],
+      "gold": "A"
+    },
+    "227": {
+      "options": [
+        "(A) old-fashioned circular green cardboard exercise computer",
+        "(B) old-fashioned green exercise circular cardboard computer"
+      ],
+      "gold": "A"
+    },
+    "228": {
+      "options": [
+        "(A) lead nice spherical little chair",
+        "(B) nice little spherical lead chair"
+      ],
+      "gold": "B"
+    },
+    "229": {
+      "options": [
+        "(A) tiny rectangular pink driving surfboard",
+        "(B) pink driving tiny rectangular surfboard"
+      ],
+      "gold": "A"
+    },
+    "230": {
+      "options": [
+        "(A) drinking good Bangladeshi tan paper monkey",
+        "(B) good tan Bangladeshi paper drinking monkey"
+      ],
+      "gold": "B"
+    },
+    "231": {
+      "options": [
+        "(A) old drinking pyramidal brown monkey",
+        "(B) old pyramidal brown drinking monkey"
+      ],
+      "gold": "B"
+    },
+    "232": {
+      "options": [
+        "(A) nice small square white steel motorcycle",
+        "(B) nice steel square white small motorcycle"
+      ],
+      "gold": "A"
+    },
+    "233": {
+      "options": [
+        "(A) brand-new Turkish iron monkey",
+        "(B) Turkish iron brand-new monkey"
+      ],
+      "gold": "A"
+    },
+    "234": {
+      "options": [
+        "(A) lovely old gray motorcycle",
+        "(B) gray lovely old motorcycle"
+      ],
+      "gold": "A"
+    },
+    "235": {
+      "options": [
+        "(A) ridiculous triangular pink surfboard",
+        "(B) triangular pink ridiculous surfboard"
+      ],
+      "gold": "A"
+    },
+    "236": {
+      "options": [
+        "(A) awful Mexican rubber tan car",
+        "(B) awful tan Mexican rubber car"
+      ],
+      "gold": "B"
+    },
+    "237": {
+      "options": [
+        "(A) huge purple motorcycle",
+        "(B) purple huge motorcycle"
+      ],
+      "gold": "A"
+    },
+    "238": {
+      "options": [
+        "(A) archaic enormous awful exercise sock",
+        "(B) awful enormous archaic exercise sock"
+      ],
+      "gold": "B"
+    },
+    "239": {
+      "options": [
+        "(A) Turkish rectangular large knife",
+        "(B) large rectangular Turkish knife"
+      ],
+      "gold": "B"
+    },
+    "240": {
+      "options": [
+        "(A) yellow huge typing square ancient car",
+        "(B) huge ancient square yellow typing car"
+      ],
+      "gold": "B"
+    },
+    "241": {
+      "options": [
+        "(A) red little silly cloth eating rectangular sock",
+        "(B) silly little rectangular red cloth eating sock"
+      ],
+      "gold": "B"
+    },
+    "242": {
+      "options": [
+        "(A) massive brand-new spherical Egyptian cat",
+        "(B) spherical massive Egyptian brand-new cat"
+      ],
+      "gold": "A"
+    },
+    "243": {
+      "options": [
+        "(A) repulsive prismlike Brazilian exercise baby",
+        "(B) exercise repulsive Brazilian prismlike baby"
+      ],
+      "gold": "A"
+    },
+    "244": {
+      "options": [
+        "(A) wool Iranian ancient big smoking sock",
+        "(B) big ancient Iranian wool smoking sock"
+      ],
+      "gold": "B"
+    },
+    "245": {
+      "options": [
+        "(A) mysterious medium-size old prismlike red Vietnamese silver sock",
+        "(B) silver red Vietnamese prismlike mysterious old medium-size sock"
+      ],
+      "gold": "A"
+    },
+    "246": {
+      "options": [
+        "(A) plastic tiny silly knife",
+        "(B) silly tiny plastic knife"
+      ],
+      "gold": "B"
+    },
+    "247": {
+      "options": [
+        "(A) enormous terrible typing chair",
+        "(B) terrible enormous typing chair"
+      ],
+      "gold": "B"
+    },
+    "248": {
+      "options": [
+        "(A) silly old-fashioned Indian driving knife",
+        "(B) old-fashioned silly Indian driving knife"
+      ],
+      "gold": "A"
+    },
+    "249": {
+      "options": [
+        "(A) silly old prismlike Mexican sock",
+        "(B) Mexican prismlike old silly sock"
+      ],
+      "gold": "A"
+    },
+    "250": {
+      "options": [
+        "(A) Egyptian tan large smoking archaic square match",
+        "(B) large archaic square tan Egyptian smoking match"
+      ],
+      "gold": "B"
+    }
+  }
+}
