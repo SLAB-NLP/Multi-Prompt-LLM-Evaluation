@@ -6,7 +6,7 @@ import json
 import tiktoken
 import ast
 
-from prompt_creator.call_model import call_model
+from code.call_model import call_model
 
 # benchmarks:
 LMENTRY = "LMentry"
