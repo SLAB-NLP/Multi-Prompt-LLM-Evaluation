@@ -16,20 +16,6 @@ MODEL_TEMPERATURE = 0.3
 META_COT_MAX_TOKENS = 500
 DEFAULT_MAX_TOKENS = 180
 
-
-with open("derive_prompt_template_few_shots/derive_prompt_template_few_shots_lmentry.txt", 'r', encoding='utf8') as f:
-    derive_prompt_template_lmentry = ''.join(f.readlines())
-
-with open("derive_prompt_template_few_shots/derive_prompt_template_few_shots_bbh_mc.txt", 'r', encoding='utf8') as f:
-    derive_prompt_template_bbh_multi_choice = ''.join(f.readlines())
-
-with open("derive_prompt_template_few_shots/derive_prompt_template_few_shots_bbh_c.txt", 'r', encoding='utf8') as f:
-    derive_prompt_template_bbh_classification = ''.join(f.readlines())
-
-with open("derive_prompt_template_few_shots/derive_prompt_template_few_shots_bbh_s2s.txt", 'r', encoding='utf8') as f:
-    derive_prompt_template_bbh_seq2seq = ''.join(f.readlines())
-
-
 def insert_prompt_row(df, prompt_idx, default_prompt, method, task_description, task_description_source,
                       task_description_length, language_style, meta_prompt, model_name, model_temperature,
                       max_tokens, model_response, prompt_template, prompt_format, prompt_length):
