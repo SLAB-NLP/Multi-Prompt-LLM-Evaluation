@@ -47,4 +47,5 @@ For access to the full metric results please explore the `data\metric results` f
 
 Finally, for comprehensive access to all model responses, zipped folders are available for download. The size of the zipped files is approximately 190 MB. You can download it using the following link: [Download Raw Model Responses](https://www.dropbox.com/scl/fo/y9dd8zbteyf0xrjxdtm3e/h?rlkey=okp52gleuibw72fhe62egr6lp&dl=0). Please note that the unzipped data expands to around 4GB. 
 
-Enjoy! :-)
+## License
+This dataset is licensed under the Computational Data License Agreement v2 (CDLAv2). For full license terms, see: https://cdla.dev/permissive-2.0/
